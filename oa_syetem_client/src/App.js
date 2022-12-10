@@ -1,17 +1,16 @@
 import React from "react";
-import { ConfigProvider, Button, Radio, Checkbox } from "antd";
-import { theme, theme2 } from "./themeConfig";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Admin from "./pages/admin";
+import Login from "./pages/login";
 
 const App = (props) => {
   return (
-    <ConfigProvider theme={theme}>
-      app...
-      <ConfigProvider theme={theme2}>
-        <Button type="primary">asd</Button>
-      </ConfigProvider>
-      <Radio>Radio</Radio>
-      <Checkbox>Checkbox</Checkbox>
-    </ConfigProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Admin />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
