@@ -11,6 +11,18 @@ const Login = (props) => {
     wrapperCol: { span: 16 },
   };
 
+  const validatePwd = (_, value) => {
+    if (value.length < 4 || value.length > 12) {
+      return Promise.reject("Password length must be 4~12 digits");
+    }
+    const reg = /^[a-zA-Z0-9_]+$/;
+    const flag = reg.test(value);
+    if (!flag) {
+      return Promise.reject("Password should be letters,numbers or underscore");
+    }
+    return Promise.resolve();
+  };
+
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -31,7 +43,7 @@ const Login = (props) => {
         <header>User Login</header>
         <div className={css.form}>
           <Form
-            name="basic"
+            name="loginForm"
             {...layout}
             initialValues={{
               remember: true,
@@ -46,7 +58,14 @@ const Login = (props) => {
               rules={[
                 {
                   required: true,
+                  whitespace: true,
                   message: "Please input your username!",
+                },
+                { min: 4, message: "Username should at least 4 digits" },
+                { max: 12, message: "Username can not longer than 12 digits" },
+                {
+                  pattern: /^[a-zA-Z0-9_]+$/,
+                  message: "Username should be letters,numbers or underscore",
                 },
               ]}
             >
@@ -56,12 +75,7 @@ const Login = (props) => {
             <Item
               label="Password"
               name="password"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your password!",
-                },
-              ]}
+              rules={[{ validator: validatePwd }]}
             >
               <Input.Password />
             </Item>
