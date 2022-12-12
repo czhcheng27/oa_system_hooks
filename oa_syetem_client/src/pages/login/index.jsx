@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Checkbox, Form, Input, message } from "antd";
+import { useNavigate } from "react-router-dom";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { reqLogin } from "../../api";
 import Logo from "../../assets/logo.png";
 import css from "./index.module.css";
 
 const { Item } = Form;
 
 const Login = (props) => {
+  const navigate = useNavigate();
+
   const validatePwd = (_, value) => {
     if (value.length < 4 || value.length > 12) {
       return Promise.reject("Password length must be 4~12 digits");
@@ -19,8 +23,15 @@ const Login = (props) => {
     return Promise.resolve();
   };
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
+  const onFinish = async (values) => {
+    const { username, password } = values;
+    const { status, data } = await reqLogin(username, password);
+    if (status === 0) {
+      message.success("login successfully");
+      navigate("/", { replace: true });
+    } else {
+      message.error("username or password not correct");
+    }
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
