@@ -1,16 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Button, Checkbox, Form, Input } from "antd";
+import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import Logo from "../../assets/logo.png";
 import css from "./index.module.css";
 
 const { Item } = Form;
 
 const Login = (props) => {
-  const layout = {
-    labelCol: { span: 6 },
-    wrapperCol: { span: 16 },
-  };
-
   const validatePwd = (_, value) => {
     if (value.length < 4 || value.length > 12) {
       return Promise.reject("Password length must be 4~12 digits");
@@ -44,7 +40,6 @@ const Login = (props) => {
         <div className={css.form}>
           <Form
             name="loginForm"
-            {...layout}
             initialValues={{
               remember: true,
             }}
@@ -53,7 +48,6 @@ const Login = (props) => {
             autoComplete="off"
           >
             <Item
-              label="Username"
               name="username"
               rules={[
                 {
@@ -69,23 +63,18 @@ const Login = (props) => {
                 },
               ]}
             >
-              <Input />
+              <Input prefix={<UserOutlined />} placeholder="Username" />
             </Item>
 
-            <Item
-              label="Password"
-              name="password"
-              rules={[{ validator: validatePwd }]}
-            >
-              <Input.Password />
+            <Item name="password" rules={[{ validator: validatePwd }]}>
+              <Input.Password
+                prefix={<LockOutlined />}
+                type="password"
+                placeholder="Password"
+              />
             </Item>
 
-            <Item
-              wrapperCol={{
-                offset: 6,
-                span: 16,
-              }}
-            >
+            <Item>
               <Button type="primary" htmlType="submit">
                 Submit
               </Button>

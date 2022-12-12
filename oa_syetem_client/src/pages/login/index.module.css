@@ -52,4 +52,5 @@
   height: 100%;
   align-items: center;
   display: grid;
+  padding: 40px;
 }
