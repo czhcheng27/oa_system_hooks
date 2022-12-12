@@ -3,6 +3,7 @@ import { Button, Checkbox, Form, Input, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { reqLogin } from "../../api";
+import memoryUtils from "../../utils/memoryUtils";
 import Logo from "../../assets/logo.png";
 import css from "./index.module.css";
 
@@ -29,6 +30,8 @@ const Login = (props) => {
     if (status === 0) {
       message.success("login successfully");
       navigate("/", { replace: true });
+      //save user
+      memoryUtils.user = data;
     } else {
       message.error("username or password not correct");
     }
