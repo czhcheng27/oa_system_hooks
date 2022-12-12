@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Button, Checkbox, Form, Input, message } from "antd";
+import { Button, Popover, Form, Input, message, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { reqLogin } from "../../api";
@@ -41,6 +41,13 @@ const Login = (props) => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
+  const content = (
+    <div>
+      <p>Username: admin</p>
+      <p>Password: admin</p>
+    </div>
+  );
 
   useEffect(() => {
     const user = memoryUtils.user;
@@ -98,9 +105,19 @@ const Login = (props) => {
             </Item>
 
             <Item>
-              <Button type="primary" htmlType="submit">
-                Submit
-              </Button>
+              <Space size={"large"}>
+                <Button type="primary" htmlType="submit">
+                  Submit
+                </Button>
+                <Popover
+                  placement="right"
+                  title={"Default Value"}
+                  content={content}
+                  trigger="hover"
+                >
+                  <Button>Hint Info</Button>
+                </Popover>
+              </Space>
             </Item>
           </Form>
         </div>
