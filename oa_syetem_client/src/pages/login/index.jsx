@@ -6,6 +6,7 @@ import { reqLogin } from "../../api";
 import memoryUtils from "../../utils/memoryUtils";
 import Logo from "../../assets/logo.png";
 import css from "./index.module.css";
+import storageUtils from "../../utils/storageUtils";
 
 const { Item } = Form;
 
@@ -32,6 +33,7 @@ const Login = (props) => {
       navigate("/", { replace: true });
       //save user
       memoryUtils.user = data;
+      storageUtils.saveUser(data); //save to localStorage
     } else {
       message.error("username or password not correct");
     }
@@ -39,6 +41,13 @@ const Login = (props) => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
+  useEffect(() => {
+    const user = memoryUtils.user;
+    if (user && user._id) {
+      return navigate("/", { replace: true });
+    }
+  }, []);
 
   return (
     <div className={css.wrapper}>
