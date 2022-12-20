@@ -5,7 +5,8 @@ import {
   PieChartOutlined,
   DesktopOutlined,
   ContainerOutlined,
-  MailOutlined,
+  GoldOutlined,
+  WindowsOutlined,
 } from "@ant-design/icons";
 
 export const menuList = [
@@ -20,18 +21,18 @@ export const menuList = [
   {
     title: "商品",
     key: "/products",
-    icon: <MailOutlined />,
+    icon: <GoldOutlined />,
     children: [
       {
         title: "品类管理",
         key: "/category",
-        icon: <MailOutlined />,
+        icon: <GoldOutlined />,
       },
 
       {
         title: "商品管理",
         key: "/product",
-        icon: <MailOutlined />,
+        icon: <GoldOutlined />,
       },
     ],
   },
@@ -82,11 +83,11 @@ function getItem(label, key, icon, children) {
 }
 
 export const menuItems = [
-  getItem("首页", "/home", <PieChartOutlined />),
-  getItem("商品", "/products", <AppstoreOutlined />, [
-    getItem("品类管理", "/category", <MailOutlined />),
-    getItem("商品管理", "/product", <MailOutlined />),
+  getItem("Home", "/home", <PieChartOutlined />),
+  getItem("Products", "/products", <AppstoreOutlined />, [
+    getItem("Category", "/category", <GoldOutlined />),
+    getItem("Product", "/product", <WindowsOutlined />),
   ]),
-  getItem("用户管理", "/user", <UserOutlined />),
-  getItem("角色管理", "/role", <FileOutlined />),
+  getItem("User", "/user", <UserOutlined />),
+  getItem("Role", "/role", <FileOutlined />),
 ];
