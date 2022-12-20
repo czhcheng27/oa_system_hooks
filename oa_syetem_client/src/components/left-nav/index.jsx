@@ -1,11 +1,12 @@
 import React from "react";
 import { Menu } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import css from "./index.module.css";
 import { menuItems } from "../../pages/config/menuConfig";
 
 const LeftNav = ({ collapsed }) => {
+  const location = useLocation();
   const navigate = useNavigate();
 
   return (
@@ -17,6 +18,7 @@ const LeftNav = ({ collapsed }) => {
       <Menu
         theme="dark"
         defaultSelectedKeys={["1"]}
+        selectedKeys={[location.pathname]}
         mode="inline"
         items={menuItems}
         onClick={(e) => {
