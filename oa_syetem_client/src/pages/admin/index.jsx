@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { Layout, Menu, theme, Breadcrumb } from "antd";
+import { Layout, theme } from "antd";
 import { Navigate, Outlet } from "react-router-dom";
-
-import memoryUtils from "../../utils/memoryUtils";
-import css from "./index.module.less";
 import LeftNav from "../../components/left-nav";
+import Header from "../../components/header";
+import memoryUtils from "../../utils/memoryUtils";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Footer, Sider } = Layout;
 
 const Admin = (props) => {
   const [collapsed, setCollapsed] = useState(false);
@@ -29,13 +28,13 @@ const Admin = (props) => {
         <LeftNav collapsed={collapsed} />
       </Sider>
       <Layout className="site-layout">
-        <Header style={{ padding: 0, background: colorBgContainer }} />
+        <Header style={{ background: colorBgContainer }} />
         <Content style={{ margin: "16px" }}>
           <div style={{ padding: 16, background: "white", height: "100%" }}>
             <Outlet />
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
+        <Footer style={{ textAlign: "center", padding: "0px 50px 16px 50px" }}>
           Develop By Michael Cheng
         </Footer>
       </Layout>
