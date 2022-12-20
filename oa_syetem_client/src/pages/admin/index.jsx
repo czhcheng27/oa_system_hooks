@@ -30,7 +30,7 @@ const Admin = (props) => {
       <Layout className="site-layout">
         <Header style={{ background: colorBgContainer }} />
         <Content style={{ margin: "16px" }}>
-          <div style={{ padding: 16, background: "white", height: "100%" }}>
+          <div style={{ background: "white", height: "100%" }}>
             <Outlet />
           </div>
         </Content>

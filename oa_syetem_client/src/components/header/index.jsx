@@ -1,17 +1,11 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useMemo,
-} from "react";
+import React from "react";
 import { Button, Modal, theme } from "antd";
-import { ExclamationCircleOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 import memoryUtils from "../../utils/memoryUtils";
+import storageUtils from "../../utils/storageUtils";
 import InfoIcon from "../../assets/info-circle-fill.png";
 import css from "./index.module.css";
-import { useNavigate } from "react-router-dom";
-import storageUtils from "../../utils/storageUtils";
+
 const { confirm } = Modal;
 
 const Header = (props) => {
@@ -24,7 +18,7 @@ const Header = (props) => {
   const showConfirm = () => {
     confirm({
       className: "logout_modal",
-      title: "你确定要退出吗？",
+      title: "Do you want to log out？",
       icon: (
         <img
           src={InfoIcon}
@@ -49,10 +43,10 @@ const Header = (props) => {
       <span className={css.header_title}>title</span>
 
       {/* right part */}
-      <div className="head-top">
+      <div className={css.head_top}>
         <span>Welcome, {memoryUtils.user.username}</span> &nbsp;&nbsp;
         <Button type="link" style={{ padding: 0 }} onClick={showConfirm}>
-          退出
+          Logout
         </Button>
       </div>
     </div>

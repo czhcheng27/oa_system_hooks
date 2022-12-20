@@ -7,6 +7,7 @@ import {
   ContainerOutlined,
   GoldOutlined,
   WindowsOutlined,
+  ChromeOutlined,
 } from "@ant-design/icons";
 
 export const menuList = [
@@ -90,4 +91,5 @@ export const menuItems = [
   ]),
   getItem("User", "/user", <UserOutlined />),
   getItem("Role", "/role", <FileOutlined />),
+  getItem("Drag", "/drag_horizontal_multiple", <ChromeOutlined />),
 ];
