@@ -9,7 +9,7 @@ const LeftNav = ({ collapsed }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { key: openKey } = menuItems.find((obj) =>
+  const openKey = menuItems?.find((obj) =>
     obj.children?.find((cItem) => cItem.key === location.pathname)
   );
 
@@ -21,7 +21,7 @@ const LeftNav = ({ collapsed }) => {
       </Link>
       <Menu
         theme="dark"
-        defaultOpenKeys={[openKey]}
+        defaultOpenKeys={[openKey?.key]}
         selectedKeys={[location.pathname]}
         mode="inline"
         items={menuItems}
