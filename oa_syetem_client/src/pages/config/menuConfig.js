@@ -1,4 +1,6 @@
 import {
+  UserOutlined,
+  FileOutlined,
   AppstoreOutlined,
   PieChartOutlined,
   DesktopOutlined,
@@ -6,7 +8,7 @@ import {
   MailOutlined,
 } from "@ant-design/icons";
 
-const menuList = [
+export const menuList = [
   {
     title: "首页",
     key: "/home",
@@ -70,4 +72,21 @@ const menuList = [
   // },
 ];
 
-export default menuList;
+function getItem(label, key, icon, children) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+  };
+}
+
+export const menuItems = [
+  getItem("首页", "/home", <PieChartOutlined />),
+  getItem("商品", "/products", <AppstoreOutlined />, [
+    getItem("品类管理", "/category", <MailOutlined />),
+    getItem("商品管理", "/product", <MailOutlined />),
+  ]),
+  getItem("用户管理", "/user", <UserOutlined />),
+  getItem("角色管理", "/role", <FileOutlined />),
+];

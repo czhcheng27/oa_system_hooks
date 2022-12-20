@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Admin from "./pages/admin";
 import Category from "./pages/category";
 import Home from "./pages/home";
@@ -19,6 +19,7 @@ const App = (props) => {
           <Route path="/product" element={<Product />} />
           <Route path="/role" element={<Role />} />
           <Route path="/user" element={<User />} />
+          <Route path="*" element={<Navigate to="/home" />} />
         </Route>
       </Routes>
     </BrowserRouter>
