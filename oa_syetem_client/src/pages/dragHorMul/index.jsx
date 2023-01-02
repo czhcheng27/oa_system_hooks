@@ -147,36 +147,38 @@ const DragHorMul = (props) => {
         </div>
       </div>
 
-      <div className={css.background_Img}>
-        <TopImg />
-      </div>
+      <div className={css.content_wrapper}>
+        <div className={css.background_Img}>
+          <TopImg />
+        </div>
 
-      <div className={css.select_project_type}>
-        <DragDropContext onDragEnd={onDragEnd}>
-          {console.log("state", state)}
-          <Droppable droppableId="all-droppables" type="column">
-            {(provided) => (
-              <div
-                className={css.container}
-                {...provided.droppableProps}
-                ref={provided.innerRef}
-              >
-                {state.columnOrder.map((columnId, index) => {
-                  const column = state.columns[columnId];
-                  return (
-                    <Column
-                      key={columnId}
-                      column={column}
-                      index={index}
-                      addDeleteFunc={addDeleteFunc}
-                    />
-                  );
-                })}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        </DragDropContext>
+        <div className={css.select_project_type}>
+          <DragDropContext onDragEnd={onDragEnd}>
+            {console.log("state", state)}
+            <Droppable droppableId="all-droppables" type="column">
+              {(provided) => (
+                <div
+                  className={css.container}
+                  {...provided.droppableProps}
+                  ref={provided.innerRef}
+                >
+                  {state.columnOrder.map((columnId, index) => {
+                    const column = state.columns[columnId];
+                    return (
+                      <Column
+                        key={columnId}
+                        column={column}
+                        index={index}
+                        addDeleteFunc={addDeleteFunc}
+                      />
+                    );
+                  })}
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </DragDropContext>
+        </div>
       </div>
     </div>
   );

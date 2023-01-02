@@ -4,6 +4,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import LeftNav from "../../components/left-nav";
 import Header from "../../components/header";
 import memoryUtils from "../../utils/memoryUtils";
+import css from "./index.module.css";
 
 const { Content, Footer, Sider } = Layout;
 
@@ -19,7 +20,7 @@ const Admin = (props) => {
   }
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout style={{ maxHeight: "100vh" }}>
       <Sider
         collapsible
         collapsed={collapsed}
@@ -30,7 +31,7 @@ const Admin = (props) => {
       <Layout className="site-layout">
         <Header style={{ background: colorBgContainer }} />
         <Content style={{ margin: "16px" }}>
-          <div style={{ background: "white", height: "100%" }}>
+          <div className={css.content_wrapper}>
             <Outlet />
           </div>
         </Content>

@@ -1,5 +1,12 @@
+.customize_setting {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .header_wrapper {
-  background-color: #f4f7fd;
+  background-color: white;
+  /* background-color: #f4f7fd; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,4 +25,8 @@
 .save_btn {
   width: 72px;
   margin-left: 8px;
+}
+
+.content_wrapper {
+  overflow: auto;
 }
