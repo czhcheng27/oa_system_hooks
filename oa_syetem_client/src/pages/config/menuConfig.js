@@ -1,4 +1,5 @@
 import {
+  FundProjectionScreenOutlined,
   UserOutlined,
   FileOutlined,
   AppstoreOutlined,
@@ -8,6 +9,8 @@ import {
   GoldOutlined,
   WindowsOutlined,
   ChromeOutlined,
+  MergeCellsOutlined,
+  MoreOutlined,
 } from "@ant-design/icons";
 
 export const menuList = [
@@ -84,12 +87,20 @@ function getItem(label, key, icon, children) {
 }
 
 export const menuItems = [
-  getItem("Home", "/home", <PieChartOutlined />),
+  getItem("Home", "/home", <FundProjectionScreenOutlined />),
   getItem("Products", "/products", <AppstoreOutlined />, [
     getItem("Category", "/category", <GoldOutlined />),
     getItem("Product", "/product", <WindowsOutlined />),
   ]),
   getItem("User", "/user", <UserOutlined />),
   getItem("Role", "/role", <FileOutlined />),
-  getItem("Drag", "/drag_horizontal_multiple", <ChromeOutlined />),
+  getItem("Drag", "/drag", <ChromeOutlined />, [
+    getItem(
+      "Multi-Lists",
+      "/drag_horizontal_multiple",
+      <MergeCellsOutlined style={{ transform: "rotate(90deg)" }} />
+    ),
+    getItem("Single-Column", "/single_vertical_column", <MoreOutlined />),
+  ]),
+  // getItem("Drag", "/drag_horizontal_multiple", <ChromeOutlined />),
 ];

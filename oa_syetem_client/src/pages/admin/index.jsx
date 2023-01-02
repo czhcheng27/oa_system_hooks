@@ -20,7 +20,7 @@ const Admin = (props) => {
   }
 
   return (
-    <Layout style={{ maxHeight: "100vh" }}>
+    <Layout style={{ height: "100vh" }}>
       <Sider
         collapsible
         collapsed={collapsed}
