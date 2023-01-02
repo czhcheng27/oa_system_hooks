@@ -17,7 +17,49 @@ const reorderList = (list, startIndex, endIndex) => {
 const DragHorMul = (props) => {
   const [state, setState] = useState(() => getInitialData());
 
-  function onDragEnd(result) {
+  const addDeleteFunc = (data, status) => {
+    console.log("data, status", data, status);
+    const selectedData = state.columns["column-0"].items;
+    const optionData = state.columns["column-1"].items;
+    if (status === "delete") {
+      console.log("{...state}", { ...state });
+      const updateSelectedData = selectedData.filter((el) => el.id !== data.id);
+      const updateOptionData = [...optionData, data];
+      setState({
+        ...state,
+        columns: {
+          ...state.columns,
+          "column-0": {
+            ...state.columns["column-0"],
+            items: updateSelectedData,
+          },
+          "column-1": {
+            ...state.columns["column-1"],
+            items: updateOptionData,
+          },
+        },
+      });
+    } else {
+      const updateSelectedData = [...selectedData, data];
+      const updateOptionData = optionData.filter((el) => el.id !== data.id);
+      setState({
+        ...state,
+        columns: {
+          ...state.columns,
+          "column-0": {
+            ...state.columns["column-0"],
+            items: updateSelectedData,
+          },
+          "column-1": {
+            ...state.columns["column-1"],
+            items: updateOptionData,
+          },
+        },
+      });
+    }
+  };
+
+  const onDragEnd = (result) => {
     if (!result.destination) {
       return;
     }
@@ -91,7 +133,7 @@ const DragHorMul = (props) => {
     };
     // console.log('newState', newState);
     setState(newState);
-  }
+  };
 
   return (
     <div className={css.customize_setting}>
@@ -122,7 +164,12 @@ const DragHorMul = (props) => {
                 {state.columnOrder.map((columnId, index) => {
                   const column = state.columns[columnId];
                   return (
-                    <Column key={columnId} column={column} index={index} />
+                    <Column
+                      key={columnId}
+                      column={column}
+                      index={index}
+                      addDeleteFunc={addDeleteFunc}
+                    />
                   );
                 })}
                 {provided.placeholder}

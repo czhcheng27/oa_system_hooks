@@ -4,11 +4,7 @@ import classNames from "classnames";
 import css from "./task.module.css";
 
 const Task = (props) => {
-  const { task, title } = props;
-
-  const iconClick = (data) => {
-    console.log("data", data);
-  };
+  const { task, title, addDeleteFunc } = props;
 
   return (
     <Draggable draggableId={props.task.id} index={props.index}>
@@ -29,7 +25,9 @@ const Task = (props) => {
             {/* <PrompText limitLength={5}>全部类型</PrompText> */}
             {task.text}
             <span
-              onClick={() => iconClick(task)}
+              onClick={() =>
+                addDeleteFunc(task, title === "Selected" ? "delete" : "add")
+              }
               className={classNames(
                 css.add_del_status,
                 title === "Selected" ? css.delete_icon : css.add_icon

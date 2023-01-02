@@ -4,7 +4,7 @@ import { HeaderTitle } from "../headerTitle";
 import Task from "../task/task";
 import css from "./column.module.css";
 
-const Column = ({ column, index }) => {
+const Column = ({ column, index, addDeleteFunc }) => {
   return (
     <Draggable draggableId={column.id} index={index}>
       {(provided) => (
@@ -35,6 +35,7 @@ const Column = ({ column, index }) => {
                       task={task}
                       index={index}
                       title={column.title}
+                      addDeleteFunc={addDeleteFunc}
                     />
                   ))}
                   {provided.placeholder}
