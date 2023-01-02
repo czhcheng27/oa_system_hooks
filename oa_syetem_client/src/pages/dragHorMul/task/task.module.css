@@ -1,0 +1,129 @@
+.task {
+  /* border: 2px solid lightgrey; */
+  /* border-radius: 50%; */
+  /* padding: 8px; */
+  /* margin-right: 8px; */
+  /* width: 40px; */
+  /* height: 40px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 120px;
+  height: 120px;
+  margin: 0 8px;
+  background-image: linear-gradient(0deg, #fefefe 0%, #f3f5f8 96%);
+  border: 2px solid #fefefe;
+  box-shadow: 0 6px 12px 0 rgba(69, 89, 120, 0.1);
+  border-radius: 4px;
+
+  position: relative;
+}
+.task:hover {
+  cursor: pointer;
+  background-image: linear-gradient(0deg, #fefefe 0%, #d7e4ff 96%);
+}
+.task:hover div {
+  color: rgba(13, 95, 233, 1);
+}
+.task:focus {
+  outline: none;
+  border-color: red;
+}
+
+.dragging {
+  /* background-color: lightgreen; */
+  background-image: linear-gradient(0deg, #fefefe 0%, #d7e4ff 96%);
+}
+
+.mouldType_icon {
+  display: block;
+  width: 36px;
+  height: 36px;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: top;
+}
+
+.text_promp {
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-align: center;
+  margin-top: 3px;
+}
+
+.mouldType_title {
+  font-family: PingFangSC-Medium;
+  color: rgba(31, 38, 49, 100);
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.add_del_status {
+  position: absolute;
+  background-size: 16px 16px;
+  top: -8px;
+  right: -8px;
+  width: 16px;
+  height: 16px;
+}
+
+.add_icon {
+  background-image: url("../assets/add.png");
+}
+
+.delete_icon {
+  background-image: url("../assets/delete.png");
+}
+
+.mouldType_icon_0 {
+  background-image: url("../assets/0.png");
+}
+
+.mouldType_icon_1 {
+  background-image: url("../assets/1.png");
+}
+
+.mouldType_icon_2 {
+  background-image: url("../assets/2.png");
+}
+
+.mouldType_icon_3 {
+  background-image: url("../assets/3.png");
+}
+
+.mouldType_icon_4 {
+  background-image: url("../assets/4.png");
+}
+
+.mouldType_icon_5 {
+  background-image: url("../assets/5.png");
+}
+
+.mouldType_icon_6 {
+  background-image: url("../assets/6.png");
+}
+
+.mouldType_icon_7 {
+  background-image: url("../assets/7.png");
+}
+
+.mouldType_icon_8 {
+  background-image: url("../assets/8.png");
+}
+
+.mouldType_icon_9 {
+  background-image: url("../assets/9.png");
+}
+
+.mouldType_icon_10 {
+  background-image: url("../assets/10.png");
+}
