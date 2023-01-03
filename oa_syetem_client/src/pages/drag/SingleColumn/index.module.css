@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+}
+
+.left_area,
+.right_area {
+  flex: 1;
+  text-align: center;
+}
+
+.left_area header {
+  height: 50px;
+  padding: 0 24px;
+  line-height: 50px;
+  text-align: center;
+  font-weight: 600;
+}
+.right_area header {
+  height: 50px;
+  padding: 0 24px;
+  line-height: 50px;
+  text-align: center;
+  color: #fd3afd;
+  text-shadow: 0px 0px 2px #690169, 0px 0px 15px rgb(255 110 255 / 50%);
+}
