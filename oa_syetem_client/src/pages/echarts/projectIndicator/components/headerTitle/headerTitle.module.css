@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 6px 8px 0;
+}
+
+.form_header_title {
+  display: flex;
+  align-items: center;
+}
+.form_header_title i {
+  width: 2px;
+  height: 16px;
+  background: #0052d9;
+  margin-right: 14px;
+}
+.form_header_word {
+  height: 24px;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  font-size: 16px;
+  color: #242f57;
+  letter-spacing: 0;
+  line-height: 24px;
+}

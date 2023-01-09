@@ -4,6 +4,7 @@ import Admin from "./pages/admin";
 import Category from "./pages/category";
 import DragHorMul from "./pages/drag/dragHorMul";
 import SingleColumn from "./pages/drag/SingleColumn";
+import ProjectIndicator from "./pages/echarts/projectIndicator";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Product from "./pages/product";
@@ -23,6 +24,7 @@ const App = (props) => {
           <Route path="/user" element={<User />} />
           <Route path="/drag_horizontal_multiple" element={<DragHorMul />} />
           <Route path="/single_vertical_column" element={<SingleColumn />} />
+          <Route path="/project_indicator" element={<ProjectIndicator />} />
           <Route path="*" element={<Navigate to="/home" />} />
           <Route path="/" element={<Navigate to="/home" />} />
         </Route>

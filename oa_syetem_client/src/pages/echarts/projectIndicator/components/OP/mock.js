@@ -1,0 +1,172 @@
+export const apiMockData = {
+  success: true,
+  code: 200,
+  message: "操作成功",
+  data: [
+    {
+      areaId: "1701618149f89accf2c06549d2022eeb",
+      areaName: "aaa",
+      opInfoMap: [
+        { count: 836, percent: "82.53%", taskStatus: 4 },
+        { count: 177, percent: "17.47%", taskStatus: 5 },
+        { count: 0, percent: "0%", taskStatus: 1 },
+        { count: 0, percent: "0%", taskStatus: 2 },
+        { count: 0, percent: "0%", taskStatus: 3 },
+      ],
+    },
+    {
+      areaId: "122687b5aa66018cd1a43fe9c7665071",
+      areaName: "bbb",
+      opInfoMap: [
+        { count: 2301, percent: "84.44%", taskStatus: 4 },
+        { count: 423, percent: "15.52%", taskStatus: 5 },
+        { count: 100, percent: "0.04%", taskStatus: 1 },
+        { count: 300, percent: "0%", taskStatus: 2 },
+        { count: 900, percent: "0%", taskStatus: 3 },
+      ],
+    },
+    {
+      areaId: "1c7546e1beebc447f3bf1c5c00dba0fa",
+      areaName: "ccc",
+      opInfoMap: [
+        { count: 1888, percent: "82.55%", taskStatus: 4 },
+        { count: 399, percent: "17.45%", taskStatus: 5 },
+        { count: 0, percent: "0%", taskStatus: 1 },
+        { count: 800, percent: "0%", taskStatus: 2 },
+        { count: 0, percent: "0%", taskStatus: 3 },
+      ],
+    },
+    {
+      areaId: "1c7546e1beebc447f3bf1c5c00dba0fa",
+      areaName: "ddd",
+      opInfoMap: [
+        { count: 1888, percent: "82.55%", taskStatus: 4 },
+        { count: 399, percent: "17.45%", taskStatus: 5 },
+        { count: 0, percent: "0%", taskStatus: 1 },
+        { count: 800, percent: "0%", taskStatus: 2 },
+        { count: 0, percent: "0%", taskStatus: 3 },
+      ],
+    },
+    {
+      areaId: "1c7546e1beebc447f3bf1c5c00dba0fa",
+      areaName: "eee",
+      opInfoMap: [
+        { count: 1888, percent: "82.55%", taskStatus: 4 },
+        { count: 399, percent: "17.45%", taskStatus: 5 },
+        { count: 0, percent: "0%", taskStatus: 1 },
+        { count: 800, percent: "0%", taskStatus: 2 },
+        { count: 0, percent: "0%", taskStatus: 3 },
+      ],
+    },
+    {
+      areaId: "1c7546e1beebc447f3bf1c5c00dba0fa",
+      areaName: "fff",
+      opInfoMap: [
+        { count: 1888, percent: "82.55%", taskStatus: 4 },
+        { count: 399, percent: "17.45%", taskStatus: 5 },
+        { count: 0, percent: "0%", taskStatus: 1 },
+        { count: 800, percent: "0%", taskStatus: 2 },
+        { count: 0, percent: "0%", taskStatus: 3 },
+      ],
+    },
+    {
+      areaId: "1c7546e1beebc447f3bf1c5c00dba0fa",
+      areaName: "ggg",
+      opInfoMap: [
+        { count: 1888, percent: "82.55%", taskStatus: 4 },
+        { count: 399, percent: "17.45%", taskStatus: 5 },
+        { count: 0, percent: "0%", taskStatus: 1 },
+        { count: 800, percent: "0%", taskStatus: 2 },
+        { count: 0, percent: "0%", taskStatus: 3 },
+      ],
+    },
+    {
+      areaId: "1c7546e1beebc447f3bf1c5c00dba0fa",
+      areaName: "hhh",
+      opInfoMap: [
+        { count: 1888, percent: "82.55%", taskStatus: 4 },
+        { count: 399, percent: "17.45%", taskStatus: 5 },
+        { count: 0, percent: "0%", taskStatus: 1 },
+        { count: 800, percent: "0%", taskStatus: 2 },
+        { count: 0, percent: "0%", taskStatus: 3 },
+      ],
+    },
+    {
+      areaId: "1c7546e1beebc447f3bf1c5c00dba0fa",
+      areaName: "iii",
+      opInfoMap: [
+        { count: 1888, percent: "82.55%", taskStatus: 4 },
+        { count: 399, percent: "17.45%", taskStatus: 5 },
+        { count: 0, percent: "0%", taskStatus: 1 },
+        { count: 800, percent: "0%", taskStatus: 2 },
+        { count: 0, percent: "0%", taskStatus: 3 },
+      ],
+    },
+    {
+      areaId: "1c7546e1beebc447f3bf1c5c00dba0fa",
+      areaName: "jjj",
+      opInfoMap: [
+        { count: 1888, percent: "82.55%", taskStatus: 4 },
+        { count: 399, percent: "17.45%", taskStatus: 5 },
+        { count: 0, percent: "0%", taskStatus: 1 },
+        { count: 800, percent: "0%", taskStatus: 2 },
+        { count: 0, percent: "0%", taskStatus: 3 },
+      ],
+    },
+    {
+      areaId: "1c7546e1beebc447f3bf1c5c00dba0fa",
+      areaName: "kkk",
+      opInfoMap: [
+        { count: 1888, percent: "82.55%", taskStatus: 4 },
+        { count: 399, percent: "17.45%", taskStatus: 5 },
+        { count: 0, percent: "0%", taskStatus: 1 },
+        { count: 800, percent: "0%", taskStatus: 2 },
+        { count: 0, percent: "0%", taskStatus: 3 },
+      ],
+    },
+    {
+      areaId: "1c7546e1beebc447f3bf1c5c00dba0fa",
+      areaName: "lll",
+      opInfoMap: [
+        { count: 1888, percent: "82.55%", taskStatus: 4 },
+        { count: 399, percent: "17.45%", taskStatus: 5 },
+        { count: 0, percent: "0%", taskStatus: 1 },
+        { count: 800, percent: "0%", taskStatus: 2 },
+        { count: 0, percent: "0%", taskStatus: 3 },
+      ],
+    },
+    {
+      areaId: "1c7546e1beebc447f3bf1c5c00dba0fa",
+      areaName: "mmm",
+      opInfoMap: [
+        { count: 1888, percent: "82.55%", taskStatus: 4 },
+        { count: 399, percent: "17.45%", taskStatus: 5 },
+        { count: 0, percent: "0%", taskStatus: 1 },
+        { count: 800, percent: "0%", taskStatus: 2 },
+        { count: 0, percent: "0%", taskStatus: 3 },
+      ],
+    },
+    {
+      areaId: "1c7546e1beebc447f3bf1c5c00dba0fa",
+      areaName: "nnn",
+      opInfoMap: [
+        { count: 1888, percent: "82.55%", taskStatus: 4 },
+        { count: 399, percent: "17.45%", taskStatus: 5 },
+        { count: 0, percent: "0%", taskStatus: 1 },
+        { count: 800, percent: "0%", taskStatus: 2 },
+        { count: 0, percent: "0%", taskStatus: 3 },
+      ],
+    },
+    {
+      areaId: "1c7546e1beebc447f3bf1c5c00dba0fa",
+      areaName: "ooo",
+      opInfoMap: [
+        { count: 1888, percent: "82.55%", taskStatus: 4 },
+        { count: 399, percent: "17.45%", taskStatus: 5 },
+        { count: 0, percent: "0%", taskStatus: 1 },
+        { count: 800, percent: "0%", taskStatus: 2 },
+        { count: 0, percent: "0%", taskStatus: 3 },
+      ],
+    },
+  ],
+};
