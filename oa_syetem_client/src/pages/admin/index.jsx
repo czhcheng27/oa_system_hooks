@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Layout, theme } from "antd";
+import { Layout } from "antd";
 import { Navigate, Outlet } from "react-router-dom";
 import LeftNav from "../../components/left-nav";
 import Header from "../../components/header";
@@ -10,9 +10,6 @@ const { Content, Footer, Sider } = Layout;
 
 const Admin = (props) => {
   const [collapsed, setCollapsed] = useState(false);
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
 
   const user = memoryUtils.user;
   if (!user || !user._id) {
@@ -20,7 +17,8 @@ const Admin = (props) => {
   }
 
   return (
-    <Layout style={{ height: "100vh" }}>
+    <Layout style={{ height: "100%" }}>
+      {/* <Layout style={{ height: "100vh" }}> */}
       <Sider
         collapsible
         collapsed={collapsed}
@@ -28,9 +26,9 @@ const Admin = (props) => {
       >
         <LeftNav collapsed={collapsed} />
       </Sider>
-      <Layout className="site-layout">
-        <Header style={{ background: colorBgContainer }} />
-        <Content style={{ margin: "16px" }}>
+      <Layout style={{ height: "100%" }}>
+        <Header style={{ background: "white" }} />
+        <Content className={css.content}>
           <div className={css.content_wrapper}>
             <Outlet />
           </div>

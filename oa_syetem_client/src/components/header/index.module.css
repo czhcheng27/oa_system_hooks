@@ -24,7 +24,7 @@
   position: absolute;
   left: 18px;
   transform: translateX(50%);
-  top: 36px;
+  top: 40px;
 }
 
 .header_title::after {
@@ -36,7 +36,7 @@
   position: absolute;
   left: 18px;
   transform: translateX(50%);
-  top: 35px;
+  top: 39px;
 }
 
 :global(.logout_modal .ant-modal-confirm-body) {

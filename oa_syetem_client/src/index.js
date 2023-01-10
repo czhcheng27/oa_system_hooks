@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import memoryUtils from "./utils/memoryUtils";
@@ -9,9 +9,10 @@ import storageUtils from "./utils/storageUtils";
 const user = storageUtils.getUser();
 memoryUtils.user = user;
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.Fragment>
-    <App />
-  </React.Fragment>
-);
+ReactDOM.render(<App />, document.getElementById("root"));
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(
+//   <React.Fragment>
+//     <App />
+//   </React.Fragment>
+// );

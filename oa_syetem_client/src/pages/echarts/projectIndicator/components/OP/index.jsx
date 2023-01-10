@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { DatePicker, Radio } from "antd";
 import classNames from "classnames";
 import { apiMockData } from "./mock";
-import css from "./index.module.css";
+import css from "./index.module.less";
+import TaskBar from "./taskBar";
 
 const { RangePicker } = DatePicker;
 
@@ -22,26 +23,16 @@ const filterOptions = [
 ];
 
 const OP = (props) => {
-  const { setSearchType, setDatePickerData, setSelectedBar, timeChangeFunc } =
-    props;
-
   const [radioValue, setRadioValue] = useState("");
   const [dateValue, setDateValue] = useState(["", ""]);
   const [echartsData, setEchartsData] = useState([]);
 
   const onRadioChange = (e) => {
-    setSearchType(e.target.value);
     setRadioValue(e.target.value);
   };
 
   const editDatePicker = (date, dateStr) => {
-    setDatePickerData(dateStr);
     setDateValue(dateStr);
-    timeChangeFunc(dateStr);
-  };
-
-  const clickBar = (data) => {
-    setSelectedBar(data);
   };
 
   const sortopInfoMapData = (data, name) => {
@@ -72,7 +63,7 @@ const OP = (props) => {
   return (
     <div className={classNames(css.wrapper)}>
       <header className={classNames(css.top)}>
-        <h3>各部门OP级任务完成率</h3>
+        <h3>Each Department OP Task Finish Rate</h3>
         <div className={classNames(css.filter_wrapper)}>
           <div>
             <RangePicker
@@ -98,7 +89,9 @@ const OP = (props) => {
         </div>
       </header>
 
-      <section></section>
+      <section>
+        <TaskBar data={echartsData} />
+      </section>
     </div>
   );
 };

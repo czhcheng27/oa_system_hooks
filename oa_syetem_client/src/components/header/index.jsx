@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal, theme } from "antd";
+import { Button, Modal } from "antd";
 import { useNavigate } from "react-router-dom";
 import memoryUtils from "../../utils/memoryUtils";
 import storageUtils from "../../utils/storageUtils";
@@ -9,10 +9,6 @@ import css from "./index.module.css";
 const { confirm } = Modal;
 
 const Header = (props) => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-
   const navigate = useNavigate();
 
   const showConfirm = () => {
@@ -35,10 +31,7 @@ const Header = (props) => {
   };
 
   return (
-    <div
-      style={{ background: colorBgContainer }}
-      className={css.header_wrapper}
-    >
+    <div style={{ background: "white" }} className={css.header_wrapper}>
       {/* left title */}
       <span className={css.header_title}>title</span>
 

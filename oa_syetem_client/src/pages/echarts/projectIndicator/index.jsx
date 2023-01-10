@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectIndicator from "./components/projectIndicator";
-import css from "./index.module.css";
+import css from "./index.module.less";
 
 const PJCharts = (props) => {
   return (
