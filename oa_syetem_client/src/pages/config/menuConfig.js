@@ -11,6 +11,7 @@ import {
   ChromeOutlined,
   MergeCellsOutlined,
   MoreOutlined,
+  BlockOutlined,
 } from "@ant-design/icons";
 
 function getItem(label, key, icon, children) {
@@ -30,6 +31,13 @@ export const menuItems = [
   ]),
   getItem("User", "/user", <UserOutlined />),
   getItem("Role", "/role", <FileOutlined />),
+  getItem("Components", "/components", <BlockOutlined />, [
+    getItem(
+      "Comps Library",
+      "/comps_library_sortablejs",
+      <MergeCellsOutlined />
+    ),
+  ]),
   getItem("Drag", "/drag", <ChromeOutlined />, [
     getItem(
       "Multi-Lists",

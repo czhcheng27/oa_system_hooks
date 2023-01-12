@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Admin from "./pages/admin";
 import Category from "./pages/category";
+import Revision from "./pages/comps/revision";
 import DragHorMul from "./pages/drag/dragHorMul";
 import SingleColumn from "./pages/drag/SingleColumn";
 import ProjectIndicator from "./pages/echarts/projectIndicator";
@@ -25,6 +26,7 @@ const App = (props) => {
           <Route path="/drag_horizontal_multiple" element={<DragHorMul />} />
           <Route path="/single_vertical_column" element={<SingleColumn />} />
           <Route path="/project_indicator" element={<ProjectIndicator />} />
+          <Route path="/comps_library_sortablejs" element={<Revision />} />
           <Route path="*" element={<Navigate to="/home" />} />
           <Route path="/" element={<Navigate to="/home" />} />
         </Route>
