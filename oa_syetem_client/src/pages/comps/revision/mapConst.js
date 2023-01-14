@@ -2,25 +2,13 @@ export const categoryMap = [
   {
     label: "",
     id: "tempMockId",
-    compNo: [1, 2, 3, 4, 5, 6],
+    compNo: [1, 2, 3, 4, 5, 6, 7],
   },
 ];
 
-export const typeCompsMap = [
-  {
-    type: 1,
-    name: "label 1",
-  },
-  {
-    type: 2,
-    name: "label 2",
-  },
-  {
-    type: 3,
-    name: "label 3",
-  },
-  {
-    type: 6,
-    name: "TexaArea",
-  },
-];
+export const outlineIconMap = {
+  Cover: require("./components/areaLeft/outline/icons/cover.png").default,
+  Introduction: require("./components/areaLeft/outline/icons/introduction.png")
+    .default,
+  Content: require("./components/areaLeft/outline/icons/mainText.png").default,
+};

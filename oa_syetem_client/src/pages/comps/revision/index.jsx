@@ -23,6 +23,7 @@ export default class Revision extends React.Component {
       },
     ],
     num: undefined, // 选中的组件索引
+    isFold: false, //右侧是否折叠
   };
 
   addCom = (item, num = this.state.comList.length) => {
@@ -36,7 +37,7 @@ export default class Revision extends React.Component {
   };
 
   render() {
-    const { comList } = this.state;
+    const { comList, isFold } = this.state;
     return (
       <div className={classNames(css.revision)}>
         <div className={css.left}>
@@ -50,9 +51,21 @@ export default class Revision extends React.Component {
             }}
           />
         </div>
-        {/* <div className={css.preview}>
+        <div
+          className={classNames(css["right"], css[isFold ? "fold" : "expand"])}
+        >
+          {/* 折叠展开按钮 */}
+          <div
+            className={classNames(
+              css["fold_btn"],
+              css[isFold ? "foldBtn" : "expandBtn"]
+            )}
+            onClick={() => this.setState({ isFold: !isFold })}
+          >
+            {isFold ? `<` : ">"}
+          </div>
           <AreaDoc />
-        </div> */}
+        </div>
       </div>
     );
   }

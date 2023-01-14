@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Row } from "antd";
 import Sortable from "sortablejs";
 import { categoryMap, typeCompsMap } from "../../../mapConst";
+import { coms } from "../../../const";
 import css from "./index.module.less";
 
 const Comps = ({ addCom }) => {
@@ -44,12 +45,9 @@ const Comps = ({ addCom }) => {
         {renderIcons.map((item, index) => {
           return (
             <Col span={24} key={index} data-id={item.type}>
-              <div className={css.each_comp}>
-                <span>{item.name}</span>
-                <img
-                  src={require("./icons/" + item.type + ".png").default}
-                  alt={item.type}
-                />
+              <div className={`${css.each_comp} ${css[item.componentName]}`}>
+                <p>{item.title}</p>
+                <img src={require("./icons/" + item.type + ".png").default} />
               </div>
             </Col>
           );
@@ -61,8 +59,8 @@ const Comps = ({ addCom }) => {
   return (
     <div className={css.wrapper}>
       {categoryMap.map((obj, index) => {
-        const renderIcons = typeCompsMap.reduce((pre, item) => {
-          if (obj.compNo.includes(item.type)) {
+        const renderIcons = coms.reduce((pre, item) => {
+          if (obj.compNo.includes(item.type * 1)) {
             pre.push(item);
           }
           return pre;

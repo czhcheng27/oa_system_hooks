@@ -10,7 +10,7 @@
   section {
     height: calc(100% - 66px);
     background: white;
-    padding: 1px 16px;
+    padding: 20px 16px;
     overflow: auto;
   }
 }
@@ -18,8 +18,19 @@
   .modalList {
     height: 100%;
     overflow: auto;
+    margin-right: -8px;
+    .ant-input {
+      border-radius: 4px;
+    }
+    .ant-input:focus {
+      border: 1px solid rgba(137, 129, 204, 0.83) !important;
+    }
   }
   .dragList {
-    margin: 20px 0;
+    margin: 0 0 20px 0;
+    width: calc(100% - 7px);
+    &:last-child {
+      margin: 0;
+    }
   }
 }

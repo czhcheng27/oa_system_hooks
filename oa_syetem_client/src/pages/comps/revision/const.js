@@ -1,7 +1,8 @@
 import Text1 from "./components/text1/index";
 import Text2 from "./components/text2/index";
 import Text3 from "./components/text3/index";
-import MainText from "./components/mainText/index";
+import TextArea from "./components/textArea/index";
+import RichList from "./components/richList/index";
 
 export const coms = [
   {
@@ -38,7 +39,16 @@ export const coms = [
     type: "6",
     id: "66",
     title: "TextArea",
-    componentName: "MainText",
+    componentName: "TextArea",
+    values: {
+      text: "",
+    },
+  },
+  {
+    type: "7",
+    id: "77",
+    title: "Options",
+    componentName: "RichList",
     values: {
       text: "",
     },
@@ -50,7 +60,8 @@ export const matchCom = (key) => {
     Text1,
     Text2,
     Text3,
-    MainText,
+    TextArea,
+    RichList,
   };
   return all[key];
 };

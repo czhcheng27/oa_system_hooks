@@ -1,0 +1,44 @@
+.panel_wrapper {
+  margin: 8px 0;
+  :global {
+    .ant-collapse-header {
+      padding: 13px 16px 13px 14px !important;
+      height: 48px !important;
+      span {
+        flex: 1 !important;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.activeBg {
+  :global {
+    .ant-collapse-header {
+      background: #4786ef;
+      border-radius: 4px !important;
+      span p {
+        color: white;
+      }
+    }
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+
+  margin: -15px;
+  padding: 15px;
+
+  img {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+  }
+  p {
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #242f57;
+  }
+}

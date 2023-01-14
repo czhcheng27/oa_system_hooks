@@ -14,13 +14,13 @@ const Text1 = (props) => {
       </div>
       <div className={css.right}>
         <Form>
-          <Row>
-            <Col span={8}>
+          <Row gutter={16}>
+            <Col span={10}>
               <Item label="Code" name="code">
                 <Input />
               </Item>
             </Col>
-            <Col span={16}>
+            <Col span={13}>
               <Item label="Content" name="content">
                 <Input />
               </Item>
