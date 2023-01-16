@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Layout } from "antd";
 import { Navigate, Outlet } from "react-router-dom";
 import LeftNav from "../../components/left-nav";
@@ -6,10 +6,24 @@ import Header from "../../components/header";
 import memoryUtils from "../../utils/memoryUtils";
 import css from "./index.module.css";
 
+const MOBILE_WIDTH = 992;
 const { Content, Footer, Sider } = Layout;
 
 const Admin = (props) => {
   const [collapsed, setCollapsed] = useState(false);
+
+  const resizeHandler = () => {
+    const rect = document.body.getBoundingClientRect();
+    const value = rect.width - 1 < MOBILE_WIDTH;
+    setCollapsed(value);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", resizeHandler, false);
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
+  }, []);
 
   const user = memoryUtils.user;
   if (!user || !user._id) {
