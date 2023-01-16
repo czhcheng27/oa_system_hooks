@@ -1,53 +1,51 @@
-import React, { useEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+  useMemo,
+} from "react";
 import * as echarts from "echarts"; //(*===所有)，导入所有 并命名为echarts
-import { message } from "antd";
-
-const colorMap = {
-  "Ahead of Schedule": "#11C58A",
-  "Accomplish on Schedule": "#24E4BD",
-  "Overdue Completion": "#70EEEE",
-  "According to Schedule": "#65B1FE",
-  "exceed the time limit": "#FEA6A6",
-  "To Be Started": "#C6E0FE",
-  "Delayed Start": "#FFA943",
-};
-
-const nameMap = {
-  1: "Ahead of Schedule",
-  2: "Accomplish on Schedule",
-  3: "Overdue Completion",
-  4: "According to Schedule",
-  5: "Exceed the Time Limit",
-  6: "To Be Started",
-  7: "Delayed Start",
-};
-
-const seriesItem = {
-  type: "bar",
-  stack: "total",
-  barWidth: 12,
-  label: {
-    show: false,
-  },
-  itemStyle: {
-    borderRadius: [0, 0, 0, 0],
-  },
-  emphasis: {
-    focus: "series",
-    disabled: true,
-  },
-};
+import {
+  getFinishNumArray,
+  getTotalNumArray,
+  rateNum,
+  name2RateMap,
+  getPlaceholder,
+  getPlaceholder2,
+  colorMap,
+  nameMap,
+  seriesItem,
+} from "../mock";
 
 const TaskBar = (props) => {
-  const { data = [] } = props;
+  const { data = [], clickBar, isActivity } = props;
   const chartRef = useRef(null);
 
-  const xAxisData = data.map((item) => item.areaName);
+  const xAxisData = data.map((item) =>
+    isActivity ? item.activityCode : item.areaName
+  );
 
   const areaIdMap = data.reduce((pre, item) => {
     pre[item.areaName] = item.areaId;
     return pre;
   }, {});
+
+  //数据格式化为[{ '活动编码 activityCode': '活动名称 areaName'}, {...}, {...}]
+  const activityCode2areaNameMap = data.reduce((pre, item) => {
+    pre[item.activityCode] = item.areaName;
+    return pre;
+  }, {});
+
+  //数据格式化为[{ '活动编码 activityCode': '活动Id areaId'}, {...}, {...}]
+  const activityCode2areaIdMap = data.reduce((pre, item) => {
+    pre[item.activityCode] = item.areaId;
+    return pre;
+  }, {});
+
+  const totalNum = getTotalNumArray(data);
+  const finishRate = rateNum(getFinishNumArray(data), getTotalNumArray(data));
+  const nameRateMap = name2RateMap(data, finishRate, isActivity);
 
   let seriesData = [];
   data.forEach((item, index) => {
@@ -78,6 +76,30 @@ const TaskBar = (props) => {
   });
   // console.log('seriesData', seriesData);
 
+  seriesData.push({
+    type: "bar",
+    stack: "y",
+    barWidth: 12,
+    data: totalNum,
+    barGap: "-100%",
+    label: {
+      show: true,
+      position: "top",
+      color: "#000",
+      formatter: function (params) {
+        return nameRateMap[params.name] + "%";
+      },
+    },
+    itemStyle: {
+      borderRadius: [0, 0, 0, 0],
+      color: "#FFFFFF",
+    },
+    emphasis: {
+      focus: "series",
+      disabled: true,
+    },
+  });
+
   const options = {
     // 提示框组件
     tooltip: {
@@ -87,10 +109,15 @@ const TaskBar = (props) => {
       },
       order: "seriesDesc",
       formatter: function (params) {
+        params.splice(0, 1);
         //这里就是控制显示的样式
         var relVal =
           '<span style="font-size:14px;font-weight: 600;color: #20253B";>' +
-          params[0].axisValue +
+          `${
+            isActivity
+              ? activityCode2areaNameMap[params[0].axisValue]
+              : params[0].axisValue
+          }` +
           "</span>";
         let value = 0;
         const length = params.length - 1;
@@ -98,20 +125,24 @@ const TaskBar = (props) => {
           value += params[x].value;
         }
         for (var i = length; i >= 0; i--) {
+          let percent = (
+            (100 * parseFloat(params[i].value)) /
+            parseFloat(value)
+          ).toFixed(2);
           //marker 就是带颜色的小圆圈 seriesName x轴名称  value  y轴值 后面就是计算百分比
           if (params[i].value !== 0) {
             relVal +=
               "<br/>" +
               params[i].marker +
               params[i].seriesName +
-              "&nbsp&nbsp   " +
+              "&nbsp&nbsp&nbsp&nbsp&nbsp" +
+              '<span style="font-weight:400;font-size: 13px;margin-top:4px;display: inline-block;">' +
+              getPlaceholder(params[i].seriesName, params[i].value.toString()) +
               parseFloat(params[i].value) +
-              "&nbsp&nbsp   " +
-              // Math.round((100 * params[i].value) / value) +
-              ((100 * parseFloat(params[i].value)) / parseFloat(value)).toFixed(
-                2
-              ) +
-              "%";
+              getPlaceholder2(params[i].value.toString(), percent.toString()) +
+              percent +
+              "%" +
+              "</span>";
           }
         }
         return relVal;
@@ -173,25 +204,6 @@ const TaskBar = (props) => {
       type: "value",
       // series: seriesData || [],
     },
-    // yAxis: [
-    //   {
-    //     min: 0, //最小百分比
-    //     max: 100, //最大百分比
-    //     type: 'value',
-    //     // name: '单位（%）',
-    //     nameGap: 35,
-    //     nameTextStyle: { color: '#666666' },
-    //     axisTick: { show: false },
-    //     axisLabel: {
-    //       show: true,
-    //       interval: 0, // 使x轴文字显示全
-    //       color: '#666666',
-    //       formatter: '{value}%', //y轴数值，带百分号
-    //     },
-    //     axisLine: { show: true, lineStyle: { color: '#dddddd' } },
-    //     splitLine: { lineStyle: { type: 'dashed', color: '#eeeeee' } },
-    //   },
-    // ],
     series: seriesData.reverse() || [],
     // animation: false,
   };
@@ -208,29 +220,22 @@ const TaskBar = (props) => {
         );
         let xIndex = pointInGrid[0]; //索引
         let handleIndex = Number(xIndex);
-        // let seriesObj = chart.getOption(); //图表object对象
-        var op = chart.getOption();
+        let seriesObj = chart.getOption(); //图表object对象
+        // var op = chart.getOption();
         //获得图表中点击的列
-        var colName = op.xAxis[0].data[handleIndex]; //获取点击的列名
-        // console.log('colName', colName);
-        message.success(`You click ${colName},    id: ${areaIdMap[colName]}`);
-        // console.log(handleIndex, seriesObj);
-        // clickBar(seriesObj);
+        var colName = seriesObj.xAxis[0].data[handleIndex]; //获取点击的列名
+        clickBar(
+          isActivity ? activityCode2areaIdMap[colName] : areaIdMap[colName]
+        );
       }
     });
   };
 
   useEffect(() => {
-    // 创建一个echarts实例，返回echarts实例。不能在单个容器中创建多个echarts实例
     const chart = echarts.init(chartRef.current);
-
-    // 设置图表实例的配置项和数据
     chart.setOption(options);
-
-    // 点击柱状图方法
     onBarClick(chart);
 
-    // 组件卸载
     return () => {
       chart.dispose();
     };
