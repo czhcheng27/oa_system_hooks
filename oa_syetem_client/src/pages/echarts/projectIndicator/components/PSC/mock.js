@@ -1,0 +1,100 @@
+export const apiMockDataLeft = {
+  success: true,
+  code: 200,
+  message: "操作成功",
+  data: {
+    workItemsCount: 7,
+    workFinishCount: 2,
+    workFocusCount: 3,
+    finishRate: 83.62,
+    workItemDetails: [
+      {
+        finishFlag: 0,
+        expirePercent: 38.46,
+        focusFlag: 1,
+        workItemId: "41",
+        workItemName: "Software Release（OTS Demo）",
+        finishPercent: 11.54,
+        order: 4,
+      },
+      {
+        finishFlag: 0,
+        expirePercent: 11.06,
+        focusFlag: 1,
+        workItemId: "40",
+        workItemName: "Overall Data Dispatch",
+        finishPercent: 88.71,
+        order: 3,
+      },
+      {
+        finishFlag: 0,
+        expirePercent: 9.78,
+        focusFlag: 1,
+        workItemId: "43",
+        workItemName: "OTS Confirm Plan",
+        finishPercent: 86.72,
+        order: 7,
+      },
+      {
+        finishFlag: 0,
+        expirePercent: 0,
+        focusFlag: 0,
+        workItemId: "94",
+        workItemName: "EOL Data - Production Confirm",
+        finishPercent: 0,
+        order: 5,
+      },
+      {
+        finishFlag: 0,
+        expirePercent: 0,
+        focusFlag: 0,
+        workItemId: "42",
+        workItemName: "OTS Demo Delivery",
+        finishPercent: 0,
+        order: 6,
+      },
+      {
+        finishFlag: 1,
+        expirePercent: 0,
+        focusFlag: 0,
+        workItemId: "38",
+        workItemName: "Vehicle File Release",
+        finishPercent: 100,
+        order: 1,
+      },
+      {
+        finishFlag: 1,
+        expirePercent: 0,
+        focusFlag: 0,
+        workItemId: "39",
+        workItemName: "Colourful Base Demo Release",
+        finishPercent: 100,
+        order: 2,
+      },
+    ],
+    userId: "jiangying9",
+  },
+};
+
+export const selectOpts = [
+  {
+    value: "task A",
+    label: "task A",
+  },
+  {
+    value: "task B",
+    label: "task B",
+  },
+  {
+    value: "task C",
+    label: "task C",
+  },
+  {
+    value: "task D",
+    label: "task D",
+  },
+  {
+    value: "task E",
+    label: "task E",
+  },
+];
