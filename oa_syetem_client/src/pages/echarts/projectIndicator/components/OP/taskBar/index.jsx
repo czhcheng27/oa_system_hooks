@@ -17,6 +17,7 @@ import {
   nameMap,
   seriesItem,
 } from "../mock";
+import { message } from "antd";
 
 const TaskBar = (props) => {
   const { data = [], clickBar, isActivity } = props;
@@ -224,9 +225,7 @@ const TaskBar = (props) => {
         // var op = chart.getOption();
         //获得图表中点击的列
         var colName = seriesObj.xAxis[0].data[handleIndex]; //获取点击的列名
-        clickBar(
-          isActivity ? activityCode2areaIdMap[colName] : areaIdMap[colName]
-        );
+        message.success(`You clicked ${colName}`);
       }
     });
   };
