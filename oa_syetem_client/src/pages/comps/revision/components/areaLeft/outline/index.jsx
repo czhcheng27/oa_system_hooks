@@ -1,30 +1,35 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React from "react";
 import { Collapse } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { updateOpenedIndex } from "../../../../../../redux/actions";
 import { CaretRightOutlined } from "@ant-design/icons";
-import { mockOutline } from "../../../mock";
-import { outlineIconMap } from "../../../mapConst";
+import { findUpperObj } from "../../../../../../utils";
+import { outlineIconMap, actOutlineIconMap } from "../../../mapConst";
 import css from "./index.module.less";
 
 const { Panel } = Collapse;
 
-const Outline = (props) => {
-  const [activeIndex, setActiveIndex] = useState();
-  const [openedIndex, setOpenedIndex] = useState([]);
+const Outline = ({ actIdx, setActiveOutline }) => {
+  const dispatch = useDispatch();
+  const openedIndex = useSelector((s) => s.rdcOpenedIndex);
+  const outlineAllData = useSelector((s) => s.rdcOutlineAllData);
 
-  const handleTitleClick = (e, data, index) => {
+  const handleTitleClick = (e, data) => {
     const { children } = data;
-    setActiveIndex(index);
     !children.length && e.stopPropagation();
+    !children.length && setActiveOutline(data);
   };
 
-  const renderTitle = (obj, index) => {
+  // 最外层的带图标的 title 的渲染
+  const renderTitle = (obj) => {
+    const isActive = obj.index === actIdx;
     return (
-      <div
-        className={css.title}
-        onClick={(e) => handleTitleClick(e, obj, index)}
-      >
-        <img src={outlineIconMap[obj.label]} alt="img" />
-        <p>{obj.label}</p>
+      <div className={css.title} onClick={(e) => handleTitleClick(e, obj)}>
+        <img
+          src={(isActive ? actOutlineIconMap : outlineIconMap)[obj.name]}
+          alt="img"
+        />
+        <p>{obj.name}</p>
       </div>
     );
   };
@@ -33,14 +38,17 @@ const Outline = (props) => {
     <Collapse
       ghost
       expandIconPosition="end"
-      onChange={(key) => setOpenedIndex(key)}
+      defaultActiveKey={openedIndex}
+      onChange={(key) => dispatch(updateOpenedIndex(key))}
     >
-      {mockOutline.map((obj, index) => {
-        const { children } = obj;
+      {outlineAllData.map((obj) => {
+        const { children, index } = obj;
+        const hightlightOutlineIdx =
+          findUpperObj(outlineAllData, actIdx).index === index;
         return (
           <Panel
             className={`${css.panel_wrapper} ${
-              activeIndex === index ? css.activeBg : ""
+              hightlightOutlineIdx ? css.activeBg : ""
             } `}
             header={renderTitle(obj, index)}
             key={index}
@@ -49,15 +57,26 @@ const Outline = (props) => {
             extra={
               !!children.length && (
                 <CaretRightOutlined
-                  style={{ color: activeIndex === index ? "white" : "black" }}
+                  style={{ color: hightlightOutlineIdx ? "white" : "#9292a2" }}
                   rotate={openedIndex.includes(index?.toString()) ? 90 : 0}
                 />
               )
             }
           >
             {!!children.length &&
-              children.map((item, index) => {
-                return <div key={index}>{item.label}</div>;
+              children.map((item) => {
+                const activeSelect = item.index === actIdx;
+                return (
+                  <div
+                    key={item.index}
+                    className={`${css.each_indise_title} ${
+                      activeSelect ? css.atvInBg : ""
+                    }`}
+                    onClick={() => setActiveOutline(item)}
+                  >
+                    {item.name}
+                  </div>
+                );
               })}
           </Panel>
         );

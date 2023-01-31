@@ -1,9 +1,10 @@
+@insideHeight: 40px;
+
 .panel_wrapper {
   margin: 8px 0;
   :global {
     .ant-collapse-header {
       padding: 13px 16px 13px 14px !important;
-      height: 48px !important;
       span {
         flex: 1 !important;
         z-index: 1;
@@ -39,6 +40,24 @@
   p {
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: #242f57;
+    color: #9292a2;
+    margin-bottom: 0;
   }
+}
+
+.each_indise_title {
+  height: @insideHeight;
+  line-height: @insideHeight;
+  margin: 10px 0;
+  font-family: PingFangSC-SNaNpxibold;
+  font-weight: 400;
+  color: #9292a2;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.atvInBg {
+  color: #4786ef;
 }

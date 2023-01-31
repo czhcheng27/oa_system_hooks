@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "antd";
 import Sortable from "sortablejs";
-import { categoryMap, typeCompsMap } from "../../../mapConst";
+import { categoryMap, colorCompMap } from "../../../mapConst";
 import { coms } from "../../../const";
 import css from "./index.module.less";
 
@@ -44,10 +44,19 @@ const Comps = ({ addCom }) => {
       <Row gutter={[0, 24]} ref={sortableGroupDecorator}>
         {renderIcons.map((item, index) => {
           return (
-            <Col span={24} key={index} data-id={item.type}>
-              <div className={`${css.each_comp} ${css[item.componentName]}`}>
-                <p>{item.title}</p>
-                <img src={require("./icons/" + item.type + ".png").default} />
+            <Col
+              span={24}
+              key={`${item.comType}-${index}`}
+              data-id={item.comType}
+            >
+              <div
+                className={`${css.each_comp}`}
+                style={colorCompMap[item.comType].left}
+              >
+                <p>{item.desc}</p>
+                <img
+                  src={require("./icons/" + item.comType + ".png").default}
+                />
               </div>
             </Col>
           );
@@ -60,7 +69,7 @@ const Comps = ({ addCom }) => {
     <div className={css.wrapper}>
       {categoryMap.map((obj, index) => {
         const renderIcons = coms.reduce((pre, item) => {
-          if (obj.compNo.includes(item.type * 1)) {
+          if (obj.compNo.includes(item.comType)) {
             pre.push(item);
           }
           return pre;

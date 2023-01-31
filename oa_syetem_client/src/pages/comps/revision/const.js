@@ -4,64 +4,67 @@ import Text3 from "./components/text3/index";
 import TextArea from "./components/textArea/index";
 import RichList from "./components/richList/index";
 
+export const independentComps = [
+  "cover",
+  "introduction",
+  "reference",
+  "appendix",
+];
+
 export const coms = [
   {
-    type: "1",
-    id: "11",
-    title: "label 1",
-    componentName: "Text1",
-    values: {
-      label: "",
-      text: "",
+    comType: 1,
+    desc: "label 1",
+    content: {
+      title: "制造方法",
+      num: "4.1",
     },
+    parentIndex: "4",
+    properties: {},
   },
   {
-    type: "2",
-    id: "22",
-    title: "label 2",
-    componentName: "Text2",
-    values: {
-      label: "",
-      text: "",
+    comType: 2,
+    desc: "label 2",
+    content: {
+      title: "制造方法",
+      num: "4.1.1",
     },
+    parentIndex: "4.1",
+    properties: {},
   },
   {
-    type: "3",
-    id: "33",
-    title: "label 3",
-    componentName: "Text3",
-    values: {
-      label: "",
-      text: "",
+    comType: 3,
+    desc: "label 3",
+    content: {
+      title: "制造方法",
+      num: "4.1.2.3",
     },
+    parentIndex: "4.1.2",
+    properties: {},
   },
   {
-    type: "6",
-    id: "66",
-    title: "TextArea",
-    componentName: "TextArea",
-    values: {
-      text: "",
-    },
+    comType: 6,
+    desc: "TextArea",
+    content: "内容",
+    parentIndex: "4.1.2",
+    properties: {},
   },
   {
-    type: "7",
-    id: "77",
-    title: "Options",
-    componentName: "RichList",
-    values: {
-      text: "",
-    },
+    comType: 7,
+    desc: "Options",
+    content: "<span>1</span>",
+    parentIndex: "4.1.2",
+    properties: {},
   },
 ];
 
 export const matchCom = (key) => {
   const all = {
-    Text1,
-    Text2,
-    Text3,
-    TextArea,
-    RichList,
+    1: Text1,
+    2: Text2,
+    3: Text3,
+    6: TextArea,
+    7: RichList,
   };
   return all[key];
 };

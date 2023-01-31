@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input, Row, Col } from "antd";
-import Img from "../areaLeft/comps/icons/2.png";
+import { colorCompMap } from "../../mapConst";
+import DelPop from "../../delPop";
 import css from "./index.module.less";
 
 const { Item } = Form;
 
-const Text3 = (props) => {
-  console.log("props", props);
+const Text3 = ({ props, onDelete }) => {
+  const [hoverStatus, setHoverStatus] = useState(false);
+  const [btnClicked, setBtnClicked] = useState(false);
+
   return (
-    <div className={css.wrapper}>
+    <div
+      className={css.wrapper}
+      onMouseEnter={() => setHoverStatus(true)}
+      onMouseLeave={() => !btnClicked && setHoverStatus(false)}
+    >
       <div className={css.left}>
-        <img src={Img} alt="label 3" />
-        <p>Label 3</p>
+        <img
+          src={require(`../areaLeft/comps/icons/${props.comType}.png`).default}
+          alt={props.desc}
+        />
+        <p style={colorCompMap[props.comType].midTxt}>{props.desc}</p>
       </div>
       <div className={css.right}>
         <Form>
@@ -29,6 +39,12 @@ const Text3 = (props) => {
           </Row>
         </Form>
       </div>
+      <DelPop
+        onDelete={onDelete}
+        setBtnClicked={setBtnClicked}
+        hoverStatus={hoverStatus}
+        setHoverStatus={setHoverStatus}
+      />
     </div>
   );
 };

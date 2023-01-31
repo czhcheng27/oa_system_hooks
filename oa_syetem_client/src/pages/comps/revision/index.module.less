@@ -1,18 +1,18 @@
 .revision {
   display: flex;
   background: #f4f7fd;
-  height: calc(100% - 2px);
+  height: 100%;
+
+  &_center {
+    border-radius: 5px;
+    background: #f4f7fd;
+    margin: 0 20px 0 8px;
+    flex: 1;
+  }
 }
 
 .list_item {
   cursor: pointer;
-}
-
-.center {
-  border-radius: 5px;
-  background: #f4f7fd;
-  margin: 0 20px 0 8px;
-  flex: 1;
 }
 
 // 右侧区区域折叠动画
@@ -22,7 +22,7 @@
 
   @keyframes fold {
     0% {
-      width: 500px;
+      width: 536px;
     }
 
     100% {
@@ -32,7 +32,7 @@
 }
 // 右侧区区域展开动画
 .expand {
-  width: 500px;
+  width: 536px;
   animation: expand 200ms linear;
 
   @keyframes expand {
@@ -41,7 +41,7 @@
     }
 
     100% {
-      width: 500px;
+      width: 536px;
     }
   }
 }
@@ -71,7 +71,7 @@
 
     @keyframes btn_fold {
       0% {
-        right: 500px;
+        right: 536px;
       }
 
       100% {
@@ -83,7 +83,7 @@
   // 折叠展开按钮展开动画
   .expandBtn {
     animation: btn_expand 200ms linear;
-    right: 500px;
+    right: 536px;
 
     @keyframes btn_expand {
       0% {
@@ -91,14 +91,8 @@
       }
 
       100% {
-        right: 500px;
+        right: 536px;
       }
     }
-  }
-}
-
-:global {
-  p {
-    margin: 0;
   }
 }
