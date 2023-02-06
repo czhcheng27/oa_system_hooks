@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Collapse } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { updateOpenedIndex } from "../../../../../../redux/actions";
 import { CaretRightOutlined } from "@ant-design/icons";
+import { updateOpenedIndex } from "../../../../../../redux/actions";
+import AddChapter from "../addChapter";
 import { findUpperObj } from "../../../../../../utils";
 import { outlineIconMap, actOutlineIconMap } from "../../../mapConst";
 import css from "./index.module.less";
@@ -14,10 +15,24 @@ const Outline = ({ actIdx, setActiveOutline }) => {
   const openedIndex = useSelector((s) => s.rdcOpenedIndex);
   const outlineAllData = useSelector((s) => s.rdcOutlineAllData);
 
+  const [visible, setVisible] = useState(false);
+
   const handleTitleClick = (e, data) => {
     const { children } = data;
     !children.length && e.stopPropagation();
     !children.length && setActiveOutline(data);
+  };
+
+  // 添加章节
+  const addChapter = (data) => {
+    const supposeIdx = outlineAllData[2].children.length + 1;
+    outlineAllData[2].children.push({
+      index: `${supposeIdx}`,
+      name: `${supposeIdx}.${data}`,
+      coms: [],
+      deletable: true,
+    });
+    setVisible(false);
   };
 
   // 最外层的带图标的 title 的渲染
@@ -78,6 +93,14 @@ const Outline = ({ actIdx, setActiveOutline }) => {
                   </div>
                 );
               })}
+            <div onClick={() => setVisible(true)}>+ add chapter</div>
+            {visible && (
+              <AddChapter
+                visible={visible}
+                addChapter={addChapter}
+                close={() => setVisible(false)}
+              />
+            )}
           </Panel>
         );
       })}
