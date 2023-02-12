@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CaretRightOutlined } from "@ant-design/icons";
 import { updateOpenedIndex } from "../../../../../../redux/actions";
 import AddChapter from "../addChapter";
+import DelChapter from "../delChapter";
 import { findUpperObj } from "../../../../../../utils";
 import { outlineIconMap, actOutlineIconMap } from "../../../mapConst";
 import css from "./index.module.less";
@@ -16,6 +17,10 @@ const Outline = ({ actIdx, setActiveOutline }) => {
   const outlineAllData = useSelector((s) => s.rdcOutlineAllData);
 
   const [visible, setVisible] = useState(false);
+
+  const [hoverIndex, setHoverIndex] = useState("");
+  const [hoverStatus, setHoverStatus] = useState(false);
+  const [btnClicked, setBtnClicked] = useState(false);
 
   const handleTitleClick = (e, data) => {
     const { children } = data;
@@ -88,8 +93,23 @@ const Outline = ({ actIdx, setActiveOutline }) => {
                       activeSelect ? css.atvInBg : ""
                     }`}
                     onClick={() => setActiveOutline(item)}
+                    onMouseEnter={() => (
+                      setHoverStatus(true),
+                      setHoverIndex(item.index),
+                      console.log("onMouseEnter", item)
+                    )}
+                    onMouseLeave={() =>
+                      !btnClicked && (setHoverStatus(false), setHoverIndex(""))
+                    }
                   >
                     {item.name}
+                    {hoverIndex === item.index && item.deletable && (
+                      <DelChapter
+                        setBtnClicked={setBtnClicked}
+                        hoverStatus={hoverStatus}
+                        setHoverStatus={setHoverStatus}
+                      />
+                    )}
                   </div>
                 );
               })}
