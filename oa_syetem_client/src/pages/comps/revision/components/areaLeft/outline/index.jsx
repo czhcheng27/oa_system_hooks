@@ -18,17 +18,17 @@ const Outline = ({ actIdx, setActiveOutline }) => {
 
   const [visible, setVisible] = useState(false);
 
-  const [hoverIndex, setHoverIndex] = useState("");
-  const [hoverStatus, setHoverStatus] = useState(false);
-  const [btnClicked, setBtnClicked] = useState(false);
+  const [clickedIndex, setClickedIndex] = useState(""); // 点中的删除按钮 x 的 index
+  const [hoverIndex, setHoverIndex] = useState([]); // 鼠标 hover 章节的 index
+  const [btnClicked, setBtnClicked] = useState(false); // 是否有删除按钮 x 被点击
 
   const handleTitleClick = (e, data) => {
-    const { children } = data;
-    !children.length && e.stopPropagation();
-    !children.length && setActiveOutline(data);
+    const { children, index } = data;
+    !children.length && index !== "content" && e.stopPropagation();
+    !children.length && index !== "content" && setActiveOutline(data);
   };
 
-  // 添加章节
+  // add chapter
   const addChapter = (data) => {
     const supposeIdx = outlineAllData[2].children.length + 1;
     outlineAllData[2].children.push({
@@ -38,6 +38,28 @@ const Outline = ({ actIdx, setActiveOutline }) => {
       deletable: true,
     });
     setVisible(false);
+  };
+
+  // delete chapter
+  const delChapter = (data) => {
+    outlineAllData[2].children = outlineAllData[2].children.filter(
+      (el) => el.index !== data.index
+    );
+    // 删除章节后需要对章节的 index 重新计算赋值
+    outlineAllData[2].children.forEach((el, index) => {
+      const chapterIndex = el.name.indexOf(".");
+      const chapterName = el.name.slice(chapterIndex + 1, el.name.length);
+      el.index = `${index + 1}`;
+      el.name = `${index + 1}.${chapterName}`;
+    });
+    // 还有一种情况，如果当用户在当前章拖拽了组件在删除当前章时，需重新设置激活的大纲即 activeOutline
+    if (actIdx === data.index) {
+      // 如果删除的是最后一个，则 setActiveOutline 不应向下了，而是取上一个
+      const isLast = actIdx == data.index;
+      setActiveOutline(
+        outlineAllData[2].children[actIdx * 1 - (isLast ? 2 : 1)]
+      );
+    }
   };
 
   // 最外层的带图标的 title 的渲染
@@ -52,6 +74,35 @@ const Outline = ({ actIdx, setActiveOutline }) => {
         <p>{obj.name}</p>
       </div>
     );
+  };
+
+  const addHoverIndex = (index) => {
+    const res = hoverIndex.indexOf(index);
+    if (res < 0) {
+      setHoverIndex([...hoverIndex, index]);
+    }
+  };
+
+  /*
+    鼠标离开章节时：如果存在被点击状态的章，则 hoverIndex 只为被点击的章的 index
+                    否则则查询离开的章的 index ，splice 去除
+  */
+  const removeHoverIndex = (index) => {
+    const res = hoverIndex.indexOf(index);
+    if (btnClicked) {
+      setHoverIndex([clickedIndex]);
+    } else {
+      setHoverIndex(hoverIndex.splice(res, 1));
+      setTimeout(() => {
+        setHoverIndex(hoverIndex.splice(res, 1));
+      });
+    }
+  };
+
+  // 点击章节的删除按钮时，设置 clickedIndex 及 hoverIndex
+  const clickDelBtn = (data) => {
+    setClickedIndex(data);
+    setHoverIndex(data);
   };
 
   return (
@@ -85,29 +136,25 @@ const Outline = ({ actIdx, setActiveOutline }) => {
           >
             {!!children.length &&
               children.map((item) => {
-                const activeSelect = item.index === actIdx;
+                const { index } = item;
+                const activeSelect = index === actIdx;
                 return (
                   <div
-                    key={item.index}
+                    key={index}
                     className={`${css.each_indise_title} ${
                       activeSelect ? css.atvInBg : ""
                     }`}
                     onClick={() => setActiveOutline(item)}
-                    onMouseEnter={() => (
-                      setHoverStatus(true),
-                      setHoverIndex(item.index),
-                      console.log("onMouseEnter", item)
-                    )}
-                    onMouseLeave={() =>
-                      !btnClicked && (setHoverStatus(false), setHoverIndex(""))
-                    }
+                    onMouseEnter={() => addHoverIndex(index)}
+                    onMouseLeave={() => removeHoverIndex(index)}
                   >
                     {item.name}
-                    {hoverIndex === item.index && item.deletable && (
+                    {hoverIndex.includes(index) && item.deletable && (
                       <DelChapter
+                        setHoverIndex={setHoverIndex}
                         setBtnClicked={setBtnClicked}
-                        hoverStatus={hoverStatus}
-                        setHoverStatus={setHoverStatus}
+                        delChapter={() => delChapter(item)}
+                        clickDelBtnFn={() => clickDelBtn(index)}
                       />
                     )}
                   </div>

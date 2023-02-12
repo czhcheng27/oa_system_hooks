@@ -3,37 +3,43 @@ import { CloseCircleOutlined } from "@ant-design/icons";
 import { Popconfirm } from "antd";
 import css from "./index.module.less";
 
-const DelChapter = ({ props, setBtnClicked, hoverStatus, setHoverStatus }) => {
+const styleObj = Object.assign({
+  display: "inline-block",
+  color: "#6893DA",
+});
+
+const DelChapter = ({
+  delChapter,
+  setHoverIndex,
+  clickDelBtnFn,
+  setBtnClicked,
+}) => {
   const visivleChange = (visible) => {
     !visible && setBtnClicked(false);
-    !visible && setHoverStatus(false);
   };
-
-  const styleObj = Object.assign({
-    display: "inline-block",
-    background: "red",
-    zIndex: "11",
-  });
 
   return (
     <Popconfirm
       overlayClassName="pop_confirm"
       placement="right"
-      title="Delete this component?"
+      title="Delete this chapter?"
       okText="Yes"
       cancelText="No"
       autoAdjustOverflow={false}
-      destroyTooltipOnHide={false}
       onOpenChange={visivleChange}
-      //   onConfirm={() => (onDelete(), setBtnClicked(false))}
+      onConfirm={(e) => (
+        delChapter(), setBtnClicked(false), e.stopPropagation()
+      )}
       onCancel={(e) => (
-        setBtnClicked(false), setHoverStatus(true), e.stopPropagation()
+        setBtnClicked(false), setHoverIndex([]), e.stopPropagation()
       )}
     >
       <CloseCircleOutlined
         className={css.del_btn}
         style={styleObj}
-        onClick={(e) => (setBtnClicked(true), e.stopPropagation())}
+        onClick={(e) => (
+          clickDelBtnFn(), setBtnClicked(true), e.stopPropagation()
+        )}
       />
     </Popconfirm>
   );
