@@ -119,3 +119,9 @@ export const mockOutline = [
     children: [],
   },
 ];
+
+export const tempActOutline = {
+  index: "1",
+  name: "1.Scope",
+  coms: [],
+};
