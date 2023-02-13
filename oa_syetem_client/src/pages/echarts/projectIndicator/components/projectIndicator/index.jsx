@@ -6,6 +6,7 @@ import OP from "../OP";
 import FPYR from "../FPYR";
 import { indicatorData } from "../../mock";
 import css from "./index.module.css";
+import ProjectProgress from "../ProjectProgress";
 
 const ProjectIndicator = (props) => {
   const [curIndicator, setCurIndicator] = useState(indicatorData[0]);
@@ -59,6 +60,8 @@ const ProjectIndicator = (props) => {
       <HeaderTitle title="Project Indicator">
         <Button type="primary">Indicator Setting</Button>
       </HeaderTitle>
+
+      <ProjectProgress />
 
       <div className={css.content}>
         <ul>
