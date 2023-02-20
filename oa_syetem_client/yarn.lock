@@ -1662,6 +1662,13 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
+"@nteract/mathjax@^4.0.16":
+  version "4.0.16"
+  resolved "https://registry.npmmirror.com/@nteract/mathjax/-/mathjax-4.0.16.tgz#1889a7e4ece011c2321434edb304f6d8d2b7b727"
+  integrity sha512-eth384tJmOF2oNnHc3iqNwqZdFdNPZmnboY66aE7QRJvxZsYSUj0oHvERn3nXxFuVjv866xWGRc5zU+T4tPIDQ==
+  dependencies:
+    load-script "^1.0.0"
+
 "@pmmmwh/react-refresh-webpack-plugin@0.4.3":
   version "0.4.3"
   resolved "https://registry.npmmirror.com/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.4.3.tgz#1eec460596d200c0236bf195b078a5d1df89b766"
@@ -7974,6 +7981,11 @@ linkify-it@^2.2.0:
   dependencies:
     uc.micro "^1.0.1"
 
+load-script@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmmirror.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+  integrity sha512-kPEjMFtZvwL9TaZo0uZ2ml+Ye9HUMmPwbYRJ324qF9tqMejwykJ5ggTyvzmrbBeapCAbk98BSbTeovHEEP1uCA==
+
 loader-runner@^2.4.0:
   version "2.4.0"
   resolved "https://registry.npmmirror.com/loader-runner/-/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357"
@@ -10589,6 +10601,13 @@ react-is@^18.0.0:
   version "18.2.0"
   resolved "https://registry.npmmirror.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
+
+react-mathjax@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmmirror.com/react-mathjax/-/react-mathjax-1.0.1.tgz#a8c282e75d277a201632dfd07edf41edda372b4b"
+  integrity sha512-+mjFcciZY3GQoqiQm3aRTyDjgBKuoaXpY+SCONX00jScuPpTKwnASeFMS5+pbTIzDf5zPT2Y9ZZfQ9U/d4CKtQ==
+  dependencies:
+    load-script "^1.0.0"
 
 react-redux@^7.2.0, react-redux@^7.2.6:
   version "7.2.9"

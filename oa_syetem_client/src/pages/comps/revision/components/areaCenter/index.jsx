@@ -1,6 +1,11 @@
 import React, { useRef, useImperativeHandle, forwardRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Sortable from "sortablejs";
 import { cloneDeep } from "../../../../../utils";
+import {
+  updateOpenedIndex,
+  updateOutlineAllData,
+} from "../../../../../redux/actions";
 import Cover from "../cover";
 import Introduction from "../introduction";
 import { independentComps, matchCom } from "../../const";
@@ -13,15 +18,32 @@ const AreaCenter = forwardRef((props, ref) => {
   const coverRef = useRef();
   const introRef = useRef();
 
+  const dispatch = useDispatch();
+
   const { handleDelete, resetOrder, activeOutline } = props;
   const { coms: comList = [], index: actIdx } = activeOutline;
   _comList = cloneDeep(comList);
 
   const independent = independentComps.includes(actIdx);
 
+  const outlineAllData = useSelector((s) => s.rdcOutlineAllData);
+
   useImperativeHandle(ref, () => ({
     handleSubmit,
   }));
+
+  // 每个组件内部的数据更新函数
+  const comValueUpdate = (id, newValue, newProperties) => {
+    outlineAllData[2].children.forEach((item) => {
+      item.coms.forEach((el) => {
+        if (el.id === id) {
+          el.content = JSON.stringify(newValue);
+          el.properties = newProperties;
+        }
+      });
+    });
+    dispatch(updateOutlineAllData(outlineAllData));
+  };
 
   // 拖拽相关方法
   const sortableGroupDecorator = (componentBackingInstance) => {
@@ -53,7 +75,11 @@ const AreaCenter = forwardRef((props, ref) => {
           const MyCom = matchCom(item?.comType);
           return (
             <div key={`${item.comType}-${index}`} className="dragList">
-              <MyCom props={item} onDelete={() => handleDelete(item)} />
+              <MyCom
+                props={item}
+                comValueUpdate={comValueUpdate}
+                onDelete={() => handleDelete(item)}
+              />
             </div>
           );
         })}

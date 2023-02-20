@@ -1,0 +1,89 @@
+.wrapper {
+  position: relative;
+  padding: 12px;
+  border: 1px solid rgba(209, 153, 128, 0.1);
+  border-radius: 4px;
+}
+
+.inside_wrapper {
+  margin-top: 36px;
+  .formula_btn {
+    position: absolute;
+    right: 40px;
+    top: 106px;
+    z-index: 1;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.display_wrapper {
+  // display: flex;
+  padding: 0 13px;
+  margin: 8px 0 16px 0;
+  header {
+    color: #97a0c3;
+    margin-bottom: 8px;
+    margin-right: 6px;
+  }
+  section {
+    flex: 1;
+    background: #eeecf6;
+    border: 1px solid rgba(240, 241, 244, 0.83);
+    border-radius: 4px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.editor_area {
+  // display: flex;
+  padding: 0 13px;
+  margin: 8px 0 16px 0;
+  header {
+    color: #97a0c3;
+    margin-bottom: 8px;
+    margin-right: 6px;
+  }
+  section {
+    flex: 1;
+  }
+}
+
+.claim_area {
+  // display: flex;
+  padding: 0 13px;
+  margin: 8px 0;
+  header {
+    color: #97a0c3;
+    margin-right: 6px;
+    margin-bottom: 8px;
+  }
+  section {
+    flex: 1;
+  }
+}
+
+:global {
+  .dropdown_root {
+    .ant-dropdown-menu {
+      height: 288px;
+      overflow: auto;
+      background: white;
+      padding: 5px 8px 5px 8px;
+    }
+    .ant-dropdown-menu-item {
+      height: 85px;
+      border-radius: 4px;
+      margin: 8px 0;
+      background: #f4f6fa;
+      &:hover {
+        background: #eaedf8;
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ import Text2 from "./components/text2/index";
 import Text3 from "./components/text3/index";
 import TextArea from "./components/textArea/index";
 import RichList from "./components/richList/index";
+import Formula from "./components/formula/index";
 
 export const independentComps = [
   "cover",
@@ -56,6 +57,13 @@ export const coms = [
     parentIndex: "4.1.2",
     properties: {},
   },
+  {
+    comType: 12,
+    desc: "Formula",
+    content: "",
+    parentIndex: "",
+    properties: {},
+  },
 ];
 
 export const matchCom = (key) => {
@@ -65,6 +73,7 @@ export const matchCom = (key) => {
     3: Text3,
     6: TextArea,
     7: RichList,
+    12: Formula,
   };
   return all[key];
 };

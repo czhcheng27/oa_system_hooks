@@ -29,7 +29,7 @@ const DelPop = ({
       okText="Yes"
       cancelText="No"
       autoAdjustOverflow={false}
-      onVisibleChange={visivleChange}
+      onOpenChange={visivleChange}
       onConfirm={() => (onDelete(), setBtnClicked(false))}
       onCancel={() => (setBtnClicked(false), setHoverStatus(true))}
       //   getPopupContainer={(triggerNode) => triggerNode.parentNode}
