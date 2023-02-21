@@ -4,6 +4,7 @@ import Text3 from "./components/text3/index";
 import TextArea from "./components/textArea/index";
 import RichList from "./components/richList/index";
 import Formula from "./components/formula/index";
+import LineCol from "./components/lineCol/index";
 
 export const independentComps = [
   "cover",
@@ -50,12 +51,22 @@ export const coms = [
     parentIndex: "4.1.2",
     properties: {},
   },
+  // {
+  //   comType: 7,
+  //   desc: "Options",
+  //   content: "<span>1</span>",
+  //   parentIndex: "4.1.2",
+  //   properties: {},
+  // },
   {
-    comType: 7,
+    comType: 8,
     desc: "Options",
-    content: "<span>1</span>",
-    parentIndex: "4.1.2",
-    properties: {},
+    content: "",
+    parentIndex: "",
+    properties: {
+      type: "1",
+      leadWords: "",
+    },
   },
   {
     comType: 12,
@@ -73,6 +84,7 @@ export const matchCom = (key) => {
     3: Text3,
     6: TextArea,
     7: RichList,
+    8: LineCol,
     12: Formula,
   };
   return all[key];

@@ -53,6 +53,11 @@ export const colorCompMap = {
     midTxt: { color: "#CD9A89" },
     delIcon: { color: "#D19980" },
   },
+  8: {
+    left: { background: "#F2FAFF", color: "#81AFCF" },
+    midBg: { background: "#F7FBFE" },
+    delIcon: { color: "#88B2CF" },
+  },
   12: {
     left: { background: "#F1EFFB", color: "#927CD6" },
     midBg: { background: "rgba(183,165,235,0.08)" },
