@@ -146,9 +146,7 @@ class Revision extends React.Component {
               css[isFold ? "foldBtn" : "expandBtn"]
             )}
             onClick={() => this.setState({ isFold: !isFold })}
-          >
-            {isFold ? `<` : ">"}
-          </div>
+          ></div>
           <AreaDoc handleSubmit={this.handleSubmit} />
         </div>
       </div>
