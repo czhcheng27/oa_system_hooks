@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Input, Dropdown, Menu, Popconfirm } from "antd";
+import { createUidKey } from "../../../../../utils/index";
 import DelPop from "../../delPop";
 import { colorCompMap } from "../../mapConst";
 import {
@@ -20,6 +21,65 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
   const [leadWords, setLeadWords] = useState("");
   const [clickedBtnData, setClickedBtnData] = useState();
 
+  const handleSelectType = (type) => {
+    setSelectedType(type);
+    setValueData([{ ...typeTwoObj, id: createUidKey() }]);
+  };
+
+  // 类型选项的 menu
+  const items = [
+    {
+      key: "1",
+      label: (
+        <div className={css.col1}>
+          <p>
+            {`a)`}
+            <span></span>:
+          </p>
+          <p>
+            {`1)`}
+            <span></span>;
+          </p>
+        </div>
+      ),
+      onClick: () => (
+        setLeadWords(""), setSelectedType("1"), setValueData(initTypeOneData)
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <div className={css.col2}>
+          <p>
+            <span>{`Qualify`}</span>
+            <span></span>:
+          </p>
+          <p>
+            {`——`}
+            <span></span>,
+          </p>
+        </div>
+      ),
+      onClick: () => (setLeadWords(""), handleSelectType("2")),
+    },
+    {
+      key: "3",
+      label: (
+        <div className={css.col2}>
+          <p>
+            <span>{`Qualify`}</span>
+            <span></span>:
+          </p>
+          <p>
+            {`——`}
+            <span></span>;
+          </p>
+        </div>
+      ),
+      onClick: () => (setLeadWords(""), handleSelectType("3")),
+    },
+  ];
+
   return (
     <div
       style={colorCompMap[props.comType].midBg}
@@ -37,7 +97,7 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
       <div className={css.selector_wrapper}>
         <Input placeholder={typePlaceholder[selectedType]} readOnly />
         <Dropdown
-          //   menu={menus}
+          menu={{ items }}
           overlayClassName="lineCol_dropdown_root"
           placement="bottomLeft"
           arrow={{
