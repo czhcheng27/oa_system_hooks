@@ -16,6 +16,7 @@
     "axios": "^0.25.0",
     "babel-plugin-import": "^1.13.3",
     "bizcharts": "^3.5.2",
+    "classnames": "^2.3.2",
     "craco-less": "^2.0.0",
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
