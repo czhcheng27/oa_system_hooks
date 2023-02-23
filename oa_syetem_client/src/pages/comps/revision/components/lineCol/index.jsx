@@ -120,6 +120,20 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
     setValueData([...preArr, ...afterArr]);
   };
 
+  // 第二级文本更改时更新数据函数
+  const lTwoTxtChange = (txt, data, obj) => {
+    const newData = cloneDeep(valueData);
+    newData.forEach((el) => {
+      if (el.levelOne === data.levelOne) {
+        el.children.forEach((item) => {
+          if (item.levelTwo == obj.levelTwo) item.value = txt;
+        });
+      }
+      return el;
+    });
+    setValueData(newData);
+  };
+
   // 渲染类型 type 1
   const renderTypeOne = () => {
     const disable = valueData.length === 1;
@@ -161,10 +175,20 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
                 return (
                   <div key={index} className={css.levelTwo}>
                     <p>{`${obj.levelTwo})`}</p>
-                    <TextArea rows={2} value={obj.value} />
+                    <TextArea
+                      rows={2}
+                      value={obj.value}
+                      onChange={(e) => lTwoTxtChange(e.target.value, el, obj)}
+                    />
                     <div className={css.handle_btn}>
                       <PlusCircleOutlined />
-                      <MinusCircleOutlined />
+                      <PopCom
+                        position={"left"}
+                        title={"Sure to delete?"}
+                        // handleConfirm={() => lTwoDel(el, obj)}
+                      >
+                        {<MinusCircleOutlined />}
+                      </PopCom>
                     </div>
                   </div>
                 );
