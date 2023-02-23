@@ -142,6 +142,22 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
     setValueData(newData);
   };
 
+  // type 1 : 第二层级（ 1）级删除）
+  const lTwoDel = (data, obj) => {
+    const newData = cloneDeep(valueData);
+    newData.forEach((el) => {
+      if (el.levelOne == data.levelOne) {
+        const filterData = el.children.filter((el) => el.id !== obj.id);
+        for (let i = 0; i < filterData.length; i++) {
+          filterData[i].levelTwo = (i + 1).toString();
+        }
+        el.children = filterData;
+      }
+      return el;
+    });
+    setValueData(newData);
+  };
+
   // 一级文本更改时更新数据函数
   const lOneTxtChange = (txt, obj) => {
     const newData = cloneDeep(valueData);
@@ -218,7 +234,7 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
                       <PopCom
                         position={"left"}
                         title={"Sure to delete?"}
-                        // handleConfirm={() => lTwoDel(el, obj)}
+                        handleConfirm={() => lTwoDel(el, obj)}
                       >
                         {<MinusCircleOutlined />}
                       </PopCom>
