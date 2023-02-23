@@ -85,6 +85,35 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
     },
   ];
 
+  const addMenus = [
+    {
+      key: "addProj",
+      label: <div className={css.addProj}>项目</div>,
+      onClick: () => levelOneAdd(clickedBtnData),
+    },
+    {
+      key: "addChildProj",
+      label: <div className={css.addChildProj}>子项目</div>,
+      onClick: () => addChildProj(),
+    },
+  ];
+
+  // 无子项目时，点击添加按钮，添加子项目方法
+  const addChildProj = () => {
+    const newData = cloneDeep(valueData);
+    newData.forEach((el) => {
+      if (el.levelOne == clickedBtnData.levelOne) {
+        el.children.push({
+          levelTwo: "1",
+          id: createUidKey(),
+          value: "",
+        });
+      }
+      return el;
+    });
+    setValueData(newData);
+  };
+
   // type 1 : 第一层级（a级添加）
   const levelOneAdd = (data) => {
     const curIndex = valueData.findIndex((el) => el.id === data.id);
@@ -200,6 +229,22 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
                 // autoSize={{ minRows: 2, maxRows: 6 }}
               />
               <div className={css.handle_btn}>
+                {/* <Dropdown
+                  menu={{ addMenus }}
+                  overlayClassName="add_selection"
+                  placement="right"
+                  disabled={!noChildren}
+                  arrow={{
+                    pointAtCenter: true,
+                  }}
+                  trigger={["click"]}
+                >
+                  <PlusCircleOutlined
+                    onClick={() => (
+                      !noChildren && levelOneAdd(el), setClickedBtnData(el)
+                    )}
+                  />
+                </Dropdown> */}
                 <PlusCircleOutlined
                   onClick={() => (
                     !noChildren && levelOneAdd(el), setClickedBtnData(el)
