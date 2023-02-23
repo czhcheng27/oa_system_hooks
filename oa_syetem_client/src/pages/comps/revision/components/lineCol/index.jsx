@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Input, Dropdown, Menu, Popconfirm } from "antd";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 import classNames from "classnames";
-import { createUidKey } from "../../../../../utils/index";
+import { createUidKey, cloneDeep } from "../../../../../utils/index";
 import DelPop from "../../delPop";
 import { colorCompMap } from "../../mapConst";
 import {
@@ -13,6 +13,7 @@ import {
 } from "./mockConst";
 import rightArrow from "./rightArrow.png";
 import css from "./index.module.less";
+import PopCom from "../../popCom";
 
 const { TextArea } = Input;
 
@@ -84,6 +85,41 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
     },
   ];
 
+  // type 1 : 第一层级（a级添加）
+  const levelOneAdd = (data) => {
+    const curIndex = valueData.findIndex((el) => el.id === data.id);
+    const newData = cloneDeep(valueData);
+    const newLable = String.fromCharCode(data.levelOne.charCodeAt(0) * 1 + 1);
+    newData.splice(curIndex + 1, 0, {
+      ...typeOneObj,
+      levelOne: newLable,
+      id: createUidKey(),
+      children: [{ ...typeOneObj.children[0], id: createUidKey() }],
+    });
+    const preArr = newData.slice(0, curIndex + 2);
+    if (valueData.length > 1) {
+      const afterArr = newData.slice(curIndex + 2);
+      afterArr.forEach((el) => {
+        el.levelOne = String.fromCharCode(el.levelOne.charCodeAt(0) * 1 + 1);
+        return el;
+      });
+    }
+    setValueData(newData);
+  };
+
+  // type 1 : 第一层级（a级删除）
+  const levelOneDel = (data) => {
+    const curIndex = valueData.findIndex((el) => el.id === data.id);
+    const newData = cloneDeep(valueData);
+    const preArr = newData.slice(0, curIndex);
+    const afterArr = newData.slice(curIndex + 1);
+    afterArr.forEach((el) => {
+      el.levelOne = String.fromCharCode(el.levelOne.charCodeAt(0) * 1 - 1);
+      return el;
+    });
+    setValueData([...preArr, ...afterArr]);
+  };
+
   // 渲染类型 type 1
   const renderTypeOne = () => {
     const disable = valueData.length === 1;
@@ -101,10 +137,23 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
                 // autoSize={{ minRows: 2, maxRows: 6 }}
               />
               <div className={css.handle_btn}>
-                <PlusCircleOutlined></PlusCircleOutlined>
-                <MinusCircleOutlined
-                  className={classNames({ [css.diable_hover]: disable })}
+                <PlusCircleOutlined
+                  onClick={() => (
+                    !noChildren && levelOneAdd(el), setClickedBtnData(el)
+                  )}
                 />
+                <PopCom
+                  position={"left"}
+                  title={"Sure to delete?"}
+                  disable={disable}
+                  handleConfirm={() => !disable && levelOneDel(el)}
+                >
+                  {
+                    <MinusCircleOutlined
+                      className={classNames({ [css.diable_hover]: disable })}
+                    />
+                  }
+                </PopCom>
               </div>
             </div>
             {!!el.children.length &&
