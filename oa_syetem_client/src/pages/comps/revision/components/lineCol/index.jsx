@@ -248,9 +248,55 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
     );
   };
 
+  // 类型 2 和 3 的添加/删除按钮的方法
+  const typeTwoAction = (data, action) => {
+    const curIndex = valueData.findIndex((el) => el.id === data.id);
+    const newData = cloneDeep(valueData);
+    if (action === "add") {
+      newData.splice(curIndex + 1, 0, { ...typeTwoObj, id: createUidKey() });
+    } else if (action === "del") {
+      newData.splice(curIndex, 1);
+    }
+    setValueData(newData);
+  };
+
   // 渲染类型 2 和 3
   const renderTypeTwo = () => {
-    console.log("2");
+    const disable = valueData.length === 1;
+    return (
+      !!valueData.length &&
+      valueData.map((el, index) => {
+        return (
+          <div key={index} className={css.type_wrapper}>
+            <div className={css.levelOne}>
+              <p
+                style={{ width: "48px" }}
+                className={css.levelOne_label}
+              >{`——`}</p>
+              <TextArea
+                value={el.value}
+                onChange={(e) => lOneTxtChange(e.target.value, el)}
+              />
+              <div className={css.handle_btn}>
+                <PlusCircleOutlined onClick={() => typeTwoAction(el, "add")} />
+                <PopCom
+                  position={"left"}
+                  title={"Sure to Delete?"}
+                  disable={disable}
+                  handleConfirm={() => !disable && typeTwoAction(el, "del")}
+                >
+                  {
+                    <MinusCircleOutlined
+                      className={classNames({ [css.diable_hover]: disable })}
+                    />
+                  }
+                </PopCom>
+              </div>
+            </div>
+          </div>
+        );
+      })
+    );
   };
 
   const renderLineCol = () => {
