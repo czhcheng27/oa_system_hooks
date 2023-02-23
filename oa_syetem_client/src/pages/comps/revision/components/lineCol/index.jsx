@@ -120,6 +120,16 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
     setValueData([...preArr, ...afterArr]);
   };
 
+  // 一级文本更改时更新数据函数
+  const lOneTxtChange = (txt, obj) => {
+    const newData = cloneDeep(valueData);
+    newData.map((el) => {
+      if (el.id === obj.id) el.value = txt;
+      return el;
+    });
+    setValueData(newData);
+  };
+
   // 第二级文本更改时更新数据函数
   const lTwoTxtChange = (txt, data, obj) => {
     const newData = cloneDeep(valueData);
@@ -148,6 +158,7 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
               <TextArea
                 rows={3}
                 value={el.value}
+                onChange={(e) => lOneTxtChange(e.target.value, el)}
                 // autoSize={{ minRows: 2, maxRows: 6 }}
               />
               <div className={css.handle_btn}>
