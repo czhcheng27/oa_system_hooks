@@ -120,6 +120,28 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
     setValueData([...preArr, ...afterArr]);
   };
 
+  // type 1 : 第二层级（ 1）添加）
+  const lTwoAdd = (data, obj) => {
+    const newData = cloneDeep(valueData);
+    newData.forEach((el) => {
+      if (el.levelOne == data.levelOne) {
+        const curIndex = el.children.findIndex((el) => el.id === obj.id);
+        el.children.splice(curIndex + 1, 0, {
+          levelTwo: (obj.levelTwo * 1 + 1).toString(),
+          id: createUidKey(),
+          value: "",
+        });
+        const afterArr = el.children.slice(curIndex + 2);
+        afterArr.forEach((el) => {
+          el.levelTwo = (el.levelTwo * 1 + 1).toString();
+          return el;
+        });
+      }
+      return el;
+    });
+    setValueData(newData);
+  };
+
   // 一级文本更改时更新数据函数
   const lOneTxtChange = (txt, obj) => {
     const newData = cloneDeep(valueData);
@@ -192,7 +214,7 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
                       onChange={(e) => lTwoTxtChange(e.target.value, el, obj)}
                     />
                     <div className={css.handle_btn}>
-                      <PlusCircleOutlined />
+                      <PlusCircleOutlined onClick={() => lTwoAdd(el, obj)} />
                       <PopCom
                         position={"left"}
                         title={"Sure to delete?"}
