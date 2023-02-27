@@ -5,6 +5,7 @@ import TextArea from "./components/textArea/index";
 import RichList from "./components/richList/index";
 import Formula from "./components/formula/index";
 import LineCol from "./components/lineCol/index";
+import Notes from "./components/notes";
 
 export const independentComps = [
   "cover",
@@ -69,6 +70,13 @@ export const coms = [
     },
   },
   {
+    comType: 10,
+    desc: "Notes",
+    content: "",
+    parentIndex: "",
+    properties: {},
+  },
+  {
     comType: 12,
     desc: "Formula",
     content: "",
@@ -85,6 +93,7 @@ export const matchCom = (key) => {
     6: TextArea,
     7: RichList,
     8: LineCol,
+    10: Notes,
     12: Formula,
   };
   return all[key];
