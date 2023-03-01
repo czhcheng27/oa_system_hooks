@@ -21,7 +21,7 @@ const Cover = forwardRef((props, ref) => {
 
   useImperativeHandle(ref, () => ({
     coverData: () => {
-      return coverForm.validateFields();
+      return coverForm.getFieldsValue();
     },
   }));
 

@@ -10,7 +10,7 @@ const Introduction = forwardRef((props, ref) => {
 
   useImperativeHandle(ref, () => ({
     introData: () => {
-      return introForm.validateFields();
+      return introForm.getFieldsValue();
     },
   }));
 
