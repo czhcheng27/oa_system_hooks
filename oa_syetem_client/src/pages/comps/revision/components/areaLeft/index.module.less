@@ -25,6 +25,17 @@
     flex: 1;
     padding: 10px;
     overflow: auto;
+
+    :global {
+      .ant-collapse-ghost
+        > .ant-collapse-item
+        > .ant-collapse-content
+        > .ant-collapse-content-box {
+        padding-top: 0px;
+        padding-bottom: 12px;
+        padding-right: 0;
+      }
+    }
   }
 }
 

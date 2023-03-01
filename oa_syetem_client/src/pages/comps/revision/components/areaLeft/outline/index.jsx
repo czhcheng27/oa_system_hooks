@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Collapse } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { CaretRightOutlined } from "@ant-design/icons";
-import { updateOpenedIndex } from "../../../../../../redux/actions";
+import { updateOpenedIndex } from "@/redux/actions";
+import { findUpperObj } from "@/utils";
+import Ellipsis from "@/components/Ellipsis";
 import AddChapter from "../addChapter";
 import DelChapter from "../delChapter";
-import { findUpperObj } from "../../../../../../utils";
 import { outlineIconMap, actOutlineIconMap } from "../../../mapConst";
 import css from "./index.module.less";
 
@@ -148,7 +149,9 @@ const Outline = ({ actIdx, setActiveOutline }) => {
                     onMouseEnter={() => addHoverIndex(index)}
                     onMouseLeave={() => removeHoverIndex(index)}
                   >
-                    {item.name}
+                    <Ellipsis content={item.name}>
+                      <p>{item.name}</p>
+                    </Ellipsis>
                     {hoverIndex.includes(index) && item.deletable && (
                       <DelChapter
                         setHoverIndex={setHoverIndex}

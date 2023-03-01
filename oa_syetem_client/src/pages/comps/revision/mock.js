@@ -44,7 +44,7 @@ export const getJsonAPI = {
       },
       {
         index: "2",
-        name: "2.Import Files",
+        name: "2.Import Multi Files",
         coms: [],
       },
       {
