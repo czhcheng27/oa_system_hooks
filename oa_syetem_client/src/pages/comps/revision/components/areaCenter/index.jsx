@@ -87,19 +87,6 @@ const AreaCenter = forwardRef((props, ref) => {
     );
   };
 
-  // const renderIndepComps = (dataIdx) => {
-  //   switch (dataIdx) {
-  //     case 'cover':
-  //       return <Cover />;
-
-  //     case 'introduction':
-  //       return <Introduction />;
-
-  //     default:
-  //       return <Cover />;
-  //   }
-  // };
-
   const renderIndepComps = (dataIdx) => {
     return (
       <>
@@ -113,11 +100,25 @@ const AreaCenter = forwardRef((props, ref) => {
     );
   };
 
+  const dataAssign = (coverData, introData) => {
+    outlineAllData[0].data = coverData;
+    outlineAllData[1].data = introData;
+    return outlineAllData;
+  };
+
   const handleSubmit = async () => {
     const coverData = await coverRef.current.coverData();
-    console.log("coverData", coverData);
     const introData = await introRef.current.introData();
-    console.log("introData", introData);
+
+    const updateData = dataAssign(coverData, introData);
+    dispatch(updateOutlineAllData(updateData));
+    console.log("updateData", updateData);
+    const returnData = {
+      standardId: "",
+      version: "",
+      data: JSON.stringify(updateData),
+    };
+    return returnData;
   };
 
   return (
