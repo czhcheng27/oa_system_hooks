@@ -16,7 +16,7 @@ const Introduction = forwardRef((props, ref) => {
 
   return (
     <div>
-      <Form form={introForm}>
+      <Form form={introForm} labelCol={{ flex: "80px" }}>
         <Item
           label="Content"
           name="content"
