@@ -12,23 +12,19 @@ export const getJsonAPI = {
         coms: [
           {
             comType: 1,
+            code: "1.1",
             desc: "label 1",
             id: "mock1",
-            content: {
-              title: "制造方法",
-              num: "1.1",
-            },
+            content: "",
             parentIndex: "1",
             properties: {},
           },
           {
             comType: 2,
+            code: "1.1.1",
             desc: "label 2",
             id: "mock2",
-            content: {
-              title: "制造方法详细步骤",
-              num: "1.1.1",
-            },
+            content: "",
             parentIndex: "1.1",
             properties: {},
           },
@@ -36,7 +32,7 @@ export const getJsonAPI = {
             comType: 6,
             desc: "TextArea",
             id: "mock6",
-            content: "xxxxx",
+            content: "",
             parentIndex: "1.1.1",
             properties: {},
           },

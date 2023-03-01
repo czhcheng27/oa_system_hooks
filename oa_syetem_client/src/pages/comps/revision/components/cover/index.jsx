@@ -5,15 +5,6 @@ import css from "./index.module.less";
 
 const { Item } = Form;
 
-const layout = {
-  labelCol: {
-    span: 6,
-  },
-  wrapperCol: {
-    span: 18,
-  },
-};
-
 // eslint-disable-next-line react/display-name
 const Cover = forwardRef((props, ref) => {
   const [coverForm] = Form.useForm();
@@ -36,7 +27,7 @@ const Cover = forwardRef((props, ref) => {
 
   return (
     <div>
-      <Form {...layout} form={coverForm}>
+      <Form labelCol={{ flex: "120px" }} form={coverForm}>
         <Item
           label="Standard Name"
           name="standardName"
