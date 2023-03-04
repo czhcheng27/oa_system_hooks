@@ -14,6 +14,7 @@ export const getJsonAPI = {
             comType: 1,
             code: "1.1",
             desc: "label 1",
+            name: "",
             id: "mock1",
             content: '"this is a mock data label 1"',
             parentIndex: "1",
@@ -23,6 +24,7 @@ export const getJsonAPI = {
             comType: 2,
             code: "1.1.1",
             desc: "label 2",
+            name: "",
             id: "mock2",
             content: '"this is a mock data label 2"',
             parentIndex: "1.1",
@@ -31,6 +33,7 @@ export const getJsonAPI = {
           {
             comType: 6,
             desc: "TextArea",
+            name: "TextArea",
             id: "mock6",
             content: "",
             parentIndex: "1.1.1",

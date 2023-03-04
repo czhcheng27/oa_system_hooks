@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 222px;
   padding: 12px;
   background: #fffbf7;
   border: 1px solid rgba(209, 153, 128, 0.1);
@@ -19,11 +18,23 @@
     width: 19px;
     margin-right: 7px;
   }
-  p {
-    margin-bottom: 0;
-  }
 }
 
 .right {
   flex: 1;
+  margin-top: 6px;
+  :global {
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+    .ant-input {
+      border-color: #f0f1f4;
+    }
+    .ant-input:hover {
+      border-color: #d19980;
+    }
+    .ant-input:focus {
+      border-color: #d19980 !important;
+    }
+  }
 }
