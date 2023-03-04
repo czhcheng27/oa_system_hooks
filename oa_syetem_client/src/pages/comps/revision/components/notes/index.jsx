@@ -16,10 +16,14 @@ const initNotes = [
   },
 ];
 
-const Notes = ({ props, onDelete }) => {
+const Notes = ({ props, onDelete, comValueUpdate }) => {
   const { content, id } = props;
 
   const [valueData, setValueData] = useState(initNotes);
+
+  useEffect(() => {
+    comValueUpdate(id, { notesList: valueData });
+  }, [valueData]);
 
   const txtChange = (txt, obj) => {
     const newData = cloneDeep(valueData);
