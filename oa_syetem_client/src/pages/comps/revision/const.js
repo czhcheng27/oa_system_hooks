@@ -18,6 +18,7 @@ export const coms = [
   {
     comType: 1,
     desc: "label 1",
+    name: "",
     content: {
       title: "制造方法",
       num: "4.1",
@@ -28,6 +29,7 @@ export const coms = [
   {
     comType: 2,
     desc: "label 2",
+    name: "",
     content: {
       title: "制造方法",
       num: "4.1.1",
@@ -38,6 +40,7 @@ export const coms = [
   {
     comType: 3,
     desc: "label 3",
+    name: "",
     content: {
       title: "制造方法",
       num: "4.1.2.3",
@@ -48,6 +51,7 @@ export const coms = [
   {
     comType: 6,
     desc: "TextArea",
+    name: "TextArea",
     content: "内容",
     parentIndex: "4.1.2",
     properties: {},
@@ -62,6 +66,7 @@ export const coms = [
   {
     comType: 8,
     desc: "Options",
+    name: "Options",
     content: "",
     parentIndex: "",
     properties: {
@@ -72,6 +77,7 @@ export const coms = [
   {
     comType: 10,
     desc: "Notes",
+    name: "Notes",
     content: "",
     parentIndex: "",
     properties: {},
@@ -79,6 +85,7 @@ export const coms = [
   {
     comType: 12,
     desc: "Formula",
+    name: "Formula",
     content: "",
     parentIndex: "",
     properties: {},

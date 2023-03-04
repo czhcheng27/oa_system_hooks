@@ -25,19 +25,28 @@ export const actOutlineIconMap = {
 export const colorCompMap = {
   1: {
     left: { color: "#847bca", background: "rgba(191, 183, 248, 0.12)" },
-    midBg: { background: "rgba(242,241,254,0.27)" },
+    midBg: {
+      background: "rgba(242,241,254,0.27)",
+      border: "1px solid #E6ECFF",
+    },
     midTxt: { color: "#8B80C5" },
     delIcon: { color: "#9E97D5" },
   },
   2: {
     left: { color: "#847bca", background: "rgba(191, 183, 248, 0.12)" },
-    midBg: { background: "rgba(242,241,254,0.27)" },
+    midBg: {
+      background: "rgba(242,241,254,0.27)",
+      border: "1px solid #E6ECFF",
+    },
     midTxt: { color: "#8B80C5" },
     delIcon: { color: "#9E97D5" },
   },
   3: {
     left: { color: "#847bca", background: "rgba(191, 183, 248, 0.12)" },
-    midBg: { background: "rgba(242,241,254,0.27)" },
+    midBg: {
+      background: "rgba(242,241,254,0.27)",
+      border: "1px solid #E6ECFF",
+    },
     midTxt: { color: "#8B80C5" },
     delIcon: { color: "#9E97D5" },
   },

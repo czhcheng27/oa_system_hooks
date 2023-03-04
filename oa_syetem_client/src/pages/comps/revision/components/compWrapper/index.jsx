@@ -10,17 +10,18 @@ const CompWrapper = ({ prop: { props, onDelete }, children }) => {
   return (
     <div
       className={css.wrapper}
+      style={colorCompMap[props.comType].midBg}
       onMouseEnter={() => setHoverStatus(true)}
       onMouseLeave={() => !btnClicked && setHoverStatus(false)}
     >
-      <div className={css.left}>
+      <div className={css.label}>
         <img
           src={require(`../areaLeft/comps/icons/${props.comType}.png`).default}
           alt={props.desc}
         />
-        <p style={colorCompMap[props.comType].midTxt}>{props.desc}</p>
+        <p style={colorCompMap[props.comType].midTxt}>{props.name}</p>
       </div>
-      <div className={css.right}>{children}</div>
+      <div className={css.content}>{children}</div>
       <DelPop
         props={props}
         onDelete={onDelete}

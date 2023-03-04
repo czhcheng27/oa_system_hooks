@@ -1,52 +1,23 @@
-import React, { useState } from "react";
-import { Form, Input, Row, Col } from "antd";
+import React from "react";
+import { Input } from "antd";
+import CompWrapper from "../compWrapper";
 import { colorCompMap } from "../../mapConst";
-import DelPop from "../../delPop";
 import css from "./index.module.less";
 
-const { Item } = Form;
-
-const Text1 = ({ props, onDelete }) => {
-  const [hoverStatus, setHoverStatus] = useState(false);
-  const [btnClicked, setBtnClicked] = useState(false);
+const Text1 = ({ props, onDelete, comValueUpdate }) => {
+  const { content, id, code } = props;
 
   return (
-    <div
-      className={css.wrapper}
-      onMouseEnter={() => setHoverStatus(true)}
-      onMouseLeave={() => !btnClicked && setHoverStatus(false)}
-    >
-      <div className={css.left}>
-        <img
-          src={require(`../areaLeft/comps/icons/${props.comType}.png`).default}
-          alt={props.desc}
-        />
-        <p style={colorCompMap[props.comType].midTxt}>{props.desc}</p>
-      </div>
+    <CompWrapper prop={{ props, onDelete }}>
       <div className={css.right}>
-        <Form>
-          <Row gutter={16}>
-            <Col span={10}>
-              <Item label="Code" name="code">
-                <Input />
-              </Item>
-            </Col>
-            <Col span={13}>
-              <Item label="Content" name="content">
-                <Input />
-              </Item>
-            </Col>
-          </Row>
-        </Form>
+        <p style={colorCompMap[props.comType].midTxt}>{code}</p>
+        <Input
+          defaultValue={content ? JSON.parse(content) : ""}
+          placeholder="Please type in your content"
+          onChange={(e) => comValueUpdate(id, e.target.value)}
+        />
       </div>
-      <DelPop
-        props={props}
-        onDelete={onDelete}
-        setBtnClicked={setBtnClicked}
-        hoverStatus={hoverStatus}
-        setHoverStatus={setHoverStatus}
-      />
-    </div>
+    </CompWrapper>
   );
 };
 
