@@ -1,27 +1,25 @@
-.wrapper {
-  position: relative;
+.right {
   display: flex;
-  align-items: center;
-  height: 67px;
-  background: rgba(242, 241, 254, 0.27);
-  border: 1.2px solid #e6ecff;
-}
-
-.left {
-  display: flex;
-  align-items: center;
-  margin: 0 12px;
-  img {
-    height: 18px;
-    width: 19px;
-    margin-right: 7px;
-  }
+  padding-left: 26px;
+  margin-top: -32px;
   p {
+    line-height: 32px;
+    margin-right: 10px;
     margin-bottom: 0;
   }
-}
+  input {
+    height: 32px;
+  }
 
-.right {
-  height: 32px;
-  flex: 1;
+  :global {
+    .ant-input {
+      border-color: #f0f1f4;
+    }
+    .ant-input:hover {
+      border-color: #8981cc;
+    }
+    .ant-input:focus {
+      border-color: #8981cc !important;
+    }
+  }
 }
