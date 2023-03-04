@@ -43,7 +43,7 @@ export const coms = [
     comType: 6,
     desc: "TextArea",
     name: "TextArea",
-    content: "内容",
+    content: "",
     parentIndex: "4.1.2",
     properties: {},
   },

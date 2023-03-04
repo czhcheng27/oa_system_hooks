@@ -172,7 +172,8 @@ const getPindexAndCode = (array, i, titleNo) => {
 };
 
 // 获取除了“条”的其他组件的 parentIndex
-const getOtherCompsPindex = (array, i) => {
+const getOtherCompsPindex = (array, i, activeOutline) => {
+  array[i].parentIndex = activeOutline.index;
   // 当前 index 之前的数组数据
   const preArr = array.slice(0, i);
 
@@ -183,11 +184,8 @@ const getOtherCompsPindex = (array, i) => {
   if (targetObj) {
     // parentIndex 赋值
     array[i].parentIndex = targetObj.code;
-
-    return array;
-  } else {
-    return false;
   }
+  return array;
 };
 
 export const generateParentIndex = (array, activeOutline) => {
@@ -201,10 +199,7 @@ export const generateParentIndex = (array, activeOutline) => {
         return;
       }
     } else {
-      getOtherCompsPindex(array, i);
-      if (!getOtherCompsPindex(array, i)) {
-        return;
-      }
+      getOtherCompsPindex(array, i, activeOutline);
     }
   }
   return array;
