@@ -57,7 +57,7 @@ export const coms = [
   {
     comType: 8,
     desc: "Options",
-    name: "Options",
+    name: "",
     content: "",
     parentIndex: "",
     properties: {

@@ -1,99 +1,51 @@
 import React, { useState, useEffect } from "react";
-import { Input, Dropdown, Menu, Popconfirm } from "antd";
+import { Input, Dropdown } from "antd";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 import classNames from "classnames";
 import { createUidKey, cloneDeep } from "../../../../../utils/index";
-import DelPop from "../../delPop";
-import { colorCompMap } from "../../mapConst";
 import {
   typeOneObj,
   typeTwoObj,
   initTypeOneData,
   typePlaceholder,
 } from "./mockConst";
-import rightArrow from "./rightArrow.png";
 import css from "./index.module.less";
 import PopCom from "../../popCom";
+import SelectOpts from "./selectOpts";
+import CompWrapper from "../compWrapper";
 
 const { TextArea } = Input;
 
 const LineCol = ({ props, comValueUpdate, onDelete }) => {
-  const [hoverStatus, setHoverStatus] = useState(false);
-  const [btnClicked, setBtnClicked] = useState(false);
+  const { content, id, properties } = props;
 
   const [selectedType, setSelectedType] = useState("1");
   const [valueData, setValueData] = useState(initTypeOneData);
   const [leadWords, setLeadWords] = useState("");
   const [clickedBtnData, setClickedBtnData] = useState();
 
+  useEffect(() => {
+    const newProperties = {
+      leadWords,
+      type: selectedType,
+    };
+    comValueUpdate(id, valueData, newProperties);
+  }, [leadWords, selectedType, valueData]);
+
   const handleSelectType = (type) => {
     setSelectedType(type);
     setValueData([{ ...typeTwoObj, id: createUidKey() }]);
   };
 
-  // 类型选项的 menu
   const items = [
     {
-      key: "1",
-      label: (
-        <div className={css.col1}>
-          <p>
-            {`a)`}
-            <span></span>:
-          </p>
-          <p>
-            {`1)`}
-            <span></span>;
-          </p>
-        </div>
-      ),
-      onClick: () => (
-        setLeadWords(""), setSelectedType("1"), setValueData(initTypeOneData)
-      ),
-    },
-    {
-      key: "2",
-      label: (
-        <div className={css.col2}>
-          <p>
-            <span>{`Qualify`}</span>
-            <span></span>:
-          </p>
-          <p>
-            {`——`}
-            <span></span>,
-          </p>
-        </div>
-      ),
-      onClick: () => (setLeadWords(""), handleSelectType("2")),
-    },
-    {
-      key: "3",
-      label: (
-        <div className={css.col2}>
-          <p>
-            <span>{`Qualify`}</span>
-            <span></span>:
-          </p>
-          <p>
-            {`——`}
-            <span></span>;
-          </p>
-        </div>
-      ),
-      onClick: () => (setLeadWords(""), handleSelectType("3")),
-    },
-  ];
-
-  const addMenus = [
-    {
       key: "addProj",
-      label: <div className={css.addProj}>项目</div>,
+      label: <div className={css.addProj}>First Level</div>,
       onClick: () => levelOneAdd(clickedBtnData),
     },
     {
       key: "addChildProj",
-      label: <div className={css.addChildProj}>子项目</div>,
+      label: <div className={css.addChildProj}>Child Level</div>,
       onClick: () => addChildProj(),
     },
   ];
@@ -229,8 +181,8 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
                 // autoSize={{ minRows: 2, maxRows: 6 }}
               />
               <div className={css.handle_btn}>
-                {/* <Dropdown
-                  menu={{ addMenus }}
+                <Dropdown
+                  menu={{ items }}
                   overlayClassName="add_selection"
                   placement="right"
                   disabled={!noChildren}
@@ -244,12 +196,7 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
                       !noChildren && levelOneAdd(el), setClickedBtnData(el)
                     )}
                   />
-                </Dropdown> */}
-                <PlusCircleOutlined
-                  onClick={() => (
-                    !noChildren && levelOneAdd(el), setClickedBtnData(el)
-                  )}
-                />
+                </Dropdown>
                 <PopCom
                   position={"left"}
                   title={"Sure to delete?"}
@@ -352,56 +299,46 @@ const LineCol = ({ props, comValueUpdate, onDelete }) => {
     }
   };
 
+  const initFunc = () => {
+    const { type, leadWords } = properties;
+    setValueData(content ? JSON.parse(content) : initTypeOneData);
+    setSelectedType(type);
+    setLeadWords(leadWords);
+  };
+
+  useEffect(() => {
+    props && initFunc();
+  }, [props]);
+
   return (
-    <div
-      style={colorCompMap[props.comType].midBg}
-      className={css.wrapper}
-      onMouseEnter={() => setHoverStatus(true)}
-      onMouseLeave={() => !btnClicked && setHoverStatus(false)}
-    >
-      <img
-        style={{ position: "absolute", top: "19px", height: "18px" }}
-        src={require(`../areaLeft/comps/icons/${props.comType}.png`).default}
-        alt={props.desc}
-      />
+    <CompWrapper prop={{ props, onDelete }}>
+      <div className={css.lineCol_wrapper}>
+        {/* 选择样式 */}
+        <div className={css.selector_wrapper}>
+          <Input placeholder={typePlaceholder[selectedType]} readOnly />
+          <SelectOpts
+            props={{
+              setLeadWords,
+              setSelectedType,
+              setValueData,
+              handleSelectType,
+            }}
+          />
+        </div>
 
-      {/* 选择样式 */}
-      <div className={css.selector_wrapper}>
-        <Input placeholder={typePlaceholder[selectedType]} readOnly />
-        <Dropdown
-          menu={{ items }}
-          overlayClassName="lineCol_dropdown_root"
-          placement="bottomLeft"
-          arrow={{
-            pointAtCenter: true,
-          }}
-          trigger={["click"]}
-        >
-          <div className={css.icon_btn}>
-            <img src={rightArrow} style={{ width: "10px" }} />
-          </div>
-        </Dropdown>
+        {/* 引导语输入 */}
+        <div style={{ margin: "12px 0 14px 31px" }}>
+          <Input
+            value={leadWords}
+            onChange={(e) => setLeadWords(e.target.value)}
+            placeholder="Please Input Leading Words"
+          />
+        </div>
+
+        {/* 相应类型样式渲染 */}
+        <div>{renderLineCol()}</div>
       </div>
-
-      {/* 引导语输入 */}
-      <div style={{ margin: "12px 0 14px 31px" }}>
-        <Input
-          value={leadWords}
-          onChange={(e) => setLeadWords(e.target.value)}
-          placeholder="Please Input Leading Words"
-        />
-      </div>
-
-      {/* 相应类型样式渲染 */}
-      <div>{renderLineCol()}</div>
-      <DelPop
-        props={props}
-        onDelete={onDelete}
-        setBtnClicked={setBtnClicked}
-        hoverStatus={hoverStatus}
-        setHoverStatus={setHoverStatus}
-      />
-    </div>
+    </CompWrapper>
   );
 };
 
