@@ -11,6 +11,15 @@ export const getJsonAPI = {
         name: "1.Scope",
         coms: [
           {
+            comType: 9,
+            desc: "Table",
+            name: "Table",
+            id: "mock9",
+            content: "",
+            parentIndex: "1.1.1",
+            properties: {},
+          },
+          {
             comType: 1,
             code: "1.1",
             desc: "label 1",

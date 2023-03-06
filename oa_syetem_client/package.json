@@ -12,6 +12,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "@tinymce/tinymce-react": "^4.3.0",
     "antd": "^4.24.7",
     "axios": "^0.25.0",
     "babel-plugin-import": "^1.13.3",
@@ -35,6 +36,7 @@
     "redux-thunk": "^2.4.1",
     "sortablejs": "^1.15.0",
     "store": "^2.0.12",
+    "tinymce": "^6.3.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
