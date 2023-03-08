@@ -15,7 +15,10 @@ const TextArea = ({ props, onDelete, comValueUpdate }) => {
   };
 
   useEffect(() => {
-    props && textareaForm.setFieldsValue(content ? JSON.parse(content) : "");
+    props &&
+      textareaForm.setFieldsValue({
+        contentValue: content ? JSON.parse(content) : "",
+      });
   }, [props]);
   return (
     <CompWrapper prop={{ props, onDelete }}>
