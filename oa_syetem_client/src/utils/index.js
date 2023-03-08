@@ -204,3 +204,13 @@ export const generateParentIndex = (array, activeOutline) => {
   }
   return array;
 };
+
+// 重置children数组内每个对象的index及name
+export const resortIdx = (array) => {
+  array.forEach((el, index) => {
+    const chapterIndex = el.name.indexOf(".");
+    const chapterName = el.name.slice(chapterIndex + 1, el.name.length);
+    (el.index = `${index + 1}`) && (el.name = `${index + 1}.${chapterName}`);
+  });
+  return array;
+};

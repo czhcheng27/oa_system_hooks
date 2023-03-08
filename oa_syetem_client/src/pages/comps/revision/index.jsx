@@ -122,6 +122,7 @@ class Revision extends React.Component {
         <div className={css.revision_left}>
           <AreaLeft
             actIdx={activeOutline.index}
+            activeOutline={activeOutline}
             setActiveOutline={this.setActiveOutline}
             addCom={(data, num) => this.addCom(data, num)}
           />

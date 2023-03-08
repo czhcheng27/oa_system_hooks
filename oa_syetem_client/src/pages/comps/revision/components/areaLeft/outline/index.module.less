@@ -30,7 +30,7 @@
   align-items: center;
 
   margin: -15px;
-  padding: 15px;
+  padding: 15px 8px;
 
   img {
     width: 18px;
@@ -46,7 +46,7 @@
 }
 
 .each_indise_title {
-  height: @insideHeight;
+  min-height: @insideHeight;
   line-height: @insideHeight;
   margin: 10px 0;
   font-family: PingFangSC-SNaNpxibold;
@@ -55,7 +55,8 @@
   position: relative;
 
   & > p {
-    max-width: 92px;
+    margin-left: 11px;
+    margin-right: 14px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -64,8 +65,40 @@
   &:hover {
     cursor: pointer;
   }
+
+  .chapter_folder_icon {
+    width: 8px;
+    height: 10px;
+    position: absolute;
+    top: 15px;
+    left: -5px;
+  }
+
+  .visible_icon {
+    position: absolute;
+    top: 15px;
+    right: 0px;
+    width: 14px;
+    height: 12px;
+  }
+
+  .text1 {
+    padding-left: 24px;
+    max-height: @insideHeight;
+    & > p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }
 
 .atvInBg {
   color: #4786ef;
+}
+
+.visibleHidden {
+  p {
+    color: #d6d6d8;
+  }
 }

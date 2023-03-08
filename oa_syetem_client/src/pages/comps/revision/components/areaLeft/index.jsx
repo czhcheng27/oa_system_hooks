@@ -8,7 +8,7 @@ import CompIcon from "../../imgs/compIcon.png";
 import CompIconActive from "../../imgs/compIconActive.png";
 import css from "./index.module.less";
 
-const AreaLeft = ({ addCom, actIdx, setActiveOutline }) => {
+const AreaLeft = ({ addCom, actIdx, activeOutline, setActiveOutline }) => {
   const [activeComp, setActiveComp] = useState(true);
   const shouldDisable = independentComps.includes(actIdx);
   return (
@@ -34,7 +34,11 @@ const AreaLeft = ({ addCom, actIdx, setActiveOutline }) => {
 
       <section className={css.arealeft_section}>
         {activeComp ? (
-          <Outline actIdx={actIdx} setActiveOutline={setActiveOutline} />
+          <Outline
+            actIdx={actIdx}
+            activeOutline={activeOutline}
+            setActiveOutline={setActiveOutline}
+          />
         ) : (
           <Comps addCom={addCom} />
         )}
