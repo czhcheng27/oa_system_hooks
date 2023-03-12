@@ -1,3 +1,4 @@
+import { message } from "antd";
 import { debounce, throttle, round, cloneDeep, merge } from "lodash";
 
 // 函数的 防抖 和 节流，使用 lodash 工具函数
@@ -203,6 +204,22 @@ export const generateParentIndex = (array, activeOutline) => {
     }
   }
   return array;
+};
+
+// 限制输入只为数字
+export const inputToNum = (data) => {
+  const standardString = data.replace(/\s+/g, "");
+  const arr = standardString.split("");
+  const res = arr.reduce((pre, item) => {
+    const strCode = item.charCodeAt();
+    if (strCode < 58 && strCode > 48) {
+      pre.push(item);
+    } else {
+      message.warning("Please type in Number");
+    }
+    return pre;
+  }, []);
+  return res.join("");
 };
 
 // 重置children数组内每个对象的index及name

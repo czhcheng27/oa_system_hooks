@@ -79,6 +79,7 @@ const AreaCenter = forwardRef((props, ref) => {
                 props={item}
                 comValueUpdate={comValueUpdate}
                 onDelete={() => handleDelete(item)}
+                arr={arr}
               />
             </div>
           );

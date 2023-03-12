@@ -13,7 +13,7 @@ export const getJsonAPI = {
           {
             comType: 9,
             desc: "Table",
-            name: "Table",
+            name: "",
             id: "mock9",
             content: "",
             parentIndex: "1.1.1",
