@@ -4,6 +4,7 @@ import Text3 from "./components/text3/index";
 import TextArea from "./components/textArea/index";
 import RichList from "./components/richList/index";
 import Formula from "./components/formula/index";
+import Formula1 from "./components/formula/index1";
 import LineCol from "./components/lineCol/index";
 import Notes from "./components/notes";
 import TinyTable from "./components/tinyTable";
@@ -90,6 +91,14 @@ export const coms = [
     parentIndex: "",
     properties: {},
   },
+  {
+    comType: 13,
+    desc: "Formula1",
+    name: "Formula1",
+    content: "",
+    parentIndex: "",
+    properties: {},
+  },
 ];
 
 export const matchCom = (key) => {
@@ -103,6 +112,7 @@ export const matchCom = (key) => {
     9: TinyTable,
     10: Notes,
     12: Formula,
+    13: Formula1,
   };
   return all[key];
 };

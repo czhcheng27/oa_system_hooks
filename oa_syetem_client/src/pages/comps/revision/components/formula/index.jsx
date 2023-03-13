@@ -5,7 +5,7 @@ import classNames from "classnames";
 import DelPop from "../../delPop";
 import { colorCompMap } from "../../mapConst";
 import { formulaArr } from "./formulaString";
-import rightArrow from "./rightArrow.png";
+import rightArrow from "./imgs/rightArrow.png";
 import css from "./index.module.less";
 
 const { Provider, Node } = require("@nteract/mathjax");

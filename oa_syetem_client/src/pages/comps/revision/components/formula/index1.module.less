@@ -1,0 +1,126 @@
+.inside_wrapper {
+  margin-top: -62px;
+
+  :global {
+    .ant-input {
+      border-color: #f0f1f4;
+    }
+  }
+}
+
+.radio_wrapper {
+  display: flex;
+  padding: 0 75px;
+  margin: 30px 0 16px 52px;
+  header {
+    color: #242f57;
+    margin-right: 18px;
+    line-height: 33px;
+  }
+  section {
+    flex: 1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    & > div > input {
+      width: 110px;
+      margin: 0 12px 0 -4px;
+    }
+  }
+  :global {
+    .ant-radio-checked .ant-radio-inner {
+      border-color: #6076b7;
+    }
+    .ant-radio-inner::after {
+      background-color: #6076b7;
+    }
+  }
+}
+
+.code_input {
+  display: flex;
+  padding: 0 14px 0 30px;
+  & > p {
+    min-width: 28px;
+    margin-right: 6px;
+    line-height: 32px;
+  }
+  input {
+    width: 96px;
+  }
+}
+
+.formulaBtn_wrapper {
+  display: flex;
+  padding: 0 14px 0 30px;
+  margin: 8px 0 16px 0;
+  height: 32px;
+  header {
+    color: #927cd6;
+    width: 92px;
+    height: 31px;
+    line-height: 31px;
+    margin-right: 6px;
+  }
+  section {
+    width: 160px;
+    background: #f3f1fe;
+    border: 1px solid #e6e1f6;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 6px 0 9px;
+
+    & > p {
+      color: #927cd6;
+      margin: 0 1px 1px 8px;
+      flex: 1;
+    }
+  }
+}
+
+.display_wrapper {
+  display: flex;
+  padding: 0 14px 0 96px;
+  margin: 8px 0 16px 0;
+  section {
+    flex: 1;
+    padding-left: 33px;
+    border-radius: 4px;
+  }
+}
+
+.claim_area {
+  display: flex;
+  padding: 0 14px 0 1px;
+  margin: 8px 0;
+  header {
+    color: #927cd6;
+    margin: 3px 6px 8px 0;
+  }
+  section {
+    flex: 1;
+  }
+}
+
+.formula_richText {
+  :global {
+    .tox-tinymce {
+      border-radius: 4px;
+      border: 1px solid #f0f1f4;
+    }
+    .tox .tox-edit-area {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      & > html {
+        height: 100%;
+      }
+    }
+    .tox .tox-statusbar {
+      border: 0;
+    }
+  }
+}
