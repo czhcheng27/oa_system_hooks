@@ -99,10 +99,10 @@ const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
     if (btnClicked) {
       setHoverIndex([clickedIndex]);
     } else {
-      setHoverIndex(hoverIndex.splice(res, 1));
-      setTimeout(() => {
-        setHoverIndex(hoverIndex.splice(res, 1));
-      });
+      setHoverIndex([hoverIndex].splice(res, 1));
+      // setTimeout(() => {
+      //   setHoverIndex([hoverIndex].splice(res, 1));
+      // });
     }
   };
 

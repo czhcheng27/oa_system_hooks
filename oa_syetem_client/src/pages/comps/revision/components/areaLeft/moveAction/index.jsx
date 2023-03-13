@@ -92,7 +92,7 @@ const MoveAction = ({
       overlayClassName="action_popover"
       placement="right"
       trigger={["click"]}
-      onVisibleChange={visivleChange}
+      onOpenChange={visivleChange}
     >
       <img
         src={TripleDotAct}
