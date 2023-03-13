@@ -20,6 +20,7 @@ const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
   const dispatch = useDispatch();
   const openedIndex = useSelector((s) => s.rdcOpenedIndex);
   const outlineAllData = useSelector((s) => s.rdcOutlineAllData);
+  const cntIdx = outlineAllData.findIndex((el) => el.index === "content");
 
   const [visible, setVisible] = useState(false);
   const [chapterOpenArr, setChapterOpenArr] = useState([]);
@@ -36,8 +37,8 @@ const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
 
   // add chapter
   const addChapter = (data) => {
-    const supposeIdx = outlineAllData[2].children.length + 1;
-    outlineAllData[2].children.push({
+    const supposeIdx = outlineAllData[cntIdx].children.length + 1;
+    outlineAllData[cntIdx].children.push({
       index: `${supposeIdx}`,
       name: `${supposeIdx}.${data}`,
       coms: [],
@@ -48,11 +49,11 @@ const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
 
   // delete chapter
   const delChapter = (data) => {
-    outlineAllData[2].children = outlineAllData[2].children.filter(
+    outlineAllData[cntIdx].children = outlineAllData[cntIdx].children.filter(
       (el) => el.index !== data.index
     );
     // 删除章节后需要对章节的 index 重新计算赋值
-    outlineAllData[2].children.forEach((el, index) => {
+    outlineAllData[cntIdx].children.forEach((el, index) => {
       const chapterIndex = el.name.indexOf(".");
       const chapterName = el.name.slice(chapterIndex + 1, el.name.length);
       el.index = `${index + 1}`;
@@ -63,7 +64,7 @@ const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
       // 如果删除的是最后一个，则 setActiveOutline 不应向下了，而是取上一个
       const isLast = actIdx == data.index;
       setActiveOutline(
-        outlineAllData[2].children[actIdx * 1 - (isLast ? 2 : 1)]
+        outlineAllData[cntIdx].children[actIdx * 1 - (isLast ? 2 : 1)]
       );
     }
   };
@@ -132,12 +133,12 @@ const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
   // 小眼睛 visible 点击函数
   const visibleIconClick = (e, data) => {
     e.stopPropagation();
-    outlineAllData[2].children.forEach((el) => {
+    outlineAllData[cntIdx].children.forEach((el) => {
       if (el.index == data.index) {
         el.visible = !data.visible;
       }
     });
-    const newData = outlineAllData[2].children.filter(
+    const newData = outlineAllData[cntIdx].children.filter(
       (el) => el.index === activeOutline.index
     )[0];
     if (newData) {

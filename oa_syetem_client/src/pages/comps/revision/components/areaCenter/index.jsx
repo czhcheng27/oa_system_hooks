@@ -27,6 +27,7 @@ const AreaCenter = forwardRef((props, ref) => {
   const independent = independentComps.includes(actIdx);
 
   const outlineAllData = useSelector((s) => s.rdcOutlineAllData);
+  const cntIdx = outlineAllData.findIndex((el) => el.index === "content");
 
   useImperativeHandle(ref, () => ({
     handleSubmit,
@@ -34,7 +35,7 @@ const AreaCenter = forwardRef((props, ref) => {
 
   // 每个组件内部的数据更新函数
   const comValueUpdate = (id, newValue, newProperties) => {
-    outlineAllData[2].children.forEach((item) => {
+    outlineAllData[cntIdx].children.forEach((item) => {
       item.coms.forEach((el) => {
         if (el.id === id) {
           el.content = JSON.stringify(newValue);

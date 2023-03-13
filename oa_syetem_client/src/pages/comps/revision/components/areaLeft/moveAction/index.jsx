@@ -22,6 +22,7 @@ const MoveAction = ({
   setBtnClicked,
 }) => {
   const outlineAllData = useSelector((s) => s.rdcOutlineAllData);
+  const cntIdx = outlineAllData.findIndex((el) => el.index === "content");
 
   const visivleChange = (visible) => {
     !visible && eliminateDotIcon();
@@ -29,7 +30,7 @@ const MoveAction = ({
 
   const renderContent = () => {
     const upDis = selectData.index == 4;
-    const dnDis = selectData.index == outlineAllData[2].children.length;
+    const dnDis = selectData.index == outlineAllData[cntIdx].children.length;
     return (
       <div className={css.content_wrapper}>
         <div
@@ -68,7 +69,7 @@ const MoveAction = ({
 
   const moveAction = (e, action) => {
     e.stopPropagation();
-    const arr = outlineAllData[2].children;
+    const arr = outlineAllData[cntIdx].children;
     const idx = arr.findIndex((el) => el.index == selectData.index);
     if (action == "up") {
       swapArray(arr, idx - 1, idx);
@@ -76,7 +77,7 @@ const MoveAction = ({
       swapArray(arr, idx, idx + 1);
     }
     eliminateDotIcon(); // 进行完移动操作后清除尾部三个点的icon图标
-    resortIdx(outlineAllData[2].children); // 对数组内各个对象的index及name重新赋值
+    resortIdx(outlineAllData[cntIdx].children); // 对数组内各个对象的index及name重新赋值
     const independent = independentComps.includes(activeOutline.index);
     !independent && setActiveOutline(selectData); // 如果当前激活的 outline 是正文内容则需要 setActiveOutline
   };
