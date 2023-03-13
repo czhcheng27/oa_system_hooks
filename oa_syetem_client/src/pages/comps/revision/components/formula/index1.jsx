@@ -116,7 +116,7 @@ const Formula = ({ props, comValueUpdate, onDelete }) => {
           </section>
         </div>
         <div className={classNames(css.claim_area)}>
-          <header>Symbol Explaination</header>
+          <header>Explaination</header>
           <section>
             <Input.TextArea
               value={claimData}
