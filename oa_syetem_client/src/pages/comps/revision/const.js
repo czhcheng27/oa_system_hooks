@@ -11,6 +11,7 @@ import TinyTable from "./components/tinyTable";
 
 export const independentComps = [
   "cover",
+  "preface",
   "introduction",
   "reference",
   "appendix",
@@ -115,4 +116,16 @@ export const matchCom = (key) => {
     13: Formula1,
   };
   return all[key];
+};
+
+export const toolkitInit = {
+  inline: true,
+  toolbar_mode: "wrap",
+  plugins:
+    "print preview autolink directionality visualblocks visualchars fullscreen image link media templat search replace code codesample table charmap hr pagebreak nonbreaking anchor insertdatetime advlist lists wordcount imagetools textpattel help emoticons autosave kityformula-editor",
+  toolbar: [
+    "alignleft aligncenter alignright alignjustify| blockauote subscript superscript removeformat styleselect formatselect fontselect fontsizeselect| charmap fullscreen kityformula-editor",
+  ],
+  menubar: "false",
+  placeholder: "Please fill in the contents",
 };

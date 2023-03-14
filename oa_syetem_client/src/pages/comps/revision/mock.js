@@ -103,9 +103,35 @@ export const mockOutline = [
     children: [],
   },
   {
+    index: "preface",
+    name: "Preface",
+    children: [],
+  },
+  {
     index: "introduction",
     name: "Introduction",
     children: [],
+    data: {
+      contentData: {
+        switchStatus: true,
+        value: null,
+      },
+      standardNameData: {
+        switchStatus: true,
+        namePart: {
+          standardNo: "",
+          standardContent: "",
+          num: "",
+        },
+        valueData: [
+          {
+            partNum: "1",
+            value: "",
+            id: "leveloneId1",
+          },
+        ],
+      },
+    },
   },
   {
     index: "content",

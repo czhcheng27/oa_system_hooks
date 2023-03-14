@@ -110,7 +110,7 @@ class Revision extends React.Component {
   };
 
   componentDidMount() {
-    mockOutline[2].children = mockContent;
+    mockOutline[3].children = mockContent;
     this.props.updateOutlineAllData(mockOutline);
   }
 
