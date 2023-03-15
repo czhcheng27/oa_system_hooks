@@ -104,7 +104,7 @@ const AreaCenter = forwardRef((props, ref) => {
 
   const dataAssign = (coverData, introData) => {
     outlineAllData[0].data = coverData;
-    outlineAllData[1].data = introData;
+    outlineAllData[2].data = introData;
     return outlineAllData;
   };
 

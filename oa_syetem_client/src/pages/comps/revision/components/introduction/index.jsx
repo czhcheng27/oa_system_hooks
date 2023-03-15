@@ -1,9 +1,7 @@
 import React, { useRef, forwardRef, useImperativeHandle } from "react";
-import { Form, Input } from "antd";
 import IntroContent from "./introContent";
 import css from "./index.module.less";
-
-const { Item } = Form;
+import SeparateName from "./separateName";
 
 // eslint-disable-next-line react/display-name
 const Introduction = forwardRef(({ introData }, ref) => {
@@ -14,8 +12,7 @@ const Introduction = forwardRef(({ introData }, ref) => {
   useImperativeHandle(ref, () => ({
     getIntroData: async () => {
       const contentData = await introContentRef.current.getContentData();
-      // const standardNameData = await nameRef.current.getNameData();
-      console.log("contentData", contentData);
+      const standardNameData = await nameRef.current.getNameData();
       return { contentData, standardNameData };
     },
   }));
@@ -23,6 +20,8 @@ const Introduction = forwardRef(({ introData }, ref) => {
   return (
     <div className={css.introduction_wrapper}>
       <IntroContent ref={introContentRef} contentData={contentData} />
+
+      <SeparateName ref={nameRef} standardNameData={standardNameData} />
     </div>
   );
 });

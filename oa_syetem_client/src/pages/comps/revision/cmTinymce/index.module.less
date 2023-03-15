@@ -1,38 +1,14 @@
-// .cmTinymce {
-//   margin-right: 15px;
-
-//   & > :nth-child(2) {
-//     border: 1px solid #d2d5e1;
-//     border-radius: 4px;
-//   }
-//   :global {
-//     .tox .tox-edit-area {
-//       position: absolute;
-//       top: 0;
-//       width: 100%;
-//       height: 100%;
-//       z-index: 1;
-//     }
-//     .tox .tox-menubar > :nth-child(1) {
-//       background: red;
-//       position: absolute;
-//       top: -80px;
-//       //   left: 225px;
-//       left: 185px;
-//     }
-//   }
-// }
-
 .cmTinymce {
+  width: 100%;
   :global {
     .mce-content-body {
       background: white;
       outline: 0;
       height: 100%;
-      padding: 4px;
+      padding: 4px 8px;
       border-radius: 4px;
       &::before {
-        padding-left: 4px;
+        padding-left: 8px;
       }
       & > p {
         margin-bottom: 0;
