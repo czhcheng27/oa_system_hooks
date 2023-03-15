@@ -1,30 +1,28 @@
-import React, { forwardRef, useImperativeHandle } from "react";
+import React, { useRef, forwardRef, useImperativeHandle } from "react";
 import { Form, Input } from "antd";
+import IntroContent from "./introContent";
 import css from "./index.module.less";
 
 const { Item } = Form;
 
 // eslint-disable-next-line react/display-name
-const Introduction = forwardRef((props, ref) => {
-  const [introForm] = Form.useForm();
+const Introduction = forwardRef(({ introData }, ref) => {
+  const { contentData, standardNameData } = introData || {};
+  const introContentRef = useRef();
+  const nameRef = useRef();
 
   useImperativeHandle(ref, () => ({
-    introData: () => {
-      return introForm.getFieldsValue();
+    getIntroData: async () => {
+      const contentData = await introContentRef.current.getContentData();
+      // const standardNameData = await nameRef.current.getNameData();
+      console.log("contentData", contentData);
+      return { contentData, standardNameData };
     },
   }));
 
   return (
-    <div>
-      <Form form={introForm} labelCol={{ flex: "80px" }}>
-        <Item
-          label="Content"
-          name="content"
-          rules={[{ required: true, message: "Please Input Content" }]}
-        >
-          <Input placeholder="Please Input Content" />
-        </Item>
-      </Form>
+    <div className={css.introduction_wrapper}>
+      <IntroContent ref={introContentRef} contentData={contentData} />
     </div>
   );
 });

@@ -4,7 +4,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import LeftNav from "../../components/left-nav";
 import Header from "../../components/header";
 import memoryUtils from "../../utils/memoryUtils";
-import css from "./index.module.css";
+import css from "./index.module.less";
 
 const MOBILE_WIDTH = 992;
 const { Content, Footer, Sider } = Layout;

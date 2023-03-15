@@ -96,7 +96,7 @@ const AreaCenter = forwardRef((props, ref) => {
           <Cover ref={coverRef} />
         </div>
         <div style={{ display: dataIdx === "introduction" ? "block" : "none" }}>
-          <Introduction ref={introRef} />
+          <Introduction ref={introRef} introData={outlineAllData[2].data} />
         </div>
       </>
     );
@@ -110,8 +110,7 @@ const AreaCenter = forwardRef((props, ref) => {
 
   const handleSubmit = async () => {
     const coverData = await coverRef.current.coverData();
-    const introData = await introRef.current.introData();
-
+    const introData = await introRef.current.getIntroData();
     const updateData = dataAssign(coverData, introData);
     dispatch(updateOutlineAllData(updateData));
     console.log("updateData", updateData);
