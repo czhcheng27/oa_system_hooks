@@ -51,10 +51,7 @@ const IntroContent = forwardRef(({ contentData }, ref) => {
     >
       <Form form={contentForm} labelCol={{ flex: "60px" }} autoComplete="off">
         <Item name="content">
-          <CmTinymce
-          // data={{ name: "checkContent", label: "点检描述", required: true }}
-          // onChange={onVarCompsChange}
-          />
+          <CmTinymce inline={true} selectorName="introduction_top_content" />
         </Item>
       </Form>
     </SwitchWrapper>
