@@ -1,0 +1,23 @@
+.introduction_top_content {
+  & > div {
+    outline: 0;
+    background: white;
+    min-height: 168px;
+    border: 1px solid #f0f1f4;
+    border-radius: 4px;
+    padding: 4px 11px;
+
+    &::before {
+      left: 11px !important;
+      color: #bfbfbf !important;
+    }
+    &:hover {
+      cursor: text;
+    }
+  }
+  :global {
+    .mce-content-body:hover {
+      border-color: #e6ecff;
+    }
+  }
+}
