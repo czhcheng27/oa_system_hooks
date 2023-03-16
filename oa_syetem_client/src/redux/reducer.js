@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { SET_OPENED_INDEX, SET_OUTLINE_ALL_DATA } from "./actions";
+import { SET_OPENED_INDEX, SET_OUTLINE_ALL_DATA, DRAG_START } from "./actions";
 import { mockOutline } from "../pages/comps/revision/mock";
 
 // 大纲展开的 index 数组集合
@@ -24,7 +24,19 @@ function rdcOutlineAllData(state = initOutlineAllData, action) {
   }
 }
 
+// 组件开始拖拽
+const initDragStart = false;
+function rdcDragStart(state = initDragStart, action) {
+  switch (action.type) {
+    case DRAG_START:
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
   rdcOpenedIndex,
   rdcOutlineAllData,
+  rdcDragStart,
 });
