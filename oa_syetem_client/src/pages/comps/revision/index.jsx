@@ -55,7 +55,8 @@ class Revision extends React.Component {
         }
         return pre;
       }, []);
-      this.props.updateOutlineAllData(outlineAllData);
+      const _temp = cloneDeep(outlineAllData);
+      this.props.updateOutlineAllData(_temp);
     } else {
       return message.error("Incorrect Drag");
     }

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Outline from "./outline";
 import Comps from "./comps";
-import { independentComps } from "../../const";
 import OutlineIcon from "../../imgs/outlineIcon.png";
 import outlineIconActive from "../../imgs/outlineIconActive.png";
 import CompIcon from "../../imgs/compIcon.png";
@@ -10,7 +9,7 @@ import css from "./index.module.less";
 
 const AreaLeft = ({ addCom, actIdx, activeOutline, setActiveOutline }) => {
   const [activeComp, setActiveComp] = useState(true);
-  const shouldDisable = independentComps.includes(actIdx);
+  const shouldDisable = ["cover", "preface", "reference"].includes(actIdx);
   return (
     <div className={css.wrapper}>
       <header className={css.arealeft_header}>

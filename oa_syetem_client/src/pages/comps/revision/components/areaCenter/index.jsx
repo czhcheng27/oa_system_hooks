@@ -95,8 +95,19 @@ const AreaCenter = forwardRef((props, ref) => {
         <div style={{ display: dataIdx === "cover" ? "block" : "none" }}>
           <Cover ref={coverRef} />
         </div>
-        <div style={{ display: dataIdx === "introduction" ? "block" : "none" }}>
-          <Introduction ref={introRef} introData={outlineAllData[2].data} />
+        <div
+          style={{
+            display: dataIdx === "introduction" ? "block" : "none",
+            height: "100%",
+          }}
+        >
+          <Introduction
+            ref={introRef}
+            resetOrder={resetOrder}
+            handleDelete={handleDelete}
+            introData={outlineAllData[2]}
+            comValueUpdate={comValueUpdate}
+          />
         </div>
       </>
     );

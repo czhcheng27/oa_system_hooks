@@ -111,6 +111,7 @@ export const mockOutline = [
     index: "introduction",
     name: "Introduction",
     children: [],
+    coms: [],
     data: {
       contentData: {
         switchStatus: true,
