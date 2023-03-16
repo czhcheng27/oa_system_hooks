@@ -4,6 +4,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
 } from "react";
+import { useSelector } from "react-redux";
 import { Form, Input } from "antd";
 // import { QmTinymce } from "@jiaozhiye/qm-design-react";
 import { Editor } from "@tinymce/tinymce-react";
@@ -17,6 +18,9 @@ const { Item } = Form;
 // eslint-disable-next-line react/display-name
 const IntroContent = forwardRef(({ contentData }, ref) => {
   const { switchStatus, value } = contentData || {};
+
+  const isDragging = useSelector((s) => s.rdcDragStart);
+
   const [contentForm] = Form.useForm();
 
   const [contentSwitch, setContentSwitch] = useState(true);
@@ -54,6 +58,7 @@ const IntroContent = forwardRef(({ contentData }, ref) => {
           <CmTinymce inline={true} selectorName="introduction_top_content" />
         </Item>
       </Form>
+      {isDragging && <div className={css.overlay} />}
     </SwitchWrapper>
   );
 });

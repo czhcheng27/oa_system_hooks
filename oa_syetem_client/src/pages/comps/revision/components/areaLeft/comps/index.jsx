@@ -1,11 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Col, Row } from "antd";
 import Sortable from "sortablejs";
 import { categoryMap, colorCompMap } from "../../../mapConst";
+import { dragStart } from "../../../../../../redux/actions";
 import { coms } from "../../../const";
 import css from "./index.module.less";
 
 const Comps = ({ addCom }) => {
+  const dispatch = useDispatch();
   // 拖拽相关方法
   const sortableGroupDecorator = (componentBackingInstance) => {
     if (componentBackingInstance) {
@@ -18,8 +21,10 @@ const Comps = ({ addCom }) => {
         },
         animation: 150,
         sort: false,
+        onStart: () => dispatch(dragStart(true)),
         onEnd: (evt) => {
           console.log("evt", evt);
+          dispatch(dragStart(false));
           if (evt.to.className === "modalList") {
             addCom(evt.item.getAttribute("data-id"), evt.newIndex);
             setTimeout(() => {
