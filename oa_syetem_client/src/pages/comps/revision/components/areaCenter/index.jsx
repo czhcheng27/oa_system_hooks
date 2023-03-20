@@ -21,13 +21,13 @@ const AreaCenter = forwardRef((props, ref) => {
   const dispatch = useDispatch();
 
   const { handleDelete, resetOrder, activeOutline } = props;
-  const { coms: comList = [], index: actIdx } = activeOutline;
+  const { coms: comList = [], id: actId } = activeOutline;
   _comList = cloneDeep(comList);
 
-  const independent = independentComps.includes(actIdx);
+  const independent = independentComps.includes(actId);
 
   const outlineAllData = useSelector((s) => s.rdcOutlineAllData);
-  const cntIdx = outlineAllData.findIndex((el) => el.index === "content");
+  const cntId = outlineAllData.findIndex((el) => el.id === "content");
 
   useImperativeHandle(ref, () => ({
     handleSubmit,
@@ -35,7 +35,7 @@ const AreaCenter = forwardRef((props, ref) => {
 
   // 每个组件内部的数据更新函数
   const comValueUpdate = (id, newValue, newProperties) => {
-    outlineAllData[cntIdx].children.forEach((item) => {
+    outlineAllData[cntId].children.forEach((item) => {
       item.coms.forEach((el) => {
         if (el.id === id) {
           el.content = JSON.stringify(newValue);
@@ -137,9 +137,9 @@ const AreaCenter = forwardRef((props, ref) => {
     <div className={css.wrapper}>
       <header>{activeOutline.name}</header>
       {/* <section>{renderList(comList)}</section> */}
-      {/* <section>{independent ? renderIndepComps(actIdx) : renderList(comList)}</section> */}
+      {/* <section>{independent ? renderIndepComps(actId) : renderList(comList)}</section> */}
       <section>
-        {renderIndepComps(actIdx)} {renderList(comList)}
+        {renderIndepComps(actId)} {renderList(comList)}
       </section>
     </div>
   );

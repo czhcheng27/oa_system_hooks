@@ -33,7 +33,7 @@ class Revision extends React.Component {
   autoSave = (activeOutline, comList) => {
     if (generateParentIndex(comList, activeOutline)) {
       // comlist 的顺序是对的， coms 的值是对的
-      const { index, coms } = activeOutline;
+      const { id, coms } = activeOutline;
       comList.forEach((item) => {
         coms.forEach((el) => {
           if (item.id === el.id) {
@@ -44,11 +44,11 @@ class Revision extends React.Component {
       this.setState({ activeOutline: { ...activeOutline, coms: comList } });
       const { outlineAllData } = this.props;
       outlineAllData.reduce((pre, item) => {
-        if (item.index === index) {
+        if (item.id === id) {
           item["coms"] = comList;
         } else if (item.children) {
           item.children.map((el) => {
-            if (el.index === index) {
+            if (el.id === id) {
               el["coms"] = comList;
             }
           });
@@ -77,24 +77,24 @@ class Revision extends React.Component {
 
   setActiveOutline = (data) => {
     // 非正文部分正常 set 设置，正文组件部分需要 generateParentIndex 判断
-    const indep = independentComps.includes(data.index);
+    const indep = independentComps.includes(data.id);
     !indep && generateParentIndex(data.coms, data);
     this.setState({ activeOutline: data });
   };
 
   handleDelete = (item, outlineAllData) => {
     const { activeOutline } = this.state;
-    const { coms = [], index } = activeOutline;
+    const { coms = [], id } = activeOutline;
     const filterData = coms.filter((el) => el.id !== item.id);
     // 判断删除后的数组是否符合逻辑
     const res = generateParentIndex(filterData, activeOutline);
     if (res) {
       this.setActiveOutline({ ...activeOutline, coms: filterData });
       outlineAllData.forEach((obj) => {
-        if (obj.index === index) {
+        if (obj.id === id) {
           obj.coms = filterData;
         } else if (obj.children) {
-          const findObj = obj.children.find((el) => el.index === index);
+          const findObj = obj.children.find((el) => el.id === id);
           findObj && (findObj.coms = filterData);
         }
       });
@@ -122,7 +122,7 @@ class Revision extends React.Component {
       <div className={classNames(css.revision)}>
         <div className={css.revision_left}>
           <AreaLeft
-            actIdx={activeOutline.index}
+            actId={activeOutline.id}
             activeOutline={activeOutline}
             setActiveOutline={this.setActiveOutline}
             addCom={(data, num) => this.addCom(data, num)}

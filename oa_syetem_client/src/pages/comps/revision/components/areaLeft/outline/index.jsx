@@ -16,11 +16,11 @@ import css from "./index.module.less";
 
 const { Panel } = Collapse;
 
-const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
+const Outline = ({ actId, activeOutline, setActiveOutline }) => {
   const dispatch = useDispatch();
   const openedIndex = useSelector((s) => s.rdcOpenedIndex);
   const outlineAllData = useSelector((s) => s.rdcOutlineAllData);
-  const cntIdx = outlineAllData.findIndex((el) => el.index === "content");
+  const cntId = outlineAllData.findIndex((el) => el.id === "content");
 
   const [visible, setVisible] = useState(false);
   const [chapterOpenArr, setChapterOpenArr] = useState([]);
@@ -30,16 +30,17 @@ const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
   const [btnClicked, setBtnClicked] = useState(false); // 是否有删除按钮 x 被点击
 
   const handleTitleClick = (e, data) => {
-    const { children, index } = data;
-    !children.length && index !== "content" && e.stopPropagation();
-    !children.length && index !== "content" && setActiveOutline(data);
+    const { children, id } = data;
+    !children.length && id !== "content" && e.stopPropagation();
+    !children.length && id !== "content" && setActiveOutline(data);
   };
 
   // add chapter
   const addChapter = (data) => {
-    const supposeIdx = outlineAllData[cntIdx].children.length + 1;
-    outlineAllData[cntIdx].children.push({
-      index: `${supposeIdx}`,
+    const supposeIdx = outlineAllData[cntId].children.length + 1;
+    outlineAllData[cntId].children.push({
+      varIndex: `${supposeIdx}`,
+      id: `${supposeIdx}`,
       name: `${supposeIdx}.${data}`,
       coms: [],
       deletable: true,
@@ -49,29 +50,29 @@ const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
 
   // delete chapter
   const delChapter = (data) => {
-    outlineAllData[cntIdx].children = outlineAllData[cntIdx].children.filter(
-      (el) => el.index !== data.index
+    outlineAllData[cntId].children = outlineAllData[cntId].children.filter(
+      (el) => el.id !== data.id
     );
     // 删除章节后需要对章节的 index 重新计算赋值
-    outlineAllData[cntIdx].children.forEach((el, index) => {
+    outlineAllData[cntId].children.forEach((el, index) => {
       const chapterIndex = el.name.indexOf(".");
       const chapterName = el.name.slice(chapterIndex + 1, el.name.length);
-      el.index = `${index + 1}`;
+      el.id = `${index + 1}`;
       el.name = `${index + 1}.${chapterName}`;
     });
     // 还有一种情况，如果当用户在当前章拖拽了组件在删除当前章时，需重新设置激活的大纲即 activeOutline
-    if (actIdx === data.index) {
+    if (actId === data.id) {
       // 如果删除的是最后一个，则 setActiveOutline 不应向下了，而是取上一个
-      const isLast = actIdx == data.index;
+      const isLast = actId == data.id;
       setActiveOutline(
-        outlineAllData[cntIdx].children[actIdx * 1 - (isLast ? 2 : 1)]
+        outlineAllData[cntId].children[actId * 1 - (isLast ? 2 : 1)]
       );
     }
   };
 
   // 最外层的带图标的 title 的渲染
   const renderTitle = (obj) => {
-    const isActive = obj.index === actIdx;
+    const isActive = obj.id === actId;
     return (
       <div className={css.title} onClick={(e) => handleTitleClick(e, obj)}>
         <img
@@ -133,13 +134,13 @@ const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
   // 小眼睛 visible 点击函数
   const visibleIconClick = (e, data) => {
     e.stopPropagation();
-    outlineAllData[cntIdx].children.forEach((el) => {
-      if (el.index == data.index) {
+    outlineAllData[cntId].children.forEach((el) => {
+      if (el.id == data.id) {
         el.visible = !data.visible;
       }
     });
-    const newData = outlineAllData[cntIdx].children.filter(
-      (el) => el.index === activeOutline.index
+    const newData = outlineAllData[cntId].children.filter(
+      (el) => el.id === activeOutline.id
     )[0];
     if (newData) {
       setActiveOutline(newData);
@@ -152,27 +153,25 @@ const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
   // 渲染正文下的章节
   const renderChapters = (children) => {
     return children.map((item) => {
-      const { index, name, coms, visible = true } = item;
-      const activeSelect = index === actIdx;
-      const isChapterIconOpen = chapterOpenArr.includes(index);
+      const { id, name, coms, visible = true } = item;
+      const activeSelect = id === actId;
+      const isChapterIconOpen = chapterOpenArr.includes(id);
       const text1Array = coms.filter((el) => el.comType == 1);
       return (
         <div
-          key={index}
+          key={id}
           className={classNames({
             [css.each_indise_title]: true,
             [css.atvInBg]: activeSelect,
             [css.visibleHidden]: !visible,
           })}
-          onMouseEnter={() => addHoverIndex(index)}
-          onMouseLeave={() => removeHoverIndex(index)}
+          onMouseEnter={() => addHoverIndex(id)}
+          onMouseLeave={() => removeHoverIndex(id)}
         >
           <Ellipsis content={name}>
             <p
               onClick={(e) => (
-                e.stopPropagation(),
-                setActiveOutline(item),
-                toggleClick(e, index)
+                e.stopPropagation(), setActiveOutline(item), toggleClick(e, id)
               )}
             >
               {name}
@@ -182,7 +181,7 @@ const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
             <img
               className={css.chapter_folder_icon}
               style={{ transform: isChapterIconOpen ? "rotate(90deg)" : "" }}
-              onClick={(e) => toggleClick(e, index)}
+              onClick={(e) => toggleClick(e, id)}
               src={RightArrow}
               alt="RightArrow"
             />
@@ -214,7 +213,7 @@ const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
               alt="OpenEye"
             />
           )}
-          {hoverIndex.includes(index) && item.deletable && (
+          {hoverIndex.includes(id) && item.deletable && (
             <MoveAction
               eliminateDotIcon={() => {
                 setHoverIndex([]) && setBtnClicked(false);
@@ -224,7 +223,7 @@ const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
               activeOutline={activeOutline}
               setActiveOutline={setActiveOutline}
               delChapter={() => delChapter(item)}
-              clickDotIconFn={() => clickDotIcon(index)}
+              clickDotIconFn={() => clickDotIcon(id)}
             />
           )}
         </div>
@@ -240,23 +239,23 @@ const Outline = ({ actIdx, activeOutline, setActiveOutline }) => {
       onChange={(key) => dispatch(updateOpenedIndex(key))}
     >
       {outlineAllData.map((obj) => {
-        const { children, index } = obj;
+        const { children, id } = obj;
         const hightlightOutlineIdx =
-          findUpperObj(outlineAllData, actIdx).index === index;
+          findUpperObj(outlineAllData, actId).id === id;
         return (
           <Panel
             className={`${css.panel_wrapper} ${
               hightlightOutlineIdx ? css.activeBg : ""
             } `}
-            header={renderTitle(obj, index)}
-            key={index}
+            header={renderTitle(obj, id)}
+            key={id}
             showArrow={false}
             collapsible={"header"}
             extra={
               !!children.length && (
                 <CaretRightOutlined
                   style={{ color: hightlightOutlineIdx ? "white" : "#9292a2" }}
-                  rotate={openedIndex.includes(index?.toString()) ? 90 : 0}
+                  rotate={openedIndex.includes(id?.toString()) ? 90 : 0}
                 />
               )
             }

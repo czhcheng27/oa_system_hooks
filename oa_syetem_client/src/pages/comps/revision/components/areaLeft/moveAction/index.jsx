@@ -22,15 +22,15 @@ const MoveAction = ({
   setBtnClicked,
 }) => {
   const outlineAllData = useSelector((s) => s.rdcOutlineAllData);
-  const cntIdx = outlineAllData.findIndex((el) => el.index === "content");
+  const cntId = outlineAllData.findIndex((el) => el.id === "content");
 
   const visivleChange = (visible) => {
     !visible && eliminateDotIcon();
   };
 
   const renderContent = () => {
-    const upDis = selectData.index == 4;
-    const dnDis = selectData.index == outlineAllData[cntIdx].children.length;
+    const upDis = selectData.id == 4;
+    const dnDis = selectData.id == outlineAllData[cntId].children.length;
     return (
       <div className={css.content_wrapper}>
         <div
@@ -69,16 +69,16 @@ const MoveAction = ({
 
   const moveAction = (e, action) => {
     e.stopPropagation();
-    const arr = outlineAllData[cntIdx].children;
-    const idx = arr.findIndex((el) => el.index == selectData.index);
+    const arr = outlineAllData[cntId].children;
+    const idx = arr.findIndex((el) => el.id == selectData.id);
     if (action == "up") {
       swapArray(arr, idx - 1, idx);
     } else if (action == "down") {
       swapArray(arr, idx, idx + 1);
     }
     eliminateDotIcon(); // 进行完移动操作后清除尾部三个点的icon图标
-    resortIdx(outlineAllData[cntIdx].children); // 对数组内各个对象的index及name重新赋值
-    const independent = independentComps.includes(activeOutline.index);
+    resortIdx(outlineAllData[cntId].children); // 对数组内各个对象的index及name重新赋值
+    const independent = independentComps.includes(activeOutline.id);
     !independent && setActiveOutline(selectData); // 如果当前激活的 outline 是正文内容则需要 setActiveOutline
   };
 

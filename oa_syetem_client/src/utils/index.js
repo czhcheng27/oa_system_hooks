@@ -14,15 +14,15 @@ export const createUidKey = (key = "") => {
 };
 
 // 找到当前对象的上层对象 （find current obj's upper obj）
-export const findUpperObj = (allData, curIdx) => {
+export const findUpperObj = (allData, curId) => {
   let object;
   allData.map((item) => {
-    if (item.index === curIdx) {
+    if (item.id === curId) {
       object = item;
       return;
     } else if (item.children) {
       item.children.map((obj) => {
-        if (obj.index === curIdx) {
+        if (obj.id === curId) {
           object = item;
           return;
         }
@@ -60,10 +60,10 @@ export const isDate = (str) => {
 
 // 获取条一的 parentIndex 和 code
 const getTitleOne = (array, i, activeOutline) => {
-  const { index: chapter } = activeOutline;
+  const { varIndex: chapter } = activeOutline;
 
   // parentIndex 赋值
-  array[i].parentIndex = activeOutline.index;
+  array[i].parentIndex = activeOutline.varIndex;
 
   // 当前 index 之前的数组数据
   const preArr = array.slice(0, i);
@@ -174,7 +174,7 @@ const getPindexAndCode = (array, i, titleNo) => {
 
 // 获取除了“条”的其他组件的 parentIndex
 const getOtherCompsPindex = (array, i, activeOutline) => {
-  array[i].parentIndex = activeOutline.index;
+  array[i].parentIndex = activeOutline.varIndex;
   // 当前 index 之前的数组数据
   const preArr = array.slice(0, i);
 

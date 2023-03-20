@@ -7,7 +7,8 @@ export const getJsonAPI = {
     introduction: "{}", // JSON
     mainBody: [
       {
-        index: "1",
+        varIndex: "1",
+        id: "1",
         name: "1.Scope",
         coms: [
           {
@@ -51,17 +52,20 @@ export const getJsonAPI = {
         ],
       },
       {
-        index: "2",
+        varIndex: "2",
+        id: "2",
         name: "2.Import Multi Files",
         coms: [],
       },
       {
-        index: "3",
+        varIndex: "3",
+        id: "3",
         name: "3.Definition",
         coms: [],
       },
       {
-        index: "4",
+        varIndex: "4",
+        id: "4",
         name: "4.Method",
         coms: [
           {
@@ -99,16 +103,19 @@ export const getJsonAPI = {
 export const mockOutline = [
   {
     index: "cover",
+    id: "cover",
     name: "Cover",
     children: [],
   },
   {
     index: "preface",
+    id: "preface",
     name: "Preface",
     children: [],
   },
   {
     index: "introduction",
+    id: "introduction",
     name: "Introduction",
     children: [],
     coms: [],
@@ -136,16 +143,19 @@ export const mockOutline = [
   },
   {
     index: "content",
+    id: "content",
     name: "Content",
     children: [],
   },
   {
     index: "reference",
+    id: "reference",
     name: "Reference",
     children: [],
   },
   {
     index: "appendix",
+    id: "appendix",
     name: "Appendix",
     children: [],
   },
