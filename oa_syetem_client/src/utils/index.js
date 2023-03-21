@@ -231,3 +231,9 @@ export const resortIdx = (array) => {
   });
   return array;
 };
+
+// 切换div时使输入id的div模块回到指定位置
+export const idBackTo = (id, x = 0, y = 0) => {
+  const divBlock = document.getElementById(id);
+  divBlock && divBlock.scrollTo(x, y);
+};

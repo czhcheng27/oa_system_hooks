@@ -114,7 +114,7 @@ export const mockOutline = [
     children: [],
   },
   {
-    index: "introduction",
+    varIndex: "0",
     id: "introduction",
     name: "Introduction",
     children: [],
