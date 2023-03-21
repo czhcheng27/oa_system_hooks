@@ -138,7 +138,7 @@ const AreaCenter = forwardRef((props, ref) => {
       <header>{activeOutline.name}</header>
       {/* <section>{renderList(comList)}</section> */}
       {/* <section>{independent ? renderIndepComps(actId) : renderList(comList)}</section> */}
-      <section>
+      <section id="areacenter_section">
         {renderIndepComps(actId)} {renderList(comList)}
       </section>
     </div>

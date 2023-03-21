@@ -31,7 +31,7 @@ const AreaLeft = ({ addCom, actId, activeOutline, setActiveOutline }) => {
         </div>
       </header>
 
-      <section className={css.arealeft_section}>
+      <section className={css.arealeft_section} id="arealeft_section">
         {activeComp ? (
           <Outline
             actId={actId}
