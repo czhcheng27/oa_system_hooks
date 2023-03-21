@@ -6,8 +6,10 @@ const Echartrs = ({ options, clickMethod }) => {
   const echartsRef = useRef(null),
     myChartRef = useRef(null);
   useEffect(() => {
-    myChartRef.current = echarts.init(echartsRef.current);
-    myChartRef.current.setOption(options);
+    setTimeout(() => {
+      myChartRef.current = echarts.init(echartsRef.current);
+      myChartRef.current.setOption(options);
+    });
     if (clickMethod) {
       myChartRef.current.on("click", function (params) {
         clickMethod(params);
@@ -17,7 +19,8 @@ const Echartrs = ({ options, clickMethod }) => {
     return () => {
       window.removeEventListener("resize", handleSize);
     };
-  }, []);
+  }, [options]);
+
   const handleSize = () => {
     myChartRef.current.resize();
   };

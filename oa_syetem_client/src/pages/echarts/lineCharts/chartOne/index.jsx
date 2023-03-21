@@ -301,7 +301,7 @@ const ChartOne = (props) => {
         <div className={css.headerStart}></div>
         <div className={css.headerName}>各项目完成情况</div>
       </div>
-      <div style={{ height: "260px" }}>
+      <div style={{ height: "260px", position: "relative" }}>
         {requestData.length > 0 && (
           <Echartrs
             key={"completionCharts"}
