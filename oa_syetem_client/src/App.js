@@ -5,6 +5,7 @@ import Category from "./pages/category";
 import Revision from "./pages/comps/revision";
 import DragHorMul from "./pages/drag/dragHorMul";
 import SingleColumn from "./pages/drag/SingleColumn";
+import LineCharts from "./pages/echarts/lineCharts";
 import ProjectIndicator from "./pages/echarts/projectIndicator";
 import Home from "./pages/home";
 import Login from "./pages/login";
@@ -27,6 +28,7 @@ const App = (props) => {
           <Route path="/single_vertical_column" element={<SingleColumn />} />
           <Route path="/project_indicator" element={<ProjectIndicator />} />
           <Route path="/comps_library_sortablejs" element={<Revision />} />
+          <Route path="/line_charts" element={<LineCharts />} />
           <Route path="*" element={<Navigate to="/home" />} />
           <Route path="/" element={<Navigate to="/home" />} />
         </Route>

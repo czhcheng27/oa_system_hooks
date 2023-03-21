@@ -12,6 +12,7 @@ import {
   MergeCellsOutlined,
   MoreOutlined,
   BlockOutlined,
+  LineChartOutlined,
 } from "@ant-design/icons";
 
 function getItem(label, key, icon, children) {
@@ -49,5 +50,6 @@ export const menuItems = [
   getItem("ECharts", "/echarts", <PieChartOutlined />, [
     getItem("Indicator1", "/project_indicator", <DesktopOutlined />),
     getItem("Indicator2", "/question_indicator", <ContainerOutlined />),
+    getItem("Indicator3", "/line_charts", <LineChartOutlined />),
   ]),
 ];
