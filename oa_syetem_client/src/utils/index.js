@@ -223,12 +223,17 @@ export const inputToNum = (data) => {
 };
 
 // 重置children数组内每个对象的index及name
-export const resortIdx = (array) => {
-  array.forEach((el, index) => {
-    const chapterIndex = el.name.indexOf(".");
-    const chapterName = el.name.slice(chapterIndex + 1, el.name.length);
-    (el.index = `${index + 1}`) && (el.name = `${index + 1}.${chapterName}`);
-  });
+export const resortIdx = (array, name) => {
+  if (name === "content") {
+    visibleChangeFormatArr(array);
+  } else if (name === "appendix") {
+    for (let i = 0; i < array.length; i++) {
+      const symbol = String.fromCharCode(65 + i);
+      array[i].varIndex = symbol;
+      array[i].index = symbol;
+      array[i].name = `附录${symbol}`;
+    }
+  }
   return array;
 };
 
@@ -236,4 +241,44 @@ export const resortIdx = (array) => {
 export const idBackTo = (id, x = 0, y = 0) => {
   const divBlock = document.getElementById(id);
   divBlock && divBlock.scrollTo(x, y);
+};
+
+// 正文章节下眼睛的显隐后，正文所有章节的index，name等的重新排序
+export const visibleChangeFormatArr = (arr) => {
+  const pre = arr.slice(1, 3);
+  const after = arr.slice(3, arr.length);
+  let falseCount = 0, // 点灭的章节数量
+    trueId = []; // 点亮的章节id
+  for (let i = 0; i < pre.length; i++) {
+    !pre[i].visible && (falseCount = falseCount + 1);
+    pre[i].visible && trueId.push(pre[i].id);
+  }
+  // 如果一亮一灭，谁亮谁是章节2
+  if (falseCount == 1) {
+    pre.forEach((el) => {
+      if (el.id === trueId[0]) {
+        const orgNameIndex = el.name.indexOf(".");
+        const orgName = el.name.slice(orgNameIndex + 1, el.name.length);
+        (el.varIndex = "2") && (el.name = `2.${orgName}`);
+      }
+    });
+  } else {
+    for (let i = 0; i < pre.length; i++) {
+      const orgNameIndex = pre[i].name.indexOf(".");
+      const orgName = pre[i].name.slice(orgNameIndex + 1, pre[i].name.length);
+      const newIndex = `${i + 2}`;
+      pre[i].varIndex = newIndex;
+      pre[i].name = `${newIndex}.${orgName}`;
+    }
+  }
+
+  for (let i = 0; i < after.length; i++) {
+    const orgNameIndex = after[i].name.indexOf(".");
+    const orgName = after[i].name.slice(orgNameIndex + 1, after[i].name.length);
+    after[i].id = `${i + 4}`;
+    const newIndex = `${after[i].id * 1 - falseCount}`;
+    after[i].varIndex = newIndex;
+    after[i].name = `${newIndex}.${orgName}`;
+  }
+  return arr;
 };
