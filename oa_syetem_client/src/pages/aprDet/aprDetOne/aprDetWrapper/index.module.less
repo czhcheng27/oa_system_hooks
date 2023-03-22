@@ -1,0 +1,45 @@
+.drawer {
+  :global {
+    .ant-drawer-header {
+      display: none;
+    }
+    .ant-drawer-body {
+      padding: 0;
+    }
+  }
+}
+.taskExecution {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .content {
+    overflow: auto;
+    flex: 1;
+  }
+}
+.approvalContentLeft {
+  float: left;
+  width: calc(100% - 320px);
+  .buttonDiv {
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #eaedf7;
+  }
+}
+.approvalContentRight {
+  height: 100vh;
+  float: left;
+  width: 310px;
+  //background-color: #f3f5f6;
+  margin-left: 10px;
+  border: 1px solid #eaedf7;
+  margin-top: 20px;
+}
+.btnArea {
+  :global {
+    .ant-btn {
+      min-width: 72px;
+      border-radius: 4px;
+    }
+  }
+}
