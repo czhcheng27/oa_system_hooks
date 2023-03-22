@@ -8,8 +8,9 @@ import React, {
 } from "react";
 import BasisStd from "./basisStd";
 import FileRel from "./fileRel";
-import css from "./index.module.less";
 import ReplaceFile from "./replaceFile";
+import InfoPanel from "./infoPanel";
+import css from "./index.module.less";
 
 const Preface = forwardRef(({ prefaceData }, ref) => {
   const {
@@ -29,6 +30,7 @@ const Preface = forwardRef(({ prefaceData }, ref) => {
       <BasisStd ref={basisStdRef} basisStd={basisStd} />
       <FileRel ref={fileRelRef} fileRel={fileRel} />
       <ReplaceFile ref={replaceFileRef} replaceFile={replaceFile} />
+      <InfoPanel />
     </div>
   );
 });
