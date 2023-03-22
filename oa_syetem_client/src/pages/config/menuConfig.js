@@ -13,6 +13,7 @@ import {
   MoreOutlined,
   BlockOutlined,
   LineChartOutlined,
+  FlagOutlined,
 } from "@ant-design/icons";
 
 function getItem(label, key, icon, children) {
@@ -51,5 +52,8 @@ export const menuItems = [
     getItem("Indicator1", "/project_indicator", <DesktopOutlined />),
     getItem("Indicator2", "/question_indicator", <ContainerOutlined />),
     getItem("Indicator3", "/line_charts", <LineChartOutlined />),
+  ]),
+  getItem("Approval", "/approval", <ContainerOutlined />, [
+    getItem("APR & Details", "/apr_det_one", <FlagOutlined />),
   ]),
 ];

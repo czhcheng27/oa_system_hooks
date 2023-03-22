@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Admin from "./pages/admin";
+import ApprovalDetails from "./pages/aprDet/aprDetOne";
 import Category from "./pages/category";
 import Revision from "./pages/comps/revision";
 import DragHorMul from "./pages/drag/dragHorMul";
@@ -29,6 +30,7 @@ const App = (props) => {
           <Route path="/project_indicator" element={<ProjectIndicator />} />
           <Route path="/comps_library_sortablejs" element={<Revision />} />
           <Route path="/line_charts" element={<LineCharts />} />
+          <Route path="/apr_det_one" element={<ApprovalDetails />} />
           <Route path="*" element={<Navigate to="/home" />} />
           <Route path="/" element={<Navigate to="/home" />} />
         </Route>
