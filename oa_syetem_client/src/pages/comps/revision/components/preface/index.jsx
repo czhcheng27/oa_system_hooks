@@ -1,15 +1,9 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useMemo,
-  forwardRef,
-} from "react";
+import React, { useRef, forwardRef } from "react";
 import BasisStd from "./basisStd";
 import FileRel from "./fileRel";
 import ReplaceFile from "./replaceFile";
 import InfoPanel from "./infoPanel";
+import VersionInfo from "./versionInfo";
 import css from "./index.module.less";
 
 const Preface = forwardRef(({ prefaceData }, ref) => {
@@ -31,6 +25,7 @@ const Preface = forwardRef(({ prefaceData }, ref) => {
       <FileRel ref={fileRelRef} fileRel={fileRel} />
       <ReplaceFile ref={replaceFileRef} replaceFile={replaceFile} />
       <InfoPanel />
+      <VersionInfo ref={versionInfoRef} versionInfo={versionInfo} />
     </div>
   );
 });
