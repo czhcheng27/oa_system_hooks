@@ -15,6 +15,7 @@ const CmTinymce = ({
   return (
     <div className={css.cmTinymce} style={{ height: `${height}px` }}>
       <Editor
+        value={value}
         onEditorChange={(data) => onChange(data)}
         init={
           inline ? { ...toolKit, selector: selectorName } : { ...normalToolkit }
