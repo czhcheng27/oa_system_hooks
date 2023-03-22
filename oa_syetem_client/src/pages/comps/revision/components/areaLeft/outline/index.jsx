@@ -168,7 +168,9 @@ const Outline = ({ actId, activeOutline, setActiveOutline }) => {
 
   // 大纲的子节点点击函数
   const childNodeClick = (e, item, index) => {
-    e.stopPropagation() && setActiveOutline(item) && toggleClick(e, index);
+    e.stopPropagation();
+    setActiveOutline(item);
+    toggleClick(e, index);
     idBackTo("areacenter_section");
   };
 
