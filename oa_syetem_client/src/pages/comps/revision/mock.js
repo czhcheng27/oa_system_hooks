@@ -81,6 +81,53 @@ export const mockOutline = [
     id: "preface",
     name: "Preface",
     children: [],
+    data: {
+      basisStd: {
+        stdNo: "",
+        stdName: "",
+        switchStatus: true,
+      },
+      fileRel: {
+        switchStatus: true,
+        infoData: {
+          stdNo: "",
+          stdName: "",
+          partNo: "",
+          publishedNo: "",
+        },
+        valueData: [
+          {
+            partNo: "",
+            contentTxt: "",
+            id: "initContentId",
+          },
+        ],
+      },
+      replaceFile: {
+        switchStatus: true,
+        infoData: {
+          stdNo: "",
+          stdName: "",
+          publishedNo: "",
+        },
+        valueData: [
+          {
+            symbol: "a",
+            value: "",
+            id: "replaceFileId1",
+          },
+        ],
+      },
+      versionInfo: {
+        isFirstLunch: true,
+        valueData: [
+          {
+            value: "",
+            id: "reviseVersionId1",
+          },
+        ],
+      },
+    },
   },
   {
     varIndex: "0",

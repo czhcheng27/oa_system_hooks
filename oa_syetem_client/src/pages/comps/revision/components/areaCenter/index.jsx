@@ -1,12 +1,10 @@
 import React, { useRef, useImperativeHandle, forwardRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Sortable from "sortablejs";
-import { cloneDeep, findUpperObj } from "../../../../../utils";
-import {
-  updateOpenedIndex,
-  updateOutlineAllData,
-} from "../../../../../redux/actions";
+import { cloneDeep, findUpperObj } from "@/utils";
+import { updateOutlineAllData } from "@/redux/actions";
 import Cover from "../cover";
+import Preface from "../preface";
 import Introduction from "../introduction";
 import Appendix from "../appendix";
 import { independentComps, matchCom } from "../../const";
@@ -17,6 +15,7 @@ let _comList;
 // eslint-disable-next-line react/display-name
 const AreaCenter = forwardRef((props, ref) => {
   const coverRef = useRef();
+  const prefaceRef = useRef();
   const introRef = useRef();
 
   const dispatch = useDispatch();
@@ -98,6 +97,9 @@ const AreaCenter = forwardRef((props, ref) => {
       <>
         <div style={{ display: dataId === "cover" ? "block" : "none" }}>
           <Cover ref={coverRef} />
+        </div>
+        <div style={{ display: dataId === "preface" ? "block" : "none" }}>
+          <Preface ref={prefaceRef} prefaceData={outlineAllData[1].data} />
         </div>
         <div
           style={{

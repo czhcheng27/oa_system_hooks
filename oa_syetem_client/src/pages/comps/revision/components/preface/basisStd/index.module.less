@@ -1,0 +1,32 @@
+.first_row {
+  margin-bottom: 8px;
+}
+
+.second_row {
+  display: flex;
+  align-items: center;
+
+  & > span:nth-of-type(1) {
+    width: 132px;
+  }
+  & > span:nth-of-type(2) {
+    flex: 1;
+    margin: 0 15px 0 13px;
+  }
+  input {
+    height: 36px;
+    border-radius: 4px;
+  }
+
+  :global {
+    .ant-input {
+      border-color: #f0f1f4;
+    }
+    .ant-input:hover {
+      border-color: #e6ecff;
+    }
+    .ant-input:focus {
+      border-color: #e6ecff !important;
+    }
+  }
+}
