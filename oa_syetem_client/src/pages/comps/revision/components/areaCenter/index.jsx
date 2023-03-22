@@ -1,13 +1,14 @@
 import React, { useRef, useImperativeHandle, forwardRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Sortable from "sortablejs";
-import { cloneDeep } from "../../../../../utils";
+import { cloneDeep, findUpperObj } from "../../../../../utils";
 import {
   updateOpenedIndex,
   updateOutlineAllData,
 } from "../../../../../redux/actions";
 import Cover from "../cover";
 import Introduction from "../introduction";
+import Appendix from "../appendix";
 import { independentComps, matchCom } from "../../const";
 import css from "./index.module.less";
 
@@ -28,6 +29,9 @@ const AreaCenter = forwardRef((props, ref) => {
 
   const outlineAllData = useSelector((s) => s.rdcOutlineAllData);
   const cntId = outlineAllData.findIndex((el) => el.id === "content");
+
+  const curOutline = findUpperObj(outlineAllData, actId); // 最外层那一级的对象（即：封面、前言、引言。。。等）
+  const { id: outlineId, name: outlineName } = curOutline;
 
   useImperativeHandle(ref, () => ({
     handleSubmit,
@@ -89,15 +93,15 @@ const AreaCenter = forwardRef((props, ref) => {
     );
   };
 
-  const renderIndepComps = (dataIdx) => {
+  const renderIndepComps = (dataId) => {
     return (
       <>
-        <div style={{ display: dataIdx === "cover" ? "block" : "none" }}>
+        <div style={{ display: dataId === "cover" ? "block" : "none" }}>
           <Cover ref={coverRef} />
         </div>
         <div
           style={{
-            display: dataIdx === "introduction" ? "block" : "none",
+            display: dataId === "introduction" ? "block" : "none",
             height: "100%",
           }}
         >
@@ -108,6 +112,21 @@ const AreaCenter = forwardRef((props, ref) => {
             introData={outlineAllData[2]}
             comValueUpdate={comValueUpdate}
           />
+        </div>
+        <div
+          style={{
+            display: dataId === "appendix" ? "block" : "none",
+            height: "100%",
+          }}
+        >
+          {dataId === "appendix" && (
+            <Appendix
+              activeOutline={activeOutline}
+              resetOrder={resetOrder}
+              handleDelete={handleDelete}
+              comValueUpdate={comValueUpdate}
+            />
+          )}
         </div>
       </>
     );
@@ -136,10 +155,8 @@ const AreaCenter = forwardRef((props, ref) => {
   return (
     <div className={css.wrapper}>
       <header>{activeOutline.name}</header>
-      {/* <section>{renderList(comList)}</section> */}
-      {/* <section>{independent ? renderIndepComps(actId) : renderList(comList)}</section> */}
       <section id="areacenter_section">
-        {renderIndepComps(actId)} {renderList(comList)}
+        {renderIndepComps(outlineId)} {renderList(comList)}
       </section>
     </div>
   );
