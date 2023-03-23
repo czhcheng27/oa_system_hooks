@@ -1,28 +1,24 @@
 .centerBox {
   .centerContent {
-    background-color: #f2f5fb;
+    // background-color: #f2f5fb;
     border-radius: 6px;
-    border: 1px solid #d4e1f6;
+    // border: 1px solid #d4e1f6;
     padding: 10px;
     position: relative;
   }
+}
 
-  .centerContent::after {
-    content: "";
-    position: absolute;
-    background: #f2f5fb;
-    border-left: 1px solid rgba(0, 137, 255, 0.12);
-    border-top: 1px solid rgba(0, 137, 255, 0.12);
-    width: 12px;
-    height: 12px;
-    top: -7px;
-    // right: 96%;
-    left: 15px;
-    margin: auto;
-    transform: rotate(45deg);
-  }
-
-  .centerImage {
-    display: flex;
-  }
+.pseudo_ele {
+  content: "";
+  position: absolute;
+  // background: #f2f5fb;
+  // border-left: 1px solid #d4e1f6;
+  // border-top: 1px solid #d4e1f6;
+  width: 12px;
+  height: 12px;
+  top: -7px;
+  // right: 96%;
+  // left: 15px;
+  margin: auto;
+  transform: rotate(45deg);
 }
