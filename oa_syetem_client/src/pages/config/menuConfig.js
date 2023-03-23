@@ -14,6 +14,8 @@ import {
   BlockOutlined,
   LineChartOutlined,
   FlagOutlined,
+  HeatMapOutlined,
+  ApartmentOutlined,
 } from "@ant-design/icons";
 
 function getItem(label, key, icon, children) {
@@ -55,5 +57,8 @@ export const menuItems = [
   ]),
   getItem("Approval", "/approval", <ContainerOutlined />, [
     getItem("APR & Details", "/apr_det_one", <FlagOutlined />),
+  ]),
+  getItem("Stage", "/stage", <HeatMapOutlined />, [
+    getItem("Stage Display", "/stage_display", <ApartmentOutlined />),
   ]),
 ];

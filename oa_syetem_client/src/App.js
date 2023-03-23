@@ -12,6 +12,7 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import Product from "./pages/product";
 import Role from "./pages/role";
+import StageDash from "./pages/stage/stageOne";
 import User from "./pages/user";
 
 const App = (props) => {
@@ -31,6 +32,7 @@ const App = (props) => {
           <Route path="/comps_library_sortablejs" element={<Revision />} />
           <Route path="/line_charts" element={<LineCharts />} />
           <Route path="/apr_det_one" element={<ApprovalDetails />} />
+          <Route path="/stage_display" element={<StageDash />} />
           <Route path="*" element={<Navigate to="/home" />} />
           <Route path="/" element={<Navigate to="/home" />} />
         </Route>
