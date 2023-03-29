@@ -20,36 +20,40 @@
 .applyFor,
 .implement {
   width: 50%;
+  padding-right: 30px;
+  position: relative;
 }
 
-// .flowWrap {
-//   width: calc(100% - 30px);
-//   position: relative;
-//   .prevBtn,
-//   .nextBtn {
-//     position: absolute;
-//     width: 16px;
-//     height: 16px;
-//     background-size: 100%;
-//     top: 0;
-//     cursor: pointer;
-//     z-index: 100;
-//   }
-//   .prevBtn {
-//     left: 0;
-//     background-image: url(../../../../../../../../assets/dashboard/Majordomo/prev.png);
-//     &:hover {
-//       background-image: url(../../../../../../../../assets/dashboard/Majordomo/prev_hover.png);
-//     }
-//   }
-//   .nextBtn {
-//     right: 0;
-//     background-image: url(../../../../../../../../assets/dashboard/Majordomo/next.png);
-//     &:hover {
-//       background-image: url(../../../../../../../../assets/dashboard/Majordomo/next_hover.png);
-//     }
-//   }
-// }
+.flowWrap {
+  width: calc(100% - 30px);
+  position: relative;
+}
+
+.prevBtn,
+.nextBtn {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-size: 100%;
+  top: 0;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.prevBtn {
+  left: 0;
+  background-image: url(../../imgs/prev.png);
+  &:hover {
+    background-image: url(../../imgs/prev_hover.png);
+  }
+}
+.nextBtn {
+  right: 30px;
+  background-image: url(../../imgs/next.png);
+  &:hover {
+    background-image: url(../../imgs/next_hover.png);
+  }
+}
 
 .popover {
   padding-bottom: 5px;
