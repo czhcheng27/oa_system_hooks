@@ -12,6 +12,7 @@ import CmTinymce from "../../../cmTinymce";
 import SwitchWrapper from "../../../switchWrapper";
 import PopCom from "../../../popCom";
 import { toolkitInit } from "../../../const";
+import { numToSymbol } from "../../../mock";
 import css from "./index.module.less";
 
 const { Item } = Form;
@@ -19,6 +20,7 @@ const { Item } = Form;
 const initContent = [
   {
     symbol: "a",
+    unicode: 97,
     value: "",
     id: "replaceFileId1",
   },
@@ -27,6 +29,7 @@ const initContent = [
 const contentObj = {
   symbol: "",
   value: "",
+  unicode: null,
 };
 
 // eslint-disable-next-line react/display-name
@@ -52,18 +55,32 @@ const ReplaceFile = forwardRef(({ replaceFile }, ref) => {
 
   // type 1 : 第一层级（a级添加）
   const contentAdd = (data) => {
-    const curIndex = valueData.findIndex((el) => el.id === data.id);
+    const { id, symbol, unicode } = data;
+    const curIndex = valueData.findIndex((el) => el.id === id);
     const newData = cloneDeep(valueData);
-    const newLable = String.fromCharCode(data.symbol.charCodeAt(0) * 1 + 1);
+    let newLable;
+    if (unicode > 121) {
+      const supposeSymbol = numToSymbol[unicode - 121];
+      newLable = `${supposeSymbol}${supposeSymbol}`;
+    } else {
+      newLable = String.fromCharCode(symbol.charCodeAt(0) * 1 + 1);
+    }
     newData.splice(curIndex + 1, 0, {
       ...contentObj,
       symbol: newLable,
       id: createUidKey(),
+      unicode: unicode + 1,
     });
     if (valueData.length > 1) {
       const afterArr = newData.slice(curIndex + 2);
       afterArr.forEach((el) => {
-        el.symbol = String.fromCharCode(el.symbol.charCodeAt(0) * 1 + 1);
+        if (el.unicode >= 122) {
+          const supposeSymbol = numToSymbol[el.unicode - 121];
+          el.symbol = `${supposeSymbol}${supposeSymbol}`;
+        } else {
+          el.symbol = String.fromCharCode(el.symbol.charCodeAt(0) * 1 + 1);
+        }
+        el.unicode += 1;
         return el;
       });
     }
@@ -77,7 +94,15 @@ const ReplaceFile = forwardRef(({ replaceFile }, ref) => {
     const preArr = newData.slice(0, curIndex);
     const afterArr = newData.slice(curIndex + 1);
     afterArr.forEach((el) => {
-      el.symbol = String.fromCharCode(el.symbol.charCodeAt(0) * 1 - 1);
+      if (el.unicode == 123) {
+        el.symbol = "z";
+      } else if (el.unicode > 122) {
+        const supposeSymbol = numToSymbol[el.unicode - 123];
+        el.symbol = `${supposeSymbol}${supposeSymbol}`;
+      } else {
+        el.symbol = String.fromCharCode(el.symbol.charCodeAt(0) * 1 - 1);
+      }
+      el.unicode -= 1;
       return el;
     });
     setValueData([...preArr, ...afterArr]);
