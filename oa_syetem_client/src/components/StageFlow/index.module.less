@@ -1,0 +1,134 @@
+.keyTaskArea {
+  margin-bottom: 7px;
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  .item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10px;
+    color: #1f2631;
+    position: relative;
+    // &.done {
+    //   color: #1f2631;
+    // }
+    // &.urgent {
+    //   color: #98a3b7;
+    //   .icon {
+    //     width: 8px;
+    //     height: 8px;
+    //     background: url("../../modules/main/assets/ecm006/urgent01.png");
+    //     background-size: 100% 100%;
+    //   }
+    // }
+    // &.notStarted {
+    //   //color: #98a3b7;
+    //   color: #1f2631;
+    // }
+    // &.current {
+    //   font-size: 12px;
+    //   line-height: 14px;
+    //   font-weight: 500;
+    //   &.daysOverdue {
+    //     color: #f64041;
+    //   }
+    //   &.warn {
+    //     color: #ff9712;
+    //   }
+    //   &.normal {
+    //     color: #0d5fe9;
+    //   }
+    // }
+    .line {
+      width: 1px;
+      height: 5px;
+      background-color: #fff;
+      position: absolute;
+      bottom: -14px;
+      z-index: 10;
+      right: 0;
+    }
+    .taskName {
+      display: inline-block;
+      line-height: 1;
+      font-size: 14px;
+      transform: scale(0.8333);
+      text-align: center;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100px;
+    }
+  }
+}
+.barWrap {
+  height: 9px;
+  margin-bottom: 4px;
+}
+// .dateArea {
+//   ul {
+//     display: flex;
+//     justify-content: space-between;
+//   }
+//   .item {
+//     flex: 1;
+//     display: flex;
+//     align-items: center;
+//     flex-direction: row-reverse;
+//     justify-content: space-between;
+//     height: 12px;
+//     line-height: 12px;
+//     &.done {
+//       color: #1f2631;
+//     }
+//     &.urgent {
+//       color: #98a3b7;
+//       .time {
+//         display: none;
+//       }
+//       .icon {
+//         width: 12px;
+//         height: 12px;
+//         display: block;
+//         margin-right: -6px;
+//         background: url("../../modules/main/assets/ecm006/urgent02.png");
+//         background-size: 100% 100%;
+//       }
+//     }
+//     &.notStarted {
+//       color: #98a3b7;
+//     }
+//   }
+//   .approvalTime,
+//   .time {
+//     display: inline-block;
+//     font-size: 12px;
+//     transform: scale(0.8333);
+//   }
+//   .time {
+//     margin-right: -15px;
+//   }
+// }
+.popover {
+  color: #fff;
+  :global {
+    .ant-popover-arrow-content {
+      --antd-arrow-background-color: #333;
+    }
+    .ant-popover-inner {
+      background: #333333;
+      box-shadow: none;
+      border-radius: 4px;
+    }
+    .ant-popover-inner-content {
+      padding: 5px;
+      color: #fff;
+      font-size: 13px;
+      line-height: 23px;
+    }
+  }
+}
