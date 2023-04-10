@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Popover } from "antd";
+import StageFlowBar from "../StageFlowBar";
 import css from "./index.module.less";
 
-const StageFlow = ({ data }) => {
-  console.log("data", data);
+const StageFlow = ({ data, warnNum, isHover, setChangeStatus }) => {
+  let currentIndex = data.findIndex((item) => item["currentStage"] == 1);
   return (
     <div className={css.flow}>
       {/* top */}
@@ -26,7 +27,15 @@ const StageFlow = ({ data }) => {
       </div>
 
       {/* center */}
-      <div className={css.barWrap}>barWrap</div>
+      <div className={css.barWrap}>
+        <StageFlowBar
+          data={data}
+          warnNum={warnNum}
+          isHover={isHover}
+          currentIndex={currentIndex}
+          setChangeStatus={setChangeStatus ? 1 : 0}
+        />
+      </div>
 
       {/* bot */}
       <div className={css.dateArea}>dateArea</div>

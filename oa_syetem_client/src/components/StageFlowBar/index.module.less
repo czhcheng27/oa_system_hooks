@@ -1,0 +1,99 @@
+.barArea {
+  height: 100%;
+  border-radius: 4px;
+  background: rgba(168, 174, 180, 0.12);
+  border: 0.6px solid #ffffff;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.11),
+    inset 0px 2px 1px 0px rgba(43, 47, 69, 0.12);
+  position: relative;
+}
+.barBox {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  min-height: 0;
+}
+.bar {
+  width: 80%;
+  height: 100%;
+  border-radius: 3.5px;
+  background: linear-gradient(90deg, #73edfd 0%, #85d1fe 36%);
+  position: relative;
+  &.overdue {
+    .icon {
+      background-image: url("../../assets/overdue.png");
+    }
+    .status {
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0), #ff6767 20%);
+    }
+  }
+  &.warn {
+    .icon {
+      background-image: url("../../assets/warn.png");
+    }
+    .status {
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0), #ffb967 20%);
+    }
+  }
+  &.normal {
+    .icon {
+      background-image: url("../../assets/normal.png");
+    }
+    .status {
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0), #67aeff 20%);
+    }
+  }
+  &.done {
+    &::before {
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translate(0, -50%);
+      content: "";
+      background-image: url("../../assets/flag.png");
+      width: 15px;
+      height: 15px;
+      background-size: 100% 100%;
+    }
+  }
+  &.hover {
+    &.overdue .icon {
+      background-image: url("../../assets/overdue.gif");
+      width: 20px;
+      height: 20px;
+      right: -10px;
+    }
+    &.warn .icon {
+      background-image: url("../../assets/warn.gif");
+      width: 20px;
+      height: 20px;
+      right: -10px;
+    }
+    &.normal .icon {
+      background-image: url("../../assets/normal.gif");
+      width: 20px;
+      height: 20px;
+      right: -10px;
+    }
+  }
+
+  .status {
+    position: absolute;
+    width: 85px;
+    border-radius: 3.5px;
+    height: 100%;
+    right: 0;
+  }
+  .icon {
+    right: -15px;
+    top: 50%;
+    transform: translate(0, -50%);
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+}
