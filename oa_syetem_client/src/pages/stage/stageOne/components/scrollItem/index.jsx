@@ -51,7 +51,7 @@ const ScrollItem = ({ data, warnDay }) => {
               setChangeStatus={data["approvalProgress"] == 3 ? true : false}
               setChangeType={data.isUrgent}
               warnNum={warnDay}
-              // isHover={isHover}
+              isHover={isHover}
             ></StageFlow>
           </div>
         </div>
