@@ -13,36 +13,36 @@
     height: 10px;
     color: #1f2631;
     position: relative;
-    // &.done {
-    //   color: #1f2631;
-    // }
-    // &.urgent {
-    //   color: #98a3b7;
-    //   .icon {
-    //     width: 8px;
-    //     height: 8px;
-    //     background: url("../../modules/main/assets/ecm006/urgent01.png");
-    //     background-size: 100% 100%;
-    //   }
-    // }
-    // &.notStarted {
-    //   //color: #98a3b7;
-    //   color: #1f2631;
-    // }
-    // &.current {
-    //   font-size: 12px;
-    //   line-height: 14px;
-    //   font-weight: 500;
-    //   &.daysOverdue {
-    //     color: #f64041;
-    //   }
-    //   &.warn {
-    //     color: #ff9712;
-    //   }
-    //   &.normal {
-    //     color: #0d5fe9;
-    //   }
-    // }
+    &.done {
+      color: #1f2631;
+    }
+    &.urgent {
+      color: #98a3b7;
+      .icon {
+        width: 8px;
+        height: 8px;
+        // background: url("../../modules/main/assets/ecm006/urgent01.png");
+        background-size: 100% 100%;
+      }
+    }
+    &.notStarted {
+      //color: #98a3b7;
+      color: #1f2631;
+    }
+    &.current {
+      font-size: 12px;
+      line-height: 14px;
+      font-weight: 500;
+      &.daysOverdue {
+        color: #f64041;
+      }
+      &.warn {
+        color: #ff9712;
+      }
+      &.normal {
+        color: #0d5fe9;
+      }
+    }
     .line {
       width: 1px;
       height: 5px;
@@ -70,50 +70,53 @@
   height: 9px;
   margin-bottom: 4px;
 }
-// .dateArea {
-//   ul {
-//     display: flex;
-//     justify-content: space-between;
-//   }
-//   .item {
-//     flex: 1;
-//     display: flex;
-//     align-items: center;
-//     flex-direction: row-reverse;
-//     justify-content: space-between;
-//     height: 12px;
-//     line-height: 12px;
-//     &.done {
-//       color: #1f2631;
-//     }
-//     &.urgent {
-//       color: #98a3b7;
-//       .time {
-//         display: none;
-//       }
-//       .icon {
-//         width: 12px;
-//         height: 12px;
-//         display: block;
-//         margin-right: -6px;
-//         background: url("../../modules/main/assets/ecm006/urgent02.png");
-//         background-size: 100% 100%;
-//       }
-//     }
-//     &.notStarted {
-//       color: #98a3b7;
-//     }
-//   }
-//   .approvalTime,
-//   .time {
-//     display: inline-block;
-//     font-size: 12px;
-//     transform: scale(0.8333);
-//   }
-//   .time {
-//     margin-right: -15px;
-//   }
-// }
+.dateArea {
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  .item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    height: 12px;
+    line-height: 12px;
+    p {
+      margin-bottom: 0;
+    }
+    &.done {
+      color: #1f2631;
+    }
+    &.urgent {
+      color: #98a3b7;
+      .time {
+        display: none;
+      }
+      .icon {
+        width: 12px;
+        height: 12px;
+        display: block;
+        margin-right: -6px;
+        // background: url("../../modules/main/assets/ecm006/urgent02.png");
+        background-size: 100% 100%;
+      }
+    }
+    &.notStarted {
+      color: #98a3b7;
+    }
+  }
+  .approvalTime,
+  .time {
+    display: inline-block;
+    font-size: 12px;
+    transform: scale(0.8333);
+  }
+  .time {
+    margin-right: -15px;
+  }
+}
 .popover {
   color: #fff;
   :global {

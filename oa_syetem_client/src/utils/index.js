@@ -282,3 +282,34 @@ export const visibleChangeFormatArr = (arr) => {
   }
   return arr;
 };
+
+export const formatTime = (date) => {
+  if (date) {
+    let time = new Date(date);
+    return addZero(time.getMonth() + 1) + "/" + addZero(time.getDate());
+  } else {
+    return null;
+  }
+};
+export const addZero = (num) => {
+  if (num < 10) {
+    return "0" + num;
+  } else {
+    return num;
+  }
+};
+export const taskSatus = (daysOverdue, warnNum = 5, isFinish = false) => {
+  if (isFinish) {
+    return { name: "done", text: "已完成" };
+  } else {
+    if (daysOverdue < 0) {
+      return { name: "overdue", text: "超期" };
+    } else if (daysOverdue <= warnNum) {
+      //未超期（提醒）
+      return { name: "warn", text: "即将超期" };
+    } else {
+      //进行中
+      return { name: "normal", text: "进行中" };
+    }
+  }
+};
