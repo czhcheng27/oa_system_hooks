@@ -4,6 +4,7 @@ import StageFlowBar from "../StageFlowBar";
 import { formatTime, taskSatus } from "../../utils";
 import css from "./index.module.less";
 
+// 阶段流程展示
 const StageFlow = ({
   data,
   warnNum,
@@ -46,7 +47,7 @@ const StageFlow = ({
 
   return (
     <div className={css.flow}>
-      {/* top */}
+      {/* top：显示阶段名 */}
       <div className={css.keyTaskArea}>
         <ul>
           {data.map((el, index) => {
@@ -65,7 +66,7 @@ const StageFlow = ({
         </ul>
       </div>
 
-      {/* center */}
+      {/* center: 小人跑 */}
       <div className={css.barWrap}>
         <StageFlowBar
           data={data}
@@ -76,7 +77,7 @@ const StageFlow = ({
         />
       </div>
 
-      {/* bot */}
+      {/* bot：渲染时间 */}
       <div className={css.dateArea}>
         <ul>
           {data.map((item, index) => {

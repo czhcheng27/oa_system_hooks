@@ -5,4 +5,108 @@
   padding: 15px 24px 0 8px;
   width: 335px;
   cursor: pointer;
+  p {
+    margin-bottom: 0;
+  }
+}
+.left {
+  flex: 1;
+  overflow: hidden;
+}
+
+.infoArea {
+  display: flex;
+  line-height: 20px;
+  margin-bottom: 4px;
+  .projectName {
+    margin-right: 4px;
+    height: 20px;
+    padding: 0 4px;
+    background: #4787f0;
+    border-radius: 2px;
+    color: #ffffff;
+    max-width: 100px;
+    min-width: 44px;
+    text-align: center;
+    span {
+      display: inline-block;
+      max-width: 92px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .batchproductionChange {
+    font-weight: 500;
+    font-size: 14px;
+    color: #0052d9;
+  }
+  .setChangeNum {
+    font-weight: 500;
+    font-size: 16px;
+    color: #242f57;
+  }
+  .icon {
+    margin-left: 6px;
+    width: 16px;
+    height: 16px;
+    background-image: url(../../imgs/urgent.png);
+    background-size: 100%;
+  }
+}
+
+.name {
+  line-height: 20px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #242f57;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.right {
+  width: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-weight: 400;
+    font-size: 12px;
+    width: 58px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 12px;
+    color: #fff;
+    border: 1px solid #fefefe;
+    &.overdue {
+      background-image: linear-gradient(
+        0deg,
+        #ff5f5f 0%,
+        #ff0000 100%,
+        #e7ecf3 100%
+      );
+      box-shadow: 0 3px 4px 0 rgba(69, 89, 120, 0.12);
+    }
+    &.warn {
+      background-image: linear-gradient(
+        0deg,
+        #ffbf6f 0%,
+        #ffac41 100%,
+        #e7ecf3 100%
+      );
+      box-shadow: 0 3px 4px 0 rgba(69, 89, 120, 0.12);
+    }
+    &.normal {
+      background-image: linear-gradient(
+        0deg,
+        #fefefe 0%,
+        #f2f7ff 100%,
+        #f2f7ff 100%
+      );
+      box-shadow: 0 3px 4px 0 rgba(69, 89, 120, 0.12);
+      color: #242f57;
+    }
+  }
 }
