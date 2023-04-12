@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { initViewList } from "../../const";
+import { data2, initViewList } from "../../const";
 import Rename from "../Rename";
 import css from "./index.module.less";
 
-const ViewFilter = (props) => {
+const ViewFilter = ({ data, setListData, loadingFunc }) => {
   const [renameId, setRenameId] = useState("");
   const [viewList, setViewList] = useState(initViewList);
   const [checkedView, setCheckedView] = useState(null);
@@ -49,6 +49,18 @@ const ViewFilter = (props) => {
     );
   };
 
+  const itemClick = (teamWorkId, idx) => {
+    loadingFunc();
+    if (idx == 0) {
+      setListData(data);
+    } else if (idx == 1) {
+      setListData(data.slice(0, 5));
+    } else if (idx == 2) {
+      setListData(data.slice(-5));
+    }
+    setCheckedView(teamWorkId);
+  };
+
   return (
     <div className={css.viewFilter}>
       <div className={css.leftArea}>
@@ -60,7 +72,7 @@ const ViewFilter = (props) => {
                 className={`${teamWorkId == null ? css.all : css.item} ${
                   checkedView == teamWorkId ? css.current : ""
                 }`}
-                onClick={() => setCheckedView(teamWorkId)}
+                onClick={() => itemClick(teamWorkId, index)}
                 key={index}
               >
                 <span className={css.text}>{teamworkName}</span>
