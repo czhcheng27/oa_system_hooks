@@ -1,16 +1,30 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useMemo,
-} from "react";
+import React, { useState } from "react";
 import { initViewList } from "../../const";
+import Rename from "../Rename";
 import css from "./index.module.less";
 
 const ViewFilter = (props) => {
+  const [renameId, setRenameId] = useState("");
   const [viewList, setViewList] = useState(initViewList);
   const [checkedView, setCheckedView] = useState(null);
+  const [renameVisible, setRenameVisible] = useState(false);
+
+  const handleRename = (item, event) => {
+    event.stopPropagation();
+    setRenameId(item.teamWorkId);
+    setRenameVisible(true);
+  };
+
+  const handleOk = (id, txt) => {
+    const res = initViewList.map((el) => {
+      if (el.teamWorkId === id) {
+        el.teamworkName = txt;
+      }
+      return el;
+    });
+    setRenameVisible(false);
+    setViewList(res);
+  };
 
   const renderOperationBox = (item) => {
     return (
@@ -18,9 +32,7 @@ const ViewFilter = (props) => {
         <div className={css.content}>
           <div
             className={`${css.rename} ${css.list}`}
-            // onClick={(e) => {
-            //   handleRename(item, e);
-            // }}
+            onClick={(e) => handleRename(item, e)}
           >
             <span className={css.text}>重命名</span>
           </div>
@@ -42,16 +54,18 @@ const ViewFilter = (props) => {
       <div className={css.leftArea}>
         <ul>
           {viewList.map((item, index) => {
+            const { teamWorkId, teamworkName } = item;
             return (
               <li
-                className={`${item.teamWorkId == null ? css.all : css.item} ${
-                  checkedView == item.teamWorkId ? css.current : ""
+                className={`${teamWorkId == null ? css.all : css.item} ${
+                  checkedView == teamWorkId ? css.current : ""
                 }`}
+                onClick={() => setCheckedView(teamWorkId)}
                 key={index}
               >
-                <span className={css.text}>{item.teamworkName}</span>
+                <span className={css.text}>{teamworkName}</span>
                 <span className={css.drop}></span>
-                {item.teamWorkId && renderOperationBox(item)}
+                {teamWorkId && renderOperationBox(item)}
               </li>
             );
           })}
@@ -59,6 +73,13 @@ const ViewFilter = (props) => {
       </div>
 
       <div className={css.rightArea}>right area</div>
+      {renameVisible && (
+        <Rename
+          teamWorkId={renameId}
+          handleOk={handleOk}
+          onClose={() => setRenameVisible(false)}
+        ></Rename>
+      )}
     </div>
   );
 };
