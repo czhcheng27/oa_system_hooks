@@ -6,6 +6,7 @@ import React, {
   useMemo,
 } from "react";
 import OutBox from "./components/outBox";
+import ViewFilter from "./components/viewFilter";
 import { data } from "./const";
 import css from "./index.module.less";
 
@@ -17,7 +18,9 @@ const StageDash = (props) => {
       {/* content */}
       <div>
         <div>view filter wrapper</div>
-        <div>page table</div>
+        <div className={css.viewfilterWrap}>
+          <ViewFilter />
+        </div>
         <div className={css.setChangeWrap}>
           <OutBox data={data} warnDay={5} />
         </div>

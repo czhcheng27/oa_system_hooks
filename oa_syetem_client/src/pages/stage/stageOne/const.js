@@ -1,3 +1,21 @@
+export const initViewList = [
+  {
+    teamWorkId: null,
+    teamworkName: "全部",
+    defaultFlag: "1",
+  },
+  {
+    teamWorkId: "1633729332512935936",
+    teamworkName: "111111",
+    defaultFlag: "0",
+  },
+  {
+    teamWorkId: "1634477194512977920",
+    teamworkName: "222222",
+    defaultFlag: "0",
+  },
+];
+
 export const changeWarnDay = [
   {
     code: "WARN_DAY",
