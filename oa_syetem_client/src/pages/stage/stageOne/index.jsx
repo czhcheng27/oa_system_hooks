@@ -9,10 +9,19 @@ const StageDash = (props) => {
   const [pageTip, setPageTip] = useState({ show: true, status: 0 });
   const [listData, setListData] = useState(data);
 
-  const loadingFunc = () => {
+  const loadingFunc = (code) => {
     setPageTip({ show: true, status: 0 });
     setTimeout(() => {
-      setPageTip({ show: false });
+      switch (code) {
+        case 1:
+          return setPageTip({ show: true, status: 1 });
+
+        case 2:
+          return setPageTip({ show: true, status: 2 });
+
+        default:
+          return setPageTip({ show: false });
+      }
     }, 1000);
   };
 

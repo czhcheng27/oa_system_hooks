@@ -14,6 +14,16 @@ export const initViewList = [
     teamworkName: "222222",
     defaultFlag: "0",
   },
+  {
+    teamWorkId: "16344771945132534920",
+    teamworkName: "No Data",
+    defaultFlag: "0",
+  },
+  {
+    teamWorkId: "1634417194512977920",
+    teamworkName: "Network Timeout",
+    defaultFlag: "0",
+  },
 ];
 
 export const changeWarnDay = [

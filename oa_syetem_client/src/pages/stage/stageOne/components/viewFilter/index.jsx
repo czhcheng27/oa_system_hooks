@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Ellipsis from "../../../../../components/Ellipsis";
 import { data2, initViewList } from "../../const";
 import Rename from "../Rename";
 import css from "./index.module.less";
@@ -50,13 +51,19 @@ const ViewFilter = ({ data, setListData, loadingFunc }) => {
   };
 
   const itemClick = (teamWorkId, idx) => {
-    loadingFunc();
     if (idx == 0) {
+      loadingFunc();
       setListData(data);
     } else if (idx == 1) {
+      loadingFunc();
       setListData(data.slice(0, 5));
     } else if (idx == 2) {
+      loadingFunc();
       setListData(data.slice(-5));
+    } else if (idx == 3) {
+      loadingFunc(1);
+    } else if (idx == 4) {
+      loadingFunc(2);
     }
     setCheckedView(teamWorkId);
   };
@@ -75,7 +82,9 @@ const ViewFilter = ({ data, setListData, loadingFunc }) => {
                 onClick={() => itemClick(teamWorkId, index)}
                 key={index}
               >
-                <span className={css.text}>{teamworkName}</span>
+                <Ellipsis content={teamworkName}>
+                  <span className={css.text}>{teamworkName}</span>
+                </Ellipsis>
                 <span className={css.drop}></span>
                 {teamWorkId && renderOperationBox(item)}
               </li>
