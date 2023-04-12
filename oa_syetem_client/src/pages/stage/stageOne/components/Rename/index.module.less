@@ -1,0 +1,63 @@
+.modal {
+  :global {
+    .ant-modal-content {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .ant-modal-body {
+      padding: 0;
+    }
+  }
+}
+.head {
+  height: 44px;
+  line-height: 44px;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  background: #f5f6f7;
+  .title {
+    color: #242f57;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  .close {
+    font-size: 10px;
+    color: #171a1d;
+    cursor: pointer;
+  }
+}
+.content {
+  padding: 24px;
+  :global {
+    .ant-input {
+      height: 36px;
+    }
+  }
+}
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 24px 24px;
+  .btnArea {
+    :global {
+      .ant-btn {
+        width: 76px;
+        height: 36px;
+        border-radius: 4px;
+        &:first-child {
+          color: #242f57;
+          background: #eaedf7;
+          border: none;
+          margin-right: 8px;
+          &::after {
+            display: none;
+          }
+        }
+        &:last-child {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
