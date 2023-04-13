@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LoadingTip from "../../../components/LoadingTip";
 import OutBox from "./components/outBox";
+import TitleParts from "./components/titlePart";
 import ViewFilter from "./components/viewFilter";
 import { data } from "./const";
 import css from "./index.module.less";
@@ -36,7 +37,9 @@ const StageDash = (props) => {
 
       {/* content */}
       <div>
-        <div>view filter wrapper</div>
+        <div className={css.titleParts_wrapper}>
+          <TitleParts />
+        </div>
         <div className={css.viewfilterWrap}>
           <ViewFilter
             loadingFunc={loadingFunc}
