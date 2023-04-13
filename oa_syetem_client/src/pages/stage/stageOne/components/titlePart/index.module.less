@@ -1,0 +1,140 @@
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0 12px;
+}
+
+.filterArea {
+  flex: 1;
+  display: flex;
+  align-items: end;
+}
+
+.left {
+  min-width: 124px;
+  padding-left: 24px;
+  padding-right: 12px;
+  margin-right: 32px;
+  height: 20px;
+  line-height: 20px;
+  span {
+    color: #0052d9;
+  }
+  border-right: 1px solid #ebebeb;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.check_wrapper {
+  border-right: 1px solid #ebebeb;
+  label {
+    margin-right: 32px !important;
+  }
+}
+
+.yearFilter {
+  display: flex;
+  align-items: center;
+  padding-left: 32px;
+  height: 28px;
+  line-height: 28px;
+
+  .flag {
+    margin-right: 16px;
+  }
+
+  .yearList {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  .all,
+  .term {
+    width: 60px;
+    text-align: center;
+    margin-right: 9px;
+  }
+
+  .filtrate {
+    width: 60px;
+    text-align: center;
+  }
+}
+
+.all,
+.term,
+.filtrate .textArea {
+  cursor: pointer;
+  border-radius: 14px;
+  transition: all 400ms ease;
+  &:hover {
+    background: rgba(126, 134, 142, 0.1);
+  }
+  &.current {
+    background: #ecf2fe;
+    color: #0052d9;
+    &:hover {
+      background: #ecf2fe;
+      color: #0052d9;
+    }
+  }
+}
+
+.filtrate {
+  .textArea {
+    position: relative;
+    z-index: 1;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      .selectBox {
+        display: block;
+      }
+    }
+  }
+}
+
+.selectBox {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  padding-top: 32px;
+  display: none;
+  width: 118px;
+  .selectContent {
+    height: 144px;
+    background: #fff;
+    padding: 8px 4px 8px 8px;
+    box-shadow: 0 2px 4px -1px rgba(36, 47, 87, 0.12),
+      0 4px 5px 0 rgba(36, 47, 87, 0.08), 0 1px 20px 0 rgba(36, 47, 87, 0.11);
+    border-radius: 4px;
+  }
+  ul {
+    overflow: auto;
+    height: 100%;
+  }
+  li {
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+    margin-right: 4px;
+    color: #242f57;
+    cursor: pointer;
+    transition: all 400ms ease;
+    &:hover {
+      background: rgba(126, 134, 142, 0.1);
+    }
+    &.current {
+      color: #0052d9;
+      background: rgba(0, 82, 217, 0.06);
+    }
+  }
+}
