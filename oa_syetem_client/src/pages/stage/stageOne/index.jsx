@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoadingTip from "../../../components/LoadingTip";
+import CarouselComp from "./components/carouselComp";
 import OutBox from "./components/outBox";
 import TitleParts from "./components/titlePart";
 import ViewFilter from "./components/viewFilter";
@@ -32,11 +33,13 @@ const StageDash = (props) => {
     }, 1500);
   }, []);
   return (
-    <div>
-      <div>Title</div>
+    <div className={css.stageDash}>
+      <div className={css.carouselComp_wrapper}>
+        <CarouselComp />
+      </div>
 
       {/* content */}
-      <div>
+      <div className={css.progress_wrapper}>
         <div className={css.titleParts_wrapper}>
           <TitleParts />
         </div>
