@@ -82,6 +82,15 @@ const ViewFilter = ({ data, setListData, loadingFunc }) => {
                 onClick={() => itemClick(teamWorkId, index)}
                 key={index}
               >
+                <svg className={`${css.icon} st-iconfont`} aria-hidden="true">
+                  <use
+                    xlinkHref={
+                      item.teamWorkId == null
+                        ? "#st-icon-xuanzhongquanbubiaoqianshili"
+                        : "#st-icon-biangengcheliangxingzhi"
+                    }
+                  ></use>
+                </svg>
                 <Ellipsis content={teamworkName}>
                   <span className={css.text}>{teamworkName}</span>
                 </Ellipsis>
