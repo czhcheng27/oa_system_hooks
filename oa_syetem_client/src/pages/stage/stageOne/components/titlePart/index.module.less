@@ -37,66 +37,62 @@
 }
 
 .yearFilter {
+  padding-left: 32px;
   display: flex;
   align-items: center;
-  padding-left: 32px;
-  height: 28px;
   line-height: 28px;
-
   .flag {
     margin-right: 16px;
   }
-
   .yearList {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
   }
-
   .all,
   .term {
     width: 60px;
-    text-align: center;
-    margin-right: 9px;
-  }
-
-  .filtrate {
-    width: 60px;
+    height: 28px;
     text-align: center;
   }
-}
-
-.all,
-.term,
-.filtrate .textArea {
-  cursor: pointer;
-  border-radius: 14px;
-  transition: all 400ms ease;
-  &:hover {
-    background: rgba(126, 134, 142, 0.1);
-  }
-  &.current {
-    background: #ecf2fe;
-    color: #0052d9;
+  .all,
+  .term,
+  .filtrate .textArea {
+    cursor: pointer;
+    border-radius: 14px;
+    transition: all 400ms ease;
     &:hover {
+      background: rgba(126, 134, 142, 0.1);
+    }
+    &.current,
+    &.current:hover {
       background: #ecf2fe;
       color: #0052d9;
     }
   }
-}
-
-.filtrate {
-  .textArea {
-    position: relative;
-    z-index: 1;
+  .all {
+    margin-right: 19px;
+  }
+  .term {
+    margin-left: 2px;
     padding: 0 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &:hover {
-      .selectBox {
-        display: block;
+  }
+  .filtrate {
+    .textArea {
+      position: relative;
+      z-index: 1;
+      padding: 0 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:hover {
+        .selectBox {
+          display: block;
+        }
       }
+    }
+    .icon {
+      margin-right: 4px;
     }
   }
 }

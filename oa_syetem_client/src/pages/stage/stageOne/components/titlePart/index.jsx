@@ -83,6 +83,9 @@ const TitleParts = (props) => {
               <div
                 className={`${css.textArea} ${checkFilter ? css.current : ""}`}
               >
+                <svg className={`${css.icon} st-iconfont`} aria-hidden="true">
+                  <use xlinkHref="#st-icon-shaixuan"></use>
+                </svg>
                 <span className={css.text}>Filter</span>
                 {render()}
               </div>
