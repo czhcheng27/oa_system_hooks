@@ -43,6 +43,17 @@ export const initChangeState = [
   },
 ];
 
+export const exhibition = [
+  { tip: "Apply Stage", num: "--", text: "Overdue No.", name: "apply" },
+  {
+    tip: "Finish Stage",
+    num: "6",
+    text: "Overdue No.",
+    name: "implement",
+    key: "overDueChangeList",
+  },
+];
+
 export const initViewList = [
   {
     teamWorkId: null,

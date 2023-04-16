@@ -1,6 +1,6 @@
 import React from "react";
 import { Tooltip } from "antd";
-import { initChangeState } from "../../const";
+import { exhibition, initChangeState } from "../../const";
 import css from "./index.module.less";
 
 const EntranceComp = (props) => {
@@ -28,7 +28,28 @@ const EntranceComp = (props) => {
           );
         })}
       </ul>
-      <div></div>
+      <div className={css.uniteArea}>
+        <ul className={css.exhibitionArea}>
+          {exhibition.map((item, index) => {
+            return (
+              <li
+                className={`${css.item} ${css[item["name"]]}`}
+                key={index}
+                // onClick={() => {
+                //   index = 1 && hanldeSkip(item);
+                // }}
+              >
+                <span className={css.tip}>{item.tip}</span>
+                <div className={css.box}>
+                  <span className={css.content}>{item.num}</span>
+                  <span className={css.text}>{item.text}</span>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+        <div className={css.quickEntryArea}></div>
+      </div>
     </div>
   );
 };
