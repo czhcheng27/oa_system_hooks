@@ -1,11 +1,12 @@
 import React from "react";
 import { Tooltip } from "antd";
-import { exhibition, initChangeState } from "../../const";
+import { exhibition, initChangeState, quickEntry } from "../../const";
 import css from "./index.module.less";
 
 const EntranceComp = (props) => {
   return (
     <div>
+      {/* top btns */}
       <ul className={css.setChangeStateArea}>
         {initChangeState.map((item, index) => {
           return (
@@ -28,7 +29,10 @@ const EntranceComp = (props) => {
           );
         })}
       </ul>
+
+      {/* bot */}
       <div className={css.uniteArea}>
+        {/* bot two gif parts */}
         <ul className={css.exhibitionArea}>
           {exhibition.map((item, index) => {
             return (
@@ -48,7 +52,27 @@ const EntranceComp = (props) => {
             );
           })}
         </ul>
-        <div className={css.quickEntryArea}></div>
+
+        {/* bot quick entrance */}
+        <div className={css.quickEntryArea}>
+          <p className={css.tip}>Quick Entrance</p>
+          <ul>
+            {quickEntry.map((item, index) => {
+              return (
+                <li
+                  className={`${css.item} ${css[item["name"]]}`}
+                  key={index}
+                  //   onClick={() => {
+                  //     item.pageUrl && skip(item.pageUrl);
+                  //   }}
+                >
+                  <p className={css.icon}></p>
+                  <p className={css.text}>{item.text}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );

@@ -54,6 +54,15 @@ export const exhibition = [
   },
 ];
 
+export const quickEntry = [
+  { text: "Overview", name: "setChange", pageUrl: "ecm004" },
+  { text: "Entrance1", name: "approval", pageUrl: "ecm005" },
+  { text: "Entrance2", name: "synergy", pageUrl: "ecm009" },
+  { text: "Entrance3", name: "attention", pageUrl: "ecm008" },
+  { text: "Entrance4", name: "issue" },
+  { text: "Entrance5", name: "apply" },
+];
+
 export const initViewList = [
   {
     teamWorkId: null,
