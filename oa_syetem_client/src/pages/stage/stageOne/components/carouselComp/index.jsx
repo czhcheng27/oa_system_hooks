@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useMemo,
-} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import "swiper/swiper-bundle.min.css";
@@ -49,6 +43,7 @@ const list = [
 const CarouselComp = (props) => {
   const scrollAreaRef = useRef();
 
+  const [selectProject, setSelectProject] = useState({});
   const [lastSwiperSlideSty, setLastSwiperSlideSty] = useState({});
   const [show, setShow] = useState({
     row: 0,
@@ -66,8 +61,27 @@ const CarouselComp = (props) => {
     total % column && setLastSwiperSlideSty({ justifyContent: "flex-start" });
   };
 
+  const clickProjectCard = (e, data, receiveStatus) => {
+    e.stopPropagation();
+    if (!receiveStatus && data.projectId == selectProject.projectId) {
+      data.status = "";
+      setSelectProject({});
+    } else {
+      if (receiveStatus) {
+        if (data.status && data.projectId == selectProject.projectId) {
+          data.status = data.status == receiveStatus ? "" : receiveStatus;
+        } else {
+          data.status = receiveStatus;
+        }
+      }
+      setSelectProject({ ...data });
+    }
+  };
+
   useEffect(() => {
-    calculate();
+    setTimeout(() => {
+      calculate();
+    }, 100);
   }, []);
 
   return (
@@ -113,8 +127,8 @@ const CarouselComp = (props) => {
                           <div className={css.projectItemWrap} key={inIndex}>
                             <ProjectItem
                               data={list[count]}
-                              // selectProject={selectProject}
-                              // clickProjectCard={clickProjectCard}
+                              selectProject={selectProject}
+                              clickProjectCard={clickProjectCard}
                             ></ProjectItem>
                           </div>
                         ) : null;
