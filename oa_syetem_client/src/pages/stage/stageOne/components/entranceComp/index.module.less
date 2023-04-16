@@ -1,0 +1,123 @@
+.setChangeStateArea {
+  margin-bottom: 25px;
+  padding: 0 14px 0 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  .item {
+    display: flex;
+    color: #242f57;
+    cursor: pointer;
+    .iconBox,
+    .num {
+      transition: all 400ms ease;
+    }
+    &:hover {
+      .num {
+        color: #0052d9;
+      }
+      &.urgency .iconBox {
+        box-shadow: 0 0 8px 0 rgba(178, 0, 0, 0.16);
+      }
+      &.toggle .iconBox {
+        box-shadow: 0 0 8px 0 rgba(2, 44, 151, 0.18);
+      }
+      &.underway .iconBox {
+        box-shadow: 0 0 8px 0 rgba(1, 123, 13, 0.18);
+      }
+      &.issue .iconBox {
+        box-shadow: 0 0 8px 0 rgba(176, 9, 152, 0.18);
+      }
+      &.apply .iconBox {
+        box-shadow: 0 0 8px 0 rgba(196, 110, 0, 0.18);
+      }
+      &.project .iconBox {
+        box-shadow: 0 0 8px 0 rgba(0, 136, 182, 0.18);
+      }
+    }
+    &.urgency .iconBox {
+      background: #ffeff0;
+      .icon {
+        width: 35px;
+        height: 32px;
+        background-image: url("../../imgs/icon01.png");
+      }
+    }
+    &.toggle .iconBox {
+      background: #f6f5ff;
+      .icon {
+        width: 40px;
+        height: 32px;
+        background-image: url("../../imgs/icon02.png");
+      }
+    }
+    &.underway .iconBox {
+      background: #edfff5;
+      .icon {
+        width: 38px;
+        height: 34px;
+        background-image: url("../../imgs/icon03.png");
+        top: 15px;
+        left: 16px;
+        transform: translate(0, 0);
+      }
+    }
+    &.issue .iconBox {
+      background: #fff1fd;
+      .icon {
+        width: 40px;
+        height: 40px;
+        background-image: url("../../imgs/icon04.png");
+      }
+    }
+    &.apply .iconBox {
+      background: #fff8ef;
+      .icon {
+        width: 30px;
+        height: 31px;
+        background-image: url("../../imgs/icon05.png");
+      }
+    }
+    &.project .iconBox {
+      background: #ebfaff;
+      .icon {
+        width: 35px;
+        height: 34px;
+        background-image: url("../../imgs/icon06.png");
+      }
+    }
+  }
+  .issue,
+  .apply {
+    cursor: auto;
+  }
+  .iconBox {
+    width: 60px;
+    height: 60px;
+    margin-right: 16px;
+    position: relative;
+    border: 1px solid #ffffff;
+    border-radius: 16px;
+  }
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-size: 100% 100%;
+  }
+  .textBox {
+    padding-top: 7px;
+  }
+  .num {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

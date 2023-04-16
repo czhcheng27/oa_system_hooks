@@ -1,3 +1,48 @@
+export const initChangeState = [
+  {
+    text: "Urgent No.",
+    num: "5",
+    name: "urgency",
+    key: "urgentChangeList",
+    tips: "This is urgent No. tip",
+  },
+  {
+    text: "Complete No.",
+    num: "11",
+    name: "toggle",
+    key: "okChangeList",
+    tips: "This is complete No. tip",
+  },
+  {
+    text: "In progress",
+    num: "14",
+    name: "underway",
+    key: "doingChangeList",
+    tips: "This is in progress tip",
+  },
+  {
+    text: "Question No.",
+    num: "--",
+    name: "issue",
+    key: "",
+    tips: "This is question No. tip",
+  },
+  {
+    text: "Apply No.",
+    num: "--",
+    name: "apply",
+    key: "",
+    tips: "This is apply No. tip",
+  },
+  {
+    text: "Approval No.",
+    num: "36",
+    name: "project",
+    key: "approvalChangeList",
+    tips: "This is approval No. tip",
+  },
+];
+
 export const initViewList = [
   {
     teamWorkId: null,

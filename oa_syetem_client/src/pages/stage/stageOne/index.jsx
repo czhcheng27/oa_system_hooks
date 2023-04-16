@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LoadingTip from "../../../components/LoadingTip";
 import CarouselComp from "./components/carouselComp";
+import EntranceComp from "./components/entranceComp";
 import OutBox from "./components/outBox";
 import TitleParts from "./components/titlePart";
 import ViewFilter from "./components/viewFilter";
@@ -34,11 +35,22 @@ const StageDash = (props) => {
   }, []);
   return (
     <div className={css.stageDash}>
+      {/* top banner */}
+      <div className={css.topBanner}>
+        <div className={css.bannerTitle}>Storage One Banner</div>
+      </div>
+
+      {/* enter area */}
+      <div className={css.enterArea}>
+        <EntranceComp />
+      </div>
+
+      {/* Carousel area */}
       <div className={css.carouselComp_wrapper}>
         <CarouselComp />
       </div>
 
-      {/* content */}
+      {/* content info */}
       <div className={css.progress_wrapper}>
         <div className={css.titleParts_wrapper}>
           <TitleParts />
