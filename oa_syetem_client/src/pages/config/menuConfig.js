@@ -16,6 +16,7 @@ import {
   FlagOutlined,
   HeatMapOutlined,
   ApartmentOutlined,
+  PicLeftOutlined,
 } from "@ant-design/icons";
 
 function getItem(label, key, icon, children) {
@@ -60,5 +61,6 @@ export const menuItems = [
   ]),
   getItem("Stage", "/stage", <HeatMapOutlined />, [
     getItem("Stage Display", "/stage_display", <ApartmentOutlined />),
+    getItem("TodoList", "/todo_list", <PicLeftOutlined />),
   ]),
 ];

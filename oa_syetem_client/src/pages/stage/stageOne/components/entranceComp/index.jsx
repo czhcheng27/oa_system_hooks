@@ -10,7 +10,7 @@ const EntranceComp = (props) => {
       <ul className={css.setChangeStateArea}>
         {initChangeState.map((item, index) => {
           return (
-            <Tooltip key={index} title={item.tips}>
+            <Tooltip key={index}>
               <li
                 className={`${css.item} ${css[item["name"]]}`}
                 //   onClick={() => {
