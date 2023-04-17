@@ -1,4 +1,5 @@
 import React from "react";
+import AutoTooltip from "../../../../../components/AutoTooltip";
 import Ellipsis from "../../../../../components/Ellipsis";
 import { taskSatus } from "../../../../../utils";
 import css from "./index.module.less";
@@ -20,9 +21,9 @@ const InfoDetail = ({ data, warnDay }) => {
           >{`【${data.batchproductionChange}】`}</span>
           {data.isUrgent == "紧急" && <i className={css.icon}></i>}
         </div>
-        <Ellipsis content={data.ecrName}>
-          <p className={css.name}>{data.ecrName}</p>
-        </Ellipsis>
+        <p className={css.name}>
+          <AutoTooltip txt={data.ecrName}>{data.ecrName}</AutoTooltip>
+        </p>
       </div>
 
       {/* right */}

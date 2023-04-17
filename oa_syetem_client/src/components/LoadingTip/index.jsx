@@ -8,26 +8,26 @@ const LoadingTip = ({ status, text, retry }) => {
   const renderRetry = () => {
     return (
       <div>
-        网络超时，请
+        Interface exception, please
         <span onClick={retry} className={css.retry}>
-          点击重试
+          click retry
         </span>
       </div>
     );
   };
 
   const renderNormal = () => {
-    return text ? text : "网络超时，请一会儿重试...";
+    return text ? text : "Interface exception, please try again later...";
   };
 
   return (
     <div className={css.tipArea}>
-      {status == 0 && <Spin tip={text || "数据加载中..."}></Spin>}
+      {status == 0 && <Spin tip={text || "Data loading..."}></Spin>}
       {status == 1 && (
         <Empty
           image={EmptyImg}
           className={css.nodata}
-          description={text ? text : "暂无数据，休息一会吧~"}
+          description={text ? text : "No data yet, please take a break~"}
         />
       )}
       {status == 2 && (

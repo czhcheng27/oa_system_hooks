@@ -66,7 +66,7 @@ export const quickEntry = [
 export const initViewList = [
   {
     teamWorkId: null,
-    teamworkName: "全部",
+    teamworkName: "All",
     defaultFlag: "1",
   },
   {
