@@ -9,6 +9,7 @@ const { TabPane } = Tabs;
 const TodoList = (props) => {
   const [listData, setListData] = useState(apiData);
   const [actIdx, setActIdx] = useState(0);
+  const [typeOffsetTop, setTypeOffsetTop] = useState(0);
 
   const getProjectNum = () => {
     return listData.reduce((pre, item) => {
@@ -20,6 +21,12 @@ const TodoList = (props) => {
   const tabsChange = (key) => {
     setListData(key == "01" ? apiData : []);
   };
+
+  const itemClick = (index) => {
+    setActIdx(index);
+    setTypeOffsetTop(index * 50);
+  };
+
   return (
     <div className={css.todoList_wrap}>
       <div className={css.headerArea}>
@@ -62,25 +69,27 @@ const TodoList = (props) => {
 
                   {/* list area */}
                   <div className={css.listSelectDiv}>
+                    <div
+                      className={css.typeActiveCard}
+                      style={{
+                        top: typeOffsetTop + "px",
+                      }}
+                    />
                     {!!listData.length &&
                       listData.map((item, index) => {
                         const { projectName, changeInfoList } = item;
                         return (
                           <div
                             key={index}
-                            className={
-                              actIdx == index
-                                ? css.leftCardDivSelect
-                                : css.leftCardDiv
-                            }
-                            onClick={() => setActIdx(index)}
+                            className={css.leftCardDiv}
+                            onClick={() => itemClick(index)}
                           >
                             <div className={css.cardDiv}>
                               <div className={css.ecrNum}>
                                 <div
-                                  className={
-                                    actIdx == index ? css.icon : css.iconNor
-                                  }
+                                  className={`${css.iconNor} ${
+                                    actIdx == index ? css.icon : ""
+                                  }`}
                                   style={{
                                     marginLeft: "6px",
                                   }}
