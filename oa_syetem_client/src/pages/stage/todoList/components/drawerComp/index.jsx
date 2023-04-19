@@ -6,8 +6,9 @@ import React, {
   forwardRef,
   useImperativeHandle,
 } from "react";
-import { Drawer } from "antd";
+import { Drawer, Button } from "antd";
 import css from "./index.module.less";
+import DrawerHeader from "../../../../../components/DrawerHeader";
 
 const DrawerComp = forwardRef((props, ref) => {
   const [visible, setVisible] = useState(false);
@@ -28,12 +29,26 @@ const DrawerComp = forwardRef((props, ref) => {
     setVisible(false);
   };
   return (
-    <div>
-      <Drawer title="sss" open={visible} onClose={() => cancelHandle()}>
-        {console.log("aa", receiveData)}
-        sss
-      </Drawer>
-    </div>
+    <Drawer
+      className={css.drawer}
+      width="90%"
+      open={visible}
+      onClose={() => cancelHandle()}
+    >
+      <div className={css.details}>
+        <DrawerHeader pageName=" View details" backPrev={() => cancelHandle()}>
+          <div className={css.btnArea}>
+            <Button>Save</Button>
+            <Button type="primary">Submit</Button>
+          </div>
+        </DrawerHeader>
+
+        {/* content */}
+        <div className={css.content}>
+          <div style={{ height: "1000px" }}>as</div>
+        </div>
+      </div>
+    </Drawer>
   );
 });
 

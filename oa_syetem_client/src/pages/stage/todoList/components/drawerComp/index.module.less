@@ -1,0 +1,30 @@
+.drawer {
+  :global {
+    .ant-drawer-header {
+      display: none;
+    }
+    .ant-drawer-body {
+      padding: 0;
+    }
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .content {
+    flex: 1;
+    overflow: auto;
+    padding: 8px;
+    display: flex; // 开启：无滚动，注掉：可滚动
+    flex-direction: column;
+  }
+  .btnArea {
+    :global {
+      .ant-btn-default {
+        margin-right: 8px;
+      }
+    }
+  }
+}
