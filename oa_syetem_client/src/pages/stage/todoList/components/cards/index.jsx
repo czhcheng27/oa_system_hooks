@@ -23,11 +23,11 @@ const status = {
   },
 };
 
-const Cards = ({ props }) => {
+const Cards = ({ props, openDrawer }) => {
   const { isUrgent, ecrName, creator, category, approvalStatus, ecrNum } =
     props;
   return (
-    <div className={css.card_box}>
+    <div className={css.card_box} onClick={() => openDrawer()}>
       <div
         className={css.circle}
         style={{ backgroundColor: isUrgent == "紧急" ? "#F64041" : "#00b042" }}

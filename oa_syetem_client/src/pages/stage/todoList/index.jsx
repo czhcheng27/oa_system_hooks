@@ -2,12 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import { Tabs, Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import Cards from "./components/cards";
+import DrawerComp from "./components/drawerComp";
 import { apiData, typeArray } from "./const";
 import css from "./index.module.less";
 
 const { TabPane } = Tabs;
 
 const TodoList = (props) => {
+  const drawerRef = useRef();
+
   const [listData, setListData] = useState(apiData);
   const [curObj, setCurObj] = useState(apiData[0]);
   const [actIdx, setActIdx] = useState(0);
@@ -28,6 +31,10 @@ const TodoList = (props) => {
     setActIdx(index);
     setCurObj(apiData[index]);
     setTypeOffsetTop(index * 50);
+  };
+
+  const openDrawer = (data) => {
+    drawerRef.current.openHandle(data);
   };
 
   return (
@@ -135,18 +142,22 @@ const TodoList = (props) => {
         <div className={css.content}>
           {/* right - top */}
           <div className={css.content_top}>
-            <div className={css.top_left_info}>top_left_info</div>
+            <div className={css.top_left_info}>
+              <div>{curObj.projectName}</div>
+              <div>{`${curObj.projectNo} / ${curObj.projectManagerName}`}</div>
+            </div>
             <div className={css.top_right_switch}>top_right_switch</div>
           </div>
 
           {/* right - bot */}
           <div className={css.content_bot}>
             {curObj.changeInfoList.map((item, index) => {
-              return <Cards props={item} />;
+              return <Cards props={item} openDrawer={() => openDrawer(item)} />;
             })}
           </div>
         </div>
       </div>
+      <DrawerComp ref={drawerRef} />
     </div>
   );
 };

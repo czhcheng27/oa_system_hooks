@@ -14,7 +14,7 @@ export const apiData = [
     projectNo: "ZC0411",
     projectName: "ZC0411",
     projectCategory: "01",
-    projectManagerName: "韩鹏",
+    projectManagerName: "Mike",
     projectId: "3a5d9950b19e0dcd29a70427a4e65f17",
     changeInfoList: [
       {
@@ -56,7 +56,7 @@ export const apiData = [
     projectNo: "test041401",
     projectName: "test041401",
     projectCategory: "01",
-    projectManagerName: "段思莹1",
+    projectManagerName: "Jane",
     projectId: "9d39e077da2644788b9ee4b7ea527cb4",
     changeInfoList: [
       {
@@ -98,7 +98,7 @@ export const apiData = [
     projectNo: "dcctest01",
     projectName: "dcctest01",
     projectCategory: "01",
-    projectManagerName: "刘治奇",
+    projectManagerName: "Curry",
     projectId: "fd5d6e4c913867f52cac075b6aeb287e",
     changeInfoList: [
       {
@@ -140,7 +140,7 @@ export const apiData = [
     projectNo: "test033116",
     projectName: "test033116",
     projectCategory: "01",
-    projectManagerName: "薛晓玲3",
+    projectManagerName: "Anna",
     projectId: "d00b632d6e3ff1ce2c0a64cf381c970c",
     changeInfoList: [
       {
@@ -182,7 +182,7 @@ export const apiData = [
     projectNo: "C229",
     projectName: "C229Test",
     projectCategory: "01",
-    projectManagerName: "刘治奇",
+    projectManagerName: "Bosh",
     projectId: "55192.24298.58816.40730",
     changeInfoList: [
       {
@@ -356,7 +356,7 @@ export const apiData = [
     projectNo: "TEST0001",
     projectName: "Test0001",
     projectCategory: "01",
-    projectManagerName: "刘治奇",
+    projectManagerName: "Mike",
     projectId: "ac0a248bde503cd8f52ea1fa1a584ba8",
     changeInfoList: [
       {
@@ -398,7 +398,7 @@ export const apiData = [
     projectNo: "wm0413",
     projectName: "wmRoots",
     projectCategory: "01",
-    projectManagerName: "杜尔复",
+    projectManagerName: "Michael",
     projectId: "a6abf07c0f57e1b38ebbbb051de543fe",
     changeInfoList: [
       {
@@ -440,7 +440,7 @@ export const apiData = [
     projectNo: "C1121test",
     projectName: "C1121Test",
     projectCategory: "01",
-    projectManagerName: "杜尔",
+    projectManagerName: "Zack",
     projectId: "4afbd1027c8c452fb0f1b6f2bbab66be",
     changeInfoList: [
       {
@@ -482,7 +482,7 @@ export const apiData = [
     projectNo: "T1117",
     projectName: "T1117",
     projectCategory: "01",
-    projectManagerName: "姜莹",
+    projectManagerName: "Amber",
     projectId: "8fd2fba01822d853cf73fc30f9330a9a",
     changeInfoList: [
       {
