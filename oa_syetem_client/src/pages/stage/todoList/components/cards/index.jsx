@@ -6,7 +6,7 @@ const { Text } = Typography;
 
 const status = {
   0: {
-    label: "Approval Pending",
+    label: "Pending",
     color: "#70a4f7",
   },
   1: {
@@ -14,11 +14,11 @@ const status = {
     color: "#00B042",
   },
   2: {
-    label: "Approval rejected",
+    label: "Rejected",
     color: "#FF5119",
   },
   null: {
-    label: "Approval Pending",
+    label: "Pending",
     color: "#70a4f7",
   },
 };

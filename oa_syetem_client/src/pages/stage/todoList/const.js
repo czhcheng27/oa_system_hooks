@@ -35,7 +35,7 @@ export const apiData = [
         currentStageUnitId: "4b31611e597f1982e8803b778fe439f6",
         currentStageUnitName: "发放数据",
         status: "3",
-        approvalStatus: "0",
+        approvalStatus: "1",
         submitStatus: false,
         planFinishDate: "2023-02-27T16:00:00.000+00:00",
         actualFinishDate: "2021-06-29T16:00:00.000+00:00",
@@ -46,8 +46,7 @@ export const apiData = [
         changeCreateTime: "2021-04-28T16:00:00.000+00:00",
         formalApprovalDate: "2022-10-25T16:00:00.000+00:00",
         dr: "0",
-        urlstring:
-          "http://pdmuat.faw.com.cn/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?u8&oid=VR%3Awt.change2.WTChangeRequest2%3A3099374116&action=ObjProps",
+        urlstring: "https://google.ca",
         coordination: false,
       },
     ],
@@ -77,7 +76,7 @@ export const apiData = [
         currentStageUnitId: "4b31611e597f1982e8803b778fe439f6",
         currentStageUnitName: "发放数据",
         status: "1",
-        approvalStatus: "0",
+        approvalStatus: "2",
         submitStatus: false,
         planFinishDate: "2023-06-26T16:00:00.000+00:00",
         actualFinishDate: null,
@@ -88,8 +87,7 @@ export const apiData = [
         changeCreateTime: "2021-04-25T16:00:00.000+00:00",
         formalApprovalDate: "2023-04-13T16:00:00.000+00:00",
         dr: "0",
-        urlstring:
-          "http://pdmuat.faw.com.cn/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?u8&oid=VR%3Awt.change2.WTChangeRequest2%3A3093083390&action=ObjProps",
+        urlstring: "https://google.ca",
         coordination: false,
       },
     ],
@@ -130,8 +128,7 @@ export const apiData = [
         changeCreateTime: "2021-04-25T16:00:00.000+00:00",
         formalApprovalDate: "2023-04-13T16:00:00.000+00:00",
         dr: "0",
-        urlstring:
-          "http://pdmuat.faw.com.cn/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?u8&oid=VR%3Awt.change2.WTChangeRequest2%3A3093098452&action=ObjProps",
+        urlstring: "https://google.ca",
         coordination: false,
       },
     ],
@@ -172,8 +169,7 @@ export const apiData = [
         changeCreateTime: "2021-04-15T16:00:00.000+00:00",
         formalApprovalDate: "2023-01-17T16:00:00.000+00:00",
         dr: "0",
-        urlstring:
-          "http://pdmuat.faw.com.cn/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?u8&oid=VR%3Awt.change2.WTChangeRequest2%3A3068939791&action=ObjProps",
+        urlstring: "https://google.ca",
         coordination: false,
       },
     ],
@@ -214,8 +210,7 @@ export const apiData = [
         changeCreateTime: "2021-01-16T16:00:00.000+00:00",
         formalApprovalDate: "2021-02-07T16:00:00.000+00:00",
         dr: "0",
-        urlstring:
-          "http://pdmuat.faw.com.cn/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?u8&oid=VR%3Awt.change2.WTChangeRequest2%3A2796006997&action=ObjProps",
+        urlstring: "https://google.ca",
         coordination: false,
       },
       {
@@ -247,8 +242,7 @@ export const apiData = [
         changeCreateTime: "2021-04-25T16:00:00.000+00:00",
         formalApprovalDate: "2023-04-15T16:00:00.000+00:00",
         dr: "0",
-        urlstring:
-          "http://pdmuat.faw.com.cn/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?u8&oid=VR%3Awt.change2.WTChangeRequest2%3A3092857147&action=ObjProps",
+        urlstring: "https://google.ca",
         coordination: false,
       },
       {
@@ -280,8 +274,7 @@ export const apiData = [
         changeCreateTime: "2021-04-22T16:00:00.000+00:00",
         formalApprovalDate: "2023-04-13T16:00:00.000+00:00",
         dr: "0",
-        urlstring:
-          "http://pdmuat.faw.com.cn/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?u8&oid=VR%3Awt.change2.WTChangeRequest2%3A3087362966&action=ObjProps",
+        urlstring: "https://google.ca",
         coordination: false,
       },
       {
@@ -313,8 +306,7 @@ export const apiData = [
         changeCreateTime: "2021-03-10T16:00:00.000+00:00",
         formalApprovalDate: "2023-02-15T16:00:00.000+00:00",
         dr: "0",
-        urlstring:
-          "http://pdmuat.faw.com.cn/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?u8&oid=VR%3Awt.change2.WTChangeRequest2%3A2981760843&action=ObjProps",
+        urlstring: "https://google.ca",
         coordination: false,
       },
       {
@@ -346,8 +338,7 @@ export const apiData = [
         changeCreateTime: "2021-04-01T16:00:00.000+00:00",
         formalApprovalDate: "2023-04-13T16:00:00.000+00:00",
         dr: "0",
-        urlstring:
-          "http://pdmuat.faw.com.cn/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?u8&oid=VR%3Awt.change2.WTChangeRequest2%3A3040694528&action=ObjProps",
+        urlstring: "https://google.ca",
         coordination: false,
       },
     ],
@@ -388,8 +379,7 @@ export const apiData = [
         changeCreateTime: "2020-03-23T16:00:00.000+00:00",
         formalApprovalDate: "2023-04-13T16:00:00.000+00:00",
         dr: "0",
-        urlstring:
-          "http://pdmuat.faw.com.cn/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?u8&oid=VR%3Awt.change2.WTChangeRequest2%3A2135483296&action=ObjProps",
+        urlstring: "https://google.ca",
         coordination: false,
       },
     ],
@@ -430,8 +420,7 @@ export const apiData = [
         changeCreateTime: "2021-04-26T16:00:00.000+00:00",
         formalApprovalDate: "2023-02-28T16:00:00.000+00:00",
         dr: "0",
-        urlstring:
-          "http://pdmuat.faw.com.cn/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?u8&oid=VR%3Awt.change2.WTChangeRequest2%3A3094073682&action=ObjProps",
+        urlstring: "https://google.ca",
         coordination: false,
       },
     ],
@@ -472,8 +461,7 @@ export const apiData = [
         changeCreateTime: "2021-04-27T16:00:00.000+00:00",
         formalApprovalDate: "2023-04-13T16:00:00.000+00:00",
         dr: "0",
-        urlstring:
-          "http://pdmuat.faw.com.cn/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?u8&oid=VR%3Awt.change2.WTChangeRequest2%3A3097700113&action=ObjProps",
+        urlstring: "https://google.ca",
         coordination: false,
       },
     ],
@@ -514,8 +502,7 @@ export const apiData = [
         changeCreateTime: "2021-04-12T16:00:00.000+00:00",
         formalApprovalDate: "2022-10-25T16:00:00.000+00:00",
         dr: "0",
-        urlstring:
-          "http://pdmuat.faw.com.cn/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?u8&oid=VR%3Awt.change2.WTChangeRequest2%3A3060419590&action=ObjProps",
+        urlstring: "https://google.ca",
         coordination: false,
       },
     ],

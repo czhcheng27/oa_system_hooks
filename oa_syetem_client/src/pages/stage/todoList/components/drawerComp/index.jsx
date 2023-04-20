@@ -9,6 +9,7 @@ import React, {
 import { Drawer, Button } from "antd";
 import css from "./index.module.less";
 import DrawerHeader from "../../../../../components/DrawerHeader";
+import InfoArea from "./components/InfoArea";
 
 const DrawerComp = forwardRef((props, ref) => {
   const [visible, setVisible] = useState(false);
@@ -45,7 +46,8 @@ const DrawerComp = forwardRef((props, ref) => {
 
         {/* content */}
         <div className={css.content}>
-          <div style={{ height: "1000px" }}>as</div>
+          <InfoArea data={receiveData} />
+          <div>as</div>
         </div>
       </div>
     </Drawer>
