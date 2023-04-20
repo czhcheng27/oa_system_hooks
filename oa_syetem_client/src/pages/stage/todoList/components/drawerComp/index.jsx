@@ -7,12 +7,15 @@ import React, {
   useImperativeHandle,
 } from "react";
 import { Drawer, Button } from "antd";
-import css from "./index.module.less";
 import DrawerHeader from "../../../../../components/DrawerHeader";
 import InfoArea from "./components/InfoArea";
+import FieldOperation from "./components/FieldOperation";
+import Operation from "./components/Operation";
+import css from "./index.module.less";
 
 const DrawerComp = forwardRef((props, ref) => {
   const [visible, setVisible] = useState(false);
+  const [rotateY, setRotateY] = useState(0);
   const [receiveData, setReceiveData] = useState();
 
   useImperativeHandle(ref, () => ({
@@ -47,7 +50,37 @@ const DrawerComp = forwardRef((props, ref) => {
         {/* content */}
         <div className={css.content}>
           <InfoArea data={receiveData} />
-          <div>as</div>
+          <div
+            className={`${css.main}`}
+            style={{ transform: `rotateY(${rotateY}deg)` }}
+          >
+            {/* 正面 */}
+            <div
+              className={css.detailsBox}
+              style={{ zIndex: (rotateY / 180) % 2 ? -1 : 1 }}
+            >
+              <div className={css.topWrap}>
+                <FieldOperation toggle={() => setRotateY(rotateY + 180)} />
+              </div>
+              <div
+                className={css.bottomWrap}
+                style={{ background: "green" }}
+              ></div>
+            </div>
+
+            {/* 背面 */}
+            <div
+              className={css.tempPlanBox}
+              style={{ zIndex: (rotateY / 180) % 2 ? 1 : -1 }}
+            >
+              <div className={css.topWrap}>
+                <Operation toggle={() => setRotateY(rotateY + 180)} />
+              </div>
+              <div className={css.bottomWrap} style={{ background: "red" }}>
+                <div style={{ height: "2000px" }}></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Drawer>

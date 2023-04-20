@@ -1,0 +1,48 @@
+.fieldOperation {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background: #eaedf7;
+    width: 100%;
+  }
+}
+
+.left {
+  position: relative;
+  z-index: 1;
+  height: 48px;
+  line-height: 48px;
+  font-weight: 500;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  padding-right: 14px;
+  .tip {
+    color: rgba(36, 47, 87, 0.7);
+    text-align: center;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 12px;
+    transform: scale(0.8333);
+    transform-origin: right center;
+  }
+}
+.icon {
+  width: 18px;
+  height: 18px;
+  margin-left: 16px;
+  background-size: 100%;
+  cursor: pointer;
+}
+
+.toggle {
+  background-image: url(../../imgs/toggle.png);
+}
