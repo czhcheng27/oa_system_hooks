@@ -1,0 +1,118 @@
+:global {
+  .addUpdate_modal_wrapper {
+    .ant-modal {
+      width: 1053px !important;
+      //   height: 771px;
+    }
+    .ant-modal-content {
+      border-radius: 8px;
+      height: 751px;
+    }
+    .ant-modal-body {
+      padding-bottom: 84px;
+      height: calc(100% - 55px);
+    }
+    .ant-modal-header {
+      border-radius: 8px;
+    }
+
+    .ant-btn-primary {
+      height: 34px;
+      width: 68px;
+      background: #0052d9;
+      border-radius: 4px;
+    }
+  }
+}
+
+.transfer_table_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 289px;
+  .title {
+    font-weight: 500;
+    font-size: 18px;
+    color: #242f57;
+    line-height: 22px;
+    margin-bottom: 16px;
+    position: relative;
+    text-align: center;
+    .clear {
+      font-weight: 400;
+      font-size: 14px;
+      color: #0052d9;
+      position: absolute;
+      right: 0;
+      top: 0;
+      cursor: pointer;
+    }
+  }
+}
+
+.search_input {
+  width: 244px;
+  height: 36px;
+  margin: 12px 0;
+  :global {
+    .ant-input-affix-wrapper {
+      height: 36px;
+      align-items: center;
+      border-radius: 4px;
+      padding-right: 4px;
+    }
+    .ant-input {
+      height: 34px !important;
+    }
+  }
+}
+
+.middle_rea {
+  padding-top: 86px;
+  width: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  span {
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 400ms ease;
+    line-height: 26px;
+    font-size: 12px;
+  }
+  .normal {
+    margin: 8px 0;
+    color: #bfc7e0;
+    background-color: #eceff8;
+  }
+  .usable {
+    margin: 8px 0;
+    background-color: #0251dd;
+    color: white;
+  }
+}
+
+.left_area,
+.right_area {
+  flex: 1;
+
+  .custom_table {
+    width: 478px;
+    th {
+      background-color: #fafcfe;
+    }
+
+    :global {
+      .body--row {
+        &:hover td {
+          background-color: #f1f6ff !important;
+        }
+      }
+    }
+  }
+}

@@ -4,8 +4,9 @@ import { Pagination, Autoplay } from "swiper";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import TitleTip from "../../../../../components/TitleTip";
-import css from "./index.module.less";
 import ProjectItem from "../projectItem";
+import TransferTableModal from "../transferTableModal";
+import css from "./index.module.less";
 
 const list = [
   {
@@ -42,6 +43,7 @@ const list = [
 
 const CarouselComp = (props) => {
   const scrollAreaRef = useRef();
+  const transferTableRef = useRef();
 
   const [selectProject, setSelectProject] = useState({});
   const [lastSwiperSlideSty, setLastSwiperSlideSty] = useState({});
@@ -78,6 +80,10 @@ const CarouselComp = (props) => {
     }
   };
 
+  const rightCornerClick = () => {
+    transferTableRef.current.openHandle();
+  };
+
   useEffect(() => {
     setTimeout(() => {
       calculate();
@@ -90,12 +96,7 @@ const CarouselComp = (props) => {
       <div className={css.titleWrap}>
         <TitleTip>Project Data</TitleTip>
         <div className={css.showProject}>
-          <span
-            className={css.text}
-            // onClick={() => {
-            //   setAddProjectModalShow(true);
-            // }}
-          >
+          <span className={css.text} onClick={() => rightCornerClick()}>
             Project Adjustment
           </span>
         </div>
@@ -139,6 +140,7 @@ const CarouselComp = (props) => {
           </Swiper>
         </div>
       </div>
+      <TransferTableModal ref={transferTableRef} />
     </div>
   );
 };

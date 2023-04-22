@@ -22,7 +22,7 @@ const DrawerComp = forwardRef((props, ref) => {
     openHandle,
   }));
 
-  //  关闭抽屉
+  //  open抽屉
   const openHandle = (data) => {
     setVisible(true);
     setReceiveData(data);
