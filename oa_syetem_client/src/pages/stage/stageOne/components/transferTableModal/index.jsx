@@ -29,8 +29,6 @@ const TransferTableModal = forwardRef((props, ref) => {
   const [originalLeftData, setOriginalLeftData] = useState([]);
   const [lDataSource, setLDataSource] = useState([]); //左侧展示的数据
   const [rDataSource, setRDataSource] = useState([]); //右侧展示的数据
-  const [toBtnUsable, setToBtnUsable] = useState(false); //去右侧的按钮
-  const [backBtnUsable, setBackBtnUsable] = useState(false); //回左侧的按钮
 
   const openHandle = () => {
     setVisible(true);
@@ -185,9 +183,7 @@ const TransferTableModal = forwardRef((props, ref) => {
             rowSelection={{
               selectedRowKeys: lSelectedRowKeys,
               onChange: (keys, rows) => (
-                setLSelectedRowKeys(keys),
-                setLCheckedData(rows),
-                console.log("keys, rows", keys, rows)
+                setLSelectedRowKeys(keys), setLCheckedData(rows)
               ),
             }}
             onRow={(record, y) => ({
@@ -202,13 +198,13 @@ const TransferTableModal = forwardRef((props, ref) => {
         {/* transfer btn */}
         <div className={css.middle_rea}>
           <span
-            className={`${toBtnUsable ? css.usable : css.normal}`}
+            className={`${lCheckedData.length ? css.usable : css.normal}`}
             onClick={handletoR}
           >
             <RightOutlined />
           </span>
           <span
-            className={`${backBtnUsable ? css.usable : css.normal}`}
+            className={`${rCheckedData.length ? css.usable : css.normal}`}
             onClick={handletoL}
           >
             <LeftOutlined />
@@ -233,15 +229,9 @@ const TransferTableModal = forwardRef((props, ref) => {
             columns={columns}
             rowSelection={{
               selectedRowKeys: rSelectedRowKeys,
-              onChange: (keys, rows) => {
-                setRSelectedRowKeys(rows);
-                setRCheckedData(rows);
-                if (rows.length) {
-                  setBackBtnUsable(true);
-                } else {
-                  setBackBtnUsable(false);
-                }
-              },
+              onChange: (keys, rows) => (
+                setRSelectedRowKeys(keys), setRCheckedData(rows)
+              ),
             }}
             onRow={(record) => ({
               onClick: () => onRSelectRow(record),
