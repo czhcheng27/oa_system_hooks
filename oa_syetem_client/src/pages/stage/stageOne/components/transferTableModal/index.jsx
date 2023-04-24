@@ -138,18 +138,32 @@ const TransferTableModal = forwardRef((props, ref) => {
   };
 
   const filterFunc = (arr, filterParams, searchValue) => {
-    let a = [];
-    for (let i = 0; i < arr.length; i++) {
-      for (let j = 0; j < filterParams.length; j++) {
-        const val = arr[i][filterParams[j]].toUpperCase();
-        if (val.indexOf(searchValue.toUpperCase()) !== -1) {
-          a.push(arr[i]);
-          break;
+    if (searchValue) {
+      let a = [];
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < filterParams.length; j++) {
+          const val = arr[i][filterParams[j]].toUpperCase();
+          if (val.indexOf(searchValue.toUpperCase()) !== -1) {
+            a.push(arr[i]);
+            break;
+          }
         }
       }
+      return a;
+    } else {
+      let filteredLeftArr = originalLeftData.filter((item) => {
+        return (
+          rDataSource.findIndex((i) => i["projectId"] == item["projectId"]) ==
+          -1
+        );
+      });
+      return filteredLeftArr;
     }
-    return a;
   };
+
+  useEffect(() => {
+    handleSearch(originalLeftData, rDataSource, searchValue);
+  }, [searchValue]);
 
   return (
     <Modal
@@ -168,7 +182,7 @@ const TransferTableModal = forwardRef((props, ref) => {
           <div className={css.search_input}>
             <Input
               allowClear
-              //   onChange={(e) => setSearchValue(e.target.value)}
+              onChange={(e) => setSearchValue(e.target.value)}
               placeholder="输入活动&业务单元的名称/编号"
               suffix={<SearchOutlined className={css.search_icon} />}
             />
