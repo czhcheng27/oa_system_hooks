@@ -2,17 +2,10 @@ import React, {
   useState,
   useEffect,
   useImperativeHandle,
-  useRef,
   forwardRef,
 } from "react";
-import classNames from "classnames";
 import { Modal, message, Input, Table } from "antd";
-import {
-  RightOutlined,
-  LeftOutlined,
-  SearchOutlined,
-  CloseCircleFilled,
-} from "@ant-design/icons";
+import { RightOutlined, LeftOutlined, SearchOutlined } from "@ant-design/icons";
 import { columns, mockData } from "./mock";
 import css from "./index.module.less";
 
@@ -32,13 +25,14 @@ const TransferTableModal = forwardRef((props, ref) => {
 
   const openHandle = () => {
     setVisible(true);
+    initialFunc();
   };
 
   const cancelHandle = () => {
     setVisible(false);
   };
 
-  useEffect(() => {
+  const initialFunc = () => {
     const { allProjectList, selectedProjectList } = mockData.data;
     let filteredLeftArr = allProjectList.filter((item) => {
       return (
@@ -50,7 +44,11 @@ const TransferTableModal = forwardRef((props, ref) => {
     setLDataSource(filteredLeftArr);
     setOriginalLeftData(allProjectList);
     setRDataSource(selectedProjectList);
-  }, []);
+  };
+
+  // useEffect(() => {
+  //   initialFunc()
+  // }, []);
 
   // 点击整行选择
   const onLSelectRow = (record) => {
@@ -60,7 +58,6 @@ const TransferTableModal = forwardRef((props, ref) => {
     } else {
       selectedList.push(record.projectId);
     }
-    console.log("selectedList", selectedList);
     setLSelectedRowKeys(selectedList);
     const rows = originalLeftData.reduce((pre, item) => {
       if (selectedList.includes(item.projectId)) {
@@ -68,7 +65,6 @@ const TransferTableModal = forwardRef((props, ref) => {
       }
       return pre;
     }, []);
-    console.log("rows", rows);
     setLCheckedData(rows);
   };
 
@@ -87,12 +83,11 @@ const TransferTableModal = forwardRef((props, ref) => {
       }
       return pre;
     }, []);
-    console.log("rows", rows);
     setRCheckedData(rows);
   };
 
   const handletoR = () => {
-    !lCheckedData.length && message.warning("还没勾选数据");
+    !lCheckedData.length && message.warning("No Data Selected");
     console.log("lCheckedData", lCheckedData);
     const latestRightData = [...rDataSource, ...lCheckedData];
     setRDataSource(latestRightData);
@@ -106,7 +101,7 @@ const TransferTableModal = forwardRef((props, ref) => {
   };
 
   const handletoL = () => {
-    !rCheckedData.length && message.warning("还没勾选数据");
+    !rCheckedData.length && message.warning("No Data Selected");
     const latestRightData = rDataSource.filter(
       (item) => !rCheckedData.some((i) => i["projectId"] == item["projectId"])
     );
@@ -167,8 +162,8 @@ const TransferTableModal = forwardRef((props, ref) => {
 
   return (
     <Modal
-      open={true}
-      //   open={visible}
+      // open={true}
+      open={visible}
       wrapClassName="addUpdate_modal_wrapper"
       title="Show Project Adjustment"
       centered={true}
@@ -178,12 +173,12 @@ const TransferTableModal = forwardRef((props, ref) => {
       <div className={css.transfer_table_wrapper}>
         {/* left area */}
         <div className={css.left_area}>
-          <p className={css.title}>待关联的业务单元</p>
+          <p className={css.title}>Business units to be associated</p>
           <div className={css.search_input}>
             <Input
               allowClear
               onChange={(e) => setSearchValue(e.target.value)}
-              placeholder="输入活动&业务单元的名称/编号"
+              placeholder="Enter the name/number"
               suffix={<SearchOutlined className={css.search_icon} />}
             />
           </div>
@@ -228,11 +223,11 @@ const TransferTableModal = forwardRef((props, ref) => {
         {/* right area */}
         <div className={css.right_area}>
           <div className={css.title}>
-            <span>已关联的业务单元</span>
-            <span className={css.clear}>清空已选</span>
+            <span>Associated business units</span>
+            {/* <span className={css.clear}>Clear Selected</span> */}
           </div>
           <div className={css.related_units}>
-            已关联业务单元：<h4>{rDataSource.length}</h4>
+            Associated No.：<h4>{rDataSource.length}</h4>
           </div>
           <Table
             rowKey={(record) => record.projectId}
