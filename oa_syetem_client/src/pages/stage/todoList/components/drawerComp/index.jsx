@@ -78,7 +78,10 @@ const DrawerComp = forwardRef((props, ref) => {
               style={{ zIndex: (rotateY / 180) % 2 ? 1 : -1 }}
             >
               <div className={css.topWrap}>
-                <Operation toggle={() => setRotateY(rotateY + 180)} />
+                <Operation
+                  toggle={() => setRotateY(rotateY + 180)}
+                  zoom={() => setFullScreen(!fullScreen)}
+                />
               </div>
               <div className={css.bottomWrap} style={{ background: "red" }}>
                 <div style={{ height: "2000px" }}></div>
