@@ -17,6 +17,7 @@ const DrawerComp = forwardRef((props, ref) => {
   const [visible, setVisible] = useState(false);
   const [rotateY, setRotateY] = useState(0);
   const [receiveData, setReceiveData] = useState();
+  const [fullScreen, setFullScreen] = useState(false);
 
   useImperativeHandle(ref, () => ({
     openHandle,
@@ -51,7 +52,7 @@ const DrawerComp = forwardRef((props, ref) => {
         <div className={css.content}>
           <InfoArea data={receiveData} />
           <div
-            className={`${css.main}`}
+            className={`${css.main} ${fullScreen ? css.fullScreen : ""}`}
             style={{ transform: `rotateY(${rotateY}deg)` }}
           >
             {/* 正面 */}
@@ -60,7 +61,10 @@ const DrawerComp = forwardRef((props, ref) => {
               style={{ zIndex: (rotateY / 180) % 2 ? -1 : 1 }}
             >
               <div className={css.topWrap}>
-                <FieldOperation toggle={() => setRotateY(rotateY + 180)} />
+                <FieldOperation
+                  toggle={() => setRotateY(rotateY + 180)}
+                  zoom={() => setFullScreen(!fullScreen)}
+                />
               </div>
               <div
                 className={css.bottomWrap}
