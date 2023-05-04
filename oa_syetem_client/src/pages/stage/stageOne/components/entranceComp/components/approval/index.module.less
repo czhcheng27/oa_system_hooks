@@ -1,0 +1,56 @@
+.approvalHead {
+  background-color: #f3f5f6;
+  text-align: center;
+  border-bottom: 1px solid #eaedf7;
+  margin-bottom: 20px;
+  line-height: 50px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.each_item {
+  position: relative;
+  display: flex;
+  margin-bottom: 24px;
+  min-height: 150px;
+  &:last-child > .item_center > .vertical_line {
+    height: 0;
+  }
+}
+
+.item_left {
+  width: 88px;
+  text-align: right;
+}
+
+.item_center {
+  position: relative;
+  margin: 0px 8px;
+}
+
+.vertical_line {
+  position: absolute;
+  border-left: 2px solid #52c41a;
+  left: 8px;
+  height: calc(100% + 5px);
+}
+
+.check_icon {
+  color: #52c41a;
+  width: 20px;
+}
+
+.item_right {
+  flex: 1;
+  padding-right: 9px;
+}
+
+.right_time {
+  color: rgba(31, 38, 49, 0.4);
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 14px;
+  margin-top: 8px;
+}

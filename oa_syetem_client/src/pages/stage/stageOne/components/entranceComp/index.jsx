@@ -2,8 +2,12 @@ import React from "react";
 import { Tooltip } from "antd";
 import { exhibition, initChangeState, quickEntry } from "../../const";
 import css from "./index.module.less";
+import { useRef } from "react";
+import AprDetWrapper from "./components/aprDetWrapper";
 
 const EntranceComp = (props) => {
+  const drawer1Ref = useRef();
+
   return (
     <div>
       {/* top btns */}
@@ -62,9 +66,9 @@ const EntranceComp = (props) => {
                 <li
                   className={`${css.item} ${css[item["name"]]}`}
                   key={index}
-                  //   onClick={() => {
-                  //     item.pageUrl && skip(item.pageUrl);
-                  //   }}
+                  onClick={() => {
+                    drawer1Ref.current.openHandle();
+                  }}
                 >
                   <p className={css.icon}></p>
                   <p className={css.text}>{item.text}</p>
@@ -74,6 +78,7 @@ const EntranceComp = (props) => {
           </ul>
         </div>
       </div>
+      <AprDetWrapper ref={drawer1Ref} />
     </div>
   );
 };
