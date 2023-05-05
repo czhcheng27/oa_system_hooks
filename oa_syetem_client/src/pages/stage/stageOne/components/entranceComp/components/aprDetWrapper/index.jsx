@@ -7,8 +7,8 @@ import React, {
 import { Button, Drawer } from "antd";
 import LoadingTip from "../../../../../../../components/LoadingTip";
 import DrawerHeader from "../../../../../../../components/DrawerHeader";
-import css from "./index.module.less";
 import Approval from "../approval";
+import css from "./index.module.less";
 
 const AprDetWrapper = forwardRef(({ onClose }, ref) => {
   const [visible, setVisible] = useState(false);
@@ -33,18 +33,19 @@ const AprDetWrapper = forwardRef(({ onClose }, ref) => {
       setPageTip({ show: false });
     }, 500);
   }, []);
+
   return (
     <Drawer
       className={css.drawer}
       width="90%"
       open={visible}
-      onClose={onClose}
+      onClose={cancelHandle}
       maskClosable={false}
     >
       <div className={css.taskExecution}>
-        <DrawerHeader pageName={"View Details"} backPrev={onClose}>
+        <DrawerHeader pageName={"View Details"} backPrev={cancelHandle}>
           <div className={css.btns}>
-            <Button type="primary" onClick={onClose}>
+            <Button type="primary" onClick={cancelHandle}>
               Close
             </Button>
           </div>
