@@ -4,9 +4,16 @@ import { exhibition, initChangeState, quickEntry } from "../../const";
 import css from "./index.module.less";
 import { useRef } from "react";
 import AprDetWrapper from "./components/aprDetWrapper";
+import DrawerTwo from "./components/drawerTwo";
 
 const EntranceComp = (props) => {
   const drawer1Ref = useRef();
+  const drawer2Ref = useRef();
+
+  const drawerRefMap = {
+    0: drawer1Ref,
+    1: drawer2Ref,
+  };
 
   return (
     <div>
@@ -67,7 +74,7 @@ const EntranceComp = (props) => {
                   className={`${css.item} ${css[item["name"]]}`}
                   key={index}
                   onClick={() => {
-                    drawer1Ref.current.openHandle();
+                    drawerRefMap[index].current.openHandle();
                   }}
                 >
                   <p className={css.icon}></p>
@@ -79,6 +86,7 @@ const EntranceComp = (props) => {
         </div>
       </div>
       <AprDetWrapper ref={drawer1Ref} />
+      <DrawerTwo ref={drawer2Ref} />
     </div>
   );
 };
