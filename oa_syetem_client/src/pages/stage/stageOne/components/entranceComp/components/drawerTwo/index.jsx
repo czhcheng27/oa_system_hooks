@@ -1,9 +1,6 @@
 import React, {
   useState,
   useEffect,
-  useCallback,
-  useRef,
-  useMemo,
   forwardRef,
   useImperativeHandle,
 } from "react";
@@ -16,9 +13,10 @@ import DelIcon from "./imgs/delIcon.png";
 import DrawerHeader from "../../../../../../../components/DrawerHeader";
 import css from "./index.module.less";
 import LoadingTip from "../../../../../../../components/LoadingTip";
-import { mockCatList } from "./mockData";
+import { mockCatList, apiCardList } from "./mockData";
 import AutoTooltip from "../../../../../../../components/AutoTooltip";
 import ResizeBar from "../../../../../../../components/ResizeBar";
+import PreviewPage from "./components/previewPage";
 
 const DrawerTwo = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
@@ -30,10 +28,14 @@ const DrawerTwo = forwardRef((props, ref) => {
   const [catIdx, setCatIdx] = useState();
   const [cardLoadingTip, setCardLoadingTip] = useState({ show: false }); // 标准卡片加载tip
   const [catPageTip, setCatPageTip] = useState({ show: true, status: 0 }); // 目录卡片加载tip
+  const [catBfFilter, setCatBfFilter] = useState([]); // 左侧目录进行筛选过滤前的数组数组
+  const [previewData, setPreviewData] = useState(); // 传递给预览页面的数据
+  const [showPreviewPage, setShowPreviewPage] = useState(false); // 是否展示预览页面
 
   useEffect(() => {
     setTimeout(() => {
       setCatPageTip({ show: false });
+      setCatBfFilter(apiCardList);
     }, 300);
   }, []);
 
@@ -43,6 +45,12 @@ const DrawerTwo = forwardRef((props, ref) => {
 
   const closeHandle = () => {
     setVisible(false);
+  };
+
+  // 预览页面点击关闭的函数
+  const goBack = () => {
+    setShowPreviewPage(false);
+    setCatIdx(null);
   };
 
   // 点击每一行的目录的函数
@@ -137,6 +145,68 @@ const DrawerTwo = forwardRef((props, ref) => {
     );
   };
 
+  // 整体右下部份：带有搜索栏
+  const renderCardList = () => {
+    return (
+      <Checkbox.Group
+        value={catBfFilter.flatMap((el) =>
+          el.standardChapterId ? [] : [el.standardInfoId]
+        )}
+      >
+        <div
+          id="innerDrawerOpenHere"
+          style={{ padding: "24px 0 24px 32px", height: "100%" }}
+        >
+          <div className={css.input_search}>
+            <Input
+              allowClear
+              style={{ width: "500px" }}
+              // onChange={(e) => (
+              //   setCardSearchVal(e.target.value),
+              //   e.type == "click" && getCardList("")
+              // )}
+              // onPressEnter={(e) => getCardList(e.target.value)}
+              placeholder="keyword search"
+              suffix={
+                <img
+                  src={SearchIcon}
+                  // onClick={() => getCardList(cardSearchVal)}
+                  style={{ width: "15px", cursor: "pointer" }}
+                />
+              }
+            />
+          </div>
+          {<div>aaaaaaa</div>}
+        </div>
+      </Checkbox.Group>
+    );
+  };
+
+  const renderBotContent = () => {
+    return (
+      <>
+        <div
+          style={{
+            display: showPreviewPage ? "block" : "none",
+            height: "100%",
+          }}
+        >
+          {showPreviewPage && (
+            <PreviewPage goBack={goBack} receiveData={previewData} />
+          )}
+        </div>
+        <div
+          style={{
+            display: !showPreviewPage ? "block" : "none",
+            height: "100%",
+          }}
+        >
+          {renderCardList()}
+        </div>
+      </>
+    );
+  };
+
   return (
     <Drawer
       className={css.drawer}
@@ -182,7 +252,7 @@ const DrawerTwo = forwardRef((props, ref) => {
               <ResizeBar min={200} func={setDocWidth} />
             </div>
           </div>
-          <div className={css.botRight_wrap}>sss</div>
+          <div className={css.botRight_wrap}>{renderBotContent()}</div>
         </div>
       </div>
     </Drawer>
