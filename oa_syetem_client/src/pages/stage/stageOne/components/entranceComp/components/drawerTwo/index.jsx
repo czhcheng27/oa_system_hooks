@@ -18,6 +18,7 @@ import css from "./index.module.less";
 import LoadingTip from "../../../../../../../components/LoadingTip";
 import { mockCatList } from "./mockData";
 import AutoTooltip from "../../../../../../../components/AutoTooltip";
+import ResizeBar from "../../../../../../../components/ResizeBar";
 
 const DrawerTwo = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
@@ -139,7 +140,7 @@ const DrawerTwo = forwardRef((props, ref) => {
   return (
     <Drawer
       className={css.drawer}
-      width="90%"
+      width="100%"
       open={visible}
       onClose={closeHandle}
     >
@@ -178,7 +179,7 @@ const DrawerTwo = forwardRef((props, ref) => {
               ) : (
                 renderCatList()
               )}
-              {/* <ResizeBar min={200} func={setDocWidth} /> */}
+              <ResizeBar min={200} func={setDocWidth} />
             </div>
           </div>
           <div className={css.botRight_wrap}>sss</div>
