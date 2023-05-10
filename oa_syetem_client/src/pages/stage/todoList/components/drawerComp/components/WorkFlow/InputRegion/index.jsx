@@ -1,21 +1,16 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useMemo,
-} from "react";
+import React, { useState } from "react";
 import { FullscreenOutlined, PlusSquareFilled } from "@ant-design/icons";
 import InputOutputWrap from "../InputOutputWrap";
 import noDataIcon from "../assets/pic_nodocument@2x.png";
-import inboxIcon from "../assets/inbox.png";
 import Folder from "../assets/folder.png";
 import css from "./index.module.less";
 
 const InputRegion = (props) => {
+  const [expand, setExpand] = useState(true);
   return (
     <InputOutputWrap
       btnPosition="right"
+      callback={setExpand}
       title={
         <div className={css.inputTitle}>
           <div className={css.inputTitleRight}>
@@ -36,7 +31,7 @@ const InputRegion = (props) => {
     >
       <div className={css.no_data}>
         <img src={noDataIcon} />
-        <p>No Input</p>
+        {expand && <p>No Input</p>}
       </div>
     </InputOutputWrap>
   );

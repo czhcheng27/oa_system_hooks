@@ -8,7 +8,7 @@ import React, {
 import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
 import css from "./index.module.less";
 
-const InputOutputWrap = ({ title, children, btnColor }) => {
+const InputOutputWrap = ({ title, children, callback }) => {
   const [isHidden, setIsHidden] = useState(false);
   return (
     <div
@@ -24,17 +24,14 @@ const InputOutputWrap = ({ title, children, btnColor }) => {
       <div
         className={css.shrinkExtend}
         style={{ right: "-12px" }}
-        onClick={() => {
-          //   if (direction.current == "left") {
-          //     direction.current = "right";
-          //   } else {
-          //     direction.current = "left";
-          //   }
-          setIsHidden(!isHidden);
-        }}
+        onClick={() => (setIsHidden(!isHidden), callback(isHidden))}
       >
         <div className={css.round}>
-          <DoubleLeftOutlined style={{ color: btnColor || "#0051E1" }} />
+          {!isHidden ? (
+            <DoubleLeftOutlined style={{ color: "#0051E1" }} />
+          ) : (
+            <DoubleRightOutlined style={{ color: "#0051E1" }} />
+          )}
         </div>
       </div>
     </div>
