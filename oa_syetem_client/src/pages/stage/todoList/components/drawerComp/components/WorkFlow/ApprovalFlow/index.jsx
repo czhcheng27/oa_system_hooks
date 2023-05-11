@@ -5,10 +5,11 @@ import React, {
   useRef,
   useMemo,
 } from "react";
-import SVG6 from "../assets/svg6";
-import css from "./index.module.less";
 import ActionPlan from "./components/ActionPlan";
 import ApprovalView from "./components/ApprovalView";
+import { approvalData } from "./mock";
+import SVG6 from "../assets/svg6";
+import css from "./index.module.less";
 
 const ApprovalFlow = (props) => {
   const [dis, setDis] = useState(0);
@@ -29,7 +30,7 @@ const ApprovalFlow = (props) => {
     return (
       <div className={css.center} style={{ transform: `translate(${dis}, 0)` }}>
         <div className={css.view}>
-          <ApprovalView />
+          <ApprovalView data={approvalData} />
         </div>
         <div className={css.plan}>
           <ActionPlan />
