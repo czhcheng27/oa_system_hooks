@@ -8,8 +8,25 @@ import React, {
 import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
 import css from "./index.module.less";
 
-const InputOutputWrap = ({ title, children, callback }) => {
+const InputOutputWrap = ({
+  title,
+  children,
+  callback,
+  btnPosition = "right",
+}) => {
+  const styObj =
+    btnPosition == "right" ? { right: "-12px" } : { left: "-12px" };
   const [isHidden, setIsHidden] = useState(false);
+  const [direction, setDirection] = useState(
+    btnPosition == "right" ? "left" : "right"
+  );
+
+  const handleClick = () => {
+    setIsHidden(!isHidden);
+    setDirection(direction == "right" ? "left" : "right");
+    callback && callback(isHidden);
+  };
+
   return (
     <div
       className={css.InputOutCard}
@@ -23,11 +40,11 @@ const InputOutputWrap = ({ title, children, callback }) => {
       </div>
       <div
         className={css.shrinkExtend}
-        style={{ right: "-12px" }}
-        onClick={() => (setIsHidden(!isHidden), callback(isHidden))}
+        style={styObj}
+        onClick={() => handleClick()}
       >
         <div className={css.round}>
-          {!isHidden ? (
+          {direction == "left" ? (
             <DoubleLeftOutlined style={{ color: "#0051E1" }} />
           ) : (
             <DoubleRightOutlined style={{ color: "#0051E1" }} />
