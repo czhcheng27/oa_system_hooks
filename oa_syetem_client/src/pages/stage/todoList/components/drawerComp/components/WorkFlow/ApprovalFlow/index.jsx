@@ -44,6 +44,7 @@ const ApprovalFlow = (props) => {
       <div className={css.bot}>
         <div
           className={css.bot_line}
+          style={{ padding: isApprovalFlow ? "13px 4px" : "13px 10px" }}
           onClick={() => (setIsApprovalFlow(!isApprovalFlow), setDis(0))}
         >
           <div
@@ -53,6 +54,7 @@ const ApprovalFlow = (props) => {
         </div>
         <div
           className={css.bot_line}
+          style={{ padding: isApprovalFlow ? "13px 10px" : "13px 4px" }}
           onClick={() => (setIsApprovalFlow(!isApprovalFlow), setDis("-50%"))}
         >
           <div
