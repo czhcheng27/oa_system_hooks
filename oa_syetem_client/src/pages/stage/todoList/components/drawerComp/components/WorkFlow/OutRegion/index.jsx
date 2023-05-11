@@ -19,7 +19,7 @@ const OutRegion = (props) => {
         <div className={css.inputTitle}>
           <div className={css.inputTitleRight}>
             <img src={Folder} />
-            <span className={css.titleFont}>Input</span>
+            <span className={css.titleFont}>Output</span>
           </div>
           <div className={css.inputTitleRight}>
             <FullscreenOutlined
