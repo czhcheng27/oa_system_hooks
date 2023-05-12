@@ -33,11 +33,19 @@
 }
 
 .no_data {
-  position: absolute;
-  width: 70%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  .each_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 15px 0;
+    height: 40px;
+    background: #ffffff;
+    box-shadow: -8px -8px 20px 0 rgba(255, 255, 255, 0.5),
+      8px 8px 20px 0 rgba(55, 99, 170, 0.1);
+    border-radius: 6px;
+    min-width: 280px;
+  }
 
   img {
     width: 100%;

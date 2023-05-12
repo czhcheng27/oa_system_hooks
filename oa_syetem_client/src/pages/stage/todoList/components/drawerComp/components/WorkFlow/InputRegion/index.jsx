@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FullscreenOutlined, PlusSquareFilled } from "@ant-design/icons";
 import InputOutputWrap from "../InputOutputWrap";
 import noDataIcon from "../assets/pic_nodocument@2x.png";
-import Folder from "../assets/folder.png";
+import SVG2 from "../assets/svg2";
 import css from "./index.module.less";
 
 const InputRegion = (props) => {
@@ -14,7 +14,7 @@ const InputRegion = (props) => {
       title={
         <div className={css.inputTitle}>
           <div className={css.inputTitleRight}>
-            <img src={Folder} />
+            <SVG2 />
             <span className={css.titleFont}>Input</span>
           </div>
           <div className={css.inputTitleRight}>

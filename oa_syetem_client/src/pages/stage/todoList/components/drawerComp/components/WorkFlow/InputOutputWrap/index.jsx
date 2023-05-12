@@ -35,9 +35,7 @@ const InputOutputWrap = ({
       <div style={{ width: "100%", overflow: "hidden" }}>
         <div className={css.title}>{title}</div>
       </div>
-      <div className={css.scroll}>
-        <div style={{ height: "auto" }}>{children}</div>
-      </div>
+      <div className={css.scroll}>{children}</div>
       <div
         className={css.shrinkExtend}
         style={styObj}
