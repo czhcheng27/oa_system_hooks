@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import classNames from "classnames";
+import moment from "moment";
+import { Tooltip } from "antd";
 import { FullscreenOutlined, ExclamationCircleFilled } from "@ant-design/icons";
 import InputOutputWrap from "../InputOutputWrap";
 import { inputData } from "../mock";
@@ -21,6 +24,17 @@ const InputRegion = (props) => {
   };
 
   const renderRowBot = (data) => {
+    let diffToday = null;
+    let advent = false;
+    let overdue = false;
+    if (data.approvalStatus > 2 && data.newTime) {
+      diffToday = moment(moment().format("YYYY-MM-DD")).diff(
+        moment(data.newTime).format("YYYY-MM-DD"),
+        "days"
+      );
+      advent = diffToday <= 0;
+      overdue = diffToday > 0;
+    }
     return (
       <>
         <div
@@ -32,9 +46,28 @@ const InputRegion = (props) => {
             {data.orgName}
           </>
         </div>
-        <div className={css.TwoLineTime}>
+        <div
+          className={classNames({
+            [css.TwoLineTime]: true,
+            [css.advent]: advent,
+            [css.overdue]: overdue,
+          })}
+        >
           {data.newTime ? `${data.newTime}` : ""}
-          {data.newTime ? <ExclamationCircleFilled /> : null}
+          {advent || overdue ? (
+            <Tooltip
+              placement="top"
+              title={
+                advent
+                  ? diffToday === 0
+                    ? "Today is dueday"
+                    : `You still have ${Math.abs(diffToday)} days`
+                  : `Overdue ${Math.abs(diffToday)} days`
+              }
+            >
+              <ExclamationCircleFilled />
+            </Tooltip>
+          ) : null}
         </div>
       </>
     );
