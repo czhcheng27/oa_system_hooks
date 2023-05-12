@@ -33,7 +33,7 @@ const InputRegion = (props) => {
           </>
         </div>
         <div className={css.TwoLineTime}>
-          {data.newTime ? `Due: ${data.newTime}` : ""}
+          {data.newTime ? `${data.newTime}` : ""}
           {data.newTime ? <ExclamationCircleFilled /> : null}
         </div>
       </>
@@ -62,10 +62,9 @@ const InputRegion = (props) => {
     >
       <div className={css.content}>
         {inputData.map((el, index) => {
-          const { inoutlistDesc, orgName, userName, newTime } = el;
           return (
             <div key={index} className={css.input_card}>
-              <div className={css.rowTop}>{renderRowTop(inoutlistDesc)}</div>
+              <div className={css.rowTop}>{renderRowTop(el.inoutlistDesc)}</div>
               <div className={css.rowBot}>{renderRowBot(el)}</div>
             </div>
           );
