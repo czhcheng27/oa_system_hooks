@@ -6,7 +6,19 @@ import { ExclamationCircleFilled } from "@ant-design/icons";
 import ORG from "../../assets/org.png";
 import css from "./index.module.less";
 
-const InputList = ({ inputData }) => {
+const InputList = ({ id, inputData, openModal, setModalData }) => {
+  const getInitialIdx = () => {
+    return inputData.findIndex((el) => el.id == id);
+  };
+
+  const [actIdx, setActIdx] = useState(getInitialIdx());
+
+  const handleClick = (data, idx) => {
+    id && setActIdx(idx);
+    openModal && openModal(data);
+    setModalData && setModalData(data);
+  };
+
   const renderRowTop = (title) => {
     return (
       <>
@@ -73,7 +85,13 @@ const InputList = ({ inputData }) => {
     <div className={css.content}>
       {inputData.map((el, index) => {
         return (
-          <div key={index} className={css.input_card}>
+          <div
+            key={index}
+            className={` ${css.input_card} ${
+              actIdx == index ? css.active : null
+            }`}
+            onClick={() => handleClick(el, index)}
+          >
             <div className={css.rowTop}>{renderRowTop(el.inoutlistDesc)}</div>
             <div className={css.rowBot}>{renderRowBot(el)}</div>
           </div>

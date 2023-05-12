@@ -8,7 +8,17 @@ import css from "./index.module.less";
 import InputDetailModal from "./InputDetailModal";
 
 const InputRegion = (props) => {
+  const [clickItem, setClickItem] = useState({});
   const [visible, setVisible] = useState(false);
+
+  const openModal = (data) => {
+    setVisible(true);
+    setClickItem(data);
+  };
+
+  const closeModal = () => {
+    setVisible(false);
+  };
   return (
     <>
       <InputOutputWrap
@@ -31,9 +41,11 @@ const InputRegion = (props) => {
           </div>
         }
       >
-        <InputList inputData={inputData} />
+        <InputList inputData={inputData} openModal={openModal} />
       </InputOutputWrap>
-      {visible && <InputDetailModal />}
+      {visible && (
+        <InputDetailModal clickItem={clickItem} closeModal={closeModal} />
+      )}
     </>
   );
 };
