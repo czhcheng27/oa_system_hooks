@@ -32,22 +32,95 @@
   }
 }
 
-.no_data {
-  position: absolute;
-  width: 70%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.content {
+  .input_card {
+    height: 63px;
+    background: #ffffff;
+    box-shadow: -8px -8px 20px 0 rgba(255, 255, 255, 0.5),
+      8px 8px 20px 0 rgba(55, 99, 170, 0.1);
+    border-radius: 4px;
+    padding: 10px;
+    margin: 15px 0;
+    cursor: pointer;
 
-  img {
-    width: 100%;
-    margin-bottom: 16px;
+    &:hover {
+      border: 1px solid #ffffff;
+      background: #f3f5f8;
+      box-shadow: inset -8px -8px 20px 0 #ffffff,
+        inset 8px 8px 20px 0 rgba(55, 99, 170, 0.11);
+    }
+
+    &.active {
+      border: 1px solid #ffffff;
+      background: #f3f5f8;
+      box-shadow: inset -8px -8px 20px 0 #ffffff,
+        inset 8px 8px 20px 0 rgba(55, 99, 170, 0.11);
+    }
   }
 
-  p {
-    font-size: 16px;
-    color: #242f57;
-    line-height: 22px;
-    text-align: center;
+  .rowTop {
+    display: flex;
+    height: 20px;
+    width: 100%;
+    min-width: 248px;
+    display: flex;
+    justify-content: start;
+
+    .oneLineTitleXin {
+      display: flex;
+      margin-top: -10px;
+      height: 20px;
+    }
+
+    .oneLineTitle {
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+      height: 20px;
+      font-family: PingFangSC;
+      font-size: 14px;
+      font-weight: 600;
+
+      > span {
+        display: inline-block;
+        max-width: 182px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      i {
+        font-style: normal;
+      }
+    }
+  }
+
+  .rowBot {
+    height: 20px;
+    width: 100%;
+    min-width: 248px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 4px;
+    font-family: PingFangSC;
+
+    .TwoLineTitle {
+      color: rgba(31, 38, 49, 0.4);
+      max-width: 120px;
+      margin-left: 28px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .TwoLineTime {
+      color: #f65b52;
+      :global {
+        .anticon {
+          margin-left: 5px;
+        }
+      }
+    }
   }
 }
