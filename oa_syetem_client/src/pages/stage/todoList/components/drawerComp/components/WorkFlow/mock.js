@@ -4,7 +4,7 @@ export const inputData = [
     inputDetailsId: null,
     outputDetailsId: null,
     inoutlistId: "31965dfd2f3c76295e6eb89d5a2c7590",
-    inoutlistDesc: "Input",
+    inoutlistDesc: "Input1",
     isAssociated: null,
     revisionStatus: null,
     statusName: null,
