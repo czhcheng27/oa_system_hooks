@@ -20,7 +20,9 @@ const ApprovalFlow = (props) => {
       <div className={css.top}>
         <div className={css.top_left}>
           <SVG6 />
-          <span className={css.titleFont}>Approval Flow</span>
+          <span className={css.titleFont}>
+            {isApprovalFlow ? "Approval Flow" : "Action Plan"}
+          </span>
         </div>
         {/* <div className={css.top_right}>top_right</div> */}
       </div>
