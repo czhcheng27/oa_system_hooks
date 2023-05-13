@@ -2,3 +2,87 @@
   background: aliceblue;
   height: 100%;
 }
+
+.overAll {
+  align-items: center;
+  background-image: linear-gradient(90deg, #f1f0fc, #e9f2fc);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+  display: flex;
+  height: 62px;
+  justify-content: start;
+  margin: 0 16px 8px;
+  padding: 0 20px;
+
+  & > div:nth-of-type(1) {
+    margin-right: 16px;
+    text-align: center;
+    width: 98px;
+
+    & > div:nth-of-type(1) {
+      color: #242f57;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      margin-bottom: 2px;
+      overflow: hidden;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    & > div:nth-of-type(2) {
+      background: rgba(120, 151, 234, 0.09);
+      border-radius: 8px;
+      color: rgba(36, 47, 87, 0.5);
+      display: inline-block;
+      font-size: 12px;
+      line-height: 16px;
+      max-width: 98px;
+      overflow: hidden;
+      padding: 0 8px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+.processBar {
+  flex: 1;
+
+  .top_text {
+    align-items: center;
+    color: #242f57;
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+    line-height: 18px;
+  }
+
+  .process {
+    position: relative;
+    .stripe {
+      background: linear-gradient(
+        -45deg,
+        #0278ee 36%,
+        #7db9e8 0,
+        #7db9e8 67%,
+        #0278ee 0
+      );
+      background-size: 24px 12px;
+      border-radius: 2px;
+      height: 8px;
+    }
+    .masker {
+      background: linear-gradient(90deg, #bfd3f4 20%, #e4effa);
+      border-radius: 2px;
+      bottom: 0;
+      left: 0;
+      opacity: 0.9;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
+  }
+}

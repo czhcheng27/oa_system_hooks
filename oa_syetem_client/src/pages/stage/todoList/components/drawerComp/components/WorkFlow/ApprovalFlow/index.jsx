@@ -10,6 +10,7 @@ import ApprovalView from "./components/ApprovalView";
 import { approvalData } from "./mock";
 import SVG6 from "../assets/svg6";
 import css from "./index.module.less";
+import { taskData } from "../mock";
 
 const ApprovalFlow = (props) => {
   const [dis, setDis] = useState(0);
@@ -33,7 +34,7 @@ const ApprovalFlow = (props) => {
           <ApprovalView data={approvalData} />
         </div>
         <div className={css.plan}>
-          <ActionPlan />
+          <ActionPlan data={taskData} />
         </div>
       </div>
     );
