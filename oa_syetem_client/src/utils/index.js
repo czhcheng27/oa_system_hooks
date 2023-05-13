@@ -1,4 +1,5 @@
 import { message } from "antd";
+import moment from "moment";
 import { debounce, throttle, round, cloneDeep, merge } from "lodash";
 
 // 函数的 防抖 和 节流，使用 lodash 工具函数
@@ -312,4 +313,37 @@ export const taskSatus = (daysOverdue, warnNum = 5, isFinish = false) => {
       return { name: "normal", text: "进行中" };
     }
   }
+};
+
+export const getInputTime = (time) => {
+  let str = "";
+  if (
+    moment(moment(time).format("YYYY-MM-DD")).isSame(
+      moment().format("YYYY-MM-DD"),
+      "day"
+    )
+  ) {
+    str = "Today";
+  } else if (
+    moment(moment(time).format("YYYY-MM-DD")).isSame(
+      moment(moment().subtract(1, "day")).format("YYYY-MM-DD"),
+      "day"
+    )
+  ) {
+    str = "Yesterday";
+  } else if (
+    moment(moment(time).format("YYYY-MM-DD")).isSame(
+      moment(moment().subtract(2, "day")).format("YYYY-MM-DD"),
+      "day"
+    )
+  ) {
+    str = "DBY";
+  } else if (
+    moment(moment(time).format("YYYY-MM-DD")).isSame(moment(), "year")
+  ) {
+    str = moment(time).format("MM-DD");
+  } else {
+    str = time;
+  }
+  return str;
 };

@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import moment from "moment";
 import { Tooltip } from "antd";
-import { ExclamationCircleFilled } from "@ant-design/icons";
+import { ExclamationCircleFilled, CheckCircleFilled } from "@ant-design/icons";
+import { getInputTime } from "../../../../../../../../../utils";
+import { colorFont, colorObj, stateFont } from "../../const";
 import ORG from "../../assets/org.png";
+import Apply from "../../assets/apply.png";
 import css from "./index.module.less";
 
 const InputList = ({ id, inputData, openModal, setModalData }) => {
@@ -19,15 +22,27 @@ const InputList = ({ id, inputData, openModal, setModalData }) => {
     setModalData && setModalData(data);
   };
 
-  const renderRowTop = (title) => {
+  const renderRowTop = (data) => {
+    const { status, inoutlistDesc, approvalStatus } = data;
     return (
       <>
         <div className={css.oneLineTitleXin}>
-          <img src={ORG} />
+          <img src={status == 0 ? ORG : Apply} />
         </div>
         <div className={css.oneLineTitle}>
-          <span>{title}</span>
+          <span>{inoutlistDesc}</span>
         </div>
+        {approvalStatus && colorObj[approvalStatus] ? (
+          <div
+            className={css.oneLineState}
+            style={{
+              backgroundImage: colorObj[approvalStatus],
+              color: colorFont[approvalStatus],
+            }}
+          >
+            {stateFont[approvalStatus]}
+          </div>
+        ) : null}
       </>
     );
   };
@@ -36,7 +51,7 @@ const InputList = ({ id, inputData, openModal, setModalData }) => {
     let diffToday = null;
     let advent = false;
     let overdue = false;
-    if (data.approvalStatus > 2 && data.newTime) {
+    if (data.newTime) {
       diffToday = moment(moment().format("YYYY-MM-DD")).diff(
         moment(data.newTime).format("YYYY-MM-DD"),
         "days"
@@ -50,10 +65,7 @@ const InputList = ({ id, inputData, openModal, setModalData }) => {
           title={data.userName + " " + data.orgName}
           className={css.TwoLineTitle}
         >
-          <>
-            {data.userName ? "Sender：" + data.userName + " " : null}
-            {data.orgName}
-          </>
+          <>{renderName(data)}</>
         </div>
         <div
           className={classNames({
@@ -62,6 +74,7 @@ const InputList = ({ id, inputData, openModal, setModalData }) => {
             [css.overdue]: overdue,
           })}
         >
+          {/* {data.newTime ? getInputTime(data.newTime) : ""} */}
           {data.newTime ? `${data.newTime}` : ""}
           {advent || overdue ? (
             <Tooltip
@@ -74,13 +87,37 @@ const InputList = ({ id, inputData, openModal, setModalData }) => {
                   : `Overdue ${Math.abs(diffToday)} days`
               }
             >
-              <ExclamationCircleFilled />
+              {advent ? <CheckCircleFilled /> : <ExclamationCircleFilled />}
             </Tooltip>
           ) : null}
         </div>
       </>
     );
   };
+
+  const renderName = (data) => {
+    const { userName, orgName, status, approvalName, approvalOrgName } = data;
+    if (!status) {
+      const name = userName ? "Sender：" + userName : null;
+      const desc = orgName ? orgName : null;
+      return (
+        <>
+          {name}
+          {desc}
+        </>
+      );
+    } else {
+      const name = approvalName ? "Approver：" + approvalName : null;
+      const desc = approvalOrgName ? approvalOrgName : null;
+      return (
+        <>
+          {name}
+          {desc}
+        </>
+      );
+    }
+  };
+
   return (
     <div className={css.content}>
       {inputData.map((el, index) => {
@@ -92,7 +129,7 @@ const InputList = ({ id, inputData, openModal, setModalData }) => {
             }`}
             onClick={() => handleClick(el, index)}
           >
-            <div className={css.rowTop}>{renderRowTop(el.inoutlistDesc)}</div>
+            <div className={css.rowTop}>{renderRowTop(el)}</div>
             <div className={css.rowBot}>{renderRowBot(el)}</div>
           </div>
         );
