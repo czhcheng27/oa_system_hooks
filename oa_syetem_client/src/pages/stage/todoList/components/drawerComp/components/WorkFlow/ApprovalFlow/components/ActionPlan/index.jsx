@@ -39,8 +39,48 @@ const ActionPlan = ({ data }) => {
   };
 
   const renderSubTask = () => {
-    return <div>renderSubTask</div>;
+    return (
+      <div className={css.subTasks}>
+        {subTaskList.map((el, index) => {
+          return (
+            <div key={index} className={css.each_task}>
+              {renderLeftText(el, index)}
+              {renderRightProcess(el)}
+            </div>
+          );
+        })}
+      </div>
+    );
   };
+
+  const renderLeftText = (data, index) => {
+    const { taskName, shouldCommitCount } = data;
+    return (
+      <div className={css.left_text_wrap}>
+        <div>
+          <span style={{ marginRight: "16px" }}>{index + 1}</span>
+          {taskName}
+        </div>
+        <div>
+          Sub Num: <span>{shouldCommitCount}</span>
+        </div>
+      </div>
+    );
+  };
+
+  const renderRightProcess = () => {
+    return (
+      <div className={css.process_wrap}>
+        <div className={css.plan_begin_time}>
+          <span>1</span>
+        </div>
+        <div className={css.plan_finish_time}>
+          <span>2</span>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className={css.act_plan}>
       {renderOverall()}
