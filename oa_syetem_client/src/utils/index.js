@@ -347,3 +347,35 @@ export const getInputTime = (time) => {
   }
   return str;
 };
+
+export function isEmpty(item, value) {
+  if (
+    item === "" ||
+    item === undefined ||
+    item === null ||
+    Number.isNaN(item)
+  ) {
+    if (value !== undefined) {
+      return value;
+    }
+    return true;
+  } else {
+    if (value !== undefined) {
+      return item;
+    }
+    return false;
+  }
+}
+
+export function getDaysBetween(date1, date2) {
+  const startDate = Date.parse(`${isEmpty(date1, "").slice(0, 10)} 00:00:00`);
+  const endDate = Date.parse(`${isEmpty(date2, "").slice(0, 10)} 00:00:00`);
+  if (startDate > endDate) {
+    return -(startDate - endDate) / (1 * 24 * 60 * 60 * 1000);
+  }
+  if (startDate == endDate) {
+    return 0;
+  }
+  const days = (endDate - startDate) / (1 * 24 * 60 * 60 * 1000);
+  return days;
+}

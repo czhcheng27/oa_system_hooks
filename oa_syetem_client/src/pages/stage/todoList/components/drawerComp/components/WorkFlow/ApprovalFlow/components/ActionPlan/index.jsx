@@ -1,10 +1,5 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useMemo,
-} from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { getDaysBetween } from "../../../../../../../../../../utils";
 import css from "./index.module.less";
 
 const ActionPlan = ({ data }) => {
@@ -68,14 +63,25 @@ const ActionPlan = ({ data }) => {
     );
   };
 
-  const renderRightProcess = () => {
+  const renderRightProcess = (data) => {
+    const { taskPlanFinishDate, taskPlanBeginDate } = data;
+    let planStartTime =
+      (getDaysBetween(startDate, taskPlanBeginDate) / taskDataRage) * 100;
+    let planEndTime =
+      (getDaysBetween(startDate, taskPlanFinishDate) / taskDataRage) * 100;
     return (
       <div className={css.process_wrap}>
-        <div className={css.plan_begin_time}>
-          <span>1</span>
+        <div
+          className={css.plan_begin_time}
+          style={{ left: `${planStartTime}%` }}
+        >
+          <span>{taskPlanBeginDate}</span>
         </div>
-        <div className={css.plan_finish_time}>
-          <span>2</span>
+        <div
+          className={css.plan_finish_time}
+          style={{ left: `${planEndTime}%` }}
+        >
+          <span>{taskPlanFinishDate}</span>
         </div>
       </div>
     );
