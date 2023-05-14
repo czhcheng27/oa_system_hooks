@@ -1,0 +1,45 @@
+.step {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 20px;
+}
+
+.each_item {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  .text {
+    width: 120px;
+    height: 110px;
+    line-height: 80px;
+    text-align: center;
+    background-image: url(../../img/bg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    font-weight: 500;
+    font-size: 18px;
+    color: #242f57;
+    cursor: pointer;
+  }
+
+  .text.current {
+    background-image: url(../../img/cur_bg.png);
+    color: #ffffff;
+  }
+
+  .text.finish {
+    background-image: url(../../img/finish_bg.png);
+    color: #ffffff;
+  }
+
+  .arrow {
+    margin: 0 40px;
+    padding-bottom: 24px;
+    img {
+      width: 24px;
+    }
+  }
+}
