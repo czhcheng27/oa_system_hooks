@@ -15,7 +15,11 @@ const Steps = ({ current = 1, onClick }) => {
     <div className={css.step}>
       {stepName.map((el, index) => {
         return (
-          <div key={index} className={css.each_item}>
+          <div
+            key={index}
+            className={css.each_item}
+            onClick={() => onClick(index)}
+          >
             <div
               className={classNames({
                 [css.text]: true,

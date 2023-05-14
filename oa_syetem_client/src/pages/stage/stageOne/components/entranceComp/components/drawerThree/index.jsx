@@ -1,15 +1,12 @@
-import React, {
-  useState,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  forwardRef,
-} from "react";
-import { Drawer } from "antd";
-import { CloseOutlined } from "@ant-design/icons";
+import React, { useState, useImperativeHandle, forwardRef } from "react";
+import { Button, Drawer, Space } from "antd";
 import DrawerHeader from "../../../../../../../components/DrawerHeader";
 import css from "./index.module.less";
 import Steps from "./components/Steps";
+import { stepName } from "./const";
+import SplitTask from "./components/SplitTask";
+import CombineTeam from "./components/CombineTeam";
+import SubmitTask from "./components/SubmitTask";
 
 const DrawerThree = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
@@ -17,6 +14,7 @@ const DrawerThree = forwardRef((props, ref) => {
   }));
 
   const [visible, setVisible] = useState(false);
+  const [curStep, setCurStep] = useState(0);
 
   const openHandle = () => {
     setVisible(true);
@@ -26,8 +24,25 @@ const DrawerThree = forwardRef((props, ref) => {
     setVisible(false);
   };
 
-  const renderContent = () => {
-    return <div>renderContent</div>;
+  const stepClick = (idx) => {
+    setCurStep(idx);
+  };
+
+  const renderPreNextBtn = () => {
+    const length = stepName.length;
+    return (
+      <Space>
+        {curStep ? (
+          <Button onClick={() => setCurStep(curStep - 1)}>Prev</Button>
+        ) : null}
+        <Button
+          onClick={() => curStep != length - 1 && setCurStep(curStep + 1)}
+          type="primary"
+        >
+          {curStep == length - 1 ? "Submit" : "next"}
+        </Button>
+      </Space>
+    );
   };
 
   return (
@@ -43,17 +58,13 @@ const DrawerThree = forwardRef((props, ref) => {
           pageName={`Create Action Plan`}
           backPrev={() => closeHandle()}
         >
-          <div
-            className={css.closeIcon}
-            style={{ cursor: "pointer" }}
-            onClick={closeHandle}
-          >
-            <CloseOutlined />
-          </div>
+          {renderPreNextBtn()}
         </DrawerHeader>
 
-        <Steps />
-        {renderContent()}
+        <Steps current={curStep} onClick={(idx) => stepClick(idx)} />
+        {curStep == 0 && <SplitTask />}
+        {curStep == 1 && <CombineTeam />}
+        {curStep == 2 && <SubmitTask />}
       </div>
     </Drawer>
   );
