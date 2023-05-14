@@ -12,12 +12,13 @@ const SplitTask = ({ taskData, addTask, nameClick, cardClickCb }) => {
     !taskData.length ? 0 : taskData.length - 1
   );
 
-  const handleCardClick = (id, isTyping, idx) => {
+  const handleCardClick = (id, isTyping, idx, name) => {
     setSelectIdx(idx);
     if (isTyping) {
-      nameClick(inputVal, id);
+      nameClick(name ? name : inputVal, id);
     } else {
       cardClickCb(id);
+      setInputVal("");
     }
   };
 
@@ -26,6 +27,7 @@ const SplitTask = ({ taskData, addTask, nameClick, cardClickCb }) => {
     setInputVal("");
     setSelectIdx(taskData.length);
   };
+
   return (
     <div className={css.split_task_wrap}>
       <div className={css.testCol}>
@@ -36,7 +38,7 @@ const SplitTask = ({ taskData, addTask, nameClick, cardClickCb }) => {
               <img src={selectIdx == index && isTyping ? CardBgSel : CardBg} />
               <div
                 className={css.card}
-                onClick={() => handleCardClick(id, isTyping, index)}
+                onClick={() => handleCardClick(id, isTyping, index, name)}
               >
                 <div className={css.seq}>{index + 1}</div>
                 <div className={css.task_icon}>
@@ -53,9 +55,7 @@ const SplitTask = ({ taskData, addTask, nameClick, cardClickCb }) => {
                     <Input
                       defaultValue={name}
                       onClick={(e) => e.stopPropagation()}
-                      onBlur={(e) => (
-                        nameClick(e.target.value, id), setInputVal("")
-                      )}
+                      onBlur={(e) => nameClick(e.target.value, id, "onBlur")}
                       onChange={(e) => setInputVal(e.target.value)}
                     />
                   )}

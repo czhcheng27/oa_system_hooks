@@ -38,11 +38,13 @@ const DrawerThree = forwardRef((props, ref) => {
     setTaskData([...res, { name: "", id: createUidKey(), isTyping: true }]);
   };
 
-  const nameClick = (txt, id) => {
-    const res = taskData.map((el, index) => {
+  const nameClick = (txt, id, code) => {
+    const res = taskData.map((el) => {
       if (el.id == id) {
         el.name = txt;
-        el.isTyping = false;
+        if (code !== "onBlur") {
+          el.isTyping = false;
+        }
       }
       return el;
     });
