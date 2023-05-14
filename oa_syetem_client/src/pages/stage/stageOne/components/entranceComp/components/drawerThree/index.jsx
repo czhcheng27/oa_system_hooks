@@ -1,12 +1,12 @@
 import React, { useState, useImperativeHandle, forwardRef } from "react";
 import { Button, Drawer, Space } from "antd";
 import DrawerHeader from "../../../../../../../components/DrawerHeader";
-import css from "./index.module.less";
 import Steps from "./components/Steps";
-import { stepName } from "./const";
 import SplitTask from "./components/SplitTask";
 import CombineTeam from "./components/CombineTeam";
 import SubmitTask from "./components/SubmitTask";
+import { stepName, taskData } from "./const";
+import css from "./index.module.less";
 
 const DrawerThree = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
@@ -39,7 +39,7 @@ const DrawerThree = forwardRef((props, ref) => {
           onClick={() => curStep != length - 1 && setCurStep(curStep + 1)}
           type="primary"
         >
-          {curStep == length - 1 ? "Submit" : "next"}
+          {curStep == length - 1 ? "Submit" : "Next"}
         </Button>
       </Space>
     );
@@ -62,7 +62,7 @@ const DrawerThree = forwardRef((props, ref) => {
         </DrawerHeader>
 
         <Steps current={curStep} onClick={(idx) => stepClick(idx)} />
-        {curStep == 0 && <SplitTask />}
+        {curStep == 0 && <SplitTask taskData={taskData} />}
         {curStep == 1 && <CombineTeam />}
         {curStep == 2 && <SubmitTask />}
       </div>
