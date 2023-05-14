@@ -1,11 +1,12 @@
 import React, { useState, useImperativeHandle, forwardRef } from "react";
 import { Button, Drawer, Space } from "antd";
+import { createUidKey } from "../../../../../../../utils";
 import DrawerHeader from "../../../../../../../components/DrawerHeader";
 import Steps from "./components/Steps";
 import SplitTask from "./components/SplitTask";
 import CombineTeam from "./components/CombineTeam";
 import SubmitTask from "./components/SubmitTask";
-import { stepName, taskData } from "./const";
+import { stepName } from "./const";
 import css from "./index.module.less";
 
 const DrawerThree = forwardRef((props, ref) => {
@@ -15,6 +16,7 @@ const DrawerThree = forwardRef((props, ref) => {
 
   const [visible, setVisible] = useState(false);
   const [curStep, setCurStep] = useState(0);
+  const [taskData, setTaskData] = useState([]);
 
   const openHandle = () => {
     setVisible(true);
@@ -26,6 +28,35 @@ const DrawerThree = forwardRef((props, ref) => {
 
   const stepClick = (idx) => {
     setCurStep(idx);
+  };
+
+  const addTask = () => {
+    const res = taskData.map((el, index) => {
+      el.isTyping = false;
+      return el;
+    });
+    setTaskData([...res, { name: "", id: createUidKey(), isTyping: true }]);
+  };
+
+  const nameClick = (txt, id) => {
+    const res = taskData.map((el, index) => {
+      if (el.id == id) {
+        el.name = txt;
+        el.isTyping = false;
+      }
+      return el;
+    });
+    setTaskData(res);
+  };
+
+  const handleCardClick = (id) => {
+    const res = taskData.map((el, index) => {
+      if (el.id == id) {
+        el.isTyping = true;
+      }
+      return el;
+    });
+    setTaskData(res);
   };
 
   const renderPreNextBtn = () => {
@@ -62,7 +93,14 @@ const DrawerThree = forwardRef((props, ref) => {
         </DrawerHeader>
 
         <Steps current={curStep} onClick={(idx) => stepClick(idx)} />
-        {curStep == 0 && <SplitTask taskData={taskData} />}
+        {curStep == 0 && (
+          <SplitTask
+            taskData={taskData}
+            addTask={addTask}
+            nameClick={nameClick}
+            cardClickCb={handleCardClick}
+          />
+        )}
         {curStep == 1 && <CombineTeam />}
         {curStep == 2 && <SubmitTask />}
       </div>

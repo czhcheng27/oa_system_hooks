@@ -106,6 +106,9 @@
     .task_icon {
       margin-bottom: 12px;
       text-align: center;
+      img {
+        width: 19px;
+      }
     }
 
     .task_name {
@@ -119,10 +122,30 @@
       text-align: center;
       text-overflow: ellipsis;
       white-space: nowrap;
+      & > input {
+        font-feature-settings: "tnum";
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #d9d9d9;
+        border-radius: 2px;
+        box-sizing: border-box;
+        color: rgba(0, 0, 0, 0.85);
+        display: inline-block;
+        font-size: 14px;
+        font-variant: tabular-nums;
+        line-height: 1.5715;
+        list-style: none;
+        margin: 0;
+        min-width: 0;
+        padding: 4px 11px;
+        position: relative;
+        transition: all 0.3s;
+        width: 100%;
+      }
     }
   }
 
-  img {
+  & > img {
     left: -16px;
     position: absolute;
     top: -10px;
