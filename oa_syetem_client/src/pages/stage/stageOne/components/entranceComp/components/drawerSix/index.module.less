@@ -1,0 +1,34 @@
+.drawer {
+  .details {
+    height: 100%;
+  }
+  :global {
+    .ant-spin-nested-loading,
+    .ant-spin-container {
+      height: 100%;
+    }
+    .ant-drawer-header {
+      display: none;
+    }
+    .ant-drawer-body {
+      padding: 0;
+    }
+    .ant-input {
+      &::placeholder {
+        color: #636e95 !important;
+        font-family: PingFangSC-Regular;
+      }
+    }
+    .ant-input-affix-wrapper {
+      height: 40px;
+      background-image: linear-gradient(180deg, #ffffff66 0%, #ffffffb3 100%);
+      border: 1px solid #ffffffcc;
+      box-shadow: 0 5px 12px 0 #56695c12;
+      border-radius: 4px;
+    }
+    .ant-checkbox-group {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

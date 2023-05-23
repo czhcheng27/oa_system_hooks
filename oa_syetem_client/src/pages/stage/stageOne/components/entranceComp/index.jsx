@@ -6,16 +6,19 @@ import { useRef } from "react";
 import AprDetWrapper from "./components/aprDetWrapper";
 import DrawerTwo from "./components/drawerTwo";
 import DrawerThree from "./components/drawerThree";
+import DrawerSix from "./components/drawerSix";
 
 const EntranceComp = (props) => {
   const drawer1Ref = useRef();
   const drawer2Ref = useRef();
   const drawer3Ref = useRef();
+  const drawer6Ref = useRef();
 
   const drawerRefMap = {
     0: drawer1Ref,
     1: drawer2Ref,
     2: drawer3Ref,
+    5: drawer6Ref,
   };
 
   return (
@@ -91,6 +94,7 @@ const EntranceComp = (props) => {
       <AprDetWrapper ref={drawer1Ref} />
       <DrawerTwo ref={drawer2Ref} />
       <DrawerThree ref={drawer3Ref} />
+      <DrawerSix ref={drawer6Ref} />
     </div>
   );
 };
