@@ -5,9 +5,9 @@ import React, {
   useRef,
   useMemo,
 } from "react";
-import css from "./index.module.less";
-import { mockLeftButton, mockRightButton } from "../../mockData";
 import classNames from "classnames";
+import { mockLeftButton, mockRightButton } from "../../mockData";
+import css from "./index.module.less";
 
 const ScreenHeader = ({ activeCode, callback }) => {
   const compileButton = (type, list) => {

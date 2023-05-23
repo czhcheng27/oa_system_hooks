@@ -29,3 +29,15 @@ export const mockRightButton = [
     label: "Sub5",
   },
 ];
+
+export const mockCardTitleList = [
+  "Section Title 1",
+  "Section Title 2",
+  "Section Title 3",
+  "Section Title 4",
+  "Section Title 5",
+  "Section Title 6",
+  "Section Title 7",
+  "Section Title 8",
+  "Section Title 9",
+];
