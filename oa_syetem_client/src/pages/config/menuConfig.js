@@ -17,6 +17,7 @@ import {
   HeatMapOutlined,
   ApartmentOutlined,
   PicLeftOutlined,
+  AreaChartOutlined,
 } from "@ant-design/icons";
 
 function getItem(label, key, icon, children) {
@@ -62,5 +63,9 @@ export const menuItems = [
   getItem("Stage", "/stage", <HeatMapOutlined />, [
     getItem("Stage Display", "/stage_display", <ApartmentOutlined />),
     getItem("TodoList", "/todo_list", <PicLeftOutlined />),
+  ]),
+  getItem("BigScreen", "/big_screen", <AreaChartOutlined />, [
+    getItem("BigScreen1", "/big_screen_1", <AreaChartOutlined />),
+    getItem("BigScreen2", "/big_screen_2", <AreaChartOutlined />),
   ]),
 ];
