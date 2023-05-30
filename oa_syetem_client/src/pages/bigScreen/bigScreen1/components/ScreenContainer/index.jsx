@@ -6,11 +6,20 @@ import Chart1 from "../Chart1";
 import Chart2 from "../Chart2";
 import Chart3 from "../Chart3";
 import Earth from "../Earth";
-import Chart6 from "../Chart6";
 import Chart5 from "../Chart5";
-import Chart9 from "../Chart9";
-import Chart8 from "../Chart8";
+import Chart6 from "../Chart6";
 import Chart7 from "../Chart7";
+import Chart8 from "../Chart8";
+import Chart9 from "../Chart9";
+
+const initParam = {
+  sorter: "up",
+  date: "all",
+  fields: ["all"],
+  levels: ["all"],
+  segment: "cumulate",
+  tab: "stdAbly",
+};
 
 const ScreenContainer = (props) => {
   const [amplifyExist, setAmplifyExist] = useState(false);
@@ -18,6 +27,7 @@ const ScreenContainer = (props) => {
   const [amplifySize, setAmplifySize] = useState(false);
   const [amplifyCode, setAmplifyCode] = useState("");
   const [amplifyHidden, setAmplifyHidden] = useState(false);
+  const [chart1Params, setChart1Params] = useState(initParam);
 
   const compileCard = (code) => {
     return (
@@ -48,6 +58,8 @@ const ScreenContainer = (props) => {
         isCenter={isCenter}
         eventCenter={eventCenter}
         eventHandle={(code, type) => eventHandle(code, type)}
+        filterParams={chart1Params}
+        filterHandle={setChart1Params}
       />
     ) : code == 2 ? (
       <Chart2 isCenter={isCenter} eventCenter={eventCenter} />

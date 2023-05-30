@@ -41,3 +41,22 @@ export const mockCardTitleList = [
   "Section Title 8",
   "Section Title 9",
 ];
+
+export const dateOpts = [
+  {
+    label: "All",
+    value: "all",
+  },
+  {
+    label: "Year",
+    value: "year",
+  },
+  {
+    label: "Month",
+    value: "month",
+  },
+  {
+    label: "Week",
+    value: "week",
+  },
+];
