@@ -1,23 +1,14 @@
-.chartBox {
+.earthBox {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 40px);
+  top: 40px;
+  left: 0;
   position: relative;
-  z-index: 10;
   overflow: hidden;
-
-  .earthBox {
-    width: 100%;
-    height: calc(100% - 40px);
-    top: 40px;
-    left: 0;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .refreshPosition {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    color: #ffffff;
-  }
+}
+.refreshPosition {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #ffffff;
 }

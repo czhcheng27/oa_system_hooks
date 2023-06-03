@@ -155,7 +155,6 @@ const ScreenBg = (props) => {
   };
 
   const renders = () => {
-    console.log("renders", renders);
     renderer.clear();
     renderer.render(scene, camera);
   };

@@ -143,8 +143,7 @@ const Earth = (props) => {
   };
 
   return (
-    <div className={css.chartBox}>
-      <div id="earthBox" className={css.earthBox}></div>
+    <div id="earthBox" className={css.earthBox}>
       <UndoOutlined className={css.refreshPosition} onClick={resizeEarch} />
     </div>
   );
