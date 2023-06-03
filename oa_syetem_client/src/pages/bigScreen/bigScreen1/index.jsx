@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import ScreenHeader from "./components/ScreenHeader";
 import ScreenContainer from "./components/ScreenContainer";
+import ScreenBg from "./components/ScreenBg";
 import css from "./index.module.less";
 
 const BigScreen1 = (props) => {
@@ -14,6 +15,7 @@ const BigScreen1 = (props) => {
 
   return (
     <div className={css.moduleBox}>
+      <ScreenBg />
       <ScreenHeader activeCode={activeCode} callback={setActiveCode} />
       <ScreenContainer />
     </div>
