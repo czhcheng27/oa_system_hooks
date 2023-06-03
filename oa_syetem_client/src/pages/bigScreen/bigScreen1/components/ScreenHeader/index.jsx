@@ -14,20 +14,24 @@ const ScreenHeader = ({ activeCode, callback }) => {
     return (
       <div className={classNames(css.buttonBox, css[type + "ButtonBox"])}>
         {list.map((item, index) => {
-          return (
-            <div
-              className={classNames(
-                css.buttonNode,
-                css[type + "Button"],
-                activeCode == item.code ? css.buttonActiveNode : null
-              )}
-              onClick={() => callback(item.code)}
-              key={index}
-            >
-              <span>{item.label}</span>
-            </div>
-          );
+          return renderEachBtn(item, index, type);
         })}
+      </div>
+    );
+  };
+
+  const renderEachBtn = (item, index, type) => {
+    return (
+      <div
+        className={classNames(
+          css.buttonNode,
+          css[type + "Button"],
+          activeCode == item.code ? css.buttonActiveNode : null
+        )}
+        onClick={() => callback(item.code)}
+        key={index}
+      >
+        <span>{item.label}</span>
       </div>
     );
   };

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { UndoOutlined } from "@ant-design/icons";
 import classNames from "classnames";
 import earchImg from "../../assets/earth.png";
 import ringImg from "../../assets/ring.png";
@@ -130,9 +131,21 @@ const Earth = (props) => {
     renderer.render(scene, camera);
   };
 
+  const resizeEarch = () => {
+    const ele = document.querySelector("#earthBox");
+    width = ele?.clientWidth;
+    height = ele?.clientHeight;
+    renderer.setSize(width, height);
+    camera.updateProjectionMatrix();
+    initCamera();
+    renders();
+    initControls();
+  };
+
   return (
     <div className={css.chartBox}>
       <div id="earthBox" className={css.earthBox}></div>
+      <UndoOutlined className={css.refreshPosition} onClick={resizeEarch} />
     </div>
   );
 };
