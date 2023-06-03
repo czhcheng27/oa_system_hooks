@@ -41,6 +41,7 @@
     "sortablejs": "^1.15.0",
     "store": "^2.0.12",
     "swiper": "8.4.2",
+    "three": "^0.153.0",
     "tinymce": "^6.3.2",
     "use-context-selector": "^1.4.1",
     "web-vitals": "^2.1.4"
