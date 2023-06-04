@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-import { mockCardTitleList } from "../../mockData";
-import css from "./index.module.less";
 import Chart1 from "../Chart1";
 import Chart2 from "../Chart2";
 import Chart3 from "../Chart3";
@@ -11,6 +9,9 @@ import Chart6 from "../Chart6";
 import Chart7 from "../Chart7";
 import Chart8 from "../Chart8";
 import Chart9 from "../Chart9";
+import Modal from "../Modal";
+import { mockCardTitleList } from "../../mockData";
+import css from "./index.module.less";
 
 const initParam = {
   sorter: "up",
@@ -28,10 +29,13 @@ const ScreenContainer = (props) => {
   const [amplifyCode, setAmplifyCode] = useState("");
   const [amplifyHidden, setAmplifyHidden] = useState(false);
   const [chart1Params, setChart1Params] = useState(initParam);
+  const [modalShow, setModalShow] = useState(false);
+  const [modalDict, setModalDict] = useState({ code: null, name: "" });
 
   const compileCard = (code) => {
     return (
       <div
+        key={code}
         className={classNames(
           css.cardNode,
           code == 4 ? css.cardActiveNode : null,
@@ -69,7 +73,7 @@ const ScreenContainer = (props) => {
   };
 
   const compileCardGroup2 = () => {
-    return <Chart4 />;
+    return <Chart4 eventHandle={(code, type) => eventHandle(code, type)} />;
   };
 
   const compileCardGroup3 = (code, isCenter, eventCenter) => {
@@ -143,6 +147,10 @@ const ScreenContainer = (props) => {
       else if (code != amplifyCode) closeHandle(code);
       else closeHandle("");
     } else if (type == "close") closeHandle("");
+    else {
+      setModalShow(true);
+      setModalDict(code);
+    }
   };
 
   const closeHandle = (code) => {
@@ -178,6 +186,12 @@ const ScreenContainer = (props) => {
       <div className={css.containerPosition}>
         {mockCardTitleList.map((item, index) => compileCard(index + 1))}
         {compileAmplifyCard()}
+
+        <Modal
+          modalShow={modalShow}
+          modalDict={modalDict}
+          closeHandle={() => setModalShow(false)}
+        />
       </div>
     </div>
   );
