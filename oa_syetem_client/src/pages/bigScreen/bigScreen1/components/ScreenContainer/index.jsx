@@ -5,7 +5,7 @@ import css from "./index.module.less";
 import Chart1 from "../Chart1";
 import Chart2 from "../Chart2";
 import Chart3 from "../Chart3";
-import Earth from "../Earth";
+import Chart4 from "../Chart4";
 import Chart5 from "../Chart5";
 import Chart6 from "../Chart6";
 import Chart7 from "../Chart7";
@@ -69,7 +69,7 @@ const ScreenContainer = (props) => {
   };
 
   const compileCardGroup2 = () => {
-    return <Earth />;
+    return <Chart4 />;
   };
 
   const compileCardGroup3 = (code, isCenter, eventCenter) => {
