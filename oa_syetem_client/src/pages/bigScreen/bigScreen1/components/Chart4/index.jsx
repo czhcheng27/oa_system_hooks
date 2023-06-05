@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import Earth from "../Earth";
+import MovingDot from "../MovingDot";
 import { positionList } from "../../const";
 import { mockEarthData } from "../../mockData";
 import css from "./index.module.less";
@@ -74,6 +75,7 @@ const Chart4 = ({ eventHandle }) => {
     <div className={css.chartBox}>
       {compileNodeList()}
       <Earth />
+      <MovingDot />
     </div>
   );
 };
