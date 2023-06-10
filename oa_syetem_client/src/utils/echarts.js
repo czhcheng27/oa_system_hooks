@@ -36,13 +36,15 @@ export const onBarClick = (chart, callback, type, array) => {
   });
 };
 
-export const commonTooltip = {
-  trigger: "axis",
-  extraCssText: normalCssExtra,
-  textStyle: { color: "white" },
-  axisPointer: {
-    type: "shadow",
-  },
+export const commonTooltip = (isCenter) => {
+  return {
+    trigger: "axis",
+    extraCssText: isCenter ? centerCssExtra : normalCssExtra,
+    textStyle: { color: "white" },
+    axisPointer: {
+      type: "shadow",
+    },
+  };
 };
 
 export const commonDataZoom = (dataArray = [], itemNo = eItemNo) => {

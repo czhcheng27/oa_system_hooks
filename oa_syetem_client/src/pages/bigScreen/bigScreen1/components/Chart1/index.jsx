@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as echarts from "echarts";
+import { Spin } from "antd";
 import SelectFilter from "../SelectFilter";
 import { dateOpts } from "../../const";
 import { mockChartData1 } from "../../mockData";
@@ -29,6 +30,7 @@ const Chart1 = ({ isCenter, filterParams, filterHandle }) => {
   const id = isCenter ? "centerStackBar1" : "stackBar1";
 
   const [chartData, setChartData] = useState(mockChartData1);
+  const [loading, setLoading] = useState(false);
 
   const orgName = getSpecificData(chartData, "orgName");
   const orgId = getSpecificData(chartData, "orgId");
@@ -44,6 +46,7 @@ const Chart1 = ({ isCenter, filterParams, filterHandle }) => {
 
   useEffect(() => {
     let res = [];
+    setLoading(true);
     if (date == "all") {
       res = mockChartData1;
     } else if (date == "year") {
@@ -54,6 +57,7 @@ const Chart1 = ({ isCenter, filterParams, filterHandle }) => {
       res = mockChartData1.slice(0, 3);
     }
     setChartData(res);
+    setTimeout(() => setLoading(false), 1000);
   }, [date]);
 
   const renderTopCorner = () => {
@@ -166,7 +170,7 @@ const Chart1 = ({ isCenter, filterParams, filterHandle }) => {
 
   const options = {
     tooltip: {
-      ...commonTooltip,
+      ...commonTooltip(isCenter),
       formatter: function (params) {
         //这里就是控制显示的样式
         var relVal =
@@ -242,6 +246,7 @@ const Chart1 = ({ isCenter, filterParams, filterHandle }) => {
 
   return (
     <div className={css.chart1_wrap}>
+      {loading && <Spin spinning={loading} />}
       {renderTopCorner()}
 
       <div id={id} className={css.stackBar1}></div>
