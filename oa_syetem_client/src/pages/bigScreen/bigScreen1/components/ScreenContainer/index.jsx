@@ -69,7 +69,7 @@ const ScreenContainer = (props) => {
   };
 
   const compileCardGroup2 = () => {
-    return <Chart4 />;
+    return <Chart4 openModal={openModal} />;
   };
 
   const compileCardGroup3 = (code, isCenter) => {
@@ -125,6 +125,13 @@ const ScreenContainer = (props) => {
     );
   };
 
+  // 打开下钻弹窗
+  const openModal = (modalDict) => {
+    setModalDict(modalDict);
+    setModalShow(true);
+  };
+
+  //  编译放大区
   const compileAmplifyCard = () => {
     return amplifyCode ? (
       <div
