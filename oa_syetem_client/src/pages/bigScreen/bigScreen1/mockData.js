@@ -70,3 +70,114 @@ export const mockEarthData = {
     },
   ],
 };
+
+export const mockChartData1 = [
+  {
+    orgId: "10030256_DE-0505",
+    orgName: "000",
+    normalProcessNum: 51,
+    limitedNum: 0,
+    overdueNum: 0,
+    completedNum: 1,
+    completedRate: 100,
+  },
+  {
+    normalProcessNum: 30, // 进行中
+    limitedNum: 20, // 临期
+    overdueNum: 10, // 逾期
+    completedNum: 1,
+    completedRate: 100, // 完成率
+    orgName: "111",
+    orgId: "qwe",
+  },
+  {
+    normalProcessNum: 10,
+    limitedNum: 30,
+    overdueNum: 0,
+    completedNum: 1,
+    completedRate: 34,
+    orgName: "222",
+    orgId: "asd",
+  },
+  {
+    normalProcessNum: 10,
+    limitedNum: 20,
+    overdueNum: 30,
+    completedNum: 4,
+    completedRate: 43,
+    orgName: "333",
+    orgId: "zxc",
+  },
+  {
+    orgId: "10030256_DE-0505",
+    orgName: "000",
+    normalProcessNum: 51,
+    limitedNum: 0,
+    overdueNum: 0,
+    completedNum: 1,
+    completedRate: 100,
+  },
+  {
+    normalProcessNum: 30, // 进行中
+    limitedNum: 20, // 临期
+    overdueNum: 10, // 逾期
+    completedNum: 1,
+    completedRate: 100, // 完成率
+    orgName: "111",
+    orgId: "qwe",
+  },
+  {
+    normalProcessNum: 10,
+    limitedNum: 30,
+    overdueNum: 0,
+    completedNum: 1,
+    completedRate: 34,
+    orgName: "222",
+    orgId: "asd",
+  },
+  {
+    normalProcessNum: 10,
+    limitedNum: 20,
+    overdueNum: 30,
+    completedNum: 4,
+    completedRate: 43,
+    orgName: "333",
+    orgId: "zxc",
+  },
+  {
+    orgId: "10030256_DE-0505",
+    orgName: "000",
+    normalProcessNum: 51,
+    limitedNum: 0,
+    overdueNum: 0,
+    completedNum: 1,
+    completedRate: 100,
+  },
+  {
+    normalProcessNum: 30, // 进行中
+    limitedNum: 20, // 临期
+    overdueNum: 10, // 逾期
+    completedNum: 1,
+    completedRate: 100, // 完成率
+    orgName: "111",
+    orgId: "qwe",
+  },
+  {
+    normalProcessNum: 10,
+    limitedNum: 30,
+    overdueNum: 0,
+    completedNum: 1,
+    completedRate: 34,
+    orgName: "222",
+    orgId: "asd",
+  },
+  {
+    normalProcessNum: 10,
+    limitedNum: 20,
+    overdueNum: 30,
+    completedNum: 4,
+    completedRate: 43,
+    orgName: "333",
+    orgId: "zxc",
+  },
+];
