@@ -1,3 +1,4 @@
+@activeDelayed: 0.5s;
 .containerBox {
   width: 100%;
   height: calc(100% - 110px);
@@ -11,10 +12,13 @@
       height: calc(33.3% - 16px);
       position: absolute;
       z-index: 100;
-      opacity: 1;
-      transition: width 1.4s, height 1.4s, left 1.4s, top 1.4s, opacity 0.5s;
-      -webkit-transition: width 1.4s, height 1.4s, left 1.4s, top 1.4s,
-        opacity 0.5s;
+      opacity: 0;
+      transition: width @activeDelayed, height @activeDelayed,
+        left @activeDelayed, right @activeDelayed, top @activeDelayed,
+        bottom @activeDelayed, opacity @activeDelayed;
+      -webkit-transition: width @activeDelayed, height @activeDelayed,
+        left @activeDelayed, right @activeDelayed, top @activeDelayed,
+        bottom @activeDelayed, opacity @activeDelayed;
       background: #052745;
       .amplifyNode {
         width: 100%;
@@ -42,11 +46,37 @@
       color: #ffffff;
       line-height: 40px;
       background-image: linear-gradient(90deg, #00e7ff14, #01162a14);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       span {
         background-image: -webkit-linear-gradient(top, #ffffff, #548fab);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-family: PuHuiTi;
+      }
+      .amplifyIcon {
+        div {
+          width: 20px;
+          height: 20px;
+          margin-right: 16px;
+          cursor: pointer;
+          background-size: 20px 20px;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+        .zoomIn {
+          background-image: url("../../assets/icon23.png");
+        }
+        .zoomIn:hover {
+          background-image: url("../../assets/icon21.png");
+        }
+        .zoomOut {
+          background-image: url("../../assets/icon24.png");
+        }
+        .zoomOut:hover {
+          background-image: url("../../assets/icon22.png");
+        }
       }
     }
     .cardTitle::before {
@@ -156,8 +186,8 @@
       left: calc(25% + 6px);
       top: 0;
     }
-    .amplifyHiddenCard {
-      opacity: 0;
+    .amplifyShowCard {
+      opacity: 1;
     }
     .cardActiveNode {
       width: calc(50% - 12px);

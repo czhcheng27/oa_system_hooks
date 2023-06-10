@@ -23,11 +23,9 @@ const initParam = {
 };
 
 const ScreenContainer = (props) => {
-  const [amplifyExist, setAmplifyExist] = useState(false);
-  const [amplifyActive, setAmplifyActive] = useState(false);
-  const [amplifySize, setAmplifySize] = useState(false);
   const [amplifyCode, setAmplifyCode] = useState("");
-  const [amplifyHidden, setAmplifyHidden] = useState(false);
+  const [amplifyExist, setAmplifyExist] = useState(false);
+  const [amplifyShow, setAmplifyShow] = useState(false);
   const [chart1Params, setChart1Params] = useState(initParam);
   const [modalShow, setModalShow] = useState(false);
   const [modalDict, setModalDict] = useState({ code: null, name: "" });
@@ -50,51 +48,45 @@ const ScreenContainer = (props) => {
           ? compileCardGroup4(code, false, false)
           : compileCardGroup3(code, false, false)}
         {compileCardIcon()}
-        {compileCardTitle(code)}
+        {compileCardTitle(code, "in")}
       </div>
     );
   };
 
   //  编译
-  const compileCardGroup1 = (code, isCenter, eventCenter) => {
+  const compileCardGroup1 = (code, isCenter) => {
     return code == 1 ? (
       <Chart1
         isCenter={isCenter}
-        eventCenter={eventCenter}
-        eventHandle={(code, type) => eventHandle(code, type)}
         filterParams={chart1Params}
         filterHandle={setChart1Params}
       />
     ) : code == 2 ? (
-      <Chart2 isCenter={isCenter} eventCenter={eventCenter} />
+      <Chart2 isCenter={isCenter} />
     ) : (
-      <Chart3 isCenter={isCenter} eventCenter={eventCenter} />
+      <Chart3 isCenter={isCenter} />
     );
   };
 
   const compileCardGroup2 = () => {
-    return <Chart4 eventHandle={(code, type) => eventHandle(code, type)} />;
+    return <Chart4 />;
   };
 
-  const compileCardGroup3 = (code, isCenter, eventCenter) => {
+  const compileCardGroup3 = (code, isCenter) => {
     return code == 5 ? (
-      <Chart5 isCenter={isCenter} eventCenter={eventCenter} />
+      <Chart5 isCenter={isCenter} />
     ) : (
-      <Chart6 isCenter={isCenter} eventCenter={eventCenter} />
+      <Chart6 isCenter={isCenter} />
     );
   };
 
-  const compileCardGroup4 = (code, isCenter, eventCenter, configData) => {
+  const compileCardGroup4 = (code, isCenter) => {
     return code == 7 ? (
-      <Chart7 isCenter={isCenter} eventCenter={eventCenter} />
+      <Chart7 isCenter={isCenter} />
     ) : code == 8 ? (
-      <Chart8
-        isCenter={isCenter}
-        eventCenter={eventCenter}
-        eventHandle={(code, type) => eventHandle(code, type)}
-      />
+      <Chart8 isCenter={isCenter} />
     ) : (
-      <Chart9 isCenter={isCenter} eventCenter={eventCenter} />
+      <Chart9 isCenter={isCenter} />
     );
   };
 
@@ -110,10 +102,25 @@ const ScreenContainer = (props) => {
   };
 
   //  编译标题
-  const compileCardTitle = (code) => {
+  const compileCardTitle = (index, type) => {
     return (
       <div className={css.cardTitle}>
-        <span>{mockCardTitleList[code - 1]}</span>
+        <span>{mockCardTitleList[index - 1].title}</span>
+        {mockCardTitleList[index - 1].zoom
+          ? compileZoomIcon(index, type)
+          : null}
+      </div>
+    );
+  };
+
+  const compileZoomIcon = (index, type) => {
+    return (
+      <div className={css.amplifyIcon}>
+        {type == "in" && amplifyCode != index ? (
+          <div className={css.zoomIn} onClick={() => amplifyHandle(index)} />
+        ) : type == "out" ? (
+          <div className={css.zoomOut} onClick={() => closeHandle("")} />
+        ) : null}
       </div>
     );
   };
@@ -125,43 +132,33 @@ const ScreenContainer = (props) => {
           css.amplifyCard,
           css["cardNode" + amplifyCode],
           amplifyExist ? css.amplifyExistCard : null,
-          amplifyHidden ? css.amplifyHiddenCard : null
+          amplifyShow ? css.amplifyShowCard : null
         )}
       >
         <div className={classNames(css.amplifyNode)}>
           {amplifyCode < 4
-            ? compileCardGroup1(amplifyCode, amplifySize, true)
+            ? compileCardGroup1(amplifyCode, true)
             : amplifyCode > 6
-            ? compileCardGroup4(amplifyCode, amplifySize, true)
-            : compileCardGroup3(amplifyCode, amplifySize, true)}
+            ? compileCardGroup4(amplifyCode, true)
+            : compileCardGroup3(amplifyCode, true)}
           {compileCardIcon()}
-          {compileCardTitle(amplifyCode)}
+          {compileCardTitle(amplifyCode, "out")}
         </div>
       </div>
     ) : null;
   };
 
-  const eventHandle = (code, type) => {
-    if (type == "amplify") {
-      if (!amplifyCode) amplifyCard(code);
-      else if (code != amplifyCode) closeHandle(code);
-      else closeHandle("");
-    } else if (type == "close") closeHandle("");
-    else {
-      setModalShow(true);
-      setModalDict(code);
-    }
+  const amplifyHandle = (index) => {
+    if (!amplifyCode) amplifyCard(index);
+    else if (index != amplifyCode) closeHandle(index);
   };
 
-  const closeHandle = (code) => {
-    setAmplifyHidden(true);
+  const closeHandle = (index) => {
+    setAmplifyShow(false);
     setTimeout(() => {
       setAmplifyCode("");
       setAmplifyExist(false);
-      setAmplifyActive(false);
-      setAmplifySize(false);
-      setAmplifyHidden(false);
-      if (code) amplifyCard(code);
+      if (index) amplifyCard(index);
     }, 500);
   };
 
@@ -169,16 +166,8 @@ const ScreenContainer = (props) => {
     setAmplifyCode(code);
     setTimeout(() => {
       setAmplifyExist(true);
-      setAmplifyActive(true);
-      setTimeout(() => {
-        if (amplifyCode) setAmplifyActive(false);
-      }, 700);
-    }, 10);
-
-    setTimeout(() => {
-      console.log("amplifyActive", amplifyActive);
-      if (amplifyCode) setAmplifySize(true);
-    }, 1410);
+      setAmplifyShow(true);
+    }, 50);
   };
 
   return (

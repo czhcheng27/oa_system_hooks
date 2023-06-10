@@ -31,15 +31,42 @@ export const mockRightButton = [
 ];
 
 export const mockCardTitleList = [
-  "Section Title 1",
-  "Section Title 2",
-  "Section Title 3",
-  "Section Title 4",
-  "Section Title 5",
-  "Section Title 6",
-  "Section Title 7",
-  "Section Title 8",
-  "Section Title 9",
+  {
+    title: "Section Title 1",
+    zoom: true,
+  },
+  {
+    title: "Section Title 2",
+    zoom: true,
+  },
+  {
+    title: "Section Title 3",
+    zoom: true,
+  },
+  {
+    title: "Section Title 4",
+    zoom: false,
+  },
+  {
+    title: "Section Title 5",
+    zoom: true,
+  },
+  {
+    title: "Section Title 6",
+    zoom: true,
+  },
+  {
+    title: "Section Title 7",
+    zoom: true,
+  },
+  {
+    title: "Section Title 8",
+    zoom: true,
+  },
+  {
+    title: "Section Title 9",
+    zoom: true,
+  },
 ];
 
 export const dateOpts = [

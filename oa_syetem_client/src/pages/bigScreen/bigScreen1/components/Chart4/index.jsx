@@ -6,7 +6,7 @@ import { positionList } from "../../const";
 import { mockEarthData } from "../../mockData";
 import css from "./index.module.less";
 
-const Chart4 = ({ eventHandle }) => {
+const Chart4 = (props) => {
   const compileNodeList = () => {
     return (
       <>
@@ -19,7 +19,6 @@ const Chart4 = ({ eventHandle }) => {
               )}
               key={index}
               style={getPosition(item)}
-              onClick={() => eventHandle({ code: 5 }, "penetrate")}
             >
               {compileNode(mockEarthData?.nodeList?.[index] || {}, index)}
             </div>

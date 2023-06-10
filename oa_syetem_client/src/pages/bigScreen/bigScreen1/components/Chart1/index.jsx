@@ -11,23 +11,8 @@ import UpBg from "../../assets/upBg.png";
 import DownBg from "../../assets/downBg.png";
 import css from "./index.module.less";
 
-const Chart1 = ({
-  isCenter,
-  eventCenter,
-  eventHandle,
-  filterParams,
-  filterHandle,
-}) => {
+const Chart1 = ({ isCenter, filterParams, filterHandle }) => {
   const { date, sorter } = filterParams;
-
-  const amplifyChart = (e) => {
-    e.stopPropagation();
-    if (!eventCenter) {
-      eventHandle(1, "amplify");
-    } else {
-      eventHandle(8, "close");
-    }
-  };
 
   const renderTopCorner = () => {
     return (
@@ -71,9 +56,7 @@ const Chart1 = ({
     <div className={css.chart1_wrap}>
       {renderTopCorner()}
 
-      <div className={css.content} onClick={(e) => amplifyChart(e)}>
-        Chart1
-      </div>
+      <div className={css.content}>Chart1</div>
     </div>
   );
 };
