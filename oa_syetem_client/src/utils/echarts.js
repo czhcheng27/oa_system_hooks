@@ -36,6 +36,26 @@ export const onBarClick = (chart, callback, type, array) => {
   });
 };
 
+// chart2 已发布柱颜色
+export const releasedBarColor2 = new echarts.graphic.LinearGradient(
+  0,
+  0,
+  1,
+  0,
+  [
+    { offset: 0, color: "#72BEFF" },
+    { offset: 0.5, color: "#B6DCFF" },
+    { offset: 1, color: "#63A3FF" },
+  ]
+);
+
+// chart2 计划发布柱颜色
+export const planBarColor2 = new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+  { offset: 0.1, color: "rgba(25, 147, 217, 100)" },
+  { offset: 0.9, color: "rgba(44, 139, 163, 0.1)" },
+  { offset: 1, color: "rgba(54, 141, 187, 100)" },
+]);
+
 export const commonTooltip = (isCenter) => {
   return {
     trigger: "axis",
@@ -145,6 +165,30 @@ export const yAxisTaskNum = (isCenter = false) => {
   };
 };
 
+export const yAxisMillion = (isCenter = false) => {
+  return {
+    type: "value",
+    name: "Million",
+    nameTextStyle: {
+      fontSize: isCenter ? 16 : 12, //字体大小
+      padding: [0, -20, 0, -55], //距离坐标位置的距离
+      verticalAlign: "bottom",
+    },
+    axisTick: { show: true },
+    splitLine: { show: false },
+    alignTicks: true,
+    axisLine: {
+      show: true,
+      lineStyle: {
+        color: "white",
+      },
+    },
+    axisLabel: {
+      fontSize: isCenter ? 16 : 12,
+    },
+  };
+};
+
 export const yAxisCompleteRate = (isCenter = false) => {
   return {
     type: "value",
@@ -168,6 +212,48 @@ export const yAxisCompleteRate = (isCenter = false) => {
       formatter: "{value}%",
       fontSize: isCenter ? 16 : 12,
     },
+  };
+};
+
+export const get3dBarSeries = (color) => {
+  return {
+    type: "bar",
+    // stack: 'Ad',
+    barWidth,
+    emphasis: {
+      focus: "series",
+      disabled: true,
+    },
+    color,
+    // color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+    //   { offset: 0, color: '#84F5DE' },
+    //   { offset: 0.5, color: '#56E8F2' },
+    //   { offset: 1, color: '#4CC5F8' },
+    // ]),
+    itemStyle: {
+      borderRadius: [0, 0, 2, 2], // 让柱形上下变成圆角
+      opacity: 1,
+    },
+  };
+};
+
+export const get3dBarSeriesCap = (color) => {
+  return {
+    name: "结算金额",
+    symbolOffset: [0, -2], // 椭圆水平偏移,垂直偏移. 因为不一定正好盖住柱形,所以可能要移动一点点
+    tooltip: {
+      show: false,
+    },
+    type: "pictorialBar",
+    color,
+    itemStyle: {
+      opacity: 0.75,
+    },
+    symbol: "circle",
+    symbolSize: capSize,
+    symbolPosition: "end", // 图形边缘与柱子结束的地方内切。
+    // data: settleAmountCap, // 数据要跟主体柱形一致
+    z: 4, // 数值越大,层级越高,可以盖住下面的图形
   };
 };
 

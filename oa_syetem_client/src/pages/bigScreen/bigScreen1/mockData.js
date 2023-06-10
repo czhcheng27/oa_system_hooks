@@ -181,3 +181,93 @@ export const mockChartData1 = [
     orgId: "zxc",
   },
 ];
+
+export const mockChartData2Top = [
+  {
+    title: "Published：",
+    value: 53,
+  },
+  {
+    title: "Plan：",
+    value: 168,
+  },
+  {
+    title: "Rate：",
+    value: "32%",
+  },
+];
+
+export const mockChartData2Bot = [
+  {
+    planCount: 100, //计划发布数
+    succplanCount: 60, //已发布标准数量
+    sdcPlanRate: "50", //完成率
+    month: 1, //月份
+  },
+  {
+    planCount: 80,
+    succplanCount: 30,
+    sdcPlanRate: "30",
+    month: 2,
+  },
+  {
+    planCount: 90,
+    succplanCount: 40,
+    sdcPlanRate: "80",
+    month: 3,
+  },
+  {
+    planCount: 42,
+    succplanCount: 9,
+    sdcPlanRate: "21",
+    month: 4,
+  },
+  {
+    planCount: 58,
+    succplanCount: 22,
+    sdcPlanRate: "38",
+    month: 5,
+  },
+  {
+    planCount: 12,
+    succplanCount: 6,
+    sdcPlanRate: "50",
+    month: 6,
+  },
+  {
+    planCount: 60,
+    succplanCount: 20,
+    sdcPlanRate: "10",
+    month: 7,
+  },
+  {
+    planCount: 50,
+    succplanCount: 10,
+    sdcPlanRate: "90",
+    month: 8,
+  },
+  {
+    planCount: 60,
+    succplanCount: 40,
+    sdcPlanRate: "20",
+    month: 9,
+  },
+  {
+    planCount: 50,
+    succplanCount: 10,
+    sdcPlanRate: "100",
+    month: 10,
+  },
+  {
+    planCount: 80,
+    succplanCount: 70,
+    sdcPlanRate: "40",
+    month: 11,
+  },
+  {
+    planCount: 90,
+    succplanCount: 30,
+    sdcPlanRate: "70",
+    month: 12,
+  },
+];
