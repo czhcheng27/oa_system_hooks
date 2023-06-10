@@ -1,3 +1,5 @@
+@vwSize: 0.63vw;
+@scaleSize: var(--scaleSize, 1);
 .chart2_wrap {
   height: 100%;
   padding-top: 40px;
@@ -5,11 +7,11 @@
   background: linear-gradient(0deg, #052744, transparent 65%);
 
   .top_box {
-    height: 47px;
-    // height: 22%;
-    padding: 0 15px 0 20px;
+    // height: 47px;
+    height: 22%;
+    padding: 0 20px 0 24px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
     .each_row {
@@ -17,13 +19,15 @@
       align-items: center;
 
       & > div:nth-child(1) {
-        font-size: 14px;
+        // font-size: 14px;
+        font-size: calc(@scaleSize * @vwSize);
         color: #ffffff;
       }
 
       & > div:nth-child(2) {
         font-family: dsDig;
-        font-size: 20px;
+        // font-size: 20px;
+        font-size: calc(@scaleSize * 0.97vw);
         color: #00fcf9;
       }
     }
