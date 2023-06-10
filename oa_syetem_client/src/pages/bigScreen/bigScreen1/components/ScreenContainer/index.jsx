@@ -10,7 +10,7 @@ import Chart7 from "../Chart7";
 import Chart8 from "../Chart8";
 import Chart9 from "../Chart9";
 import Modal from "../Modal";
-import { mockCardTitleList } from "../../mockData";
+import { cardTitleList } from "../../const";
 import css from "./index.module.less";
 
 const initParam = {
@@ -105,10 +105,8 @@ const ScreenContainer = (props) => {
   const compileCardTitle = (index, type) => {
     return (
       <div className={css.cardTitle}>
-        <span>{mockCardTitleList[index - 1].title}</span>
-        {mockCardTitleList[index - 1].zoom
-          ? compileZoomIcon(index, type)
-          : null}
+        <span>{cardTitleList[index - 1].title}</span>
+        {cardTitleList[index - 1].zoom ? compileZoomIcon(index, type) : null}
       </div>
     );
   };
@@ -180,7 +178,7 @@ const ScreenContainer = (props) => {
   return (
     <div className={css.containerBox}>
       <div className={css.containerPosition}>
-        {mockCardTitleList.map((item, index) => compileCard(index + 1))}
+        {cardTitleList.map((item, index) => compileCard(index + 1))}
         {compileAmplifyCard()}
 
         <Modal

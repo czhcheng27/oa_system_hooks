@@ -6,7 +6,7 @@ import React, {
   useMemo,
 } from "react";
 import classNames from "classnames";
-import { mockLeftButton, mockRightButton } from "../../mockData";
+import { leftButton, rightButton } from "../../const";
 import css from "./index.module.less";
 
 const ScreenHeader = ({ activeCode, callback }) => {
@@ -38,11 +38,11 @@ const ScreenHeader = ({ activeCode, callback }) => {
 
   return (
     <div className={css.headBox}>
-      {compileButton("left", mockLeftButton)}
+      {compileButton("left", leftButton)}
       <div className={css.headTitle}>
         <div>Big Screen Demo</div>
       </div>
-      {compileButton("right", mockRightButton)}
+      {compileButton("right", rightButton)}
     </div>
   );
 };

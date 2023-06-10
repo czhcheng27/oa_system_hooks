@@ -6,7 +6,7 @@ import React, {
   useMemo,
 } from "react";
 import SelectFilter from "../SelectFilter";
-import { dateOpts } from "../../mockData";
+import { dateOpts } from "../../const";
 import UpBg from "../../assets/upBg.png";
 import DownBg from "../../assets/downBg.png";
 import css from "./index.module.less";
