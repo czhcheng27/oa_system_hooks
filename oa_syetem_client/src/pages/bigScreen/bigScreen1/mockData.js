@@ -271,3 +271,54 @@ export const mockChartData2Bot = [
     month: 12,
   },
 ];
+
+export const mockChartData3 = [
+  {
+    equipNo: "C100",
+    equipName: "Equipment1",
+    equipNumber: 13,
+    equipRate: "37%",
+  },
+  {
+    equipNo: "C200",
+    equipName: "Equipment2",
+    equipNumber: 13,
+    equipRate: "37%",
+  },
+  {
+    equipNo: "C300",
+    equipName: "Equipment3",
+    equipNumber: 13,
+    equipRate: "37%",
+  },
+  {
+    equipNo: "C400",
+    equipName: "Equipment4",
+    equipNumber: 13,
+    equipRate: "37%",
+  },
+  {
+    equipNo: "C500",
+    equipName: "Equipment5",
+    equipNumber: 13,
+    equipRate: "37%",
+  },
+  {
+    equipNo: "C600",
+    equipName: "Equipment6",
+    equipNumber: 13,
+    equipRate: "37%",
+  },
+  {
+    equipNo: "C700",
+    equipName: "Equipment7",
+    equipNumber: 13,
+    equipRate: "37%",
+  },
+  // {
+  //   equipNo: "C800",
+  //   equipName: "Equipment8",
+  //   equipNumber: 13,
+  //   equipRate: "37%",
+  // },
+];
