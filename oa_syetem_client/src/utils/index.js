@@ -5,6 +5,10 @@ import { debounce, throttle, round, cloneDeep, merge } from "lodash";
 // 函数的 防抖 和 节流，使用 lodash 工具函数
 export { debounce, throttle, round, cloneDeep, merge };
 
+export const nextTick = (cb) => {
+  Promise.resolve().then(cb);
+};
+
 export const createUidKey = (key = "") => {
   const uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
     const r = (Math.random() * 16) | 0;

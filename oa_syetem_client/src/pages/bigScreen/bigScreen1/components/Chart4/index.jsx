@@ -6,6 +6,12 @@ import { positionList } from "../../const";
 import { mockEarthData } from "../../mockData";
 import css from "./index.module.less";
 
+const params = {
+  title: "Left",
+  sub: "Chart3",
+  filterOption: {},
+};
+
 const Chart4 = ({ openModal }) => {
   const compileNodeList = () => {
     return (
@@ -19,7 +25,7 @@ const Chart4 = ({ openModal }) => {
               )}
               key={index}
               style={getPosition(item)}
-              onClick={() => openModal()}
+              onClick={() => openModal(params)}
             >
               {compileNode(mockEarthData?.nodeList?.[index] || {}, index)}
             </div>

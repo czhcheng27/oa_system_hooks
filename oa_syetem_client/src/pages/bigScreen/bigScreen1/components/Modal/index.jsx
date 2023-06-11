@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ModalHeader from "./ModalHeader";
+import ModalContent from "./ModalContent";
 import css from "./index.module.less";
 
-const Modal = ({ modalShow, closeHandle }) => {
+const Modal = ({ modalShow, modalDict = {}, closeHandle }) => {
   const [modalOpacity, setModalOpacity] = useState(false);
 
   useEffect(() => {
@@ -14,15 +15,6 @@ const Modal = ({ modalShow, closeHandle }) => {
     setTimeout(() => closeHandle(), 500);
   };
 
-  const compileContainer = () => {
-    return (
-      <div className={css.containerBox}>
-        <div className={css.chartBox} id="modalChart"></div>
-        aaaaa
-      </div>
-    );
-  };
-
   return (
     modalShow && (
       <div
@@ -32,7 +24,7 @@ const Modal = ({ modalShow, closeHandle }) => {
       >
         <div className={css.modalBox} onClick={(e) => e.stopPropagation()}>
           <ModalHeader title="Assignment Distribute" closeModal={closeModal} />
-          {compileContainer()}
+          <ModalContent modalDict={modalDict} closeModal={closeModal} />
         </div>
       </div>
     )
