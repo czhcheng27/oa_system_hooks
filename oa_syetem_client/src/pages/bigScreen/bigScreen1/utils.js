@@ -48,3 +48,16 @@ export const getTotalData = (array) => {
   }
   return res;
 };
+
+export const formatChart7 = (array = []) => {
+  let res = [];
+  array.forEach((el) => {
+    const { abilityScore, tacticScore, firstSystem, firstSystemName } = el;
+    return res.push({
+      firstSystem,
+      firstSystemName,
+      value: [abilityScore, tacticScore],
+    });
+  });
+  return res;
+};

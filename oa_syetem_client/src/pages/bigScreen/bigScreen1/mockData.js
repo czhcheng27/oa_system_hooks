@@ -330,3 +330,42 @@ export const mockChartData3 = [
   //   org: "org8",
   // },
 ];
+
+export const mockChartData7 = {
+  sum: "3789",
+  have: "2825",
+  noPerfect: "964",
+  avg: "81.87",
+  scatterPointList: [
+    {
+      firstSystem: "0227",
+      firstSystemName: "System 1",
+      abilityScore: 12.17,
+      tacticScore: 9,
+    },
+    {
+      firstSystem: "0310",
+      firstSystemName: "System 2",
+      abilityScore: 89.09,
+      tacticScore: 9.95,
+    },
+    {
+      firstSystem: "0301",
+      firstSystemName: "System 3",
+      abilityScore: 88.62,
+      tacticScore: 6.8,
+    },
+    {
+      firstSystem: "0231",
+      firstSystemName: "System 4",
+      abilityScore: 98.63,
+      tacticScore: 6.51,
+    },
+    {
+      firstSystem: "0248",
+      firstSystemName: "System 5",
+      abilityScore: 69.4,
+      tacticScore: 5.15,
+    },
+  ],
+};

@@ -1,0 +1,29 @@
+.title7_bs1 {
+  font-weight: 600;
+}
+.center_title7_bs1 {
+  font-size: 20px;
+}
+
+.eachRow7_bs1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.center_eachRow7_bs1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 20px;
+}
+
+.seriesName7_bs1 {
+  margin-right: 24px;
+}
+
+.center_seriesName7_bs1 {
+  margin-right: 24px;
+}
