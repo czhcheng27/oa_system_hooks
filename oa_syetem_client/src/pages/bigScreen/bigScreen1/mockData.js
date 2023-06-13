@@ -304,7 +304,7 @@ export const mockChartData3 = [
   {
     equipNo: "C500",
     equipName: "Equipment5",
-    equipNumber: 3,
+    equipNumber: 33,
     equipRate: "13",
     org: "org5",
   },
