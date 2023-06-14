@@ -27,6 +27,7 @@ const ScreenContainer = (props) => {
   const [amplifyExist, setAmplifyExist] = useState(false);
   const [amplifyShow, setAmplifyShow] = useState(false);
   const [chart1Params, setChart1Params] = useState(initParam);
+  const [chart8Params, setChart8Params] = useState("bucUnit");
   const [modalShow, setModalShow] = useState(false);
   const [modalDict, setModalDict] = useState({ code: null, name: "" });
 
@@ -82,7 +83,11 @@ const ScreenContainer = (props) => {
 
   const compileCardGroup4 = (code, isCenter) => {
     return code == 7 ? (
-      <Chart7 isCenter={isCenter} />
+      <Chart7
+        isCenter={isCenter}
+        filterParams={chart8Params}
+        filterHandle={setChart8Params}
+      />
     ) : code == 8 ? (
       <Chart8 isCenter={isCenter} />
     ) : (

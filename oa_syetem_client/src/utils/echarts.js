@@ -36,6 +36,22 @@ export const onBarClick = (chart, callback, type, array) => {
   });
 };
 
+// 3d柱颜色
+
+// chart3 结算金额柱颜色
+export const settleBarColor3 = new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+  { offset: 0, color: "#84F5DE" },
+  { offset: 0.5, color: "#56E8F2" },
+  { offset: 1, color: "#4CC5F8" },
+]);
+
+// chart3 预算金额柱颜色
+export const budgetBarColor3 = new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+  { offset: 0.1, color: "rgba(67, 221, 239, 100)" },
+  { offset: 0.9, color: "rgba(56, 175, 174, 0.1)" },
+  { offset: 1, color: "rgba(67, 221, 239, 1)" },
+]);
+
 // chart2 已发布柱颜色
 export const releasedBarColor2 = new echarts.graphic.LinearGradient(
   0,

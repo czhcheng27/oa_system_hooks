@@ -369,3 +369,36 @@ export const mockChartData7 = {
     },
   ],
 };
+
+export const mockChartData8 = [
+  {
+    budgetType: "01", // 分类
+    budgetAmt: 303.9, // 预算金额
+    settlementAmt: 169, // 结算金额
+  },
+  {
+    budgetType: "02",
+    budgetAmt: 110.3,
+    settlementAmt: 113,
+  },
+  {
+    budgetType: "03", // 分类
+    budgetAmt: 123.9, // 预算金额
+    settlementAmt: 269, // 结算金额
+  },
+  {
+    budgetType: "04",
+    budgetAmt: 0,
+    settlementAmt: 0,
+  },
+  {
+    budgetType: "05", // 分类
+    budgetAmt: 103.9, // 预算金额
+    settlementAmt: 0, // 结算金额
+  },
+  {
+    budgetType: "06",
+    budgetAmt: 0,
+    settlementAmt: 103,
+  },
+];
