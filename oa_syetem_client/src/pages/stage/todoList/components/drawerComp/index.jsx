@@ -12,6 +12,7 @@ import InfoArea from "./components/InfoArea";
 import FieldOperation from "./components/FieldOperation";
 import Operation from "./components/Operation";
 import WorkFlow from "./components/WorkFlow";
+import BackEnd from "./components/BackEnd";
 import css from "./index.module.less";
 
 const DrawerComp = forwardRef((props, ref) => {
@@ -83,8 +84,8 @@ const DrawerComp = forwardRef((props, ref) => {
                   zoom={() => setFullScreen(!fullScreen)}
                 />
               </div>
-              <div className={css.bottomWrap} style={{ background: "red" }}>
-                <div style={{ height: "2000px" }}></div>
+              <div className={css.bottomWrap}>
+                <BackEnd />
               </div>
             </div>
           </div>

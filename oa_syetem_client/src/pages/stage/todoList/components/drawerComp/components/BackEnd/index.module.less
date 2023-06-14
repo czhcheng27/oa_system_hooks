@@ -1,0 +1,138 @@
+.chartsBox {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    270deg,
+    rgba(247, 248, 251, 0.7) 0%,
+    #ffffff 100%
+  );
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  border: 1px solid #eaedf7;
+  position: relative;
+
+  .chartsHeadBox {
+    height: 70px;
+    padding-left: 224px;
+    position: relative;
+    overflow: hidden;
+
+    .chartsLeftHead {
+      width: 224px;
+      height: 70px;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      padding-left: 24px;
+      background-image: linear-gradient(
+        136deg,
+        #eff6ff 0%,
+        #e4f8ff 55%,
+        #d4deff 100%
+      );
+      border: 2px solid #ffffff;
+      box-shadow: 4px 4px 8px 0 rgba(0, 82, 217, 0.07);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .chartsRightHead {
+      width: fit-content;
+      height: 70px;
+      border-bottom: 1px solid #eaedf7;
+      border-radius: 0 8px 8px 0;
+      background: #f5f9ff;
+      position: relative;
+
+      .chartsYear {
+        display: flex;
+        .yearCol {
+          width: 420px;
+          min-width: 420px;
+          font-weight: 400;
+          font-size: 14px;
+          color: #242f57;
+          text-align: center;
+          line-height: 20px;
+          margin: 7px 0;
+          border-right: 1px solid #c9ddf5;
+        }
+        .yearCol:last-child {
+          border: none;
+        }
+      }
+
+      .chartsMonth {
+        display: flex;
+        .monthCol {
+          width: 32px;
+          min-width: 32px;
+          height: 32px;
+          background: rgba(0, 82, 217, 0.06);
+          border: 1px solid rgba(0, 82, 217, 0.12);
+          border-radius: 2px;
+          font-weight: 400;
+          font-size: 12px;
+          color: #97a0c3;
+          text-align: center;
+          line-height: 30px;
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+
+  .chartsInfoBox {
+    height: 550px;
+    padding-left: 224px;
+    position: relative;
+    overflow: hidden;
+    .chartsLeft {
+      width: 224px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .chartsRight {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      .chartsMonthBox {
+        width: fit-content;
+        .chartsCol {
+          height: 110px;
+          box-sizing: border-box;
+          border-bottom: 1px dashed #eaedf7;
+        }
+      }
+    }
+  }
+}
+
+.yearMoveBox {
+  position: absolute;
+  left: 240px;
+  right: 16px;
+  top: 9px;
+  display: flex;
+  justify-content: space-between;
+  :global {
+    .ant-btn {
+      width: 16px;
+      min-width: 16px;
+      height: 16px;
+      background-image: linear-gradient(0deg, #dbe2eb 0%, #eaeef5 96%);
+      border: none;
+    }
+  }
+  .yearMoveButton {
+    color: #1f2631;
+    font-size: 8px;
+    font-weight: bold;
+  }
+}
