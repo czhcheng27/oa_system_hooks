@@ -1,13 +1,7 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useMemo,
-} from "react";
+import React, { useState } from "react";
 import { Button } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import { mockMonth, mockYear } from "./mock";
+import { mockMonth, mockYear, mockprojectList } from "./mock";
 import css from "./index.module.less";
 
 const BackEnd = (props) => {
@@ -98,7 +92,16 @@ const BackEnd = (props) => {
       {/* content */}
       <div className={css.chartsInfoBox}>
         <div className={css.chartsLeft} style={{ top: scrollTop + "px" }}>
-          chartsLeft
+          {mockprojectList.map((item, index) => {
+            return (
+              <div className={css.projectRow} key={index}>
+                <div className={css.projectLabel}>{item.title}</div>
+                <div className={css.projectInfo}>
+                  <span>{item.info}</span>
+                </div>
+              </div>
+            );
+          })}
         </div>
         <div
           className={css.chartsRight}
@@ -106,15 +109,20 @@ const BackEnd = (props) => {
           onScroll={() => setChartsScroll()}
         >
           <div className={css.chartsMonthBox}>
-            <div
-              style={{
-                width: mockMonth.length
-                  ? mockMonth.length * 35 + "px"
-                  : "2940px",
-              }}
-            >
-              asdasdas
-            </div>
+            {mockprojectList.map((item, index) => {
+              return (
+                <div
+                  className={css.chartsCol}
+                  key={index}
+                  id={"hoursCharts" + index}
+                  style={{
+                    width: mockMonth.length
+                      ? mockMonth.length * 35 + "px"
+                      : "2940px",
+                  }}
+                ></div>
+              );
+            })}
           </div>
         </div>
       </div>
