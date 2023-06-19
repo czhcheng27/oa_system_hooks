@@ -10,3 +10,84 @@
   border-radius: 4px;
   position: relative;
 }
+
+.btns_outwrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.btns_wrapper {
+  display: flex;
+  margin: 12px 0 20px 0;
+  // overflow: auto;
+  width: max-content;
+  transition: margin-left 0.6s ease;
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 87px;
+    height: 29px;
+    margin-right: 11px;
+    border-radius: 4px;
+    background-image: linear-gradient(180deg, #fefefe 0%, #f3f5f8 100%);
+    border: 2px solid #fefefe;
+    box-shadow: 0 0 6px 0 #4559781a;
+    color: #636e95;
+  }
+
+  .act_btn {
+    background-image: url(../../assets/act_btn.png);
+    // background-image: url(../../imgs/act_btn_2.svg);
+    background-size: cover;
+    border: none;
+    p {
+      color: #ffffff;
+    }
+  }
+  p {
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+}
+
+.pageButtonBox {
+  width: 60px;
+  height: 42px;
+  // padding: 0 4px;
+  top: 18px;
+  position: absolute;
+  background-image: linear-gradient(-89deg, #f8fbff3d 4%, #f7faff 37%);
+  display: flex;
+  align-items: center;
+  .pageButton {
+    width: 28px;
+    height: 29px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url("../../assets/dashboard_icon5.png");
+    cursor: pointer;
+    transform: scaleX(-1);
+  }
+  .pageDisabledButton {
+    transform: scaleX(1);
+    background-image: url("../../assets/dashboard_icon6.png");
+    cursor: no-drop;
+  }
+}
+.pageLeft {
+  left: 16px;
+  width: 30px;
+}
+.pageRight {
+  right: 16px;
+  transform: scaleX(-1);
+}
+
+.hasPageBtns {
+  padding: 0 30px;
+}
