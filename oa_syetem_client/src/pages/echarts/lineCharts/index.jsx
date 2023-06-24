@@ -6,8 +6,9 @@ import React, {
   useMemo,
 } from "react";
 import MyConsult from "./components/MyConsult";
-import BtnBox from "./components/BtnBox";
 import ChartOne from "./chartOne";
+import RotateVehicle from "./components/RotateVehicle";
+import BtnBox from "./components/BtnBox";
 import css from "./index.module.less";
 
 const LineCharts = (props) => {
@@ -15,7 +16,7 @@ const LineCharts = (props) => {
     <div>
       <div className={css.centerBox}>
         <MyConsult />
-        <MyConsult />
+        <RotateVehicle />
         <BtnBox />
       </div>
       <ChartOne />
