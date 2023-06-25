@@ -8,10 +8,10 @@ import React, {
 import css from "./index.module.less";
 
 const RotateVehicle = (props) => {
-  const [initClickX, setInitClickX] = useState(); // 鼠标初次点击页面的 X 位置
+  const [imgIdx, setImgIdx] = useState(1);
+  const [initClickX, setInitClickX] = useState();
 
   const dragStart = (ev) => {
-    // console.log("dragStart", ev.pageX);
     setInitClickX(ev.pageX);
     ev.preventDefault();
     document.addEventListener("mousemove", movingHandle, { passive: true });
@@ -27,19 +27,28 @@ const RotateVehicle = (props) => {
   };
 
   const movingHandle = (ev) => {
-    // console.log("initClickX", initClickX);
     const { pageX } = ev;
-    // console.log("pageX", pageX);
     const img = document
       .getElementById("imgContentBeatle")
       .querySelector("img");
-    console.log("img", img);
-    if (pageX > initClickX) {
-      console.log("Right");
-      img.src = require("../../assets/beatle/beatle15.png").default;
+    const x = Math.floor((pageX - initClickX) / 20);
+    const newImgIdx = generateIdx(imgIdx + x);
+    img.src = require(`../../assets/beatle/beatle${newImgIdx}.png`).default;
+    setImgIdx(newImgIdx);
+  };
+
+  const generateIdx = (num) => {
+    let res;
+    if (num > 36) {
+      res = num % 36;
+    } else if (num < 0) {
+      res = 36 - ((36 - num) % 36);
+    } else if (num == 0) {
+      res = 36;
     } else {
-      console.log("Left");
+      res = num;
     }
+    return res;
   };
 
   return (
@@ -47,11 +56,11 @@ const RotateVehicle = (props) => {
       <div
         id="imgContentBeatle"
         className={css.imgContent}
-        // onMouseDown={mouseDown}
+        onMouseMove={(ev) => setInitClickX(ev.pageX)}
         onMouseDown={dragStart}
       >
         <img
-          src={require("../../assets/beatle/beatle1.png").default}
+          src={require(`../../assets/beatle/beatle${imgIdx}.png`).default}
           alt="beatles"
         />
       </div>
