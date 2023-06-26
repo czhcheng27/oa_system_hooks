@@ -48,10 +48,10 @@ const MyConsult = (props) => {
   }, [curObj]);
 
   const listenDom = () => {
-    const ele = document.getElementById("myConcult_outbox").clientWidth;
+    const ele = document.getElementById("myConcult_outbox")?.clientWidth;
     const eleType = document.getElementById(
       "myConcult_btns_wrapper"
-    ).clientWidth;
+    )?.clientWidth;
     // console.log("ele, eleType", ele, eleType);
     setShowPageBtns(ele < eleType);
     setTypeIndex(showPageBtns != ele < eleType ? 0 : typeIndex);
