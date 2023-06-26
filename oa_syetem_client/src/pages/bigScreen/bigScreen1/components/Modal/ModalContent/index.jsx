@@ -64,9 +64,16 @@ const ModalContent = ({ modalDict, closeModal }) => {
     const data = mockChartData3.map((item) => item.equipNumber);
     const rate = mockChartData3.map((item) => item.equipRate);
     firstOption.series = [
+      {
+        /* TIP: 增加的无效series，为图例使用 */
+        type: "line",
+        symbol: "none",
+        name: `Rate`,
+        color: "transparent",
+      },
+      { ...getLineSeries(), name: "Rate", data: rate, symbol: `circle` },
       { ...get3dBarSeries(releasedBarColor2), name: "Equip Number", data },
       { ...get3dBarSeriesCap("#89F7FE"), name: "Equip Number", data },
-      { ...getLineSeries(), name: "Rate", data: rate, symbol: `circle` },
     ];
     nextTick(() => drawChart(firstOption, "DMC007Modal1", "first"));
   };

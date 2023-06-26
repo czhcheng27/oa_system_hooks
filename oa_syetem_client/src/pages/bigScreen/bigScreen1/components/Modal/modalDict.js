@@ -96,7 +96,13 @@ export const modalOptions = {
       firstOption: {
         legend: {
           ...commonLegend,
-          data: [{ name: "Equip Number" }, { name: "Rate" }],
+          data: [
+            { name: "Equip Number", icon: "circle" },
+            {
+              name: "Rate",
+              lineStyle: { type: "dashed", width: 2, color: "#00FFE4" },
+            },
+          ],
         },
         dataZoom: dataZoom,
         grid: commonGrid,
