@@ -91,3 +91,59 @@
 .hasPageBtns {
   padding: 0 30px;
 }
+
+.contentBox {
+  height: calc(100% - 61px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.clickArea {
+  width: 80%;
+  height: 80%;
+  background: aquamarine;
+  margin: auto;
+  display: grid;
+  text-align: center;
+  align-items: center;
+}
+
+.contextmenuMask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /* background-color: #000; */
+  /* opacity: .2; */
+  z-index: 45;
+}
+
+.contextmenuContent {
+  position: fixed;
+  left: 999999px;
+  top: 999999px;
+  z-index: 50;
+  user-select: none;
+}
+/* 内容 */
+.list {
+  border: 1px solid #555;
+  border-radius: 4px;
+  min-width: 180px;
+  overflow: hidden; /* 处理圆角 */
+}
+.item {
+  box-sizing: border-box;
+  padding: 0 5px;
+  height: 30px;
+  line-height: 30px;
+  word-break: keep-all; /* 很重要，否则会换行 */
+  background-color: #fff;
+  cursor: default;
+}
+.item:hover {
+  background-color: dodgerblue;
+  color: #fff;
+}
