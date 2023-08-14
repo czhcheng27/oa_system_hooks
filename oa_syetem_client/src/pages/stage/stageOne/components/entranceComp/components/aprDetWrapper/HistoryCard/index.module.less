@@ -1,0 +1,240 @@
+.hcBox {
+  height: 184px;
+  width: 100%;
+  padding: 12px 18px;
+  background-image: linear-gradient(179deg, #f3f5f8 0%, #ffffff 100%);
+  border: 2px solid #ffffff;
+  box-shadow: -8px -8px 20px 0 #ffffff80, 8px 8px 20px 0 #3763aa1a;
+  border-radius: 4px;
+
+  .content {
+    height: 100%;
+    padding: 13px 18px;
+    border: 1px dashed #6c7db8;
+
+    .listArea {
+      width: 100%;
+      height: 100%;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      background: #edf3fd;
+      overflow: auto;
+    }
+
+    .listArea::-webkit-scrollbar {
+      // display: none;
+      height: 2px;
+    }
+  }
+}
+
+.card {
+  max-width: 251px;
+  min-width: 250px;
+  height: 107px;
+  padding: 10px 14px;
+  margin-right: 54px;
+  position: relative;
+  background-image: linear-gradient(123deg, #fbfcff 32%, #fefeff 100%);
+  box-shadow: -4px 0 12px 0 #4f668d12, 0 4px 12px 0 #4f668d1f;
+  border-radius: 8px;
+  cursor: pointer;
+
+  & > div:nth-child(1) {
+    position: relative;
+    z-index: 111;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 6px;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    font-size: 14px;
+    color: #1f2631;
+  }
+
+  & > div:nth-child(2) {
+    position: relative;
+    z-index: 111;
+    height: calc(100% - 26px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    font-size: 12px;
+    color: #7881a5;
+  }
+
+  &::before {
+    content: "";
+    width: 10px;
+    height: 60px;
+    position: absolute;
+    top: 24px;
+    left: -10px;
+    background: #0053d9;
+    border-radius: 4px 0px 0 4px;
+  }
+}
+
+// 添加流光
+.card {
+  &:hover {
+    .flash {
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      position: absolute;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      div {
+        position: absolute;
+        inset: 2px;
+        background-color: #ffffff;
+        border-radius: 4px;
+      }
+      // }
+      &::before {
+        content: "";
+        position: absolute;
+        width: 500px;
+        height: 300px;
+        background-image: conic-gradient(
+          transparent,
+          transparent,
+          transparent,
+          #0053d9
+        );
+        animation: animate 4s linear infinite;
+      }
+    }
+  }
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.active {
+  .flash {
+    div {
+      background-image: linear-gradient(123deg, #ebf0fb 32%, #fefeff 100%);
+    }
+  }
+  background-image: linear-gradient(123deg, #ebf0fb 32%, #fefeff 100%);
+}
+
+.normal {
+  &::after {
+    content: "";
+    width: 24px;
+    height: 12px;
+    position: absolute;
+    top: 44px;
+    right: -32px;
+    background-size: 100%;
+    background-image: url(../../../assets/rightArrow.png);
+  }
+}
+
+.last {
+  &::after {
+    content: "";
+  }
+}
+
+.reaonRow {
+  display: flex;
+  & > div:nth-child(1) {
+    min-width: 60px;
+  }
+}
+
+.changeReasonSpan {
+  height: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #242f57ff;
+  font-size: 12px;
+  font-family: PingFangSC;
+}
+
+.changeReasonSpan {
+  &:hover {
+    .movingDiv {
+      display: block;
+    }
+  }
+}
+.movingDiv {
+  display: none;
+  width: 276px;
+  //   height: 257px;
+  padding: 7px 18px 18px 18px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  white-space: break-spaces;
+  background-image: linear-gradient(180deg, #deefff4d 0%, #cfdfffb3 100%);
+  border: 1px solid #c0dbffcc;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  & > div:nth-child(1) {
+    height: 20px;
+    margin-bottom: 15px;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    font-size: 14px;
+    color: #636e95;
+  }
+  & > div:nth-child(2) {
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    font-size: 12px;
+    color: #242f57;
+    word-wrap: break-word;
+  }
+  &::after {
+    content: "";
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    background: white;
+  }
+}
+
+.node {
+  width: 58px;
+  height: 20px;
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 4px;
+  color: white;
+  margin-left: 8px;
+  font-size: 12px;
+}
+.node01 {
+  background: #636e95;
+}
+.node02 {
+  background: #f7b301;
+}
+.node03 {
+  background: #07be90;
+}
+.node04 {
+  background: #f65b52;
+}

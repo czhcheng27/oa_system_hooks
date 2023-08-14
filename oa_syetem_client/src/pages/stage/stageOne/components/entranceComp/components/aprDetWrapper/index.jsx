@@ -5,14 +5,19 @@ import React, {
   forwardRef,
 } from "react";
 import { Button, Drawer } from "antd";
+import HeaderTip from "@/components/headerTip";
 import LoadingTip from "../../../../../../../components/LoadingTip";
 import DrawerHeader from "../../../../../../../components/DrawerHeader";
 import Approval from "../approval";
+import HistoryCard from "./HistoryCard";
+import { mockList } from "./mock";
 import css from "./index.module.less";
 
 const AprDetWrapper = forwardRef(({ onClose }, ref) => {
   const [visible, setVisible] = useState(false);
   const [pageTip, setPageTip] = useState({ show: true, status: 0 });
+  const [listData, setListData] = useState(mockList);
+  const [actIdx, setActIdx] = useState(0);
 
   useImperativeHandle(ref, () => ({
     openHandle,
@@ -33,6 +38,25 @@ const AprDetWrapper = forwardRef(({ onClose }, ref) => {
       setPageTip({ show: false });
     }, 500);
   }, []);
+
+  const renderChangeHistory = () => {
+    return (
+      <>
+        <HeaderTip>变更历史</HeaderTip>
+        {!listData?.length ? null : (
+          <HistoryCard
+            listData={listData}
+            cardClick={cardClick}
+            actIdx={actIdx}
+          />
+        )}
+      </>
+    );
+  };
+
+  const cardClick = (data, index) => {
+    setActIdx(index);
+  };
 
   return (
     <Drawer
@@ -55,7 +79,9 @@ const AprDetWrapper = forwardRef(({ onClose }, ref) => {
         )}
         {!pageTip.show && (
           <div className={css.content}>
-            <div className={css.approvalContentLeft}>sadasd</div>
+            <div className={css.approvalContentLeft}>
+              <div className={css.history}>{renderChangeHistory()}</div>
+            </div>
             <div className={css.approvalContentRight}>
               <Approval />
             </div>
