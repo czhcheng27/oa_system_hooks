@@ -12,6 +12,7 @@ import Approval from "../approval";
 import HistoryCard from "./HistoryCard";
 import { mockList } from "./mock";
 import css from "./index.module.less";
+import TrackingRect from "./TrackingRect";
 
 const AprDetWrapper = forwardRef(({ onClose }, ref) => {
   const [visible, setVisible] = useState(false);
@@ -81,7 +82,11 @@ const AprDetWrapper = forwardRef(({ onClose }, ref) => {
           <div className={css.content}>
             <div className={css.approvalContentLeft}>
               <div className={css.history}>{renderChangeHistory()}</div>
+              <div>
+                <TrackingRect />
+              </div>
             </div>
+
             <div className={css.approvalContentRight}>
               <Approval />
             </div>

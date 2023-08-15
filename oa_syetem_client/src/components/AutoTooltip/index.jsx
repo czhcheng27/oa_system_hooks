@@ -5,7 +5,6 @@ import css from "./index.module.less";
 const { Paragraph, Text } = Typography;
 
 const AutoTooltip = ({ txt, children, maxWidth = "100%", div }) => {
-  console.log("div", div);
   const tooltipObj = {
     title: txt + "1",
     // overlayClassName: css.tooltip_obj,
