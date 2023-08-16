@@ -5,10 +5,16 @@ import React, {
   useRef,
   useMemo,
 } from "react";
+import FlipThreeD from "./FlipThreeD";
 import css from "./index.module.css";
 
 const Role = (props) => {
-  return <div>Role</div>;
+  return (
+    <div style={{ height: "100%" }}>
+      Role
+      <FlipThreeD />
+    </div>
+  );
 };
 
 export default Role;
