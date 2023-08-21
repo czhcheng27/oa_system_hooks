@@ -1,3 +1,49 @@
+.moduleBox {
+  height: 100%;
+  background: black;
+}
+
+.container {
+  width: 80%;
+  margin: 1em auto;
+  font-family: "Courier New", Courier, monospace;
+  line-height: 2;
+  position: relative;
+}
+
+.textBox {
+  color: white;
+}
+
+@property --p {
+  syntax: "<percentage>";
+  initial-value: 0%;
+  inherits: false;
+}
+
+.eraser {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  .text {
+    // --p: 0%;
+    background: linear-gradient(
+      to right,
+      #0000 var(--p),
+      #000 calc(var(--p) + 100px)
+    );
+    color: transparent;
+    animation: erase 5s forwards;
+  }
+}
+
+@keyframes erase {
+  to {
+    --p: 100%;
+  }
+}
+
 .carouselBox {
   width: 100%;
   height: 500px;
