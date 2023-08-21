@@ -8,6 +8,7 @@ import React, {
 import { Drawer } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 import DrawerHeader from "../../../../../../../components/DrawerHeader";
+import CodeFlow from "./CodeFlow";
 import css from "./index.module.less";
 
 const DrawerSix = forwardRef((props, ref) => {
@@ -46,7 +47,7 @@ const DrawerSix = forwardRef((props, ref) => {
           </div>
         </DrawerHeader>
 
-        <div></div>
+        <CodeFlow />
       </div>
     </Drawer>
   );
