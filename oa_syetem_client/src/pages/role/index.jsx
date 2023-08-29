@@ -4,6 +4,7 @@ import Carousel3D from "./Carousel3D";
 import LotterySpin from "./LotterySpin";
 import css from "./index.module.less";
 import ToolBox from "./ToolBox";
+import ExtendBox from "./ExtendBox";
 
 const text =
   "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor hicarchitecto explicabo animi, optio quaerat, id, fugiat voluptates remodit ipsum ipsam unde incidunt recusandae natus consequunturperferendis repellat totam?";
@@ -23,6 +24,9 @@ const Role = (props) => {
         <ToolBox />
       </div>
       <FlipThreeD />
+      <div className={css.extendBox}>
+        <ExtendBox />
+      </div>
       <div className={css.carouselBox}>
         <Carousel3D />
       </div>
