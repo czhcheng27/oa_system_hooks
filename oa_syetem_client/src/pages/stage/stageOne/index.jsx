@@ -5,6 +5,7 @@ import EntranceComp from "./components/entranceComp";
 import OutBox from "./components/outBox";
 import TitleParts from "./components/titlePart";
 import ViewFilter from "./components/viewFilter";
+import TipBox from "./components/tipBox";
 import { data } from "./const";
 import css from "./index.module.less";
 
@@ -72,6 +73,9 @@ const StageDash = (props) => {
           )}
         </div>
       </div>
+
+      {/* tip box */}
+      <TipBox />
     </div>
   );
 };
