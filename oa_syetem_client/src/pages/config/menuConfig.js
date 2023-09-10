@@ -51,6 +51,7 @@ export const menuItems = [
       <MergeCellsOutlined style={{ transform: "rotate(90deg)" }} />
     ),
     getItem("Single-Column", "/single_vertical_column", <MoreOutlined />),
+    getItem("DND-dragDrop", "/DND_dragDrop", <MergeCellsOutlined />),
   ]),
   getItem("ECharts", "/echarts", <PieChartOutlined />, [
     getItem("Indicator1", "/project_indicator", <DesktopOutlined />),
