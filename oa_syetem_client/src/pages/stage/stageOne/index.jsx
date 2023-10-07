@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Button } from "antd";
 import LoadingTip from "../../../components/LoadingTip";
 import CarouselComp from "./components/carouselComp";
 import EntranceComp from "./components/entranceComp";
@@ -7,6 +8,7 @@ import TitleParts from "./components/titlePart";
 import ViewFilter from "./components/viewFilter";
 import TipBox from "./components/tipBox";
 import { data } from "./const";
+import { toggle } from "../../../utils/fullScreen";
 import css from "./index.module.less";
 
 const StageDash = (props) => {
@@ -34,6 +36,12 @@ const StageDash = (props) => {
       setPageTip({ show: false });
     }, 1500);
   }, []);
+
+  const handleFullScreen = () => {
+    const elm = document.querySelector(".progress_wrapper");
+    toggle(elm);
+  };
+
   return (
     <div className={css.stageDash}>
       {/* top banner */}
@@ -52,8 +60,15 @@ const StageDash = (props) => {
       </div>
 
       {/* content info */}
-      <div className={css.progress_wrapper}>
+      <div className={`${css.progress_wrapper} progress_wrapper`}>
         <div className={css.titleParts_wrapper}>
+          <Button
+            onClick={handleFullScreen}
+            type="primary"
+            className={css.fsBtn}
+          >
+            Fullscreen
+          </Button>
           <TitleParts />
         </div>
         <div className={css.viewfilterWrap}>
