@@ -17,6 +17,7 @@ import User from "./pages/user";
 import TodoList from "./pages/stage/todoList";
 import BigScreen1 from "./pages/bigScreen/bigScreen1";
 import DNDdragDrop from "./pages/drag/DNDdragDrop";
+import LazyImg from "./pages/echarts/lazyImg";
 
 const App = (props) => {
   return (
@@ -33,6 +34,7 @@ const App = (props) => {
           <Route path="/single_vertical_column" element={<SingleColumn />} />
           <Route path="/DND_dragDrop" element={<DNDdragDrop />} />
           <Route path="/project_indicator" element={<ProjectIndicator />} />
+          <Route path="/lazy_img" element={<LazyImg />} />
           <Route path="/comps_library_sortablejs" element={<Revision />} />
           <Route path="/line_charts" element={<LineCharts />} />
           <Route path="/apr_det_one" element={<ApprovalDetails />} />

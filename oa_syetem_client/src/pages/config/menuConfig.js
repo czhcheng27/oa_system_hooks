@@ -53,10 +53,11 @@ export const menuItems = [
     getItem("Single-Column", "/single_vertical_column", <MoreOutlined />),
     getItem("DND-dragDrop", "/DND_dragDrop", <MergeCellsOutlined />),
   ]),
-  getItem("ECharts", "/echarts", <PieChartOutlined />, [
+  getItem("Func", "/echarts", <PieChartOutlined />, [
     getItem("Indicator1", "/project_indicator", <DesktopOutlined />),
     getItem("Indicator2", "/question_indicator", <ContainerOutlined />),
     getItem("Indicator3", "/line_charts", <LineChartOutlined />),
+    getItem("Indicator4", "/lazy_img", <LineChartOutlined />),
   ]),
   getItem("Approval", "/approval", <ContainerOutlined />, [
     getItem("APR & Details", "/apr_det_one", <FlagOutlined />),
