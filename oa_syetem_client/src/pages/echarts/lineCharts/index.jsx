@@ -1,14 +1,9 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useMemo,
-} from "react";
+import React from "react";
 import MyConsult from "./components/MyConsult";
 import ChartOne from "./chartOne";
 import RotateVehicle from "./components/RotateVehicle";
 import BtnBox from "./components/BtnBox";
+import Waapi from "./components/Waapi";
 import css from "./index.module.less";
 
 const LineCharts = (props) => {
@@ -18,6 +13,9 @@ const LineCharts = (props) => {
         <MyConsult />
         <RotateVehicle />
         <BtnBox />
+      </div>
+      <div className={css.waapiBox}>
+        <Waapi />
       </div>
       <ChartOne />
     </div>

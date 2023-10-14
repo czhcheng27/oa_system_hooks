@@ -245,7 +245,7 @@ const option = {
 
 const ChartOne = (props) => {
   const getChartData = (data) => {
-    console.log("data", data);
+    // console.log("data", data);
     if (data && data.length > 0) {
       const xAxisData = [];
       const xAxisDataTwo = [];
@@ -289,7 +289,7 @@ const ChartOne = (props) => {
       option.xAxis[0].data = xAxisData;
       option.xAxis[1].data = xAxisDataTwo;
       option.series = seriesData;
-      console.log(JSON.stringify(option));
+      // console.log(JSON.stringify(option));
     }
     console.log("option", option);
     return option;
