@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useResize } from "../../../../../components/Resize";
 import css from "./index.module.less";
 
 const radius = 30;
@@ -16,25 +17,22 @@ const Waapi = () => {
   //     });
   //   });
 
+  const [squareRef, { w: width, h: height, e: box }] = useResize();
+  const [ballRef, { e: ball }] = useResize();
+
   useEffect(() => {
     listenDom();
-    const boxes = document.getElementById("moduleBox");
-    const myObserver = new ResizeObserver((entries) => {
-      listenDom();
-    });
-    boxes && myObserver.observe(boxes);
-  }, []);
+  }, [width, height, ball, box]);
 
   const listenDom = () => {
-    const ball = document.querySelector("#ball");
-    const box = document.querySelector("#moduleBox");
-    init(ball, box);
-    box &&
+    if (box && ball) {
+      init(ball, box);
       box.addEventListener("click", function (e) {
         const x = e.clientX - box.getBoundingClientRect().left - radius;
         const y = e.clientY - box.getBoundingClientRect().top - radius;
         move(x, y, ball, box);
       });
+    }
   };
 
   const init = (ball, box) => {
@@ -44,6 +42,7 @@ const Waapi = () => {
   };
 
   const move = (x, y, ball, box) => {
+    // console.log("x, y, ball, box", x, y, ball, box);
     const boxLeft = box.getBoundingClientRect().left;
     const boxTop = box.getBoundingClientRect().top;
     const initX = ball.getBoundingClientRect().left - boxLeft;
@@ -78,8 +77,12 @@ const Waapi = () => {
   };
 
   return (
-    <div className={`${css.moduleBox} moduleBox`} id="moduleBox">
-      <div className={`${css.ball} ball`} id="ball"></div>
+    <div
+      ref={squareRef}
+      className={`${css.moduleBox} moduleBox`}
+      id="moduleBox"
+    >
+      <div ref={ballRef} className={`${css.ball} ball`} id="ball"></div>
     </div>
   );
 };
