@@ -1,0 +1,83 @@
+.left {
+  width: 330px;
+  padding: 17px 0;
+
+  .top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+
+    & > div:nth-child(1) {
+      width: 48px;
+      height: 20px;
+      padding: 0px 4px;
+      flex-shrink: 0;
+      background: #4787f0;
+      color: #ffffff;
+      text-align: center;
+      border-radius: 2px;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    & > div:nth-child(2) {
+      width: 150px;
+      max-width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 0 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #242f57;
+    }
+    .overdue {
+      width: 65px;
+      color: #f65b52;
+      span {
+        color: #f65b52;
+      }
+    }
+    .normal {
+      width: 111px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-weight: 400;
+      color: #636e95;
+      display: flex;
+      .daycss {
+        color: #0052d9;
+        margin-left: 4px;
+      }
+      & > div:nth-child(1) {
+        width: 100%;
+      }
+    }
+  }
+  .bottom {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 16px;
+    }
+
+    & > div:nth-of-type(1) {
+      width: 112px;
+      flex-shrink: 0;
+      margin: 0 12px 0 3px;
+    }
+    & > div:nth-of-type(2) {
+      overflow: hidden;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.right {
+  flex: 1;
+}
