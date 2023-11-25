@@ -5,6 +5,7 @@ import InfoSub from "../InfoSub";
 import { Dmc010Context } from "../..";
 import { pscFullNodeCenter } from "../../const";
 import css from "./index.module.less";
+import { getMonthArray } from "../../utils";
 
 const maxNodeNum = 12;
 const eachNodeWidth = 110;
@@ -106,20 +107,6 @@ const FullCycle = () => {
     return index >= curIdx ? "" : pscFullNodeCenter[colorType].backgroundColor;
   };
 
-  // const getCurIdxPrevBgCurbg = (data) => {
-  //   let curIdx, prevBg, curBg;
-  //   if (leftSelectNode === 'psc') {
-  //     curIdx = data.findIndex((el) => el.currentFlag === 'Y');
-  //     prevBg =
-  //       curIdx == 0
-  //         ? 'transparent'
-  //         : pscFullNodeCenter[data[curIdx - 1]['colorType']].backgroundColor; // 当前节点的前一个节点的背景色
-  //     curBg = pscFullNodeCenter[data[curIdx]['colorType']].backgroundColor; // 当前节点的背景色
-  //     return { curIdx, prevBg, curBg };
-  //   } else {
-  //   }
-  // };
-
   // x 轴内部是否渲染小人
   const xAxisPersonOrNot = (data) => {
     return data.currentFlag === "Y" && getMatchSelectNode(data) ? (
@@ -164,8 +151,27 @@ const FullCycle = () => {
     return { width, justifyContent };
   };
 
+  const renderMonthArray = (data) => {
+    return (
+      <div className={css.monthBox}>
+        <div></div>
+        <div className={css.monthContent}>
+          {data.map((monthObj, i) => {
+            const { year, month, showYear, curMonth } = monthObj;
+            return showYear ? (
+              <div>{`${year}年${month}月`}</div>
+            ) : (
+              <div>{`${month}月`}</div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className={css.botList} id="botList">
+      {renderMonthArray(getMonthArray())}
       {listData.map((list, index) => {
         return (
           <div

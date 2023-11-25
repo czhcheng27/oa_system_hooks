@@ -150,7 +150,8 @@
   top: 50%;
   transform: translateY(-50%);
   background: white;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.11), inset 0 2px 1px 0 rgba(43, 47, 69, 0.12);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.11),
+    inset 0 2px 1px 0 rgba(43, 47, 69, 0.12);
   border-radius: 4px;
   padding: 1px 0;
   z-index: 1;
@@ -196,14 +197,39 @@
           top: -8px;
         }
         .bluePerson {
-          background: url('../../assets/normal.gif') no-repeat center;
+          background: url("../../assets/normal.gif") no-repeat center;
           background-size: 20px 20px;
         }
         .redPerson {
-          background: url('../../assets/overdue.gif') no-repeat center;
+          background: url("../../assets/overdue.gif") no-repeat center;
           background-size: 20px 20px;
         }
       }
+    }
+  }
+}
+
+.monthBox {
+  height: 24px;
+  display: flex;
+  align-items: center;
+
+  & > div:nth-child(1) {
+    width: 330px;
+  }
+  .monthContent {
+    flex: 1;
+    height: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: auto;
+    position: relative;
+
+    div {
+      flex-shrink: 0;
+      width: 110px;
+      text-align: center;
     }
   }
 }

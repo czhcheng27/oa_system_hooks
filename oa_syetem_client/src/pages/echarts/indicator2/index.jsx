@@ -5,9 +5,10 @@ import classNames from "classnames";
 import LoadingTip from "@/components/LoadingTip";
 import FullCycle from "./components/FullCycle";
 import { projectTypes, viewTypes, pscNodeOpts, initCensusData } from "./const";
-import { mockKcpFull, mockPscFull } from "./mock";
+import { mockKcpFull, mockPscCurr, mockPscFull } from "./mock";
 import AmplifyIcon from "./assets/amplify.png";
 import css from "./index.module.less";
+import CurView from "./components/CurView";
 
 export const Dmc010Context = createContext();
 
@@ -28,7 +29,8 @@ export default function IndicatorTwo() {
 
   const getListData = () => {
     setPageTip({ ...pageTip, status: 0, show: true });
-    const res = leftSelectNode === "psc" ? mockPscFull : mockKcpFull;
+    const res = leftSelectNode === "psc" ? mockPscCurr : mockKcpFull;
+    // const res = leftSelectNode === "psc" ? mockPscFull : mockKcpFull;
     setListData(res);
     setTimeout(() => {
       setPageTip({ show: false });
@@ -153,7 +155,7 @@ export default function IndicatorTwo() {
               {pageTip.show && (
                 <LoadingTip status={pageTip.status} text={pageTip.text} />
               )}
-              {!pageTip.show && <FullCycle />}
+              {!pageTip.show && viewType === "01" ? <FullCycle /> : <CurView />}
             </div>
           </div>
         </div>
