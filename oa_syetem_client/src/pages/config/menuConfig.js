@@ -58,6 +58,7 @@ export const menuItems = [
     getItem("Indicator2", "/question_indicator", <ContainerOutlined />),
     getItem("Indicator3", "/line_charts", <LineChartOutlined />),
     getItem("Indicator4", "/lazy_img", <LineChartOutlined />),
+    getItem("Clipboard", "/clipboard", <LineChartOutlined />),
   ]),
   getItem("Approval", "/approval", <ContainerOutlined />, [
     getItem("APR & Details", "/apr_det_one", <FlagOutlined />),
