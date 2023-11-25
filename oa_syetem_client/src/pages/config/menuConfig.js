@@ -61,6 +61,7 @@ export const menuItems = [
     getItem("Clipboard", "/clipboard", <LineChartOutlined />),
     getItem("CssAdsorb", "/css_adsorb", <LineChartOutlined />),
     getItem("SwitchTheme", "/switch_theme", <LineChartOutlined />),
+    getItem("AnimationDelay", "/animation_delay", <LineChartOutlined />),
   ]),
   getItem("Approval", "/approval", <ContainerOutlined />, [
     getItem("APR & Details", "/apr_det_one", <FlagOutlined />),

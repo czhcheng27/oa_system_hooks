@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import theme from "./theme.config.scss";
 import css from "./index.module.scss";
 
 const SwitchTheme = () => {
