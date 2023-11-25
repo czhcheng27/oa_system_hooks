@@ -21,6 +21,7 @@ import LazyImg from "./pages/echarts/lazyImg";
 import IndicatorTwo from "./pages/echarts/indicator2";
 import Clipboard from "./pages/echarts/clipboard";
 import CssAdsorb from "./pages/echarts/CssAdsorb";
+import SwitchTheme from "./pages/echarts/SwitchTheme";
 
 const App = (props) => {
   return (
@@ -41,6 +42,7 @@ const App = (props) => {
           <Route path="/lazy_img" element={<LazyImg />} />
           <Route path="/clipboard" element={<Clipboard />} />
           <Route path="/css_adsorb" element={<CssAdsorb />} />
+          <Route path="/switch_theme" element={<SwitchTheme />} />
           <Route path="/comps_library_sortablejs" element={<Revision />} />
           <Route path="/line_charts" element={<LineCharts />} />
           <Route path="/apr_det_one" element={<ApprovalDetails />} />
