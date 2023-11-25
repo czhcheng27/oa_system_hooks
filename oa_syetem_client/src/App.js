@@ -20,6 +20,7 @@ import DNDdragDrop from "./pages/drag/DNDdragDrop";
 import LazyImg from "./pages/echarts/lazyImg";
 import IndicatorTwo from "./pages/echarts/indicator2";
 import Clipboard from "./pages/echarts/clipboard";
+import CssAdsorb from "./pages/echarts/CssAdsorb";
 
 const App = (props) => {
   return (
@@ -39,6 +40,7 @@ const App = (props) => {
           <Route path="/question_indicator" element={<IndicatorTwo />} />
           <Route path="/lazy_img" element={<LazyImg />} />
           <Route path="/clipboard" element={<Clipboard />} />
+          <Route path="/css_adsorb" element={<CssAdsorb />} />
           <Route path="/comps_library_sortablejs" element={<Revision />} />
           <Route path="/line_charts" element={<LineCharts />} />
           <Route path="/apr_det_one" element={<ApprovalDetails />} />

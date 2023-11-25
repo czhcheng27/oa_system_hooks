@@ -59,6 +59,7 @@ export const menuItems = [
     getItem("Indicator3", "/line_charts", <LineChartOutlined />),
     getItem("Indicator4", "/lazy_img", <LineChartOutlined />),
     getItem("Clipboard", "/clipboard", <LineChartOutlined />),
+    getItem("CssAdsorb", "/css_adsorb", <LineChartOutlined />),
   ]),
   getItem("Approval", "/approval", <ContainerOutlined />, [
     getItem("APR & Details", "/apr_det_one", <FlagOutlined />),
