@@ -23,6 +23,8 @@ import Clipboard from "./pages/echarts/clipboard";
 import CssAdsorb from "./pages/echarts/CssAdsorb";
 import SwitchTheme from "./pages/echarts/SwitchTheme";
 import AnimationDelay from "./pages/echarts/AnimationDelay";
+import CrossTagMsg from "./pages/echarts/CrossTagMsg";
+import AddCount from "./pages/echarts/CrossTagMsg/addCount";
 
 const App = (props) => {
   return (
@@ -45,6 +47,8 @@ const App = (props) => {
           <Route path="/css_adsorb" element={<CssAdsorb />} />
           <Route path="/switch_theme" element={<SwitchTheme />} />
           <Route path="/animation_delay" element={<AnimationDelay />} />
+          <Route path="/cross_tag_msg" element={<CrossTagMsg />} />
+          <Route path="/cross_tag_msg_addCount" element={<AddCount />} />
           <Route path="/comps_library_sortablejs" element={<Revision />} />
           <Route path="/line_charts" element={<LineCharts />} />
           <Route path="/apr_det_one" element={<ApprovalDetails />} />

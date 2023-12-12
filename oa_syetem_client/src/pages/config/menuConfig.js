@@ -62,6 +62,7 @@ export const menuItems = [
     getItem("CssAdsorb", "/css_adsorb", <LineChartOutlined />),
     getItem("SwitchTheme", "/switch_theme", <LineChartOutlined />),
     getItem("AnimationDelay", "/animation_delay", <LineChartOutlined />),
+    getItem("CrossTagMsg", "/cross_tag_msg", <LineChartOutlined />),
   ]),
   getItem("Approval", "/approval", <ContainerOutlined />, [
     getItem("APR & Details", "/apr_det_one", <FlagOutlined />),
