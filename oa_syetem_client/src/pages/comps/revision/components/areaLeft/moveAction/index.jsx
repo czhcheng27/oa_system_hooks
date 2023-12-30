@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Popover } from "antd";
-import { resortIdx } from "@/utils";
+import { resortIdx } from "../../../../../../utils";
 import PopCom from "../../../popCom";
 import { independentComps } from "../../../const";
 import TripleDotAct from "../imgs/tripleDotAct.png";

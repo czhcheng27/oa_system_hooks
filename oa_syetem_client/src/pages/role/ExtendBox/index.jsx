@@ -5,7 +5,8 @@ import React, {
   useRef,
   useMemo,
 } from "react";
-import Icon from "@/components/Icon/index";
+import Icon from "../../../components/Icon/index";
+// import Icon from "@/components/Icon/index";
 import css from "./index.module.less";
 
 const ExtendBox = (props) => {

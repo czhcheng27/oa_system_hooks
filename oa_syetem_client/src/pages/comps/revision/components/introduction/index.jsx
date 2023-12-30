@@ -1,7 +1,8 @@
 import React, { useRef, forwardRef, useImperativeHandle } from "react";
 import { useDispatch } from "react-redux";
 import Sortable from "sortablejs";
-import { cloneDeep } from "@/utils";
+import { cloneDeep } from "../../../../../utils";
+// import { cloneDeep } from "@/utils";
 import IntroContent from "./introContent";
 import SeparateName from "./separateName";
 import { matchCom } from "../../const";

@@ -7,7 +7,7 @@ import React, {
 import { Form, Input } from "antd";
 import classNames from "classnames";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
-import { cloneDeep, createUidKey } from "@/utils";
+import { cloneDeep, createUidKey } from "../../../../../..//utils";
 import CmTinymce from "../../../cmTinymce";
 import SwitchWrapper from "../../../switchWrapper";
 import PopCom from "../../../popCom";

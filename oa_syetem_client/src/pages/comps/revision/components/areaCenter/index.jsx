@@ -1,8 +1,10 @@
 import React, { useRef, useImperativeHandle, forwardRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Sortable from "sortablejs";
-import { cloneDeep, findUpperObj } from "@/utils";
-import { updateOutlineAllData } from "@/redux/actions";
+import { cloneDeep, findUpperObj } from "../../../../../utils";
+// import { cloneDeep, findUpperObj } from "@/utils";
+import { updateOutlineAllData } from "../../../../../redux/actions";
+// import { updateOutlineAllData } from "@/redux/actions";
 import Cover from "../cover";
 import Preface from "../preface";
 import Introduction from "../introduction";

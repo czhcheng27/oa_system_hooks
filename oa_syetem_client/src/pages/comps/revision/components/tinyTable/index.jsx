@@ -5,7 +5,7 @@ import CompWrapper from "../compWrapper";
 import css from "./index.module.less";
 import { useRef } from "react";
 import classNames from "classnames";
-import { inputToNum } from "@/utils";
+import { inputToNum } from "../../../../../utils";
 
 const tinymceInit4Table = {
   toolbar_mode: "wrap",

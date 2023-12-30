@@ -6,7 +6,7 @@ import React, {
 } from "react";
 import classNames from "classnames";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
-import { cloneDeep, createUidKey } from "@/utils";
+import { cloneDeep, createUidKey } from "../../../../../../../utils";
 import SwitchWrapper from "../../../../switchWrapper";
 import css from "./index.module.less";
 import CmTinymce from "../../../../cmTinymce";
