@@ -63,6 +63,7 @@ export const menuItems = [
     getItem("SwitchTheme", "/switch_theme", <LineChartOutlined />),
     getItem("AnimationDelay", "/animation_delay", <LineChartOutlined />),
     getItem("CrossTagMsg", "/cross_tag_msg", <LineChartOutlined />),
+    getItem("SvgAnm", "/svg_animation", <LineChartOutlined />),
   ]),
   getItem("Approval", "/approval", <ContainerOutlined />, [
     getItem("APR & Details", "/apr_det_one", <FlagOutlined />),

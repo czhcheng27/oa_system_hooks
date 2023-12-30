@@ -25,6 +25,7 @@ import SwitchTheme from "./pages/echarts/SwitchTheme";
 import AnimationDelay from "./pages/echarts/AnimationDelay";
 import CrossTagMsg from "./pages/echarts/CrossTagMsg";
 import AddCount from "./pages/echarts/CrossTagMsg/addCount";
+import SvgAnm from "./pages/echarts/SvgAnm";
 
 const App = (props) => {
   return (
@@ -49,6 +50,7 @@ const App = (props) => {
           <Route path="/animation_delay" element={<AnimationDelay />} />
           <Route path="/cross_tag_msg" element={<CrossTagMsg />} />
           <Route path="/cross_tag_msg_addCount" element={<AddCount />} />
+          <Route path="/svg_animation" element={<SvgAnm />} />
           <Route path="/comps_library_sortablejs" element={<Revision />} />
           <Route path="/line_charts" element={<LineCharts />} />
           <Route path="/apr_det_one" element={<ApprovalDetails />} />
