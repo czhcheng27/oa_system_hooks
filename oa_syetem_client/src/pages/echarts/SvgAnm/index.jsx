@@ -10,7 +10,7 @@ const SvgAnm = () => {
     });
   }, []);
   return (
-    <div>
+    <div className={css.moduleBox}>
       <svg
         class="icon"
         width="200"
@@ -22,6 +22,7 @@ const SvgAnm = () => {
         {/* <line class="p" x1="0" y1="50%" x2="100%" y2="50%" /> */}
         <circle class="p" cx="50%" cy="50%" r="30%" />
       </svg>
+      <div className={css.shadowTxt}>SHADOW TEXT EFFECT</div>
     </div>
   );
 };
