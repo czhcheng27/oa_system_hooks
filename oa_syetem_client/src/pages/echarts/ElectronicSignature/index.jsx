@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { Button } from "antd";
 import css from "./index.module.less";
+import { arrange } from "../../../utils/func";
 
 const ElectronicSignature = () => {
   let isDrawing = false;
@@ -32,6 +33,11 @@ const ElectronicSignature = () => {
     isDrawing = true;
     [lastX, lastY] = [e.offsetX, e.offsetY];
   }
+
+  console.log(
+    "aaaa",
+    arrange("michael").wait(5).doSomething("commit").waitFirst(5).execute()
+  );
 
   function draw(e) {
     if (!isDrawing) return;
