@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import useLocalStorage from "../../../components/UseLocalStorage";
 import css from "./index.module.less";
 
 const SwitchTheme = () => {
-  const [theme, setTheme] = useState("light");
+  // const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useLocalStorage("theme", "light");
 
   const switchTheme = (res) => {
     const dom = document.querySelector(".moduleBox");
