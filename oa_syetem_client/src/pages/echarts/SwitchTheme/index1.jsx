@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import css from "./index.module.less";
+import css from "./index.module.scss";
 
 const SwitchTheme = () => {
   const [theme, setTheme] = useState("light");
 
   const switchTheme = (res) => {
+    // const res = theme === "light" ? "dark" : "light";
     const dom = document.querySelector(".moduleBox");
     dom.dataset.theme = res;
     setTheme(res);
@@ -13,6 +14,9 @@ const SwitchTheme = () => {
   return (
     <div className={`${css.box} ${css.theme}`} data-theme={theme}>
       <div className={`${css.moduleBox} moduleBox`}>
+        {/* <div className={css.btn} onClick={switchTheme}>
+          {theme}
+        </div> */}
         <div>
           <div className={css.btn} onClick={() => switchTheme("light")}>
             {"light"}

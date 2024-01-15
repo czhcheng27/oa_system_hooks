@@ -9,6 +9,11 @@ $themes: (
     textColor: #fff,
     border: 1px solid #fff,
   ),
+  orange: (
+    bgColor: orange,
+    textColor: blue,
+    border: 1px solid blue,
+  ),
 );
 $curTheme: "light";
 
