@@ -92,6 +92,32 @@ const DNDdragDrop = () => {
     }
   };
 
+  const renderDragable = (item, index) => {
+    return (
+      <Draggable key={item.id} draggableId={item.id} index={index}>
+        {(provided, snapshot) => {
+          const { draggableProps, dragHandleProps } = provided;
+          const { isDragging, isClone } = snapshot;
+          return (
+            <React.Fragment>
+              <div
+                className={css.item}
+                ref={provided.innerRef}
+                {...draggableProps}
+                {...dragHandleProps}
+                isDragging={isClone}
+                style={isDragging ? draggableProps.style : {}}
+              >
+                {item.content}
+              </div>
+              {isDragging && <div className={css.clone}>{item.content}</div>}
+            </React.Fragment>
+          );
+        }}
+      </Draggable>
+    );
+  };
+
   // Normally you would want to split things out into separate components.
   // But in this example everything is just done in one place for simplicity
   //   render() {
@@ -104,27 +130,9 @@ const DNDdragDrop = () => {
             ref={provided.innerRef}
             isDraggingOver={snapshot.isDraggingOver}
           >
-            {ITEMS.map((item, index) => (
-              <Draggable key={item.id} draggableId={item.id} index={index}>
-                {(provided, snapshot) => (
-                  <React.Fragment>
-                    <div
-                      className={css.item}
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      isDragging={snapshot.isDragging}
-                      style={provided.draggableProps.style}
-                    >
-                      {item.content}
-                    </div>
-                    {snapshot.isDragging && (
-                      <div className={css.clone}>{item.content}</div>
-                    )}
-                  </React.Fragment>
-                )}
-              </Draggable>
-            ))}
+            {ITEMS.map((item, index) => {
+              return renderDragable(item, index);
+            })}
           </div>
         )}
       </Droppable>
