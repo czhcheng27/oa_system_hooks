@@ -111,3 +111,18 @@
   margin-left: 0;
   opacity: 0;
 }
+
+.right {
+  & > header {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+  }
+
+  & > section {
+    height: calc(100% - 50px);
+    overflow: auto;
+  }
+}

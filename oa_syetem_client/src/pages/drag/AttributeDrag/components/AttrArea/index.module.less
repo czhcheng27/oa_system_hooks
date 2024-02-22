@@ -1,0 +1,54 @@
+.moduleBox {
+  width: 100%;
+  height: 100%;
+}
+
+.tabWrap {
+  width: 300px;
+  height: 100%;
+
+  :global {
+    .ant-tabs-nav-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .ant-tabs-nav {
+      margin-bottom: 0;
+    }
+
+    .ant-tabs-content-holder {
+      padding-top: 16px;
+      overflow: hidden auto;
+    }
+  }
+}
+
+.empty {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: url(../../assets/empty_config.png) center 136px no-repeat;
+    background-size: 138px 138px;
+  
+    &::after {
+      content: attr(data-des);
+      display: block;
+      position: absolute;
+      top: 284px;
+      width: 100%;
+      text-align: center;
+      font-weight: 400;
+      font-size: 14px;
+      color: #242f57;
+    }
+  
+    &.permission {
+      background-image: url(../../assets/empty_permission.png);
+    }
+  
+    &.style {
+      background-image: url(../../assets/empty_style.png);
+    }
+  }
+  

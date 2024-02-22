@@ -9,6 +9,7 @@ import DrawerHeader from "../../../../../components/DrawerHeader";
 import { cloneDeep, createUidKey } from "../../../../../utils";
 import { CompCategory } from "../../config";
 import css from "./index.module.less";
+import AttrArea from "../AttrArea";
 
 export const LayoutContext = createContext();
 
@@ -19,6 +20,9 @@ const DrawerLayout = ({ closeDrawer }) => {
   const [activeComp, setActiveComp] = useState(null); // selected components
   const [leftCollapsed, setLeftCollapsed] = useState(false);
   const [rightCollapsed, setRightCollapsed] = useState(false);
+  // Right Attribute Area
+  const [activeAttrTab, setActiveAttrTab] = useState("Attribute"); // 当前选中的tab
+  const [attrOpt, setAttrOpt] = useState(null); // 属性配置\样式配置\权限配置
 
   const closeHandle = () => {
     setVisible(false);
@@ -96,6 +100,9 @@ const DrawerLayout = ({ closeDrawer }) => {
           setCompList,
           activeComp,
           setActiveComp,
+          activeAttrTab,
+          setActiveAttrTab,
+          setAttrOpt,
         }}
       >
         <div className={css.drawerContent}>
@@ -145,7 +152,12 @@ const DrawerLayout = ({ closeDrawer }) => {
                   [css.isRightClpse]: rightCollapsed,
                 })}
               >
-                right
+                <header>{`Component ${
+                  activeComp?.description ? "/ " + activeComp.description : ""
+                }`}</header>
+                <section>
+                  <AttrArea />
+                </section>
               </div>
             </div>
           </DragDropContext>

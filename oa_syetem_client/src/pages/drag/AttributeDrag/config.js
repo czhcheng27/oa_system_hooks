@@ -16,6 +16,7 @@ export const CompCategory = [
         component: Label,
         attrComp: labelAttr,
         styleComp: labelStyle,
+        // permissionComp: labelStyle,
       },
     ],
   },
@@ -32,30 +33,36 @@ export const CompCategory = [
       },
     ],
   },
-  {
-    header: "Table Components",
-    type: "table_components",
-    list: [
-      {
-        type: "43",
-        description: "Label",
-        component: Label,
-        attrComp: labelAttr,
-        styleComp: labelStyle,
-      },
-    ],
-  },
-  {
-    header: "Others",
-    type: "others",
-    list: [
-      {
-        type: "43",
-        description: "Label",
-        component: Label,
-        attrComp: labelAttr,
-        styleComp: labelStyle,
-      },
-    ],
-  },
+  // {
+  //   header: "Table Components",
+  //   type: "table_components",
+  //   list: [
+  //     {
+  //       type: "43",
+  //       description: "Label",
+  //       component: Label,
+  //       attrComp: labelAttr,
+  //       styleComp: labelStyle,
+  //     },
+  //   ],
+  // },
+  // {
+  //   header: "Others",
+  //   type: "others",
+  //   list: [
+  //     {
+  //       type: "43",
+  //       description: "Label",
+  //       component: Label,
+  //       attrComp: labelAttr,
+  //       styleComp: labelStyle,
+  //     },
+  //   ],
+  // },
 ];
+
+const flatCompCategory = [];
+CompCategory.map((el) => {
+  flatCompCategory.push(...el.list);
+});
+export { flatCompCategory };
