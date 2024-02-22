@@ -27,6 +27,7 @@ import CrossTagMsg from "./pages/echarts/CrossTagMsg";
 import AddCount from "./pages/echarts/CrossTagMsg/addCount";
 import SvgAnm from "./pages/echarts/SvgAnm";
 import ElectronicSignature from "./pages/echarts/ElectronicSignature";
+import AttributeDrag from "./pages/drag/AttributeDrag";
 
 const App = (props) => {
   return (
@@ -42,6 +43,7 @@ const App = (props) => {
           <Route path="/drag_horizontal_multiple" element={<DragHorMul />} />
           <Route path="/single_vertical_column" element={<SingleColumn />} />
           <Route path="/DND_dragDrop" element={<DNDdragDrop />} />
+          <Route path="/attribute_dragDrop" element={<AttributeDrag />} />
           <Route path="/project_indicator" element={<ProjectIndicator />} />
           <Route path="/question_indicator" element={<IndicatorTwo />} />
           <Route path="/lazy_img" element={<LazyImg />} />

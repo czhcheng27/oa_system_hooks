@@ -1,0 +1,113 @@
+.drawer {
+  .drawerContent {
+    height: 100%;
+    overflow-x: hidden;
+  }
+  :global {
+    .ant-drawer-header {
+      display: none;
+    }
+    .ant-drawer-body {
+      padding: 0;
+    }
+  }
+}
+
+.btns {
+  position: relative;
+  overflow: hidden;
+  span {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -40%;
+      width: 20%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, #fff, transparent);
+      transform: skew(-45deg);
+      transition: all 0.5s;
+    }
+    &:hover::before {
+      left: 120%;
+      transition: all 0.5s;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  height: calc(100% - 54px);
+  padding: 90px 8px 8px;
+  background: url("../../assets/banner_bg.png") center top no-repeat;
+  background-color: #f3f4f5;
+  background-size: 100% 90px;
+}
+
+.right,
+.left {
+  width: 300px;
+  background-color: white;
+  border-radius: 8px;
+  transition: all 0.5s;
+}
+.left {
+  margin-right: 8px;
+}
+
+.right {
+  margin-left: 8px;
+}
+
+.center {
+  flex: 1;
+  border-radius: 8px;
+  background-color: white;
+
+  height: 100%;
+  & > header {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 50px;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+
+    & > span:nth-child(1) {
+      position: absolute;
+      content: "";
+      top: 17px;
+      left: 20px;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      cursor: pointer;
+    }
+
+    & > span:nth-child(2) {
+      position: absolute;
+      content: "";
+      top: 17px;
+      right: 20px;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      cursor: pointer;
+    }
+  }
+
+  & > section {
+    height: calc(100% - 50px);
+    overflow: auto;
+  }
+}
+
+.isLeftClpse {
+  width: 0;
+  margin-right: 0;
+  opacity: 0;
+}
+.isRightClpse {
+  width: 0;
+  margin-left: 0;
+  opacity: 0;
+}

@@ -1,0 +1,87 @@
+.moduleBox {
+  height: 100%;
+
+  & > header {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  & > section {
+    height: calc(100% - 50px);
+    overflow: auto;
+  }
+}
+
+.eachCompSection {
+  display: flex;
+  flex-direction: column;
+
+  & > div:nth-child(1) {
+    & > header {
+      display: inline-block;
+      color: #1f2631;
+      font-size: 14px;
+      font-weight: 500;
+      margin: 16px 0 16px 16px;
+    }
+  }
+}
+
+.toggleBtn {
+  position: relative;
+  margin: 0 -14px 0 8px;
+  z-index: 9;
+  opacity: 0;
+  cursor: pointer;
+
+  &:checked + span {
+    transform: rotate(180deg);
+    transition: all 0.2s;
+  }
+
+  // &:checked + span + .compWrap {
+  //   display: none;
+  // }
+}
+
+.compWrap {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  margin-inline: 16px;
+  flex-wrap: wrap;
+}
+.eachCompSection:has(.toggleBtn:checked) {
+  & > div:nth-child(2) {
+    display: none;
+  }
+}
+
+.eachCard {
+  text-align: center;
+  padding-block: 5px;
+  width: 76px;
+  height: 76px;
+  line-height: 33px;
+  background-color: #fdfdfd;
+  border: solid 1px #eee;
+  cursor: pointer;
+  border-radius: 6px;
+
+  > img {
+    width: 28px;
+    height: 28px;
+  }
+
+  &:hover {
+    box-shadow: inset 2px 1px 3px 0 rgba(0, 0, 0, 0.07),
+      inset -6px -1px 5px 0 #f8f8f8;
+  }
+}
+
+.selfDescription {
+  color: #707887;
+  font-size: 12px;
+}

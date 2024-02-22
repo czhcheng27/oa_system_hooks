@@ -52,6 +52,7 @@ export const menuItems = [
     ),
     getItem("Single-Column", "/single_vertical_column", <MoreOutlined />),
     getItem("DND-dragDrop", "/DND_dragDrop", <MergeCellsOutlined />),
+    getItem("Attribute-dragDrop", "/attribute_dragDrop", <MoreOutlined />),
   ]),
   getItem("Func", "/echarts", <PieChartOutlined />, [
     getItem("Indicator1", "/project_indicator", <DesktopOutlined />),
