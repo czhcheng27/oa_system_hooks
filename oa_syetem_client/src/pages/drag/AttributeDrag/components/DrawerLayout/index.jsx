@@ -1,5 +1,6 @@
 import React, { useState, createContext } from "react";
 import { Drawer, Button } from "antd";
+import { useUpdateEffect } from "ahooks";
 import { DragDropContext } from "react-beautiful-dnd";
 import classNames from "classnames";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
@@ -23,6 +24,23 @@ const DrawerLayout = ({ closeDrawer }) => {
   // Right Attribute Area
   const [activeAttrTab, setActiveAttrTab] = useState("Attribute"); // 当前选中的tab
   const [attrOpt, setAttrOpt] = useState(null); // 属性配置\样式配置\权限配置
+
+  useUpdateEffect(() => {
+    updateCompProperties(attrOpt);
+  }, [attrOpt]);
+
+  const updateCompProperties = (properties) => {
+    const newListWithProperties = compList.map((el) => {
+      if (el.id === activeComp.id) {
+        let obj = el?.properties || {};
+        obj[activeAttrTab] = properties;
+        el.properties = obj;
+      }
+      return el;
+    });
+    // console.log("newListWithProperties", newListWithProperties);
+    setCompList(newListWithProperties);
+  };
 
   const closeHandle = () => {
     setVisible(false);

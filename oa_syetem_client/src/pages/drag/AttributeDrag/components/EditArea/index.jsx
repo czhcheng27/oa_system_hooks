@@ -36,7 +36,7 @@ const EditArea = () => {
                             [css.selected]: activeComp.id === item.id,
                           })}
                         >
-                          <MyComp />
+                          <MyComp props={item.properties} />
                         </div>
                       </div>
                     )}
