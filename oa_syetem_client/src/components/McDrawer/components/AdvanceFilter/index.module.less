@@ -1,0 +1,145 @@
+.addFilter {
+  position: absolute;
+  top: 20px;
+  right: 90px;
+  width: 86px;
+  height: 20px;
+  cursor: pointer;
+  img {
+    margin-right: 4px;
+    margin-bottom: 3px;
+  }
+}
+
+// 表单特殊样式
+.advancedForm {
+  :global {
+    .ant-form-item {
+      margin-bottom: 0px;
+    }
+    .ant-input {
+      height: 36px;
+      border-radius: 6px;
+    }
+    .ant-select-selector {
+      border-radius: 6px !important;
+    }
+    // 第一列禁用样式
+    .ant-select-disabled {
+      .ant-select-arrow {
+        display: none;
+      }
+      .ant-select-selection-item {
+        display: flex;
+        justify-content: center;
+        padding-right: 0;
+      }
+    }
+
+    // select tag 回显的最大宽度
+    .ant-select-selection-overflow-item {
+      max-width: 200px;
+    }
+
+    .ant-picker-header-view {
+      display: flex;
+    }
+  }
+}
+
+.fullscreen {
+  :global {
+    // 日期框样式全屏
+    .ant-picker-dropdown {
+      width: 100%;
+    }
+    .ant-picker-panel {
+      width: 100%;
+    }
+    .ant-picker-date-panel {
+      width: 100%;
+    }
+    .ant-picker-content {
+      width: 100%;
+    }
+    .ant-picker-range-wrapper {
+      min-width: 280px !important;
+    }
+  }
+}
+
+// popover 浮窗样式
+:global {
+  .action_popover {
+    .ant-popover-inner {
+      border-radius: 8px;
+    }
+    .ant-popover-inner-content {
+      width: 240px;
+      height: 180px;
+      padding: 4px;
+      box-shadow: 0 8px 10px -5px #242f5714, 0 16px 24px 2px #242f570a,
+        0 6px 30px 5px #242f570d;
+      overflow: auto;
+    }
+  }
+}
+
+// 浮窗每一行样式
+.eachOne {
+  height: 32px;
+  width: 100%;
+  padding: 5px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background: #ecf2fe;
+    color: #0052d9;
+  }
+}
+
+.eachOne:not(:last-of-type) {
+  margin-bottom: 4px;
+}
+
+.disabled {
+  color: #00000040;
+  cursor: not-allowed;
+  &:hover {
+    background: transparent;
+    color: #00000040;
+  }
+}
+
+.eachRow {
+  // height: 42px;
+  display: flex;
+  justify-content: space-between;
+  // align-items: center;
+  margin-bottom: 16px;
+
+  & > div:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
+.firstCol {
+  width: 75px;
+}
+
+.secondCol {
+  width: 210px;
+}
+
+.thirdCol {
+  width: 140px;
+}
+
+.fourthCol {
+  flex: 1;
+}
+
+.btns {
+  padding-top: 4px;
+  cursor: pointer;
+}

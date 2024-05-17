@@ -1,0 +1,72 @@
+@borderRadius: var(--radius, 16px);
+
+.mcDrawer {
+  :global {
+    .ant-spin-nested-loading,
+    .ant-spin-container {
+      width: 100%;
+      height: 100%;
+      z-index: 1111;
+    }
+    .ant-spin {
+      max-height: 100vh !important;
+    }
+    .ant-drawer-header {
+      display: none;
+    }
+    .ant-drawer-body {
+      padding: 0;
+    }
+    .ant-drawer-content {
+      border-radius: @borderRadius 0 0 @borderRadius;
+    }
+    .ant-drawer-content-wrapper {
+      min-width: 464px;
+      box-shadow: -3px 4px 9px 0 #0052d912;
+    }
+  }
+}
+
+.mcDrawer_details {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+
+.drawerHeader {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 14px;
+  border-bottom: 1px solid #eaedf7;
+  font-family: PingFangSC-Medium;
+  color: #242f57;
+  font-size: 16px;
+
+  .headerIcons {
+    img {
+      margin-left: 24px;
+      cursor: pointer;
+    }
+  }
+}
+
+.center_content {
+  flex: 1;
+  overflow: auto;
+  overflow-x: hidden; // 全屏后退出时需要
+  padding: 16px;
+}
+
+.bot_btns {
+  height: 83px;
+  line-height: 82px;
+  margin-right: 24px;
+  text-align: end;
+  border-top: 1px solid #eaedf7;
+  button {
+    margin-left: 10px;
+  }
+}

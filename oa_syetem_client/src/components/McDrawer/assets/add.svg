@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="17px" viewBox="0 0 16 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>添加</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="高级筛选" transform="translate(-1259.000000, -16.000000)" fill="#242F57" fill-rule="nonzero">
+            <g id="编组-3" transform="translate(1259.000000, 14.500000)">
+                <g id="添加" transform="translate(0.000000, 2.000000)">
+                    <rect id="矩形" opacity="0" x="0" y="0" width="16" height="16"></rect>
+                    <polygon id="路径" points="1.84615625 7.26153125 14.1538438 7.26153125 14.1538438 8.73846875 1.84615625 8.73846875"></polygon>
+                    <polygon id="路径" points="7.26153125 14.1538438 7.26153125 1.84615625 8.73846875 1.84615625 8.73846875 14.1538438"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
