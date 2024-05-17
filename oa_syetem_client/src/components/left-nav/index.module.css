@@ -1,5 +1,13 @@
 .left_nav {
   color: white;
+  height: 100%;
+}
+.left_nav ul {
+  height: calc(100% - 32px);
+  overflow: auto;
+}
+.left_nav ul::-webkit-scrollbar {
+  display: none;
 }
 .left_nav .left_nav_header {
   height: 80px;

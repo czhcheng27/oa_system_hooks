@@ -28,7 +28,7 @@ import AddCount from "./pages/echarts/CrossTagMsg/addCount";
 import SvgAnm from "./pages/echarts/SvgAnm";
 import ElectronicSignature from "./pages/echarts/ElectronicSignature";
 import AttributeDrag from "./pages/drag/AttributeDrag";
-import AdvanceFilter from "./pages/echarts/AdvanceFilter/const";
+import AdvanceFilter from "./pages/echarts/AdvanceFilter";
 // import ReactSortableComp from "./pages/drag/ReactSortable";
 
 const App = (props) => {
