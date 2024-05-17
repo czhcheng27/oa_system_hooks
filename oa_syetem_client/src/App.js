@@ -28,6 +28,8 @@ import AddCount from "./pages/echarts/CrossTagMsg/addCount";
 import SvgAnm from "./pages/echarts/SvgAnm";
 import ElectronicSignature from "./pages/echarts/ElectronicSignature";
 import AttributeDrag from "./pages/drag/AttributeDrag";
+import AdvanceFilter from "./pages/echarts/AdvanceFilter/const";
+// import ReactSortableComp from "./pages/drag/ReactSortable";
 
 const App = (props) => {
   return (
@@ -44,7 +46,9 @@ const App = (props) => {
           <Route path="/single_vertical_column" element={<SingleColumn />} />
           <Route path="/DND_dragDrop" element={<DNDdragDrop />} />
           <Route path="/attribute_dragDrop" element={<AttributeDrag />} />
+          {/* <Route path="/react_sortable" element={<ReactSortableComp />} /> */}
           <Route path="/project_indicator" element={<ProjectIndicator />} />
+          <Route path="/advance_filter" element={<AdvanceFilter />} />
           <Route path="/question_indicator" element={<IndicatorTwo />} />
           <Route path="/lazy_img" element={<LazyImg />} />
           <Route path="/clipboard" element={<Clipboard />} />
