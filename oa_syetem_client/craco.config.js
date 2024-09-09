@@ -6,6 +6,7 @@ module.exports = {
     alias: {
       "@": path.resolve(__dirname, "src"),
     },
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
   },
   //按需引入
   babel: {

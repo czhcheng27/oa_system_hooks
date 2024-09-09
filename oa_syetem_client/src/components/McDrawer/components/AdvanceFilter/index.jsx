@@ -37,7 +37,7 @@ const dateFormat = "YYYY-MM-DD";
 const { Item, List } = Form;
 const { RangePicker } = DatePicker;
 
-const AdvanceFilter = forwardRef(({ setDisableConfirm, isFullscreen }, ref) => {
+const AdvanceFilter = forwardRef(({ setDisableConfirm }, ref) => {
   const [form] = Form.useForm();
   const advanceFilter = Form.useWatch("advanceFilter", form) || [];
 
@@ -128,7 +128,7 @@ const AdvanceFilter = forwardRef(({ setDisableConfirm, isFullscreen }, ref) => {
   };
 
   useUpdateEffect(() => {
-    setDisableConfirm(!advanceFilter.length);
+    // setDisableConfirm(!advanceFilter.length);
   }, [advanceFilter.length]);
 
   useEffect(() => {
@@ -136,7 +136,7 @@ const AdvanceFilter = forwardRef(({ setDisableConfirm, isFullscreen }, ref) => {
     getStdNameList();
     getDraftInsList();
     // getDraftDeptList();
-    setDisableConfirm(true);
+    // setDisableConfirm(true);
   }, []);
 
   const getFormInitialData = (initData) => {

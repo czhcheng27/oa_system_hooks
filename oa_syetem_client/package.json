@@ -64,7 +64,9 @@
     "start": "craco --openssl-legacy-provider start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src --ext .js,.ts,.jsx,.tsx",
+    "lint-fix": "eslint --fix ./src --ext .js,.ts,.jsx,.tsx"
   },
   "eslintConfig": {
     "extends": [
