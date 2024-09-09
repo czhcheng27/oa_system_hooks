@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import { Button, Drawer } from "antd";
+import DrawerHeader from "src/components/DrawerHeader";
 import Canvas from "./components/editor/Canvas";
 import css from "./index.module.less";
-import DrawerHeader from "src/components/DrawerHeader";
 
-interface LowCodeProps {
-  name: string;
-}
-
-const LowCode: React.FC<LowCodeProps> = ({ name }) => {
+const LowCode: React.FC = () => {
   const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
   return (
     <div className={css.moduleBox}>

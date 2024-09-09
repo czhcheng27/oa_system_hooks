@@ -32,7 +32,7 @@ import AdvanceFilter from "./pages/echarts/AdvanceFilter";
 import LowCode from "./pages/lowCode";
 // import ReactSortableComp from "./pages/drag/ReactSortable";
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -64,7 +64,7 @@ const App = (props) => {
             element={<ElectronicSignature />}
           />
           <Route path="/svg_animation" element={<SvgAnm />} />
-          <Route path="/comps_library_sortablejs" element={<Revision />} />
+          {/* <Route path="/comps_library_sortablejs" element={<Revision />} /> */}
           <Route path="/line_charts" element={<LineCharts />} />
           <Route path="/apr_det_one" element={<ApprovalDetails />} />
           <Route path="/stage_display" element={<StageDash />} />
