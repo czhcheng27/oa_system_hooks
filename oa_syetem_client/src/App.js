@@ -29,6 +29,7 @@ import SvgAnm from "./pages/echarts/SvgAnm";
 import ElectronicSignature from "./pages/echarts/ElectronicSignature";
 import AttributeDrag from "./pages/drag/AttributeDrag";
 import AdvanceFilter from "./pages/echarts/AdvanceFilter";
+import LowCode from "./pages/lowCode";
 // import ReactSortableComp from "./pages/drag/ReactSortable";
 
 const App = (props) => {
@@ -42,6 +43,7 @@ const App = (props) => {
           <Route path="/product" element={<Product />} />
           <Route path="/role" element={<Role />} />
           <Route path="/user" element={<User />} />
+          <Route path="/low_code" element={<LowCode />} />
           <Route path="/drag_horizontal_multiple" element={<DragHorMul />} />
           <Route path="/single_vertical_column" element={<SingleColumn />} />
           <Route path="/DND_dragDrop" element={<DNDdragDrop />} />

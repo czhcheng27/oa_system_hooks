@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "resolutions": {
+    "@types/react": "^17.x",
     "react-error-overlay": "6.0.9"
   },
   "dependencies": {
+    "@ant-design/icons": "4.8.3",
     "@antv/data-set": "^0.10.2",
     "@craco/craco": "^6.4.3",
     "@nteract/mathjax": "^4.0.16",
@@ -13,6 +15,10 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "@tinymce/tinymce-react": "^4.3.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.5.0",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
     "ahooks": "^3.7.10",
     "antd": "^4.24.7",
     "axios": "^0.25.0",
@@ -48,12 +54,14 @@
     "swiper": "8.4.2",
     "three": "^0.153.0",
     "tinymce": "^6.3.2",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.4",
     "use-context-selector": "^1.4.1",
     "uuid": "^9.0.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "craco --openssl-legacy-provider start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"

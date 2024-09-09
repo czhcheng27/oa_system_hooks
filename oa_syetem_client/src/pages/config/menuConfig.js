@@ -37,6 +37,7 @@ export const menuItems = [
   ]),
   getItem("User", "/user", <UserOutlined />),
   getItem("Role", "/role", <FileOutlined />),
+  getItem("LowCode", "/low_code", <WindowsOutlined />),
   getItem("Components", "/components", <BlockOutlined />, [
     getItem(
       "Comps Library",

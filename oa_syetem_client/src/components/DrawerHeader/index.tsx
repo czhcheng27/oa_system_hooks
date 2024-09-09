@@ -1,12 +1,23 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { LeftOutlined } from "@ant-design/icons";
 import style from "./index.module.less";
 
-export default function DrawerHeader({ pageName, backPrev, children }) {
+interface DrawerHeaderProps {
+  pageName?: string;
+  backPrev: () => void;
+  children?: ReactNode;
+}
+
+const defaultProps = {
+  pageName: "Backss",
+  backPrev: () => {},
+};
+
+const DrawerHeader: React.FC<DrawerHeaderProps> = (props = defaultProps) => {
+  const { pageName, backPrev, children } = { ...defaultProps, ...props };
   const handleBackPrev = () => {
     backPrev && backPrev();
   };
-
   return (
     <div className={style.drawerHeader}>
       <div className={style.leftArea}>
@@ -18,4 +29,6 @@ export default function DrawerHeader({ pageName, backPrev, children }) {
       <div className={style.rightArea}>{children}</div>
     </div>
   );
-}
+};
+
+export default DrawerHeader;
