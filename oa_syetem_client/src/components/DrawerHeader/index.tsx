@@ -9,11 +9,11 @@ interface DrawerHeaderProps {
 }
 
 const defaultProps = {
-  pageName: "Backss",
+  pageName: "Back",
   backPrev: () => {},
 };
 
-const DrawerHeader: React.FC<DrawerHeaderProps> = (props = defaultProps) => {
+const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
   const { pageName, backPrev, children } = { ...defaultProps, ...props };
   const handleBackPrev = () => {
     backPrev && backPrev();

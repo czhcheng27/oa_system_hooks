@@ -1,0 +1,40 @@
+@header-footer-bg: #f8f9fa;
+@column-bg: #e9ecef;
+@center-bg: #dee2e6;
+@padding: 10px;
+@text-align: left;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 96vh;
+}
+
+.header,
+.footer {
+  background-color: @header-footer-bg;
+  padding: @padding;
+  text-align: @text-align;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+}
+
+.left,
+.right {
+  flex: 1;
+  background-color: @column-bg;
+  padding: @padding;
+}
+
+.center {
+  flex: 2;
+  background-color: @center-bg;
+  padding: @padding;
+
+  & > div:nth-child(1) {
+    height: 100%;
+  }
+}

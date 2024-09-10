@@ -18,12 +18,9 @@ const LowCode: React.FC = () => {
         open={drawerVisible}
       >
         <div className={css.drawer_content}>
-          <DrawerHeader
-            // pageName={"Back"}
-            backPrev={() => setDrawerVisible(false)}
-          ></DrawerHeader>
+          <DrawerHeader backPrev={() => setDrawerVisible(false)}></DrawerHeader>
 
-          <Canvas name="canvas" />
+          <Canvas />
         </div>
       </Drawer>
     </div>
