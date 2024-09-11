@@ -12,3 +12,12 @@ export interface TextProps {
   fontSize: number;
   textAlign: textAlign;
 }
+
+export interface CardProps {
+  text: string;
+  title: string;
+  description: string;
+  priority: "low" | "medium" | "high";
+  checked: boolean;
+  owner: string;
+}

@@ -4,13 +4,13 @@ import { useEditor, useNode } from "@craftjs/core";
 import { TextSettings } from "./TextSettings";
 import { TextProps } from "../type";
 
-const defaultProps = {
+const defaultProps: TextProps = {
   text: "",
   fontSize: 12,
-  textAlign: "left" as const,
+  textAlign: "left",
 };
 
-export const TextUserComponent = (props: Partial<TextProps> = defaultProps) => {
+export const TextUserComponent = (props: Partial<TextProps>) => {
   const { text, fontSize, textAlign } = {
     ...defaultProps,
     ...props,

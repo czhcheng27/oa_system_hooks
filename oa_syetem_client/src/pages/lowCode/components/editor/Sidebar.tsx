@@ -2,7 +2,11 @@ import React from "react";
 import { FontSizeOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { useEditor } from "@craftjs/core";
 import { Button as AntButton } from "antd";
-import { ButtonUserComponent, TextUserComponent } from "../selectors/basic";
+import {
+  ButtonUserComponent,
+  TextUserComponent,
+  CardUserComponent,
+} from "../selectors/basic";
 
 const Sidebar = () => {
   const { connectors } = useEditor();
@@ -32,6 +36,12 @@ const Sidebar = () => {
       >
         <PlusCircleOutlined style={{ fontSize: "20px", color: "#1890ff" }} />
         <span>Button</span>
+      </AntButton>
+      <AntButton
+        ref={(ref) => connectors.create(ref as any, <CardUserComponent />)}
+      >
+        <PlusCircleOutlined style={{ fontSize: "20px", color: "#1890ff" }} />
+        <span>Card</span>
       </AntButton>
     </div>
   );
