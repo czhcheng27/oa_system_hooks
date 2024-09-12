@@ -81,6 +81,7 @@ const CardUserComponent = (props: Partial<CardProps>) => {
       style={{ position: "relative" }}
       className={classNames({
         [css.moduleBox]: true,
+        [css.moduleBox_selected]: selected,
       })}
     >
       <div ref={wrapperRef}>
