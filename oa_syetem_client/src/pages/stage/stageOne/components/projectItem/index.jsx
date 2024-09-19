@@ -1,5 +1,5 @@
 import React from "react";
-import AutoTooltip from "../../../../../components/AutoTooltip";
+import AutoTooltip from "src/components/AutoTooltip";
 import css from "./index.module.less";
 
 const ProjectItem = ({ data, selectProject, clickProjectCard }) => {

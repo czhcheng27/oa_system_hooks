@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./index.module.less";
-// import AutoTooltip from './'
 // import Ellipsis from "@/components/Ellipsis";
 export default function InfoArea({ data }) {
   return (

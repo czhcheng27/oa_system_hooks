@@ -14,7 +14,7 @@ import DrawerHeader from "../../../../../../../components/DrawerHeader";
 import css from "./index.module.less";
 import LoadingTip from "../../../../../../../components/LoadingTip";
 import { mockCatList, apiCardList } from "./mockData";
-import AutoTooltip from "../../../../../../../components/AutoTooltip";
+import AutoTooltip from "src/components/AutoTooltip";
 import ResizeBar from "../../../../../../../components/ResizeBar";
 import PreviewPage from "./components/previewPage";
 

@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { Typography } from "antd";
 import css from "./index.module.less";
 
-const { Paragraph, Text } = Typography;
+const { Text } = Typography;
+interface AutoTooltipProps {
+  txt: string;
+  maxWidth?: string;
+  div?: ReactNode;
+}
 
-const AutoTooltip = ({ txt, children, maxWidth = "100%", div }) => {
+const AutoTooltip: React.FC<AutoTooltipProps> = ({
+  txt,
+  maxWidth = "100%",
+  div,
+}) => {
   const tooltipObj = {
     title: txt + "1",
     // overlayClassName: css.tooltip_obj,
@@ -17,7 +26,6 @@ const AutoTooltip = ({ txt, children, maxWidth = "100%", div }) => {
       className={css.typography_wrapper}
       ellipsis={{
         onEllipsis: (ellipsis) => {
-          // console.log('Ellipsis changed:', ellipsis);
           setHasEllipsis(ellipsis);
         },
         tooltip: hasEllipsis ? tooltipObj : false,
