@@ -5,7 +5,7 @@ import React, {
   forwardRef,
 } from "react";
 import { Button, Drawer } from "antd";
-import HeaderTip from "../../../../../../../components/headerTip";
+import HeaderTip from "src/components/headerTip";
 // import HeaderTip from "@/components/headerTip";
 import LoadingTip from "../../../../../../../components/LoadingTip";
 import DrawerHeader from "../../../../../../../components/DrawerHeader";
