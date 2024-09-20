@@ -7,7 +7,7 @@ import React, {
 import { Button, Drawer } from "antd";
 import HeaderTip from "src/components/headerTip";
 // import HeaderTip from "@/components/headerTip";
-import LoadingTip from "../../../../../../../components/LoadingTip";
+import LoadingTip from "src/components/LoadingTip";
 import DrawerHeader from "../../../../../../../components/DrawerHeader";
 import Approval from "../approval";
 import HistoryCard from "./HistoryCard";

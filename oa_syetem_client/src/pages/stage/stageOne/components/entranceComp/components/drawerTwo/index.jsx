@@ -12,7 +12,7 @@ import SearchIcon from "./imgs/searchIcon.png";
 import DelIcon from "./imgs/delIcon.png";
 import DrawerHeader from "../../../../../../../components/DrawerHeader";
 import css from "./index.module.less";
-import LoadingTip from "../../../../../../../components/LoadingTip";
+import LoadingTip from "src/components/LoadingTip";
 import { mockCatList, apiCardList } from "./mockData";
 import AutoTooltip from "src/components/AutoTooltip";
 import ResizeBar from "../../../../../../../components/ResizeBar";

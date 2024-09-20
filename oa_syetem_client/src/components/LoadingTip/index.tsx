@@ -4,12 +4,18 @@ import EmptyImg from "./imgs/nodata.png";
 import OvertimeImg from "./imgs/overtime.png";
 import css from "./loadingTip.module.less";
 
-const LoadingTip = ({ status, text, retry }) => {
+interface LoadingTipProps {
+  status: number;
+  text?: string;
+  retry?: () => void;
+}
+
+const LoadingTip: React.FC<LoadingTipProps> = ({ status, text, retry }) => {
   const renderRetry = () => {
     return (
       <div>
         Interface exception, please
-        <span onClick={retry} className={css.retry}>
+        <span onClick={() => (retry ? retry() : {})} className={css.retry}>
           click retry
         </span>
       </div>

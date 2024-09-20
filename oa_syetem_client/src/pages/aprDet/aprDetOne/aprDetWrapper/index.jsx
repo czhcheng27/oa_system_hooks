@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Drawer } from "antd";
-import LoadingTip from "../../../../components/LoadingTip";
+import LoadingTip from "src/components/LoadingTip";
 import DrawerHeader from "../../../../components/DrawerHeader";
 import css from "./index.module.less";
 import Approval from "../components/approval";

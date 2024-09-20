@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "antd";
-import LoadingTip from "../../../components/LoadingTip";
+import LoadingTip from "src/components/LoadingTip";
 import CarouselComp from "./components/carouselComp";
 import EntranceComp from "./components/entranceComp";
 import OutBox from "./components/outBox";

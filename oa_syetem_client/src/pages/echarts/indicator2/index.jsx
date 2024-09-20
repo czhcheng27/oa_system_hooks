@@ -2,8 +2,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { Segmented } from "antd";
 import classNames from "classnames";
-// import LoadingTip from "./components/LoadingTip";
-import LoadingTip from "../../../components/LoadingTip";
+import LoadingTip from "src/components/LoadingTip";
 import FullCycle from "./components/FullCycle";
 import { projectTypes, viewTypes, pscNodeOpts, initCensusData } from "./const";
 import { mockKcpFull, mockPscCurr, mockPscFull } from "./mock";
