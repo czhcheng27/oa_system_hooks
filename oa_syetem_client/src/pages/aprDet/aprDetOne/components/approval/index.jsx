@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { CheckCircleFilled, CloseCircleFilled } from "@ant-design/icons";
 import { mockList } from "./const";
 import css from "./index.module.less";
-import CircleName from "../../../../../components/CircleName";
+import CircleName from "src/components/CircleName";
 import TriDialogBox from "../../../../../components/TriDialogBox";
 
 const Approval = (props) => {

@@ -1,9 +1,20 @@
 import React from "react";
 import css from "./index.module.less";
 
-let displayName;
+let displayName: string;
 
-const CircleName = ({
+interface CircleNameProps {
+  name: string;
+  bgColor?: string;
+  color?: string;
+  width?: string;
+  height?: string;
+  fontSize?: string;
+  requireDigit?: number;
+  sliceFrom?: string;
+}
+
+const CircleName: React.FC<CircleNameProps> = ({
   name = "",
   bgColor = "#4880dc",
   color = "white",
