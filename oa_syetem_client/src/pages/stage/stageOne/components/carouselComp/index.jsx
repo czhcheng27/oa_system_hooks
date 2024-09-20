@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
-import TitleTip from "../../../../../components/TitleTip";
+import TitleTip from "src/components/TitleTip";
 import ProjectItem from "../projectItem";
 import TransferTableModal from "../transferTableModal";
 import css from "./index.module.less";

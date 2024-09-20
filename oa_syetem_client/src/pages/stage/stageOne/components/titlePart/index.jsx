@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Checkbox } from "antd";
-import TitleTip from "../../../../../components/TitleTip";
+import TitleTip from "src/components/TitleTip";
 import css from "./index.module.less";
 
 const opts = ["Need me handle", "Related to me", "Created by me"];

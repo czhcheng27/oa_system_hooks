@@ -2,7 +2,15 @@ import React from "react";
 import Icon from "./imgs/iconTip.png";
 import css from "./index.module.less";
 
-const TitleTip = ({
+interface TitleTipProps {
+  children: string;
+  height?: string;
+  icon?: string;
+  fontWeight?: string;
+  fontSize?: string;
+}
+
+const TitleTip: React.FC<TitleTipProps> = ({
   children,
   height = "24px",
   icon = Icon,
