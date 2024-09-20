@@ -1,7 +1,16 @@
 import React from "react";
 import css from "./index.module.less";
 
-const TriDialogBox = ({
+interface TriDialogBoxProps {
+  content: string;
+  boxStyle: object;
+  marginTop: string;
+  left: string;
+  borderColor: string;
+  background: string;
+}
+
+const TriDialogBox: React.FC<TriDialogBoxProps> = ({
   content,
   boxStyle = {},
   marginTop = "16px",

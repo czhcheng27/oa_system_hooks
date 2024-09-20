@@ -3,7 +3,7 @@ import { CheckCircleFilled, CloseCircleFilled } from "@ant-design/icons";
 import { mockList } from "./const";
 import css from "./index.module.less";
 import CircleName from "src/components/CircleName";
-import TriDialogBox from "../../../../../../../components/TriDialogBox";
+import TriDialogBox from "src/components/TriDialogBox";
 
 const Approval = (props) => {
   const renderItem = (data) => {
