@@ -15,7 +15,7 @@ import css from "./index.module.less";
 import LoadingTip from "src/components/LoadingTip";
 import { mockCatList, apiCardList } from "./mockData";
 import AutoTooltip from "src/components/AutoTooltip";
-import ResizeBar from "../../../../../../../components/ResizeBar";
+import ResizeBar from "src/components/ResizeBar";
 import PreviewPage from "./components/previewPage";
 
 const DrawerTwo = forwardRef((props, ref) => {

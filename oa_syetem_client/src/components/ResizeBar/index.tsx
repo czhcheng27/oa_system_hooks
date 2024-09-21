@@ -1,13 +1,17 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useMemo,
-} from "react";
+import React from "react";
 import css from "./index.module.less";
 
-const ResizeBar = ({ func, min = 314, max = 628 }) => {
+interface ResizeBarProps {
+  func: (p) => void;
+  min?: number;
+  max?: number;
+}
+
+const ResizeBar: React.FC<ResizeBarProps> = ({
+  func,
+  min = 314,
+  max = 628,
+}) => {
   //  拖拽收缩框回调
   const dragStart = (ev) => {
     ev.preventDefault();
