@@ -39,7 +39,7 @@ const fullEleName = getPropertyName(
   ],
   document
 );
-export function fullEle(ele) {
+export function fullEle() {
   return document[fullEleName] || null;
 }
 

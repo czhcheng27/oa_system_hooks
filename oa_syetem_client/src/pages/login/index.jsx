@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Button, Popover, Form, Input, message, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { reqLogin } from "../../api";
+import { reqLogin } from "src/api";
 import memoryUtils from "../../utils/memoryUtils";
 import Logo from "../../assets/logo.png";
 import css from "./index.module.css";

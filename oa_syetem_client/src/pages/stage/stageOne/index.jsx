@@ -8,7 +8,7 @@ import TitleParts from "./components/titlePart";
 import ViewFilter from "./components/viewFilter";
 import TipBox from "./components/tipBox";
 import { data } from "./const";
-import { toggle } from "../../../utils/fullScreen";
+import { toggle } from "src/utils/fullScreen";
 import css from "./index.module.less";
 
 const StageDash = (props) => {

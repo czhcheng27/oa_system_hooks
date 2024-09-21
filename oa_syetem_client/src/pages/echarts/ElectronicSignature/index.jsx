@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { Button } from "antd";
 import css from "./index.module.less";
-import { arrange } from "../../../utils/func";
+import { arrange } from "src/utils/func";
 
 const ElectronicSignature = () => {
   let isDrawing = false;
