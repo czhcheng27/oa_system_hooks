@@ -7,7 +7,6 @@ import { updateOpenedIndex } from "../../../../../../redux/actions";
 // import { updateOpenedIndex } from "@/redux/actions";
 import { findUpperObj, cloneDeep } from "../../../../../../utils";
 // import { findUpperObj, cloneDeep } from "@/utils";
-// import Ellipsis from "@/components/Ellipsis";
 import AddChapter from "../addChapter";
 import MoveAction from "../moveAction";
 import { outlineIconMap, actOutlineIconMap } from "../../../mapConst";
@@ -194,9 +193,7 @@ const Outline = ({ actId, activeOutline, setActiveOutline }) => {
           onMouseEnter={() => addHoverIndex(id)}
           onMouseLeave={() => removeHoverIndex(id)}
         >
-          {/* <Ellipsis content={name}> */}
           <p onClick={(e) => childNodeClick(e, item, id)}>{name}</p>
-          {/* </Ellipsis> */}
           {!!text1Array.length && (
             <img
               className={css.chapter_folder_icon}
@@ -217,9 +214,7 @@ const Outline = ({ actId, activeOutline, setActiveOutline }) => {
                     className={css.text1}
                     key={index}
                   >
-                    {/* <Ellipsis content={txt}> */}
                     <p>{txt}</p>
-                    {/* </Ellipsis> */}
                   </div>
                 );
               })}

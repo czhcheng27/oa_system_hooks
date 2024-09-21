@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Ellipsis from "../../../../../components/Ellipsis";
+import Ellipsis from "src/components/Ellipsis";
 import { data2, initViewList } from "../../const";
 import Rename from "../Rename";
 import css from "./index.module.less";

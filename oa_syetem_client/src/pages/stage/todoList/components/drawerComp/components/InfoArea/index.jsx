@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./index.module.less";
-// import Ellipsis from "@/components/Ellipsis";
+
 export default function InfoArea({ data }) {
   return (
     <div className={style.InfoArea}>
@@ -11,9 +11,6 @@ export default function InfoArea({ data }) {
             <span className={style.text}>{data.ecrNum}</span>
           </p>
           <p className={style.ecrName}>{data.ecrName}</p>
-          {/* <Ellipsis content={data.ecrName}>
-            <p className={style.ecrName}>{data.ecrName}</p>
-          </Ellipsis> */}
         </div>
         <ul className={style.right}>
           <li className={style.projectNoBox}>

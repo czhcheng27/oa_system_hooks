@@ -1,6 +1,6 @@
 import React from "react";
 import AutoTooltip from "src/components/AutoTooltip";
-import Ellipsis from "../../../../../components/Ellipsis";
+import Ellipsis from "src/components/Ellipsis";
 import { taskSatus } from "../../../../../utils";
 import css from "./index.module.less";
 
