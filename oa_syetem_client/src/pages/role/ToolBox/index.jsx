@@ -1,6 +1,5 @@
 import React from "react";
-import Icon from "../../../components/Icon/index";
-// import Icon from "@/components/Icon/index";
+import Icon from "src/components/Icon";
 import css from "./index.module.less";
 
 const array = [

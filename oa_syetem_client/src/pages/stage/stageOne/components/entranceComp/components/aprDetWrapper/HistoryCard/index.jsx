@@ -6,8 +6,7 @@ import React, {
   useMemo,
 } from "react";
 import classNames from "classnames";
-import { useHorizontalScroll } from "../../../../../../../../components/HorizontalScroll";
-// import { useHorizontalScroll } from "@/components/HorizontalScroll";
+import useHorizonalScroll from "src/components/HorizontalScroll";
 import css from "./index.module.less";
 
 const statusMap = {
@@ -19,7 +18,7 @@ const statusMap = {
 const HistoryCard = ({ listData, actIdx, cardClick }) => {
   // console.log('listData', listData, actIdx);
   const arrLength = listData.length;
-  const scrollRef = useHorizontalScroll();
+  const scrollRef = useHorizonalScroll();
 
   const renderCard = () => {
     return listData?.map((el, index) => {
