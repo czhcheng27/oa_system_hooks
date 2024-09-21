@@ -1,12 +1,12 @@
 import React, { useRef, forwardRef, useImperativeHandle } from "react";
 import { useDispatch } from "react-redux";
 import Sortable from "sortablejs";
+import { dragStart } from "src/redux/actions";
 import { cloneDeep } from "../../../../../utils";
 // import { cloneDeep } from "@/utils";
 import IntroContent from "./introContent";
 import SeparateName from "./separateName";
 import { matchCom } from "../../const";
-import { dragStart } from "../../../../../redux/actions";
 import css from "./index.module.less";
 
 let _comList;

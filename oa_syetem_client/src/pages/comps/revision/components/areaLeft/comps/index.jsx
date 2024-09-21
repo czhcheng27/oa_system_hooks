@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Col, Row } from "antd";
 import Sortable from "sortablejs";
+import { dragStart } from "src/redux/actions";
 import { categoryMap, colorCompMap } from "../../../mapConst";
-import { dragStart } from "../../../../../../redux/actions";
 import { coms } from "../../../const";
 import css from "./index.module.less";
 

@@ -1,5 +1,9 @@
 import { combineReducers } from "redux";
-import { SET_OPENED_INDEX, SET_OUTLINE_ALL_DATA, DRAG_START } from "./actions";
+import {
+  SET_OPENED_INDEX,
+  SET_OUTLINE_ALL_DATA,
+  DRAG_START,
+} from "src/redux/actions";
 import { mockOutline } from "../pages/comps/revision/mock";
 
 // 大纲展开的 index 数组集合

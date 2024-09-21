@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Popover, Input, message, Button } from "antd";
 import { cloneDeep } from "lodash";
-import { updateOutlineAllData } from "../../../../../../redux/actions";
+import { updateOutlineAllData } from "src/redux/actions";
 import css from "./index.module.less";
 
 const AddChapter = ({ children }) => {
