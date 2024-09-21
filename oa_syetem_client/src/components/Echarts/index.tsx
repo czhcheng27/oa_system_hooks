@@ -2,9 +2,15 @@ import React, { useEffect, useRef } from "react";
 import * as echarts from "echarts";
 import css from "./index.module.less";
 
-const Echartrs = ({ options, clickMethod }) => {
-  const echartsRef = useRef(null),
-    myChartRef = useRef(null);
+interface EchartsProps {
+  key: string;
+  options: object;
+  clickMethod?: (p) => void;
+}
+
+const Echarts: React.FC<EchartsProps> = ({ key, options, clickMethod }) => {
+  const echartsRef = useRef<any>(),
+    myChartRef = useRef<any>();
   useEffect(() => {
     setTimeout(() => {
       myChartRef.current = echarts.init(echartsRef.current);
@@ -27,4 +33,4 @@ const Echartrs = ({ options, clickMethod }) => {
   return <div className={css.echarts} ref={echartsRef}></div>;
 };
 
-export default Echartrs;
+export default Echarts;

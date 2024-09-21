@@ -1,6 +1,6 @@
 import React from "react";
 import * as echarts from "echarts";
-import Echartrs from "../../../../components/Echarts";
+import Echarts from "src/components/Echarts";
 import { requestData, statusMap, barObj, lineObj, colorMap } from "./const";
 import css from "./index.module.less";
 
@@ -303,7 +303,7 @@ const ChartOne = (props) => {
       </div>
       <div style={{ height: "260px", position: "relative" }}>
         {requestData.length > 0 && (
-          <Echartrs
+          <Echarts
             key={"completionCharts"}
             options={getChartData(requestData)}
             // clickMethod={clickMethod}
