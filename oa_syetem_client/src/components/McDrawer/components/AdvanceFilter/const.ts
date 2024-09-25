@@ -1,3 +1,5 @@
+import { FilterOpts } from "./type";
+
 // 第一列值：当
 export const WHEN = "when";
 export const GREATER = ">";
@@ -135,7 +137,7 @@ export const specialCompMap = {
 60：SelectUserModal
 70：Normal Select With Filter: 下拉选，直接获取全部数据，前端进行搜索过滤
 */
-export const initFilterOpts = [
+export const initFilterOpts: FilterOpts[] = [
   {
     name: STANDARDNO,
     label: "STANDARD NO",

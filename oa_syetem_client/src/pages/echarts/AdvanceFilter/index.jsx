@@ -11,6 +11,7 @@ import { McDrawer } from "../../../components/McDrawer";
 
 const AdvanceFilter = (props) => {
   const drawerRef = useRef();
+
   return (
     <div>
       <Button
@@ -27,7 +28,10 @@ const AdvanceFilter = (props) => {
         Advance Filter
       </Button>
 
-      <McDrawer ref={drawerRef} />
+      <McDrawer
+        ref={drawerRef}
+        callback={(type, res) => console.log(`callback`, type, res)}
+      />
     </div>
   );
 };

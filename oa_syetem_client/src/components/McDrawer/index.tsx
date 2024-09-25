@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { Drawer, Button, Input, message, Spin } from "antd";
 import css1 from "../../assets/css/antdC.module.less";
-import AdvanceFilter from "./components/AdvanceFilter";
+import AdvanceFilter from "./components/AdvanceFilter/index";
 import AmplfyIcon from "./assets/amplfier.svg";
 import CloseIcon from "./assets/close.svg";
 import css from "./index.module.less";
@@ -55,7 +55,7 @@ export const McDrawer = forwardRef<McDrawerRef, McDrawerProps>((props, ref) => {
   //  确认数据
   const callBackData = async () => {
     if (!drawerRef.current) return;
-    let res = drawerRef.current.getSelectData();
+    let res = await drawerRef.current.getSelectData();
     if (res.code == 200) {
       console.log("确认数据", res);
       callback(dictValue.type, res);

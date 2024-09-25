@@ -18,12 +18,21 @@ export type McDrawerProps = {
 // 点击 确定按钮 的返回体
 export type ValueData = {
   code: string | number;
-  data: unknown;
+  data?: unknown;
   message?: string;
 };
 
 // 子组件 ref 暴露的方法
 export type DictRef = {
-  getSelectData: () => ValueData;
+  getSelectData: any;
   resetValueFunc: () => void;
+};
+
+// drawer 公用方法
+export type CommonDrawerFunc = {
+  setConfirmLoading?;
+  setDisableConfirm?;
+  setLoading?;
+  closeHandle?;
+  pureCloseModal?;
 };
