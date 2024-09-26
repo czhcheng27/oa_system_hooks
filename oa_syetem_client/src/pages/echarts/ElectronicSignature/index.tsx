@@ -28,7 +28,7 @@ const ElectronicSignature = () => {
     };
   }, []);
 
-  function startDrawing(e) {
+  function startDrawing(e: MouseEvent) {
     console.log("startDrawing", e);
     isDrawing = true;
     [lastX, lastY] = [e.offsetX, e.offsetY];
@@ -39,7 +39,7 @@ const ElectronicSignature = () => {
   //   arrange("michael").wait(5).doSomething("commit").waitFirst(5).execute()
   // );
 
-  function draw(e) {
+  function draw(e: MouseEvent) {
     if (!isDrawing) return;
     ctx.beginPath();
     ctx.moveTo(lastX, lastY);

@@ -6,8 +6,8 @@ const SwitchTheme = () => {
   // const [theme, setTheme] = useState("light");
   const [theme, setTheme] = useLocalStorage("theme", "light");
 
-  const switchTheme = (res) => {
-    const dom = document.querySelector(".moduleBox");
+  const switchTheme = (res: string) => {
+    const dom = document.querySelector(".moduleBox") as HTMLElement;
     dom.dataset.theme = res;
     setTheme(res);
   };

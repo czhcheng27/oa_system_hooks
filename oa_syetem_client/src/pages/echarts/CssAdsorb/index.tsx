@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import css from "./index.module.less";
 
 const CssAdsorb = () => {

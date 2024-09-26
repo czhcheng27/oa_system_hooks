@@ -12,7 +12,7 @@ const SvgAnm = () => {
   return (
     <div className={css.moduleBox}>
       <svg
-        class="icon"
+        className="icon"
         width="200"
         height="112.53"
         viewBox="0 0 1820 1024"
@@ -20,7 +20,7 @@ const SvgAnm = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         {/* <line class="p" x1="0" y1="50%" x2="100%" y2="50%" /> */}
-        <circle class="p" cx="50%" cy="50%" r="30%" />
+        <circle className="p" cx="50%" cy="50%" r="30%" />
       </svg>
       <div className={css.shadowTxt}>SHADOW TEXT EFFECT</div>
     </div>

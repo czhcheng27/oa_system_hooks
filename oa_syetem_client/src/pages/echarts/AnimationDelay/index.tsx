@@ -1,34 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import css from "./index.module.less";
-import { useEffect } from "react";
 
 const AnimationDelay = () => {
   useEffect(() => {
-    const inp = document.querySelector("input");
-    const face = document.querySelector(".face");
-    const leftEye = document.querySelector(".leftEye");
-    const rightEye = document.querySelector(".rightEye");
-    const mouth = document.querySelector(".mouth");
+    const inp = document.querySelector("input") as HTMLInputElement;
+    const face = document.querySelector(".face") as HTMLElement;
+    const leftEye = document.querySelector(".leftEye") as HTMLElement;
+    const rightEye = document.querySelector(".rightEye") as HTMLElement;
+    const mouth = document.querySelector(".mouth") as HTMLElement;
+    console.log(`1111`, inp, face, leftEye, rightEye, mouth, inp.value);
     inp.oninput = (e) => {
       changeFunc(face, leftEye, rightEye, mouth, inp.value);
     };
     changeFunc(face, leftEye, rightEye, mouth, inp.value);
   }, []);
 
-  const changeFunc = (face, leftEye, rightEye, mouth, value) => {
+  const changeFunc = (
+    face: HTMLElement,
+    leftEye: HTMLElement,
+    rightEye: HTMLElement,
+    mouth: HTMLElement,
+    value: string
+  ) => {
     calc(face, value);
     calc(leftEye, value);
     calc(rightEye, value);
     calc(mouth, value);
   };
 
-  const calc = (dom, value) => {
+  const calc = (dom: HTMLElement, value: string) => {
     dom.style.setProperty("--delay", `-${value}s`);
   };
 
   return (
     <div className={css.box}>
-      {/* <div className={`${css.ball} ball`}></div> */}
       <div className={`${css.face} face`}>
         <div className={`${css.leftEye} leftEye`}></div>
         <div className={`${css.rightEye} rightEye`}></div>

@@ -12,7 +12,7 @@ export type OpenHandleParams = {
 // drawer 的 props 入参
 export type McDrawerProps = {
   callback: (type: string, value: ValueData) => void;
-  callCloseBack: (value: OpenHandleParams) => void;
+  callCloseBack?: (value: OpenHandleParams) => void;
 };
 
 // 点击 确定按钮 的返回体

@@ -1,39 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Input, message } from "antd";
 import css from "./index.module.less";
-import { useEffect } from "react";
 
 const { TextArea } = Input;
 
 const Clipboard = () => {
   useEffect(() => {
-    const notAllowCopy = document.getElementById("notAllowCopy");
+    const notAllowCopy = document.getElementById(
+      "notAllowCopy"
+    ) as HTMLLIElement;
     notAllowCopy.addEventListener("copy", (e) => {
       e.preventDefault();
       message.warn("Copy is not allowed");
     });
 
-    const changeCopyContent = document.getElementById("changeCopyContent");
+    const changeCopyContent = document.getElementById(
+      "changeCopyContent"
+    ) as HTMLLIElement;
     changeCopyContent.addEventListener("copy", (e) => {
       e.preventDefault();
       navigator.clipboard.writeText("Your copy content is changed");
       message.warn("Your copy content is changed");
     });
 
-    const addFollowingTxt = document.getElementById("addFollowingTxt");
+    const addFollowingTxt = document.getElementById(
+      "addFollowingTxt"
+    ) as HTMLLIElement;
     addFollowingTxt.addEventListener("copy", async (e) => {
       const text = await navigator.clipboard.readText();
       navigator.clipboard.writeText(text + "@Michael Cheng");
     });
 
-    const editor = document.getElementById("editor");
+    const editor = document.getElementById("editor") as HTMLLIElement;
     editor.addEventListener("paste", (e) => {
+      if (!e.clipboardData) return;
       if (e.clipboardData.files.length > 0) {
         const file = e.clipboardData.files[0];
         const reader = new FileReader();
         reader.onload = (e) => {
-          const img = document.createElement("img");
-          img.src = e.target.result;
+          const img = document.createElement("img") as HTMLImageElement;
+          img.src = e?.target?.result as string;
           editor.appendChild(img);
         };
         reader.readAsDataURL(file);

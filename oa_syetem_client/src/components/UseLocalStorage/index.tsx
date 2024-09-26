@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-interface useLocalStorageProps {
-  key: string;
-  initialValue: string;
-}
-
-const useLocalStorage: React.FC<useLocalStorageProps> = ({
-  key,
-  initialValue,
-}) => {
+const useLocalStorage = (key: string, initialValue: string) => {
   const [value, setValue] = useState(() => {
     try {
       const localValue = window.localStorage.getItem(key);

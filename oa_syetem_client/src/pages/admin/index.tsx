@@ -9,11 +9,11 @@ import css from "./index.module.less";
 const MOBILE_WIDTH = 992;
 const { Content, Footer, Sider } = Layout;
 
-const Admin = (props) => {
-  const [collapsed, setCollapsed] = useState(false);
+const Admin = () => {
+  const [collapsed, setCollapsed] = useState<boolean>(false);
 
   const resizeHandler = () => {
-    const rect = document.body.getBoundingClientRect();
+    const rect: DOMRect = document.body.getBoundingClientRect();
     const value = rect.width - 1 < MOBILE_WIDTH;
     setCollapsed(value);
   };
