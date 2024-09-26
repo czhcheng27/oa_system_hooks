@@ -1,9 +1,9 @@
 import React from "react";
-import FlipThreeD from "./FlipThreeD";
-import Carousel3D from "./Carousel3D";
-import LotterySpin from "./LotterySpin";
+import FlipThreeD from "./FlipThreeD/index";
+import Carousel3D from "./Carousel3D/index";
+import LotterySpin from "./LotterySpin/index";
 import ToolBox from "./ToolBox";
-import ExtendBox from "./ExtendBox";
+import ExtendBox from "./ExtendBox/index";
 import css from "./index.module.less";
 
 const text =

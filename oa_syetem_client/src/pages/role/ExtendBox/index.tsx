@@ -1,14 +1,8 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useMemo,
-} from "react";
+import React from "react";
 import Icon from "src/components/Icon";
 import css from "./index.module.less";
 
-const ExtendBox = (props) => {
+const ExtendBox = () => {
   return (
     <div className={css.moduleBox}>
       <div className={css.item}>

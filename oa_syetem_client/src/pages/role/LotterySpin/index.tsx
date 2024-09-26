@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { lotteryData } from "./mock";
+import { PrizeObj } from "./type";
+import { lotteryData } from "./const";
 import css from "./index.module.less";
 
 const CIRCLE_ANGLE = 360;
 const BIGSIZE = 24;
-let angleList = []; // 记录每个奖的位置
+let angleList: any[] = []; // 记录每个奖的位置
 
 //每个奖增加style
-const format = (list) => {
+const format = (list: PrizeObj[]) => {
   const l = list.length;
   // 计算单个奖项所占的角度
   const average = CIRCLE_ANGLE / l; //60
   const half = average / 2; //30
-  const rightBig = l == 2 ? "50" : "0";
+  const rightBig = l == 2 ? 50 : 0;
   const heightBig = l <= 3 ? "100" : "50";
   const topBig = l == 3 ? "-50" : "0";
   const skewMain = l <= 2 ? 0 : (-(l - 4) * 90) / l;
@@ -41,10 +42,10 @@ const format = (list) => {
   return list;
 };
 
-const LotterySpin = (props) => {
+const LotterySpin = () => {
   let gift_id = 3; //中奖ID
   let prizeList = format(lotteryData); //有样式的奖品列表
-  let index = ""; //抽中的是第几个奖品
+  let index: string | number = ""; //抽中的是第几个奖品
 
   const [rotateAngle, setRotateAngle] = useState(0); // 初始角度
   const [isRotating, setIsRotating] = useState(false); //为了防止重复点击

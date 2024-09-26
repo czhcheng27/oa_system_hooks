@@ -1,7 +1,7 @@
 import React from "react";
 import css from "./index.module.less";
 
-const Carousel3D = (props) => {
+const Carousel3D = () => {
   return (
     <div className={css.container}>
       <div className={css.cardBox}>

@@ -1,7 +1,7 @@
 import React from "react";
 import css from "./index.module.less";
 
-const FlipThreeD = (props) => {
+const FlipThreeD = () => {
   return (
     <div className={css.card}>
       <div className={css.front}>
