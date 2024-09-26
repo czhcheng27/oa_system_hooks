@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useLocalStorage from "../../../components/UseLocalStorage";
+import useLocalStorage from "src/components/UseLocalStorage";
 import css from "./index.module.less";
 
 const SwitchTheme = () => {

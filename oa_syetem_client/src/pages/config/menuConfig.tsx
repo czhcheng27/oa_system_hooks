@@ -20,7 +20,19 @@ import {
   AreaChartOutlined,
 } from "@ant-design/icons";
 
-function getItem(label, key, icon, children) {
+interface GetItemParams {
+  key: string;
+  label: string;
+  icon: any;
+  children?: GetItemParams[];
+}
+
+function getItem(
+  label: string,
+  key: string,
+  icon: any,
+  children?: GetItemParams[]
+) {
   return {
     key,
     icon,

@@ -1,11 +1,15 @@
 import React from "react";
 import { Menu } from "antd";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { menuItems } from "src/pages/config/menuConfig";
 import logo from "../../assets/logo.png";
 import css from "./index.module.css";
-import { menuItems } from "../../pages/config/menuConfig";
 
-const LeftNav = ({ collapsed }) => {
+interface LeftNavProps {
+  collapsed: boolean;
+}
+
+const LeftNav: React.FC<LeftNavProps> = ({ collapsed }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -21,7 +25,7 @@ const LeftNav = ({ collapsed }) => {
       </Link>
       <Menu
         theme="dark"
-        defaultOpenKeys={[openKey?.key]}
+        defaultOpenKeys={[openKey?.key as string]}
         selectedKeys={[location.pathname]}
         mode="inline"
         items={menuItems}

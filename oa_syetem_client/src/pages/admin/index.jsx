@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Layout } from "antd";
 import { Navigate, Outlet } from "react-router-dom";
-import LeftNav from "../../components/left-nav";
+import LeftNav from "src/components/left-nav";
 import Header from "../../components/header/index";
 import memoryUtils from "../../utils/memoryUtils";
 import css from "./index.module.less";
