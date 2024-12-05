@@ -49,7 +49,7 @@ export const menuItems = [
   ]),
   getItem("User", "/user", <UserOutlined />),
   getItem("Role", "/role", <FileOutlined />),
-  getItem("LowCode", "/low_code", <WindowsOutlined />),
+  // getItem("LowCode", "/low_code", <WindowsOutlined />),
   getItem("Components", "/components", <BlockOutlined />, [
     getItem(
       "Comps Library",
@@ -68,7 +68,7 @@ export const menuItems = [
     getItem("Attribute-dragDrop", "/attribute_dragDrop", <MoreOutlined />),
     // getItem("React-Sortable", "/react_sortable", <MoreOutlined />),
   ]),
-  getItem("Func", "/echarts", <PieChartOutlined />, [
+  getItem("Simples", "/simples", <PieChartOutlined />, [
     getItem("Indicator1", "/project_indicator", <DesktopOutlined />),
     getItem("Indicator2", "/question_indicator", <ContainerOutlined />),
     getItem("Indicator3", "/line_charts", <LineChartOutlined />),
