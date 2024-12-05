@@ -1,6 +1,5 @@
 import React from "react";
 import MyConsult from "./components/MyConsult";
-import ChartOne from "./chartOne";
 import RotateVehicle from "./components/RotateVehicle";
 import BtnBox from "./components/BtnBox";
 import Waapi from "./components/Waapi";
@@ -17,7 +16,6 @@ const LineCharts = (props) => {
       <div className={css.waapiBox}>
         <Waapi />
       </div>
-      <ChartOne />
     </div>
   );
 };
