@@ -30,10 +30,10 @@ const Login = (props) => {
     const { status, data } = await reqLogin(username, password);
     if (status === 0) {
       message.success("login successfully");
-      navigate("/", { replace: true });
       //save user
       memoryUtils.user = data;
       storageUtils.saveUser(data); //save to localStorage
+      navigate("/", { replace: true });
     } else {
       message.error("username or password not correct");
     }
