@@ -7,7 +7,6 @@ import Revision from "./pages/comps/revision";
 import DragHorMul from "./pages/drag/dragHorMul";
 import SingleColumn from "./pages/drag/SingleColumn";
 import LineCharts from "./pages/simples/lineCharts";
-import ProjectIndicator from "./pages/simples/projectIndicator";
 import Home from "./pages/home/index";
 import Login from "./pages/login";
 import Product from "./pages/product/index";
