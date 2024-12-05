@@ -30,6 +30,7 @@ import ElectronicSignature from "./pages/simples/ElectronicSignature/index";
 import AttributeDrag from "./pages/drag/AttributeDrag";
 import AdvanceFilter from "./pages/simples/AdvanceFilter/index";
 import LowCode from "./pages/lowCode";
+import EchartsComp from "./pages/simples/Echarts";
 // import ReactSortableComp from "./pages/drag/ReactSortable";
 
 const App = () => {
@@ -49,7 +50,7 @@ const App = () => {
           <Route path="/DND_dragDrop" element={<DNDdragDrop />} />
           <Route path="/attribute_dragDrop" element={<AttributeDrag />} />
           {/* <Route path="/react_sortable" element={<ReactSortableComp />} /> */}
-          <Route path="/project_indicator" element={<ProjectIndicator />} />
+          <Route path="/echarts_simples" element={<EchartsComp />} />
           <Route path="/advance_filter" element={<AdvanceFilter />} />
           <Route path="/question_indicator" element={<IndicatorTwo />} />
           <Route path="/lazy_img" element={<LazyImg />} />

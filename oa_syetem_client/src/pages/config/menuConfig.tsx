@@ -50,13 +50,13 @@ export const menuItems = [
   getItem("User", "/user", <UserOutlined />),
   getItem("Role", "/role", <FileOutlined />),
   // getItem("LowCode", "/low_code", <WindowsOutlined />),
-  getItem("Components", "/components", <BlockOutlined />, [
-    getItem(
-      "Comps Library",
-      "/comps_library_sortablejs",
-      <MergeCellsOutlined />
-    ),
-  ]),
+  // getItem("Components", "/components", <BlockOutlined />, [
+  //   getItem(
+  //     "Comps Library",
+  //     "/comps_library_sortablejs",
+  //     <MergeCellsOutlined />
+  //   ),
+  // ]),
   getItem("Drag", "/drag", <ChromeOutlined />, [
     getItem(
       "Multi-Lists",
@@ -69,7 +69,6 @@ export const menuItems = [
     // getItem("React-Sortable", "/react_sortable", <MoreOutlined />),
   ]),
   getItem("Simples", "/simples", <PieChartOutlined />, [
-    getItem("Indicator1", "/project_indicator", <DesktopOutlined />),
     getItem("Indicator2", "/question_indicator", <ContainerOutlined />),
     getItem("Indicator3", "/line_charts", <LineChartOutlined />),
     getItem("Indicator4", "/lazy_img", <LineChartOutlined />),
@@ -85,6 +84,7 @@ export const menuItems = [
       <LineChartOutlined />
     ),
     getItem("SvgAnm", "/svg_animation", <LineChartOutlined />),
+    getItem("Echarts", "/echarts_simples", <DesktopOutlined />),
   ]),
   getItem("Approval", "/approval", <ContainerOutlined />, [
     getItem("APR & Details", "/apr_det_one", <FlagOutlined />),
