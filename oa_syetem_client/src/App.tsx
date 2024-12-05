@@ -6,7 +6,7 @@ import Category from "./pages/category/index";
 import Revision from "./pages/comps/revision";
 import DragHorMul from "./pages/drag/dragHorMul";
 import SingleColumn from "./pages/drag/SingleColumn";
-import LineCharts from "./pages/simples/lineCharts";
+import VehicleRotation from "./pages/simples/VehicleRotation";
 import Home from "./pages/home/index";
 import Login from "./pages/login";
 import Product from "./pages/product/index";
@@ -16,9 +16,9 @@ import User from "./pages/user";
 import TodoList from "./pages/stage/todoList";
 import BigScreen1 from "./pages/bigScreen/bigScreen1";
 import DNDdragDrop from "./pages/drag/DNDdragDrop";
-import LazyImg from "./pages/simples/lazyImg";
-import IndicatorTwo from "./pages/simples/indicator2";
-import Clipboard from "./pages/simples/clipboard/index";
+import LazyImg from "./pages/simples/LazyImg";
+import IndicatorTwo from "./pages/simples/Indicator";
+import Clipboard from "./pages/simples/Clipboard/index";
 import CssAdsorb from "./pages/simples/CssAdsorb/index";
 import SwitchTheme from "./pages/simples/SwitchTheme/index";
 import AnimationDelay from "./pages/simples/AnimationDelay/index";
@@ -65,7 +65,7 @@ const App = () => {
           />
           <Route path="/svg_animation" element={<SvgAnm />} />
           {/* <Route path="/comps_library_sortablejs" element={<Revision />} /> */}
-          <Route path="/line_charts" element={<LineCharts />} />
+          <Route path="/vehicle_rotate" element={<VehicleRotation />} />
           <Route path="/apr_det_one" element={<ApprovalDetails />} />
           <Route path="/stage_display" element={<StageDash />} />
           <Route path="/todo_list" element={<TodoList />} />

@@ -5,7 +5,7 @@ import BtnBox from "./components/BtnBox";
 import Waapi from "./components/Waapi";
 import css from "./index.module.less";
 
-const LineCharts = (props) => {
+const VehicleRotation = (props) => {
   return (
     <div>
       <div className={css.centerBox}>
@@ -20,4 +20,4 @@ const LineCharts = (props) => {
   );
 };
 
-export default LineCharts;
+export default VehicleRotation;

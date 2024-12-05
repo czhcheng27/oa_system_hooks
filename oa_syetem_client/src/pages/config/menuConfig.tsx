@@ -69,8 +69,8 @@ export const menuItems = [
     // getItem("React-Sortable", "/react_sortable", <MoreOutlined />),
   ]),
   getItem("Simples", "/simples", <PieChartOutlined />, [
-    getItem("Indicator2", "/question_indicator", <ContainerOutlined />),
-    getItem("Indicator3", "/line_charts", <LineChartOutlined />),
+    getItem("Indicator", "/question_indicator", <ContainerOutlined />),
+    getItem("VehicleRotation", "/vehicle_rotate", <LineChartOutlined />),
     getItem("LazyImg", "/lazy_img", <LineChartOutlined />),
     getItem("AdvanceFilter", "/advance_filter", <LineChartOutlined />),
     getItem("Clipboard", "/clipboard", <LineChartOutlined />),
