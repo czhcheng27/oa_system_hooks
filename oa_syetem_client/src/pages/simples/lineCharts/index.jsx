@@ -9,9 +9,9 @@ const LineCharts = (props) => {
   return (
     <div>
       <div className={css.centerBox}>
-        <MyConsult />
-        <RotateVehicle />
         <BtnBox />
+        <RotateVehicle />
+        <MyConsult />
       </div>
       <div className={css.waapiBox}>
         <Waapi />
