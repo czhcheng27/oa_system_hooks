@@ -8,17 +8,17 @@ const LazyImg = () => {
     const ob = new IntersectionObserver(
       (entries) => {
         console.log("回调函数：在交叉改变的时候运行", entries);
-        // for (let entry of entries) {
-        //   // 交叉了
-        //   if (entry.isIntersecting) {
-        //     // entry.target 交叉的目标元素
-        //     const img = entry.target;
-        //     img.src = img.dataset.src;
+        for (let entry of entries) {
+          // 交叉了
+          if (entry.isIntersecting) {
+            // entry.target 交叉的目标元素
+            const img = entry.target;
+            img.src = img.dataset.src;
 
-        //     // 一旦加载完成，就不需要观察了
-        //     ob.unobserve(img);
-        //   }
-        // }
+            // 一旦加载完成，就不需要观察了
+            ob.unobserve(img);
+          }
+        }
       },
       {
         root: null, // 默认是视窗
@@ -42,35 +42,35 @@ const LazyImg = () => {
       <div className={css.item}>
         <img
           src={require("./assets/bgBand.png").default}
-          data-src="./assets/zhaoyun.jpeg"
+          data-src={require("./assets/zhaoyun.jpeg").default}
           alt="a"
         />
       </div>
       <div className={css.item}>
         <img
           src={require("./assets/bgBand.png").default}
-          data-src="./assets/zhaoyun.jpeg"
+          data-src={require("./assets/zhaoyun.jpeg").default}
           alt="a"
         />
       </div>
       <div className={css.item}>
         <img
           src={require("./assets/bgBand.png").default}
-          data-src="./assets/zhaoyun.jpeg"
+          data-src={require("./assets/zhaoyun.jpeg").default}
           alt="a"
         />
       </div>
       <div className={css.item}>
         <img
           src={require("./assets/bgBand.png").default}
-          data-src="./assets/zhaoyun.jpeg"
+          data-src={require("./assets/zhaoyun.jpeg").default}
           alt="a"
         />
       </div>
       <div className={css.item}>
         <img
           src={require("./assets/bgBand.png").default}
-          data-src="./assets/zhaoyun.jpeg"
+          data-src={require("./assets/zhaoyun.jpeg").default}
           alt="a"
         />
       </div>

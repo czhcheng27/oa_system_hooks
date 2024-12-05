@@ -71,7 +71,7 @@ export const menuItems = [
   getItem("Simples", "/simples", <PieChartOutlined />, [
     getItem("Indicator2", "/question_indicator", <ContainerOutlined />),
     getItem("Indicator3", "/line_charts", <LineChartOutlined />),
-    getItem("Indicator4", "/lazy_img", <LineChartOutlined />),
+    getItem("LazyImg", "/lazy_img", <LineChartOutlined />),
     getItem("AdvanceFilter", "/advance_filter", <LineChartOutlined />),
     getItem("Clipboard", "/clipboard", <LineChartOutlined />),
     getItem("CssAdsorb", "/css_adsorb", <LineChartOutlined />),
