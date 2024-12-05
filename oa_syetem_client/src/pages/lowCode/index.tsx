@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Drawer } from "antd";
 import DrawerHeader from "src/components/DrawerHeader";
-import Canvas from "./components/editor/Canvas";
+// import Canvas from "./components/editor/Canvas";
 import css from "./index.module.less";
 
 const LowCode: React.FC = () => {
@@ -20,7 +20,7 @@ const LowCode: React.FC = () => {
         <div className={css.drawer_content}>
           <DrawerHeader backPrev={() => setDrawerVisible(false)}></DrawerHeader>
 
-          <Canvas />
+          {/* <Canvas /> */}
         </div>
       </Drawer>
     </div>

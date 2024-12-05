@@ -43,7 +43,7 @@ const App = () => {
           <Route path="/product" element={<Product />} />
           <Route path="/role" element={<Role />} />
           <Route path="/user" element={<User />} />
-          <Route path="/low_code" element={<LowCode />} />
+          {/* <Route path="/low_code" element={<LowCode />} /> */}
           <Route path="/drag_horizontal_multiple" element={<DragHorMul />} />
           <Route path="/single_vertical_column" element={<SingleColumn />} />
           <Route path="/DND_dragDrop" element={<DNDdragDrop />} />
