@@ -1,25 +1,31 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Tooltip } from "antd";
-import { exhibition, initChangeState, quickEntry } from "../../const";
-import css from "./index.module.less";
-import { useRef } from "react";
 import AprDetWrapper from "./components/aprDetWrapper";
 import DrawerTwo from "./components/drawerTwo";
 import DrawerThree from "./components/drawerThree";
+import DrawerFive from "./components/drawerFive";
 import DrawerSix from "./components/drawerSix";
+import { exhibition, initChangeState, quickEntry } from "../../const";
+import css from "./index.module.less";
 
 const EntranceComp = (props) => {
   const drawer1Ref = useRef();
   const drawer2Ref = useRef();
   const drawer3Ref = useRef();
+  const drawer5Ref = useRef();
   const drawer6Ref = useRef();
 
   const drawerRefMap = {
     0: drawer1Ref,
     1: drawer2Ref,
     2: drawer3Ref,
+    4: drawer5Ref,
     5: drawer6Ref,
   };
+
+  useEffect(() => {
+    drawer5Ref.current.openHandle();
+  }, []);
 
   return (
     <div>
@@ -94,6 +100,7 @@ const EntranceComp = (props) => {
       <AprDetWrapper ref={drawer1Ref} />
       <DrawerTwo ref={drawer2Ref} />
       <DrawerThree ref={drawer3Ref} />
+      <DrawerFive ref={drawer5Ref} />
       <DrawerSix ref={drawer6Ref} />
     </div>
   );
