@@ -26,11 +26,11 @@ export const mockData = [
     number: "1",
     contentVOList: [
       {
-        name: "S1",
+        name: "P0",
         pageNo: 3,
       },
       {
-        name: "S2",
+        name: "P123",
         pageNo: 4,
       },
     ],
@@ -40,11 +40,11 @@ export const mockData = [
     number: "1.1",
     contentVOList: [
       {
-        name: "S1",
+        name: "P4.1",
         pageNo: 5,
       },
       {
-        name: "S2",
+        name: "P4.2",
         pageNo: 6,
       },
     ],
@@ -70,19 +70,19 @@ export const mockData = [
         pageNo: 10,
       },
       {
-        name: "P5.1",
+        name: "P0",
         pageNo: 11,
       },
       {
-        name: "P5.2",
+        name: "P123",
         pageNo: 12,
       },
       {
-        name: "P6",
+        name: "P4.1",
         pageNo: 13,
       },
       {
-        name: "P0",
+        name: "P4.2",
         pageNo: 14,
       },
     ],

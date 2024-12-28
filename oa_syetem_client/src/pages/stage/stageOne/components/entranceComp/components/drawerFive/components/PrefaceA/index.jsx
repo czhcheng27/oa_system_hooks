@@ -2,22 +2,22 @@ import React, { useState, useEffect, forwardRef, useContext } from "react";
 import { FlipBookContext } from "../..";
 import css from "./index.module.less";
 
-const PageB = ({ initData }, ref) => {
+const PrefaceA = ({ initData }, ref) => {
   const { pageNum, chapterNo, pageVisible } = initData;
   const { getChapterPageParam, updateChapterPageParam } =
     useContext(FlipBookContext);
 
   useEffect(() => {
     if (pageVisible) {
-      console.log(`调用第"${pageNum}"页的接口`);
+      console.log(`call page"${pageNum}" api, and render page${pageNum}`);
     }
   }, [pageVisible]);
 
   return (
     <div ref={ref} className={css.moduleBox}>
-      {pageVisible ? <>chapter{chapterNo} PageB</> : null}
+      {pageVisible ? <>PrefaceA</> : null}
     </div>
   );
 };
 
-export default forwardRef(PageB);
+export default forwardRef(PrefaceA);

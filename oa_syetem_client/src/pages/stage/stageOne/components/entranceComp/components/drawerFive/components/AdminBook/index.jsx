@@ -1,26 +1,16 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useMemo,
-  forwardRef,
-} from "react";
-import HTMLFlipBook from "react-pageflip";
-import { sum } from "lodash";
-import css from "./index.module.less";
+import React, { useState, useRef, useMemo, forwardRef } from "react";
 import { useSize } from "ahooks";
-import PageB from "../PageB";
-import { pageCompMap } from "../../bookConfig";
+import HTMLFlipBook from "react-pageflip";
 import classNames from "classnames";
+import { sum } from "lodash";
+import { pageCompMap } from "../../bookConfig";
 import CoverPage from "../CoverPage";
 import EndPage from "../EndPage";
+import css from "./index.module.less";
 
-const AdminBook = ({ pageList, onPage }, ref) => {
+const AdminBook = ({ pageList, visiblePageArray, onPage }, ref) => {
   const divRef = useRef(null);
   const size = useSize(divRef);
-
-  console.log(`size`, size);
 
   const renderBook = () => {
     return size ? (
@@ -64,16 +54,21 @@ const AdminBook = ({ pageList, onPage }, ref) => {
     return contentVOList.map((el, idx) => {
       const PageComp = pageCompMap[el.name];
       const pageNum = prevPages + idx;
-      // const pageVisible = visiblePageArray.includes(pageNum);
+      const pageVisible = visiblePageArray.includes(pageNum);
       const leftPage = pageNum % 2 !== 0;
       return (
         <div
           key={`${chapterNo}_${index}_${idx}`}
           className={classNames({
             [css.eachPageCompWrapper]: true,
+            [css.eachLeftPageWrapper]: leftPage,
+            [css.eachRightPageWrapper]: !leftPage,
           })}
         >
-          <PageComp initData={{ ...el, pageNum }} />
+          <div className={leftPage ? css.leftPageNo : css.rightPageNo}>
+            {pageNum}
+          </div>
+          <PageComp initData={{ ...el, pageNum, chapterNo, pageVisible }} />
         </div>
       );
     });

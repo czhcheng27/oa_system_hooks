@@ -1,8 +1,8 @@
-import React, { useState, useEffect, forwardRef, useContext } from "react";
+import React, { useState, useEffect, useContext, forwardRef } from "react";
 import { FlipBookContext } from "../..";
 import css from "./index.module.less";
 
-const PageB = ({ initData }, ref) => {
+const PageD = ({ initData }, ref) => {
   const { pageNum, chapterNo, pageVisible } = initData;
   const { getChapterPageParam, updateChapterPageParam } =
     useContext(FlipBookContext);
@@ -15,9 +15,9 @@ const PageB = ({ initData }, ref) => {
 
   return (
     <div ref={ref} className={css.moduleBox}>
-      {pageVisible ? <>chapter{chapterNo} PageB</> : null}
+      {pageVisible ? <>chapter{chapterNo} PageD</> : null}
     </div>
   );
 };
 
-export default forwardRef(PageB);
+export default forwardRef(PageD);
