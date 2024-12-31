@@ -23,9 +23,9 @@ const EntranceComp = (props) => {
     5: drawer6Ref,
   };
 
-  useEffect(() => {
-    drawer5Ref.current.openHandle();
-  }, []);
+  // useEffect(() => {
+  //   drawer5Ref.current.openHandle();
+  // }, []);
 
   return (
     <div>

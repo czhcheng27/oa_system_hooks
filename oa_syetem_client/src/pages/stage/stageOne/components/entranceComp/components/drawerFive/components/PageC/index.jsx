@@ -9,7 +9,7 @@ const PageC = ({ initData }, ref) => {
 
   useEffect(() => {
     if (pageVisible) {
-      console.log(`调用第"${pageNum}"页的接口`);
+      console.log(`call page"${pageNum}" api, and render page${pageNum}`);
     }
   }, [pageVisible]);
 
