@@ -1,4 +1,9 @@
-import React, { useState, createContext } from "react";
+import React, {
+  useState,
+  createContext,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 import { Drawer, Button } from "antd";
 import { useUpdateEffect } from "ahooks";
 import { DragDropContext } from "react-beautiful-dnd";
@@ -6,16 +11,16 @@ import classNames from "classnames";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import Toolbar from "../Toolbar";
 import EditArea from "../EditArea";
+import AttrArea from "../AttrArea";
 import DrawerHeader from "../../../../../components/DrawerHeader";
 import { cloneDeep, createUidKey } from "../../../../../utils";
 import { CompCategory } from "../../config";
 import css from "./index.module.less";
-import AttrArea from "../AttrArea";
 
 export const LayoutContext = createContext();
 
-const DrawerLayout = ({ closeDrawer }) => {
-  const [visible, setVisible] = useState(true);
+const DrawerLayout = (props, ref) => {
+  const [visible, setVisible] = useState(false);
   const [compList, setCompList] = useState([]); // all component list
   // Center Edit Area
   const [activeComp, setActiveComp] = useState(null); // selected components
@@ -24,6 +29,10 @@ const DrawerLayout = ({ closeDrawer }) => {
   // Right Attribute Area
   const [activeAttrTab, setActiveAttrTab] = useState("Attribute"); // 当前选中的tab
   const [attrOpt, setAttrOpt] = useState(null); // 属性配置\样式配置\权限配置
+
+  useImperativeHandle(ref, () => ({
+    openHandle,
+  }));
 
   useUpdateEffect(() => {
     updateCompProperties(attrOpt);
@@ -42,11 +51,15 @@ const DrawerLayout = ({ closeDrawer }) => {
     setCompList(newListWithProperties);
   };
 
+  const openHandle = () => {
+    setVisible(true);
+  };
+
   const closeHandle = () => {
     setVisible(false);
-    setTimeout(() => {
-      closeDrawer();
-    }, 300);
+    // setTimeout(() => {
+    //   closeDrawer();
+    // }, 300);
   };
 
   /**
@@ -185,4 +198,4 @@ const DrawerLayout = ({ closeDrawer }) => {
   );
 };
 
-export default DrawerLayout;
+export default forwardRef(DrawerLayout);

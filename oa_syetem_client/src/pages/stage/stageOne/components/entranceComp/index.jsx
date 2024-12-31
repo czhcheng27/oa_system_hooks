@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Tooltip } from "antd";
+import { McDrawer } from "src/components/McDrawer";
+import DrawerLayout from "src/pages/drag/AttributeDrag/components/DrawerLayout";
 import AprDetWrapper from "./components/aprDetWrapper";
 import DrawerTwo from "./components/drawerTwo";
 import DrawerThree from "./components/drawerThree";
@@ -7,7 +9,6 @@ import DrawerFive from "./components/drawerFive";
 import DrawerSix from "./components/drawerSix";
 import { exhibition, initChangeState, quickEntry } from "../../const";
 import css from "./index.module.less";
-import { McDrawer } from "src/components/McDrawer";
 
 const EntranceComp = (props) => {
   const drawer1Ref = useRef();
@@ -108,7 +109,7 @@ const EntranceComp = (props) => {
         </div>
       </div>
       <AprDetWrapper ref={drawer1Ref} />
-      <DrawerTwo ref={drawer2Ref} />
+      <DrawerLayout ref={drawer2Ref} />
       <DrawerThree ref={drawer3Ref} />
       <DrawerFive ref={drawer5Ref} />
       <DrawerSix ref={drawer6Ref} />

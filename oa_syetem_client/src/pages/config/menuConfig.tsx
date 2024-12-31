@@ -65,14 +65,13 @@ export const menuItems = [
     ),
     getItem("Single-Column", "/single_vertical_column", <MoreOutlined />),
     getItem("DND-dragDrop", "/DND_dragDrop", <MergeCellsOutlined />),
-    getItem("Attribute-dragDrop", "/attribute_dragDrop", <MoreOutlined />),
+    // getItem("Attribute-dragDrop", "/attribute_dragDrop", <MoreOutlined />),
     // getItem("React-Sortable", "/react_sortable", <MoreOutlined />),
   ]),
   getItem("Simples", "/simples", <PieChartOutlined />, [
     getItem("Indicator", "/question_indicator", <ContainerOutlined />),
     getItem("VehicleRotation", "/vehicle_rotate", <LineChartOutlined />),
     getItem("LazyImg", "/lazy_img", <LineChartOutlined />),
-    getItem("AdvanceFilter", "/advance_filter", <LineChartOutlined />),
     getItem("Clipboard", "/clipboard", <LineChartOutlined />),
     getItem("CssAdsorb", "/css_adsorb", <LineChartOutlined />),
     getItem("SwitchTheme", "/switch_theme", <LineChartOutlined />),
@@ -86,9 +85,9 @@ export const menuItems = [
     getItem("SvgAnm", "/svg_animation", <LineChartOutlined />),
     getItem("Echarts", "/echarts_simples", <DesktopOutlined />),
   ]),
-  getItem("Approval", "/approval", <ContainerOutlined />, [
-    getItem("APR & Details", "/apr_det_one", <FlagOutlined />),
-  ]),
+  // getItem("Approval", "/approval", <ContainerOutlined />, [
+  //   getItem("APR & Details", "/apr_det_one", <FlagOutlined />),
+  // ]),
   getItem("Stage", "/stage", <HeatMapOutlined />, [
     getItem("Stage Display", "/stage_display", <ApartmentOutlined />),
     getItem("TodoList", "/todo_list", <PicLeftOutlined />),
