@@ -7,11 +7,13 @@ import DrawerFive from "./components/drawerFive";
 import DrawerSix from "./components/drawerSix";
 import { exhibition, initChangeState, quickEntry } from "../../const";
 import css from "./index.module.less";
+import { McDrawer } from "src/components/McDrawer";
 
 const EntranceComp = (props) => {
   const drawer1Ref = useRef();
   const drawer2Ref = useRef();
   const drawer3Ref = useRef();
+  const drawerRef = useRef();
   const drawer5Ref = useRef();
   const drawer6Ref = useRef();
 
@@ -86,7 +88,15 @@ const EntranceComp = (props) => {
                   className={`${css.item} ${css[item["name"]]}`}
                   key={index}
                   onClick={() => {
-                    drawerRefMap[index].current.openHandle();
+                    index === 3
+                      ? drawerRef.current.openHandle({
+                          type: "advanceFilter",
+                          title: "Advance Filter",
+                          width: 776,
+                          confirmBtnTxt: "Filter",
+                          closeBtnTxt: "Clear",
+                        })
+                      : drawerRefMap[index].current.openHandle();
                   }}
                 >
                   <p className={css.icon}></p>
@@ -102,6 +112,10 @@ const EntranceComp = (props) => {
       <DrawerThree ref={drawer3Ref} />
       <DrawerFive ref={drawer5Ref} />
       <DrawerSix ref={drawer6Ref} />
+      <McDrawer
+        ref={drawerRef}
+        callback={(type, res) => console.log(`callback`, type, res)}
+      />
     </div>
   );
 };

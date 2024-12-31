@@ -8,10 +8,10 @@ import React, {
 import { Drawer, Button, Input, message, Spin } from "antd";
 import css1 from "../../assets/css/antdC.module.less";
 import AdvanceFilter from "./components/AdvanceFilter/index";
+import { McDrawerRef, McDrawerProps, OpenHandleParams, DictRef } from "./type";
 import AmplfyIcon from "./assets/amplfier.svg";
 import CloseIcon from "./assets/close.svg";
 import css from "./index.module.less";
-import { McDrawerRef, McDrawerProps, OpenHandleParams, DictRef } from "./type";
 
 const initDictValue = {
   type: "",
@@ -101,7 +101,10 @@ export const McDrawer = forwardRef<McDrawerRef, McDrawerProps>((props, ref) => {
           <div className={css.center_content}>
             {/* 高级搜索 */}
             {dictValue.type === "advanceFilter" ? (
-              <AdvanceFilter ref={drawerRef} />
+              <AdvanceFilter
+                ref={drawerRef}
+                setDisableConfirm={setDisableConfirm}
+              />
             ) : null}
           </div>
 
