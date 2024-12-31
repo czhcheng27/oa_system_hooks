@@ -130,7 +130,7 @@ const DrawerTwo = forwardRef((props, ref) => {
                   <AutoTooltip txt={standardName}>{standardName}</AutoTooltip>
                 </div>
                 {chapterNo && (
-                  <div>章节号：{formatChapterNo(chapterNo, pId)}</div>
+                  <div>Chapter No：{formatChapterNo(chapterNo, pId)}</div>
                 )}
               </div>
               <img
