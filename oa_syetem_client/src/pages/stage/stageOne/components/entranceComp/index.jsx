@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Tooltip } from "antd";
 import { McDrawer } from "src/components/McDrawer";
 import DrawerLayout from "src/pages/drag/AttributeDrag/components/DrawerLayout";
+import DrawerComp from "src/pages/stage/todoList/components/drawerComp";
 import AprDetWrapper from "./components/aprDetWrapper";
 import DrawerTwo from "./components/drawerTwo";
 import DrawerThree from "./components/drawerThree";
@@ -110,7 +111,8 @@ const EntranceComp = (props) => {
       </div>
       <AprDetWrapper ref={drawer1Ref} />
       <DrawerLayout ref={drawer2Ref} />
-      <DrawerThree ref={drawer3Ref} />
+      <DrawerComp ref={drawer3Ref} />
+      {/* <DrawerThree ref={drawer3Ref} /> */}
       <DrawerFive ref={drawer5Ref} />
       <DrawerSix ref={drawer6Ref} />
       <McDrawer

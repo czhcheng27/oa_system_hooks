@@ -26,9 +26,9 @@ const InputList = ({ id, inputData, openModal, setModalData }) => {
     const { status, inoutlistDesc, approvalStatus } = data;
     return (
       <>
-        <div className={css.oneLineTitleXin}>
+        {/* <div className={css.oneLineTitleXin}>
           <img src={status == 0 ? ORG : Apply} />
-        </div>
+        </div> */}
         <div className={css.oneLineTitle}>
           <span>{inoutlistDesc}</span>
         </div>
@@ -62,7 +62,11 @@ const InputList = ({ id, inputData, openModal, setModalData }) => {
     return (
       <>
         <div
-          title={data.userName + " " + data.orgName}
+          title={
+            (data.userName ?? data.approvalName) +
+            " " +
+            (data.orgName ?? data.approvalOrgName)
+          }
           className={css.TwoLineTitle}
         >
           <>{renderName(data)}</>

@@ -13,12 +13,13 @@ import FieldOperation from "./components/FieldOperation";
 import Operation from "./components/Operation";
 import WorkFlow from "./components/WorkFlow";
 import BackEnd from "./components/BackEnd";
+import { apiData } from "../../const";
 import css from "./index.module.less";
 
 const DrawerComp = forwardRef((props, ref) => {
   const [visible, setVisible] = useState(false);
   const [rotateY, setRotateY] = useState(0);
-  const [receiveData, setReceiveData] = useState();
+  const [receiveData, setReceiveData] = useState(apiData[0].changeInfoList[0]);
   const [fullScreen, setFullScreen] = useState(false);
 
   useImperativeHandle(ref, () => ({
@@ -28,7 +29,7 @@ const DrawerComp = forwardRef((props, ref) => {
   //  open抽屉
   const openHandle = (data) => {
     setVisible(true);
-    setReceiveData(data);
+    // setReceiveData(data);
   };
 
   //  关闭抽屉

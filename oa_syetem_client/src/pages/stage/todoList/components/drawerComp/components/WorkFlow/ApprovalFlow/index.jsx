@@ -8,9 +8,9 @@ import React, {
 import ActionPlan from "./components/ActionPlan";
 import ApprovalView from "./components/ApprovalView";
 import { approvalData } from "./mock";
+import { taskData } from "../mock";
 import SVG6 from "../assets/svg6";
 import css from "./index.module.less";
-import { taskData } from "../mock";
 
 const ApprovalFlow = (props) => {
   const [dis, setDis] = useState(0);

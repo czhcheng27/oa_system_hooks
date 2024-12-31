@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { FullscreenOutlined, ExclamationCircleFilled } from "@ant-design/icons";
 import InputOutputWrap from "../InputOutputWrap";
 import InputList from "./InputList";
+import InputDetailModal from "./InputDetailModal";
 import { inputData } from "../mock";
 import SVG2 from "../assets/svg2";
 import css from "./index.module.less";
-import InputDetailModal from "./InputDetailModal";
 
 const InputRegion = (props) => {
   const [clickItem, setClickItem] = useState({});
@@ -29,7 +29,7 @@ const InputRegion = (props) => {
               <SVG2 />
               <span className={css.titleFont}>Input</span>
             </div>
-            <div className={css.inputTitleRight}>
+            {/* <div className={css.inputTitleRight}>
               <FullscreenOutlined
                 //   onClick={() => {
                 //     setInputCardIndex(0);
@@ -37,7 +37,7 @@ const InputRegion = (props) => {
                 //   }}
                 className={css.inputTitle1}
               />
-            </div>
+            </div> */}
           </div>
         }
       >
