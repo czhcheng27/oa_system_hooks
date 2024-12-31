@@ -19,7 +19,7 @@ const InfoDetail = ({ data, warnDay }) => {
           <span
             className={css.batchproductionChange}
           >{`【${data.batchproductionChange}】`}</span>
-          {data.isUrgent == "紧急" && <i className={css.icon}></i>}
+          {data.isUrgent == "紧急" && <div className={css.icon}>U</div>}
         </div>
         <p className={css.name}>
           <AutoTooltip txt={data.ecrName}>{data.ecrName}</AutoTooltip>
@@ -32,7 +32,7 @@ const InfoDetail = ({ data, warnDay }) => {
           <span
             className={`${css[taskSatus(data.daysOverdue, warnDay)["name"]]}`}
           >
-            {data.daysOverdue < 0 ? "逾期" : "剩余"}{" "}
+            {data.daysOverdue < 0 ? "Overdue" : "Remain"}{" "}
             {Math.abs(data.daysOverdue)}
           </span>
         )}

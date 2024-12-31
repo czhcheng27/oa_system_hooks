@@ -44,7 +44,7 @@ const AprDetWrapper = forwardRef(({ onClose }, ref) => {
   const renderChangeHistory = () => {
     return (
       <>
-        <HeaderTip>变更历史</HeaderTip>
+        <HeaderTip>History</HeaderTip>
         {!listData?.length ? null : (
           <HistoryCard
             listData={listData}

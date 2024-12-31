@@ -31,7 +31,7 @@ const ScrollItem = ({ data, warnDay }) => {
               placement="topRight"
               overlayClassName={css.popover}
               title=""
-              content="展示实施阶段节点"
+              content="Prev Node"
               open={nextPopoverVisible}
               onOpenChange={(visible) => {
                 setNextPopoverVisible(visible);
@@ -62,7 +62,7 @@ const ScrollItem = ({ data, warnDay }) => {
               placement="top"
               overlayClassName={css.popover}
               title=""
-              content="展示申请阶段节点"
+              content="Next Node"
               open={prevPopoverVisible}
               onOpenChange={(visible) => {
                 setPrevPopoverVisible(visible);

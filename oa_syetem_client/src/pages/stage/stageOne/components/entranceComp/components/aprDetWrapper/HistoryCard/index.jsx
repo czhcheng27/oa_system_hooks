@@ -10,9 +10,9 @@ import useHorizonalScroll from "src/components/HorizontalScroll";
 import css from "./index.module.less";
 
 const statusMap = {
-  "01": "未审批",
-  "03": "已通过",
-  "04": "已驳回",
+  "01": "Pending",
+  "03": "Passed",
+  "04": "Declined",
 };
 
 const HistoryCard = ({ listData, actIdx, cardClick }) => {
@@ -55,7 +55,7 @@ const HistoryCard = ({ listData, actIdx, cardClick }) => {
             css[isApproving ? "node02" : `node${el.projectStatus}`]
           )}
         >
-          {isApproving ? "审批中" : statusMap[el.projectStatus]}
+          {isApproving ? "In Progress" : statusMap[el.projectStatus]}
         </div>
       </div>
     );
@@ -64,14 +64,15 @@ const HistoryCard = ({ listData, actIdx, cardClick }) => {
   const renderTitle = (index) => {
     let title;
     if (arrLength == 1) {
-      title = "原始版本";
+      title = "Initial Version";
     } else if (arrLength > 1) {
       if (index == 0) {
-        title = "最新变更";
+        title = "Latest Version";
       } else if (index == arrLength - 1) {
-        title = "原始版本";
+        title = "Initial Version";
       } else {
-        title = `第${arrLength - 1 - index}次变更`;
+        // title = `第${arrLength - 1 - index}次变更`;
+        title = `Version${arrLength - 1 - index}`;
       }
     }
     return title;
@@ -81,8 +82,8 @@ const HistoryCard = ({ listData, actIdx, cardClick }) => {
     const { created, approvalTime, changeDescription } = data;
     return (
       <>
-        {created && <div>创建时间：{created}</div>}
-        {approvalTime && <div>审批通过时间：{approvalTime}</div>}
+        {created && <div>Create Time：{created}</div>}
+        {approvalTime && <div>Approve Time：{approvalTime}</div>}
         {arrLength != index + 1 &&
           renderChangeReason(data, index, changeDescription)}
       </>
@@ -92,7 +93,7 @@ const HistoryCard = ({ listData, actIdx, cardClick }) => {
   const renderChangeReason = (data, index, changeDescription) => {
     return (
       <div className={css.reaonRow}>
-        <div>变更原因：</div>
+        <div>Reason：</div>
         <div
           className={css.changeReasonSpan}
           id={`div${index}`}
@@ -108,7 +109,7 @@ const HistoryCard = ({ listData, actIdx, cardClick }) => {
   const renderHoverArea = (data, index) => {
     return (
       <div className={css.movingDiv} id={`movingDiv${index}`}>
-        <div>变更原因</div>
+        <div>Reason</div>
         <div>{data.changeDescription}</div>
       </div>
     );

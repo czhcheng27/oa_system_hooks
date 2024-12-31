@@ -35,7 +35,7 @@ const ViewFilter = ({ data, setListData, loadingFunc }) => {
             className={`${css.rename} ${css.list}`}
             onClick={(e) => handleRename(item, e)}
           >
-            <span className={css.text}>重命名</span>
+            <span className={css.text}>Rename</span>
           </div>
           <div
             className={`${css.delete} ${css.list}`}
@@ -43,7 +43,7 @@ const ViewFilter = ({ data, setListData, loadingFunc }) => {
             //   handleDelete(item, e);
             // }}
           >
-            <span className={css.text}>删除</span>
+            <span className={css.text}>Delete</span>
           </div>
         </div>
       </div>

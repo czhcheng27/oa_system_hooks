@@ -78,7 +78,7 @@ const EntranceComp = (props) => {
 
         {/* bot quick entrance */}
         <div className={css.quickEntryArea}>
-          <p className={css.tip}>Quick Entrance</p>
+          <p className={css.tip}>Quick Entrance (Icons Clickable)</p>
           <ul>
             {quickEntry.map((item, index) => {
               return (
