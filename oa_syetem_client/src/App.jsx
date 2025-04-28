@@ -36,7 +36,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/login" element={<Login />} /> */}
         <Route path="/" element={<Admin />}>
           <Route path="/home" element={<StageDash />} />
           <Route path="/category" element={<Category />} />

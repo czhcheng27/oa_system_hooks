@@ -43,11 +43,11 @@ function getItem(
 
 export const menuItems = [
   getItem("Home", "/home", <FundProjectionScreenOutlined />),
-  getItem("Products", "/products", <AppstoreOutlined />, [
-    getItem("Category", "/category", <GoldOutlined />),
-    getItem("Product", "/product", <WindowsOutlined />),
-  ]),
-  getItem("User", "/user", <UserOutlined />),
+  // getItem("Products", "/products", <AppstoreOutlined />, [
+  //   getItem("Category", "/category", <GoldOutlined />),
+  //   getItem("Product", "/product", <WindowsOutlined />),
+  // ]),
+  // getItem("User", "/user", <UserOutlined />),
   getItem("Role", "/role", <FileOutlined />),
   // getItem("LowCode", "/low_code", <WindowsOutlined />),
   // getItem("Components", "/components", <BlockOutlined />, [
@@ -92,8 +92,8 @@ export const menuItems = [
   //   getItem("Stage Display", "/stage_display", <ApartmentOutlined />),
   //   getItem("TodoList", "/todo_list", <PicLeftOutlined />),
   // ]),
-  getItem("BigScreen", "/big_screen", <AreaChartOutlined />, [
-    getItem("BigScreen1", "/big_screen_1", <AreaChartOutlined />),
-    getItem("BigScreen2", "/big_screen_2", <AreaChartOutlined />),
-  ]),
+  // getItem("BigScreen", "/big_screen", <AreaChartOutlined />, [
+  //   getItem("BigScreen1", "/big_screen_1", <AreaChartOutlined />),
+  //   getItem("BigScreen2", "/big_screen_2", <AreaChartOutlined />),
+  // ]),
 ];
