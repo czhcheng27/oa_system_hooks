@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>fullsreen</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="高级筛选" transform="translate(-1359.000000, -17.000000)">
+            <g id="fullsreen" transform="translate(1359.000000, 17.000000)">
+                <path d="M0,0 L16,0 L16,16 L0,16 L0,0 Z" id="fullsreen-(Background)"></path>
+                <polyline id="路径-4" stroke="#242F57" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" points="6.82806683 2.5 2.5 2.5 2.50242805 6.82657194"></polyline>
+                <polyline id="路径-4备份" stroke="#242F57" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" transform="translate(11.334033, 11.333286) scale(-1, -1) translate(-11.334033, -11.333286) " points="13.4980668 9.17 9.17 9.17 9.17242805 13.4965719"></polyline>
+                <path d="M3.02748108,3.04624557 L7.02058983,6.98814583 M9.02178383,8.99015141 L13.1233597,13.00214" id="形状" stroke="#242F57" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>
