@@ -64,7 +64,7 @@ const App = () => {
             element={<ElectronicSignature />}
           />
           <Route path="/svg_animation" element={<SvgAnm />} />
-          {/* <Route path="/comps_library_sortablejs" element={<Revision />} /> */}
+          <Route path="/comps_library_sortablejs" element={<Revision />} />
           <Route path="/vehicle_rotate" element={<VehicleRotation />} />
           <Route path="/apr_det_one" element={<ApprovalDetails />} />
           <Route path="/stage_display" element={<StageDash />} />

@@ -69,7 +69,7 @@ export const menuItems = [
     // getItem("React-Sortable", "/react_sortable", <MoreOutlined />),
   ]),
   getItem("Simples", "/simples", <PieChartOutlined />, [
-    getItem("Indicator", "/question_indicator", <ContainerOutlined />),
+    // getItem("Indicator", "/question_indicator", <ContainerOutlined />),
     getItem("VehicleRotation", "/vehicle_rotate", <LineChartOutlined />),
     getItem("LazyImg", "/lazy_img", <LineChartOutlined />),
     getItem("Clipboard", "/clipboard", <LineChartOutlined />),
@@ -88,10 +88,10 @@ export const menuItems = [
   // getItem("Approval", "/approval", <ContainerOutlined />, [
   //   getItem("APR & Details", "/apr_det_one", <FlagOutlined />),
   // ]),
-  getItem("Stage", "/stage", <HeatMapOutlined />, [
-    getItem("Stage Display", "/stage_display", <ApartmentOutlined />),
-    getItem("TodoList", "/todo_list", <PicLeftOutlined />),
-  ]),
+  // getItem("Stage", "/stage", <HeatMapOutlined />, [
+  //   getItem("Stage Display", "/stage_display", <ApartmentOutlined />),
+  //   getItem("TodoList", "/todo_list", <PicLeftOutlined />),
+  // ]),
   getItem("BigScreen", "/big_screen", <AreaChartOutlined />, [
     getItem("BigScreen1", "/big_screen_1", <AreaChartOutlined />),
     getItem("BigScreen2", "/big_screen_2", <AreaChartOutlined />),
