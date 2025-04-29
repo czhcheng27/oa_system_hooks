@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import ZhaoImg from "./assets/zhaoyun.jpeg";
+import BandImg from "./assets/bgBand.png";
 import css from "./index.module.less";
 
 const LazyImg = () => {
@@ -40,39 +42,19 @@ const LazyImg = () => {
   return (
     <div>
       <div className={css.item}>
-        <img
-          src={require("./assets/bgBand.png").default}
-          data-src={require("./assets/zhaoyun.jpeg").default}
-          alt="a"
-        />
+        <img src={BandImg} data-src={ZhaoImg} alt="a" />
       </div>
       <div className={css.item}>
-        <img
-          src={require("./assets/bgBand.png").default}
-          data-src={require("./assets/zhaoyun.jpeg").default}
-          alt="a"
-        />
+        <img src={BandImg} data-src={ZhaoImg} alt="a" />
       </div>
       <div className={css.item}>
-        <img
-          src={require("./assets/bgBand.png").default}
-          data-src={require("./assets/zhaoyun.jpeg").default}
-          alt="a"
-        />
+        <img src={BandImg} data-src={ZhaoImg} alt="a" />
       </div>
       <div className={css.item}>
-        <img
-          src={require("./assets/bgBand.png").default}
-          data-src={require("./assets/zhaoyun.jpeg").default}
-          alt="a"
-        />
+        <img src={BandImg} data-src={ZhaoImg} alt="a" />
       </div>
       <div className={css.item}>
-        <img
-          src={require("./assets/bgBand.png").default}
-          data-src={require("./assets/zhaoyun.jpeg").default}
-          alt="a"
-        />
+        <img src={BandImg} data-src={ZhaoImg} alt="a" />
       </div>
     </div>
   );

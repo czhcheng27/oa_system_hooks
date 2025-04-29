@@ -44,7 +44,9 @@ const MyConsult = (props) => {
     initRightClickFun();
     const boxes = document.getElementById("myConcult_outbox");
     const myObserver = new ResizeObserver((entries) => {
-      listenDom();
+      requestAnimationFrame(() => {
+        listenDom();
+      });
     });
     boxes && myObserver.observe(boxes);
   }, [curObj]);

@@ -1,5 +1,5 @@
 .projectData {
-  height: 236px;
+  height: 254px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
   padding: 16px 24px 0 0;
   background-color: #fff;
@@ -29,7 +29,7 @@
 }
 .content {
   padding-left: 24px;
-  height: 180px;
+  height: 190px;
   :global {
     .swiper-slide {
       display: flex;
@@ -43,14 +43,20 @@
     .swiper {
       height: 100%;
     }
+    .swiper-wrapper {
+      height: 160px;
+      padding-bottom: 10px;
+    }
     .swiper-pagination {
       height: 20px;
       bottom: 0;
     }
     .swiper-pagination-bullet {
+      display: block;
       width: 12px;
       height: 12px;
       background: #b7b4b4;
+      border-radius: 50%;
       margin-right: 8px;
       margin-left: 8px;
       opacity: 1;
@@ -60,12 +66,14 @@
     }
     .swiper-pagination-horizontal {
       bottom: 1px !important;
+      display: flex;
+      justify-content: center;
     }
   }
 }
 .projectItemWrap {
-  margin-right: 17px;
+  margin-right: 0px;
   &:last-child {
-    margin-right: 0;
+    margin-right: 10px;
   }
 }

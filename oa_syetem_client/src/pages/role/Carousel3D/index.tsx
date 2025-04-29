@@ -1,4 +1,7 @@
 import React from "react";
+import AudiImg from "./audi.jpg";
+import BenzImg from "./benz.jpg";
+import BmwImg from "./bmw.jpg";
 import css from "./index.module.less";
 
 const Carousel3D = () => {
@@ -6,13 +9,13 @@ const Carousel3D = () => {
     <div className={css.container}>
       <div className={css.cardBox}>
         <div className={css.card}>
-          <img src={require("./audi.jpg").default} />
+          <img src={AudiImg} />
         </div>
         <div className={css.card}>
-          <img src={require("./benz.jpg").default} />
+          <img src={BenzImg} />
         </div>
         <div className={css.card}>
-          <img src={require("./bmw.jpg").default} />
+          <img src={BmwImg} />
         </div>
       </div>
     </div>

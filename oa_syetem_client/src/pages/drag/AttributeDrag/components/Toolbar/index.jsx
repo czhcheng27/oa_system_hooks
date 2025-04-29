@@ -4,6 +4,16 @@ import { UpOutlined } from "@ant-design/icons";
 import { CompCategory } from "../../config";
 import css from "./index.module.less";
 
+// 在文件顶部（函数外部）预先加载所有图标图片
+const iconImages = require.context("../../assets/icons", false, /\.png$/);
+
+// 创建一个图片映射表
+const iconMap = {};
+iconImages.keys().forEach((key) => {
+  const iconName = key.replace("./", "").replace(".png", ""); // 提取文件名，去掉路径和扩展名
+  iconMap[iconName] = iconImages(key); // 记录路径
+});
+
 const Toolbar = () => {
   const renderEachHeader = (data) => {
     return (
@@ -63,7 +73,7 @@ const Toolbar = () => {
     const { type, description } = item;
     return (
       <div className={css.eachCard} {...props}>
-        <img src={require("../../assets/icons/" + type + ".png").default}></img>
+        <img src={iconMap[type]} alt={type} /> {/* 从 iconMap 获取图片路径 */}
         <div className={css.selfDescription}>{description}</div>
       </div>
     );

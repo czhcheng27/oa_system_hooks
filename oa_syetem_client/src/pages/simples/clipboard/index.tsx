@@ -92,7 +92,7 @@ const Clipboard = () => {
         id="addFollowingTxt"
         style={{ border: "1px solid black", marginBottom: "16px" }}
       >
-        <div>Change Copy Content</div>
+        <div>Add Following Txt</div>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
         beatae ullam vero doloremque! Sit earum in, blanditiis dolores tenetur
         eveniet facilis reprehenderit id aliquid aspernatur nam nisi esse iure

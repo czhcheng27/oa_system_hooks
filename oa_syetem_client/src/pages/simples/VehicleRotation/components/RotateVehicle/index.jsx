@@ -1,11 +1,18 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useMemo,
-} from "react";
+import React, { useState } from "react";
 import css from "./index.module.less";
+
+// 1. 导入所有图片
+const images = require.context("../../assets/beatle", false, /\.png$/);
+
+// 2. 用数字作为 key 构造映射
+const imageMap = {};
+images.keys().forEach((key) => {
+  const match = key.match(/beatle(\d+)\.png$/);
+  if (match) {
+    const idx = parseInt(match[1], 10);
+    imageMap[idx] = images(key);
+  }
+});
 
 const RotateVehicle = (props) => {
   const [imgIdx, setImgIdx] = useState(1);
@@ -27,13 +34,18 @@ const RotateVehicle = (props) => {
   };
 
   const movingHandle = (ev) => {
+    if (initClickX === null) return;
     const { pageX } = ev;
     const img = document
       .getElementById("imgContentBeatle")
-      .querySelector("img");
+      ?.querySelector("img");
+
     const x = Math.floor((pageX - initClickX) / 20);
     const newImgIdx = generateIdx(imgIdx + x);
-    img.src = require(`../../assets/beatle/beatle${newImgIdx}.png`).default;
+
+    if (img) {
+      img.src = imageMap[newImgIdx];
+    }
     setImgIdx(newImgIdx);
   };
 
@@ -59,10 +71,7 @@ const RotateVehicle = (props) => {
         onMouseMove={(ev) => setInitClickX(ev.pageX)}
         onMouseDown={dragStart}
       >
-        <img
-          src={require(`../../assets/beatle/beatle${imgIdx}.png`).default}
-          alt="beatles"
-        />
+        <img src={imageMap[imgIdx]} alt="beatles" />
       </div>
       <div className={css.rotateDeg} />
     </div>

@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper";
-import "swiper/swiper-bundle.min.css";
-import "swiper/swiper.min.css";
+import { Button } from "antd";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import { useResize } from "src/components/Resize";
 import TitleTip from "src/components/TitleTip";
 import ProjectItem from "../projectItem";
 import TransferTableModal from "../transferTableModal";
@@ -42,8 +43,9 @@ const list = [
 ];
 
 const CarouselComp = (props) => {
-  const scrollAreaRef = useRef();
   const transferTableRef = useRef();
+
+  const [botRef, { w: botWidth }] = useResize();
 
   const [selectProject, setSelectProject] = useState({});
   const [lastSwiperSlideSty, setLastSwiperSlideSty] = useState({});
@@ -55,10 +57,12 @@ const CarouselComp = (props) => {
   let count = -1;
   //计算一屏多少个，总共多少屏
   const calculate = () => {
+    if (!botWidth) return;
     const boxW = 206 + 8,
       total = 18,
-      column = Math.floor(scrollAreaRef.current.offsetWidth / boxW),
+      column = Math.floor(botWidth / boxW),
       row = Math.ceil(total / column);
+    console.log(`row, column`, row, column);
     setShow({ row, column });
     total % column && setLastSwiperSlideSty({ justifyContent: "flex-start" });
   };
@@ -88,24 +92,32 @@ const CarouselComp = (props) => {
     setTimeout(() => {
       calculate();
     }, 100);
-  }, []);
+  }, [botWidth]);
 
   return (
     <div className={css.projectData}>
       {/* title */}
       <div className={css.titleWrap}>
         <TitleTip>Project Data</TitleTip>
-        <div className={css.showProject}>
+        {/* <div className={css.showProject}>
           <span className={css.text} onClick={() => rightCornerClick()}>
             Project Adjustment
           </span>
-        </div>
+        </div> */}
+        <Button
+          type="primary"
+          style={{ margin: "0" }}
+          onClick={() => rightCornerClick()}
+        >
+          <span className={css.text}>Project Adjustment</span>
+        </Button>
       </div>
 
       {/* carousel */}
       <div className={css.content}>
-        <div ref={scrollAreaRef} className={css.scrollArea}>
+        <div ref={botRef} className={css.scrollArea}>
           <Swiper
+            resizeObserver={false}
             pagination={{ clickable: true }}
             modules={[Pagination, Autoplay]}
             autoplay={false}

@@ -1,5 +1,11 @@
 import React from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  HashRouter,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 import Admin from "./pages/admin/index";
 import ApprovalDetails from "./pages/aprDet/aprDetOne";
 import Category from "./pages/category/index";
@@ -34,7 +40,7 @@ import EchartsComp from "./pages/simples/Echarts";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         {/* <Route path="/login" element={<Login />} /> */}
         <Route path="/" element={<Admin />}>
@@ -74,7 +80,7 @@ const App = () => {
           <Route path="/" element={<Navigate to="/home" />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

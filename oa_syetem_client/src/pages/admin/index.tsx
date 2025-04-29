@@ -26,9 +26,9 @@ const Admin = () => {
   }, []);
 
   const user = memoryUtils.user;
-  if (!user || !user._id) {
-    return <Navigate to="/login" />;
-  }
+  // if (!user || !user._id) {
+  //   return <Navigate to="/login" />;
+  // }
 
   return (
     // <Layout style={{ height: "100%" }}>

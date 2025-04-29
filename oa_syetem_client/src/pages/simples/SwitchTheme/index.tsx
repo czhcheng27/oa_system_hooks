@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useLocalStorage from "src/components/UseLocalStorage";
 import css from "./index.module.less";
+import classNames from "classnames";
 
 const SwitchTheme = () => {
   // const [theme, setTheme] = useState("light");
@@ -16,13 +17,31 @@ const SwitchTheme = () => {
     <div className={`${css.box} ${css.theme}`} data-theme={theme}>
       <div className={`${css.moduleBox} moduleBox`}>
         <div>
-          <div className={css.btn} onClick={() => switchTheme("light")}>
+          <div
+            className={classNames({
+              [css.btn]: true,
+              [css.actBtn]: theme === "light",
+            })}
+            onClick={() => switchTheme("light")}
+          >
             {"light"}
           </div>
-          <div className={css.btn} onClick={() => switchTheme("dark")}>
+          <div
+            className={classNames({
+              [css.btn]: true,
+              [css.actBtn]: theme === "dark",
+            })}
+            onClick={() => switchTheme("dark")}
+          >
             {"dark"}
           </div>
-          <div className={css.btn} onClick={() => switchTheme("orange")}>
+          <div
+            className={classNames({
+              [css.btn]: true,
+              [css.actBtn]: theme === "orange",
+            })}
+            onClick={() => switchTheme("orange")}
+          >
             {"orange"}
           </div>
         </div>
