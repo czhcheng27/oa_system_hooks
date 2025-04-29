@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Modal } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import memoryUtils from "../../utils/memoryUtils";
 import storageUtils from "../../utils/storageUtils";
 import InfoIcon from "../../assets/info-circle-fill.png";
@@ -9,7 +9,19 @@ import css from "./index.module.css";
 const { confirm } = Modal;
 
 const Header = (props) => {
+  const location = useLocation();
   const navigate = useNavigate();
+
+  const [title, setTitle] = useState("home");
+
+  useEffect(() => {
+    formatTitle();
+  }, [location.pathname]);
+
+  const formatTitle = () => {
+    const str = location.pathname.slice(1).replace(/_/g, " ");
+    setTitle(str);
+  };
 
   const showConfirm = () => {
     confirm({
@@ -33,7 +45,7 @@ const Header = (props) => {
   return (
     <div style={{ background: "white" }} className={css.header_wrapper}>
       {/* left title */}
-      <span className={css.header_title}>title</span>
+      <span className={css.header_title}>{title}</span>
 
       {/* right part */}
       <div className={css.head_top}>

@@ -5,6 +5,7 @@
 .left_nav ul {
   height: calc(100% - 32px);
   overflow: auto;
+  padding-bottom: 52px;
 }
 .left_nav ul::-webkit-scrollbar {
   display: none;

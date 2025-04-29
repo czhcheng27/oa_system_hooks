@@ -49,7 +49,9 @@ const EntranceComp = (props) => {
                 </div>
                 <div className={css.textBox}>
                   <span className={css.num}>{item.num}</span>
-                  <p className={css.text}>{item.text}</p>
+                  <p className={css.text} title={item.text}>
+                    {item.text}
+                  </p>
                 </div>
               </li>
             </Tooltip>

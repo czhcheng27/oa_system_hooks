@@ -83,7 +83,7 @@ export const menuItems = [
       <LineChartOutlined />
     ),
     getItem("SvgAnm", "/svg_animation", <LineChartOutlined />),
-    getItem("Echarts", "/echarts_simples", <DesktopOutlined />),
+    // getItem("Echarts", "/echarts_simples", <DesktopOutlined />),
   ]),
   // getItem("Approval", "/approval", <ContainerOutlined />, [
   //   getItem("APR & Details", "/apr_det_one", <FlagOutlined />),

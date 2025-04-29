@@ -18,7 +18,7 @@ const Chart5 = ({ isCenter }) => {
     <div id={id} className={css.chart5_wrap}>
       <div className={css.content}>
         <div>Designed for large screens.</div>
-        <div>Best viewed on devices with 3600x1280 resolution or higher.</div>
+        <div>Best viewed on devices with 2480x1280 resolution or higher.</div>
       </div>
     </div>
   );

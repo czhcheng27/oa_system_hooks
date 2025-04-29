@@ -5,8 +5,10 @@
   justify-content: space-between;
   background-color: #fff;
   .item {
+    flex: 1;
     display: flex;
     color: #242f57;
+    min-width: 0;
     // cursor: pointer;
     .iconBox,
     .num {
@@ -108,6 +110,7 @@
   }
   .textBox {
     padding-top: 7px;
+    min-width: 0;
   }
   .num {
     font-weight: 500;
@@ -119,12 +122,16 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 }
 .uniteArea {
   display: flex;
 }
 .exhibitionArea {
+  min-width: 300px;
   flex: 1;
   display: flex;
   list-style: none;
@@ -217,6 +224,7 @@
   }
   ul {
     display: flex;
+    padding-left: 0;
     .item {
       width: 104px;
       display: flex;
