@@ -38,9 +38,9 @@ const Header = (props) => {
       {/* right part */}
       <div className={css.head_top}>
         <span>Welcome, {memoryUtils.user.username}</span> &nbsp;&nbsp;
-        <Button type="link" style={{ padding: 0 }} onClick={showConfirm}>
+        {/* <Button type="link" style={{ padding: 0 }} onClick={showConfirm}>
           Logout
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

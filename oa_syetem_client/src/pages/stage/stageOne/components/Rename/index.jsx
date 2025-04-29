@@ -26,26 +26,26 @@ const Rename = ({ teamWorkId, onClose, handleOk }) => {
     >
       <div className={css.rename}>
         <div className={css.head}>
-          <span className={css.title}>修改视图名称</span>
+          <span className={css.title}>Edit viewname</span>
           <span className={`${css.close}`} onClick={() => setVisible(false)}>
             <CloseOutlined></CloseOutlined>
           </span>
         </div>
         <div className={css.content}>
           <Input
-            placeholder="请输入视图名称"
+            placeholder="Please type in name"
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
           ></Input>
         </div>
         <div className={css.footer}>
           <div className={css.btnArea}>
-            <Button onClick={() => setVisible(false)}>取消</Button>
+            <Button onClick={() => setVisible(false)}>Cancel</Button>
             <Button
               type="primary"
               onClick={() => handleOk(teamWorkId, inputVal)}
             >
-              确定
+              Confirm
             </Button>
           </div>
         </div>

@@ -96,4 +96,5 @@ export const menuItems = [
   //   getItem("BigScreen1", "/big_screen_1", <AreaChartOutlined />),
   //   getItem("BigScreen2", "/big_screen_2", <AreaChartOutlined />),
   // ]),
+  getItem("BigScreen", "/big_screen", <AreaChartOutlined />),
 ];

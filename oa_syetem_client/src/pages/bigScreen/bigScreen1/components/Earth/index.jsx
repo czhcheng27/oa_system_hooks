@@ -17,6 +17,7 @@ const Earth = (props) => {
     containerDom = document.querySelector("#earthBox");
     width = containerDom?.clientWidth;
     height = containerDom?.clientHeight;
+    console.log(`containerDom`, containerDom, width, height);
     initScene();
     initCamera();
     initLight();
@@ -24,12 +25,30 @@ const Earth = (props) => {
     initRenderer();
     initControls();
     animate();
+
+    // 监听窗口变化
+    window.addEventListener("resize", resizeEarth);
+
+    // 监听全屏模式变化
+    document.addEventListener("fullscreenchange", resizeEarth);
+    document.addEventListener("webkitfullscreenchange", resizeEarth);
+    document.addEventListener("mozfullscreenchange", resizeEarth);
+    document.addEventListener("MSFullscreenChange", resizeEarth);
+
+    return () => {
+      window.removeEventListener("resize", resizeEarth);
+      document.removeEventListener("fullscreenchange", resizeEarth);
+      document.removeEventListener("webkitfullscreenchange", resizeEarth);
+      document.removeEventListener("mozfullscreenchange", resizeEarth);
+      document.removeEventListener("MSFullscreenChange", resizeEarth);
+    };
   }, []);
 
   const initRenderer = () => {
     renderer = new THREE.WebGLRenderer({ alpha: true });
     // 设置显示比例
     renderer.setPixelRatio(window.devicePixelRatio);
+    console.log(`renderer.setSize(width, height)`, width, height);
     renderer.setSize(width, height);
     renderer.setClearAlpha(0);
     renderer.render(scene, camera);
@@ -131,10 +150,11 @@ const Earth = (props) => {
     renderer.render(scene, camera);
   };
 
-  const resizeEarch = () => {
+  const resizeEarth = () => {
     const ele = document.querySelector("#earthBox");
     width = ele?.clientWidth;
     height = ele?.clientHeight;
+    console.log(`renderer.setSize(width, height)`, width, height);
     renderer.setSize(width, height);
     camera.updateProjectionMatrix();
     initCamera();
@@ -144,7 +164,7 @@ const Earth = (props) => {
 
   return (
     <div id="earthBox" className={css.earthBox}>
-      <UndoOutlined className={css.refreshPosition} onClick={resizeEarch} />
+      <UndoOutlined className={css.refreshPosition} onClick={resizeEarth} />
     </div>
   );
 };

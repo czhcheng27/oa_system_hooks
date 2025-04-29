@@ -46,7 +46,7 @@ const StageDash = (props) => {
     <div className={css.stageDash}>
       {/* top banner */}
       <div className={css.topBanner}>
-        <div className={css.bannerTitle}>Storage One Banner</div>
+        <div className={css.bannerTitle}>Welcome to Cheng's project</div>
       </div>
 
       {/* enter area */}

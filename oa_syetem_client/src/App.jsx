@@ -75,7 +75,7 @@ const App = () => {
           <Route path="/apr_det_one" element={<ApprovalDetails />} />
           <Route path="/stage_display" element={<StageDash />} />
           <Route path="/todo_list" element={<TodoList />} />
-          <Route path="/big_screen_1" element={<BigScreen1 />} />
+          <Route path="/big_screen" element={<BigScreen1 />} />
           <Route path="*" element={<Navigate to="/home" />} />
           <Route path="/" element={<Navigate to="/home" />} />
         </Route>
