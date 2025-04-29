@@ -602,6 +602,7 @@ const AdvanceFilter = forwardRef<DictRef, CommonDrawerFunc>(
           listHeight={196}
           mode={"multiple"}
           placeholder={curItem.msg}
+          maxTagCount="responsive"
           filterOption={false}
           defaultActiveFirstOption={false}
           onSearch={(val) =>
