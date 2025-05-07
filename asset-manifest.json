@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/oa_system_hooks/static/css/main.952f59a4.css",
-    "main.js": "/oa_system_hooks/static/js/main.ee092e58.js",
+    "main.css": "/oa_system_hooks/static/css/main.4f4cac62.css",
+    "main.js": "/oa_system_hooks/static/js/main.009cab3d.js",
     "static/media/1-1.gif": "/oa_system_hooks/static/media/1-1.1043f63eeba33772fe54.gif",
     "static/media/ring.png": "/oa_system_hooks/static/media/ring.b8ec66c24e7042dcadd5.png",
     "static/media/bgr.jpg": "/oa_system_hooks/static/media/bgr.2f69f22597a0aabc10cc.jpg",
     "static/media/benz.jpg": "/oa_system_hooks/static/media/benz.2dc34009465ed9ed8d07.jpg",
     "static/media/defaultBg.png": "/oa_system_hooks/static/media/defaultBg.1a64290dca060f4e259c.png",
     "static/media/gridImg.png": "/oa_system_hooks/static/media/gridImg.057b40cdfc5c7aba2539.png",
+    "static/media/coverBg.png": "/oa_system_hooks/static/media/coverBg.aae7c4a9a256bac21b13.png",
     "static/media/icon19.png": "/oa_system_hooks/static/media/icon19.c94da51b4db423def162.png",
     "static/media/bg.png": "/oa_system_hooks/static/media/bg.cf0cd490a3c1742fd2c4.png",
     "static/media/earth.png": "/oa_system_hooks/static/media/earth.bcd7beb4dbb2e0a957f6.png",
@@ -74,6 +75,9 @@
     "static/media/icon3.png": "/oa_system_hooks/static/media/icon3.2026b33a933f1be0cbd4.png",
     "static/media/normal.gif": "/oa_system_hooks/static/media/normal.ee0babd12a069b33e4fc.gif",
     "static/media/titleBg.png": "/oa_system_hooks/static/media/titleBg.4ae410957942d6191311.png",
+    "static/media/boardCenter.png": "/oa_system_hooks/static/media/boardCenter.26dccd56075762bd8858.png",
+    "static/media/boardLeft.png": "/oa_system_hooks/static/media/boardLeft.26dccd56075762bd8858.png",
+    "static/media/boardRight.png": "/oa_system_hooks/static/media/boardRight.26dccd56075762bd8858.png",
     "static/media/card_bg.png": "/oa_system_hooks/static/media/card_bg.064254af2e3295ccba10.png",
     "static/media/card_bg_sel.png": "/oa_system_hooks/static/media/card_bg_sel.0e3ef9970674ecca4e00.png",
     "static/media/overtime.png": "/oa_system_hooks/static/media/overtime.65fbe706b41ce7d18414.png",
@@ -83,6 +87,9 @@
     "static/media/audi.jpg": "/oa_system_hooks/static/media/audi.bdb24211f54a37f4ae0a.jpg",
     "static/media/finish_bg.png": "/oa_system_hooks/static/media/finish_bg.e5b897a402cbc63f1d17.png",
     "static/media/nodata.png": "/oa_system_hooks/static/media/nodata.cadfc099b40a26ac4410.png",
+    "static/media/pinCenter.png": "/oa_system_hooks/static/media/pinCenter.b691bdd9d5d5d7c625ec.png",
+    "static/media/pinRight.png": "/oa_system_hooks/static/media/pinRight.b65e345587e171d5a4e7.png",
+    "static/media/pinLeft.png": "/oa_system_hooks/static/media/pinLeft.964ccb6696c609c8fff8.png",
     "static/media/overdue.gif": "/oa_system_hooks/static/media/overdue.17cea37c7dbd1ea89c04.gif",
     "static/media/home_card_sel.png": "/oa_system_hooks/static/media/home_card_sel.fcf11531e00e9affb175.png",
     "static/media/stageBg.png": "/oa_system_hooks/static/media/stageBg.c3a5c4a8b4e546268ef6.png",
@@ -101,11 +108,11 @@
     "static/media/amplfier.svg": "/oa_system_hooks/static/media/amplfier.fdb004f058bdce314fd534e51a308336.svg",
     "index.html": "/oa_system_hooks/index.html",
     "static/media/add.svg": "/oa_system_hooks/static/media/add.e7d395814c85aa565334b5692ae499c9.svg",
-    "main.952f59a4.css.map": "/oa_system_hooks/static/css/main.952f59a4.css.map",
-    "main.ee092e58.js.map": "/oa_system_hooks/static/js/main.ee092e58.js.map"
+    "main.4f4cac62.css.map": "/oa_system_hooks/static/css/main.4f4cac62.css.map",
+    "main.009cab3d.js.map": "/oa_system_hooks/static/js/main.009cab3d.js.map"
   },
   "entrypoints": [
-    "static/css/main.952f59a4.css",
-    "static/js/main.ee092e58.js"
+    "static/css/main.4f4cac62.css",
+    "static/js/main.009cab3d.js"
   ]
 }
