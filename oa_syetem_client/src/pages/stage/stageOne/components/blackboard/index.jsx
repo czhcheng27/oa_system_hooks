@@ -19,14 +19,15 @@ const BlackBoard = (props) => {
   const elms = document.getElementsByClassName("tsc_dash_eachOne");
 
   useEffect(() => {
-    for (let i = 0; i <= elms.length; i++) {
-      elms[i] &&
-        (elms[i].addEventListener("animationend", function (e) {
+    for (let i = 0; i < elms.length; i++) {
+      if (elms[i]) {
+        elms[i].addEventListener("animationend", function (e) {
           elms[i].classList.remove("rotateAnimate");
-        }),
+        });
         elms[i].addEventListener("mouseover", function (e) {
           elms[i].classList.add("rotateAnimate");
-        }));
+        });
+      }
     }
   }, [elms]);
 
