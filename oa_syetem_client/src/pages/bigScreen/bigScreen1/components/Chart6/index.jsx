@@ -8,7 +8,7 @@ import React, {
 import css from "./index.module.less";
 
 const Chart6 = ({ isCenter }) => {
-  const id = isCenter ? "centerChart3" : "chart3";
+  const id = isCenter ? "centerChart6" : "chart6";
   useEffect(() => {
     if (isCenter) {
       document.getElementById(id).style.setProperty("--scaleSize", "2");

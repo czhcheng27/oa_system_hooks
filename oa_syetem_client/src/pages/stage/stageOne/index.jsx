@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "antd";
 import LoadingTip from "src/components/LoadingTip";
+import { toggle } from "src/utils/fullScreen";
+import BlackBoard from "./components/blackboard";
 import CarouselComp from "./components/carouselComp";
 import EntranceComp from "./components/entranceComp";
 import OutBox from "./components/outBox";
@@ -8,7 +10,6 @@ import TitleParts from "./components/titlePart";
 import ViewFilter from "./components/viewFilter";
 import TipBox from "./components/tipBox";
 import { data } from "./const";
-import { toggle } from "src/utils/fullScreen";
 import css from "./index.module.less";
 
 const StageDash = (props) => {
@@ -52,6 +53,11 @@ const StageDash = (props) => {
       {/* enter area */}
       <div className={css.enterArea}>
         <EntranceComp />
+      </div>
+
+      {/* blackboard */}
+      <div className={css.blackboard}>
+        <BlackBoard />
       </div>
 
       {/* Carousel area */}

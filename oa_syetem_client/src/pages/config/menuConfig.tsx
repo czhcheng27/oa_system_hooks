@@ -48,6 +48,28 @@ export const menuItems = [
   //   getItem("Product", "/product", <WindowsOutlined />),
   // ]),
   // getItem("User", "/user", <UserOutlined />),
+  // getItem("BigScreen", "/big_screen", <AreaChartOutlined />, [
+  //   getItem("BigScreen1", "/big_screen_1", <AreaChartOutlined />),
+  //   getItem("BigScreen2", "/big_screen_2", <AreaChartOutlined />),
+  // ]),
+  getItem("BigScreen", "/big_screen", <AreaChartOutlined />),
+  getItem("Simples", "/simples", <PieChartOutlined />, [
+    // getItem("Indicator", "/question_indicator", <ContainerOutlined />),
+    getItem("VehicleRotation", "/vehicle_rotate", <LineChartOutlined />),
+    getItem("SwitchTheme", "/switch_theme", <LineChartOutlined />),
+    getItem("Clipboard", "/clipboard", <LineChartOutlined />),
+    getItem("CssAdsorb", "/css_adsorb", <LineChartOutlined />),
+    getItem("CrossTagMsg", "/cross_tag_msg", <LineChartOutlined />),
+    getItem("AnimationDelay", "/animation_delay", <LineChartOutlined />),
+    getItem(
+      "ElectronicSignature",
+      "/electronic_signature",
+      <LineChartOutlined />
+    ),
+    getItem("SvgAnm", "/svg_animation", <LineChartOutlined />),
+    getItem("LazyImg", "/lazy_img", <LineChartOutlined />),
+    // getItem("Echarts", "/echarts_simples", <DesktopOutlined />),
+  ]),
   getItem("Role", "/role", <FileOutlined />),
   // getItem("LowCode", "/low_code", <WindowsOutlined />),
   // getItem("Components", "/components", <BlockOutlined />, [
@@ -68,23 +90,7 @@ export const menuItems = [
     // getItem("Attribute-dragDrop", "/attribute_dragDrop", <MoreOutlined />),
     // getItem("React-Sortable", "/react_sortable", <MoreOutlined />),
   ]),
-  getItem("Simples", "/simples", <PieChartOutlined />, [
-    // getItem("Indicator", "/question_indicator", <ContainerOutlined />),
-    getItem("VehicleRotation", "/vehicle_rotate", <LineChartOutlined />),
-    getItem("LazyImg", "/lazy_img", <LineChartOutlined />),
-    getItem("Clipboard", "/clipboard", <LineChartOutlined />),
-    getItem("CssAdsorb", "/css_adsorb", <LineChartOutlined />),
-    getItem("SwitchTheme", "/switch_theme", <LineChartOutlined />),
-    getItem("AnimationDelay", "/animation_delay", <LineChartOutlined />),
-    getItem("CrossTagMsg", "/cross_tag_msg", <LineChartOutlined />),
-    getItem(
-      "ElectronicSignature",
-      "/electronic_signature",
-      <LineChartOutlined />
-    ),
-    getItem("SvgAnm", "/svg_animation", <LineChartOutlined />),
-    // getItem("Echarts", "/echarts_simples", <DesktopOutlined />),
-  ]),
+
   // getItem("Approval", "/approval", <ContainerOutlined />, [
   //   getItem("APR & Details", "/apr_det_one", <FlagOutlined />),
   // ]),
@@ -92,9 +98,4 @@ export const menuItems = [
   //   getItem("Stage Display", "/stage_display", <ApartmentOutlined />),
   //   getItem("TodoList", "/todo_list", <PicLeftOutlined />),
   // ]),
-  // getItem("BigScreen", "/big_screen", <AreaChartOutlined />, [
-  //   getItem("BigScreen1", "/big_screen_1", <AreaChartOutlined />),
-  //   getItem("BigScreen2", "/big_screen_2", <AreaChartOutlined />),
-  // ]),
-  getItem("BigScreen", "/big_screen", <AreaChartOutlined />),
 ];

@@ -1,0 +1,323 @@
+.flexCenter(@justifyContent: center, @alignItems: center) {
+  display: flex;
+  align-items: @alignItems;
+  justify-content: @justifyContent;
+}
+
+.modulebox {
+  //   height: 254px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+  padding: 16px 6px;
+  background-color: #fff;
+}
+
+.contentBox {
+  height: 480px;
+  // --contentBoxHeight: 606px;
+  // height: var(--contentBoxHeight);
+  background-image: url(./assets/coverBg.png);
+  background-size: 100% 100%;
+  position: relative;
+  margin-top: 8px;
+}
+
+.boardBox {
+  position: absolute;
+  top: 70px;
+  // bottom: 38px;
+  left: 50px;
+  width: calc(100% - 110px);
+  height: 378px;
+
+  display: grid;
+  // grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  grid-gap: 19px 2.5%;
+
+  transform: scaleY(var(--boardScale));
+}
+
+:global(.threeEachRow) {
+  .threeEachRow();
+}
+:global(.fourEachRow) {
+  .fourEachRow();
+}
+:global(.fiveEachRow) {
+  .fiveEachRow();
+}
+:global(.sixEachRow) {
+  .sixEachRow();
+}
+:global(.sevenEachRow) {
+  .sevenEachRow();
+}
+:global(.eightEachRow) {
+  .eightEachRow();
+}
+
+.threeEachRow {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  .eachBoard:nth-child(1),
+  .eachBoard:nth-child(4),
+  .eachBoard:nth-child(7) {
+    background-image: url(./assets/pinLeft.png);
+    background-size: 100% 100%;
+  }
+
+  .eachBoard:nth-child(3),
+  .eachBoard:nth-child(6),
+  .eachBoard:nth-child(9) {
+    background-image: url(./assets/pinRight.png);
+    background-size: 100% 100%;
+  }
+}
+
+.fourEachRow {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  .eachBoard:nth-child(1),
+  .eachBoard:nth-child(5),
+  .eachBoard:nth-child(9) {
+    background-image: url(./assets/pinLeft.png);
+    background-size: 100% 100%;
+  }
+
+  .eachBoard:nth-child(4),
+  .eachBoard:nth-child(8),
+  .eachBoard:nth-child(12) {
+    background-image: url(./assets/pinRight.png);
+    background-size: 100% 100%;
+  }
+}
+
+.fiveEachRow {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  .eachBoard:nth-child(1),
+  .eachBoard:nth-child(6),
+  .eachBoard:nth-child(11) {
+    background-image: url(./assets/pinLeft.png);
+    background-size: 100% 100%;
+  }
+
+  .eachBoard:nth-child(5),
+  .eachBoard:nth-child(10),
+  .eachBoard:nth-child(15) {
+    background-image: url(./assets/pinRight.png);
+    background-size: 100% 100%;
+  }
+}
+
+.sixEachRow {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  .eachBoard:nth-child(1),
+  .eachBoard:nth-child(7),
+  .eachBoard:nth-child(13) {
+    background-image: url(./assets/pinLeft.png);
+    background-size: 100% 100%;
+  }
+
+  .eachBoard:nth-child(6),
+  .eachBoard:nth-child(12),
+  .eachBoard:nth-child(18) {
+    background-image: url(./assets/pinRight.png);
+    background-size: 100% 100%;
+  }
+}
+
+.sevenEachRow {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+
+  .eachBoard:nth-child(1),
+  .eachBoard:nth-child(8),
+  .eachBoard:nth-child(15) {
+    background-image: url(./assets/pinLeft.png);
+    background-size: 100% 100%;
+  }
+
+  .eachBoard:nth-child(7),
+  .eachBoard:nth-child(14),
+  .eachBoard:nth-child(21) {
+    background-image: url(./assets/pinRight.png);
+    background-size: 100% 100%;
+  }
+}
+
+.eightEachRow {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+
+  .eachBoard:nth-child(1),
+  .eachBoard:nth-child(9),
+  .eachBoard:nth-child(17) {
+    background-image: url(./assets/pinLeft.png);
+    background-size: 100% 100%;
+  }
+
+  .eachBoard:nth-child(8),
+  .eachBoard:nth-child(16),
+  .eachBoard:nth-child(24) {
+    background-image: url(./assets/pinRight.png);
+    background-size: 100% 100%;
+  }
+}
+
+:global(.tsc_dash_eachOne) {
+  position: relative;
+  z-index: 2;
+  .clickBox {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 56px;
+    bottom: 3px;
+  }
+}
+
+.tsc_dash_eachOne :global {
+  position: relative;
+  z-index: 2;
+}
+
+.eachBoard {
+  background-image: url(./assets/pinCenter.png);
+  background-size: 100% 100%;
+  position: relative;
+
+  // min-width: 236px;
+}
+
+.pinLeft {
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/boardLeft.png);
+  background-size: 100% 100%;
+
+  transform-origin: calc(50%) 11px;
+
+  .list {
+    width: 65%;
+  }
+}
+
+.pinCenter {
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/boardCenter.png);
+  background-size: 100% 100%;
+
+  transform-origin: calc(50%) 13px;
+
+  .list {
+    width: 65%;
+  }
+}
+
+.pinRight {
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/boardRight.png);
+  background-size: 100% 100%;
+
+  transform-origin: calc(50%) 11px;
+
+  .list {
+    width: 65%;
+  }
+}
+
+:global(.rotateAnimate) {
+  animation: myRotate 2s ease-in-out;
+}
+
+.rotateAnimate :global {
+  animation: myRotate 2s ease-in-out;
+}
+
+@keyframes myRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-20deg);
+  }
+  40% {
+    transform: rotate(15deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  80% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.title {
+  position: absolute;
+  top: 80px;
+  left: 18%;
+  color: white;
+  pointer-events: none;
+}
+
+.list {
+  position: absolute;
+  width: 70%;
+  top: 112px;
+  left: 18%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.loading {
+  position: absolute;
+  bottom: 38px;
+  left: 85px;
+  width: calc(100%);
+  height: 378px;
+  opacity: 0.5;
+  background-color: aliceblue;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 8px;
+
+    animation: rotate 1s linear infinite;
+
+    @keyframes rotate {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      25% {
+        -webkit-transform: rotate(90deg);
+      }
+
+      50% {
+        -webkit-transform: rotate(180deg);
+      }
+
+      75% {
+        -webkit-transform: rotate(270deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+  }
+}
