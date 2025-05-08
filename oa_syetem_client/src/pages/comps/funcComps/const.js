@@ -186,3 +186,6 @@ export const layout = {
     span: 19,
   },
 };
+
+// 最外层带有子节点的大纲的id集合
+export const outlineWithSubs = ["content", "appendix"];

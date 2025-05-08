@@ -22,6 +22,7 @@ import {
   actOutlineIconMap,
   outlineWithEyes,
 } from "../../../mapConst";
+import { outlineWithSubs } from "../../../const";
 import RightArrow from "./rightArrow.png";
 import OpenEye from "../imgs/visible.png";
 import WhiteEye from "../imgs/actWhiteVisible.svg";
@@ -52,7 +53,6 @@ const Outline = () => {
 
   // 每一条大纲的点击函数
   const handleTitleClick = (e, data) => {
-    // console.log('data', data);
     // 如果当前 activeOutline 的 id 是组件页，且点击了其他不为正文的大纲，则需要对组件进行存档
     if (!isNaN(activeOutline.id * 1) && data.id !== "content") {
       const cloneData = cloneDeep(outlineAllData);
@@ -69,6 +69,8 @@ const Outline = () => {
       }
     }
 
+    // 如果点击的是能展开的大纲，则return，否则例如introduction页面的组件会不见
+    if (outlineWithSubs.includes(data.id)) return;
     getSetDragType(data.id, setDragType, outlineAllData);
   };
 
