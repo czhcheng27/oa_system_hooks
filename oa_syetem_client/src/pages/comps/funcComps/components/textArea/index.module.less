@@ -1,0 +1,59 @@
+.txt_form {
+  margin-top: 4px;
+}
+
+.textArea_comp_rt {
+  & > div {
+    outline: 0;
+    background: white;
+    min-height: 168px;
+    border: 1px solid #f0f1f4;
+    border-radius: 4px;
+    padding: 4px 11px;
+
+    &::before {
+      left: 11px !important;
+      color: #bfbfbf !important;
+    }
+    &:hover {
+      cursor: text;
+    }
+  }
+  :global {
+    .mce-content-body:hover {
+      border-color: #cd9a89;
+    }
+  }
+}
+
+.left {
+  display: flex;
+  height: 18px;
+  line-height: 18px;
+  align-items: center;
+  margin-bottom: 12px;
+  img {
+    height: 18px;
+    width: 19px;
+    margin-right: 7px;
+  }
+}
+
+.right {
+  flex: 1;
+  margin-top: 6px;
+  :global {
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+    .ant-input {
+      border-color: #f0f1f4;
+    }
+    .ant-input:hover {
+      border-color: #d19980;
+    }
+    .ant-input:focus {
+      border-color: #d19980 !important;
+    }
+  }
+}

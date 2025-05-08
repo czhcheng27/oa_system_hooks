@@ -1,0 +1,18 @@
+.cmTinymce {
+  width: 100%;
+  :global {
+    .mce-content-body {
+      background: white;
+      outline: 0;
+      height: 100%;
+      padding: 4px 8px;
+      border-radius: 4px;
+      &::before {
+        padding-left: 8px;
+      }
+      & > p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

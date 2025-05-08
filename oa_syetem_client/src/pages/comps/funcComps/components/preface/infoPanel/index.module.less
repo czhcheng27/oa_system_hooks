@@ -1,0 +1,26 @@
+.infoPabel_wrapper {
+  & > div:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  :global {
+    .ant-input {
+      border-color: #f0f1f4;
+    }
+    .ant-input:hover {
+      border-color: #e6ecff;
+    }
+    .ant-input:focus {
+      border-color: #e6ecff !important;
+    }
+  }
+}
+
+.company_row,
+.person_row {
+  display: flex;
+  align-items: center;
+  span {
+    width: 140px;
+  }
+}

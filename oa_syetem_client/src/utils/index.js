@@ -227,6 +227,101 @@ export const inputToNum = (data) => {
   return res.join("");
 };
 
+//验证正整数
+export const checkIsPositiveIntegerEx0 = (value, callback) => {
+  var reg = /^([1-9][0-9]*)$/;
+  if (reg.test(value)) {
+    return value;
+  } else {
+    message.warn("请输入大于0的正整数");
+    return "";
+  }
+};
+
+// 限制输入只为数字及大写字母
+export const inputToNumAlp = (data) => {
+  const standardString = data.replace(/\s+/g, "");
+  const arr = standardString.split("");
+  const res = arr.reduce((pre, item) => {
+    const strCode = item.charCodeAt();
+    if ((strCode < 58 && strCode >= 48) || (strCode <= 90 && strCode >= 65)) {
+      pre.push(item);
+    } else {
+      message.warning("请输入数字或大写字母");
+    }
+    return pre;
+  }, []);
+  return res.join("");
+};
+
+// 限制输入只为数字，从0-99，不能有00
+export const inputToTwoDigitNum = (data) => {
+  let res = data;
+  const standardString = data.replace(/\s+/g, "");
+  const arr = standardString.split("");
+  if (arr.find((el) => el.charCodeAt() >= 58 || el.charCodeAt() < 48)) {
+    message.warning("只能输入数字");
+    return "";
+  }
+  if (data == "00") res = "0";
+  if (data.length > 2) {
+    res = arr.splice(0, 2).join("");
+    message.warning("最多输入两位数字");
+  }
+  return res;
+};
+
+// 格式化日对象
+export const getNowDate = () => {
+  var date = new Date();
+  var sign2 = ":";
+  var year = date.getFullYear(); // 年
+  var month = date.getMonth() + 1; // 月
+  var day = date.getDate(); // 日
+  var hour = date.getHours(); // 时
+  var minutes = date.getMinutes(); // 分
+  var seconds = date.getSeconds(); //秒
+  var weekArr = [
+    "星期一",
+    "星期二",
+    "星期三",
+    "星期四",
+    "星期五",
+    "星期六",
+    "星期天",
+  ];
+  var week = weekArr[date.getDay()];
+  // 给一位数的数据前面加 “0”
+  if (month >= 1 && month <= 9) {
+    month = "0" + month;
+  }
+  if (day >= 0 && day <= 9) {
+    day = "0" + day;
+  }
+  if (hour >= 0 && hour <= 9) {
+    hour = "0" + hour;
+  }
+  if (minutes >= 0 && minutes <= 9) {
+    minutes = "0" + minutes;
+  }
+  if (seconds >= 0 && seconds <= 9) {
+    seconds = "0" + seconds;
+  }
+  return (
+    year +
+    "-" +
+    month +
+    "-" +
+    day +
+    " " +
+    hour +
+    sign2 +
+    minutes +
+    sign2 +
+    seconds
+  );
+};
+
 // 重置children数组内每个对象的index及name
 export const resortIdx = (array, name) => {
   if (name === "content") {
@@ -236,7 +331,7 @@ export const resortIdx = (array, name) => {
       const symbol = String.fromCharCode(65 + i);
       array[i].varIndex = symbol;
       array[i].index = symbol;
-      array[i].name = `附录${symbol}`;
+      array[i].name = `Reference ${symbol}`;
     }
   }
   return array;
@@ -383,3 +478,27 @@ export function getDaysBetween(date1, date2) {
   const days = (endDate - startDate) / (1 * 24 * 60 * 60 * 1000);
   return days;
 }
+
+export const listenBtn = (getHTMLFunc, index, setStateFunc, enableNo) => {
+  const config = { attributes: true, childList: true, subtree: true };
+  const callback = (mutationsList, observer) => {
+    //  mutationsList中attributeName为class下的target值为当前对应按钮是否选中
+    const enabled = mutationsList[0].target.classList.length === enableNo;
+    setStateFunc(enabled);
+  };
+
+  setTimeout(() => {
+    try {
+      const htmlcollection = getHTMLFunc();
+      const targetNodeList = Array.prototype.slice.call(htmlcollection);
+      const targetNode = targetNodeList[index];
+      if (!targetNode) {
+        throw new Error("no targetNode");
+      }
+      const observer = new MutationObserver(callback);
+      observer.observe(targetNode, config);
+    } catch (e) {
+      listenBtn(getHTMLFunc, index, setStateFunc, enableNo);
+    }
+  }, 10);
+};

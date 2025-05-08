@@ -1,0 +1,151 @@
+@insideHeight: 40px;
+
+.wrapper {
+  position: relative;
+}
+
+.panel_wrapper {
+  margin: 8px 0;
+  :global {
+    .ant-collapse-header {
+      display: flex;
+      padding: 13px 12px 13px 14px !important;
+      span {
+        flex: 1 !important;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.outline_visible_icon {
+  position: absolute;
+  z-index: 1;
+  top: 17px;
+  right: 0px;
+  width: 14px;
+  height: 12px;
+  margin-right: 6px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.activeBg {
+  :global {
+    .ant-collapse-header {
+      background: #4786ef;
+      border-radius: 4px !important;
+      span p {
+        color: white;
+      }
+    }
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+
+  margin: -15px;
+  padding: 15px 8px;
+
+  img {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+  }
+  p {
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #9292a2;
+  }
+}
+
+@keyframes hideIndex {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.each_indise_title {
+  min-height: @insideHeight;
+  line-height: @insideHeight;
+  margin: 10px 0;
+  font-family: PingFangSC-SNaNpxibold;
+  font-weight: 400;
+  color: #9292a2;
+  position: relative;
+
+  // img {
+  //   display: none;
+  // }
+
+  & > p {
+    margin-left: 11px;
+    margin-right: 14px;
+    // max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    // img {
+    //   display: block;
+    //   animation: hideIndex 0.3s;
+    // }
+  }
+
+  .chapter_folder_icon {
+    width: 8px;
+    height: 10px;
+    position: absolute;
+    top: 15px;
+    left: -5px;
+  }
+
+  .visible_icon {
+    position: absolute;
+    top: 15px;
+    right: 0px;
+    width: 14px;
+    height: 12px;
+    margin-right: 6px;
+  }
+
+  .text1 {
+    padding-left: 18px;
+    max-height: @insideHeight;
+    & > p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-right: 6px;
+    }
+  }
+}
+
+.showTripleDot {
+  img {
+    display: block;
+  }
+}
+
+.atvInBg {
+  & > p > span {
+    color: #4786ef;
+  }
+}
+
+.visibleHidden {
+  p span {
+    color: #d6d6d8 !important;
+  }
+}

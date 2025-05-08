@@ -1,0 +1,47 @@
+.term_wrapper {
+  :global {
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+    .ant-input {
+      border-color: #f0f1f4;
+    }
+    .ant-input:hover {
+      border-color: #94b1aa;
+    }
+    .ant-input:focus {
+      border-color: #94b1aa !important;
+    }
+  }
+}
+
+.top {
+  //   padding-left: 90px;
+  margin-top: -33px;
+}
+
+.form_wrapper {
+  & > div:nth-child(1) {
+    flex-grow: 3 !important;
+  }
+  & > div:nth-child(2) {
+    flex-grow: 5 !important;
+  }
+}
+
+.bot {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+
+  & > div:nth-child(1) {
+    width: 40px;
+    color: #94b1aa;
+  }
+}
+
+.second_row {
+  label {
+    color: #94b1aa;
+  }
+}

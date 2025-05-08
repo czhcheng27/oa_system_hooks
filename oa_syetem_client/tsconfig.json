@@ -17,23 +17,16 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "outDir": "/",
-    "lib": [
-      "ESNext",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
-  "include": [
-    "./src"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "**/*.js"
-  ]
+  "include": ["./src"],
+  "exclude": ["node_modules", "dist", "**/*.js"]
 }

@@ -9,7 +9,7 @@ import {
 import Admin from "./pages/admin/index";
 import ApprovalDetails from "./pages/aprDet/aprDetOne";
 import Category from "./pages/category/index";
-import Revision from "./pages/comps/revision";
+import Revision from "./pages/comps/funcComps";
 import DragHorMul from "./pages/drag/dragHorMul";
 import SingleColumn from "./pages/drag/SingleColumn";
 import VehicleRotation from "./pages/simples/VehicleRotation";

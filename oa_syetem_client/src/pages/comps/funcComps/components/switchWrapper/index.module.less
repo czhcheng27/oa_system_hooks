@@ -1,0 +1,67 @@
+.content_wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 13px 17px 14px 16px;
+  border-radius: 4px;
+  opacity: 0.85;
+  border: 1px solid #e6ecff;
+  // transition: height 0.3s;
+  // height: auto;
+  margin-bottom: 16px;
+  background-image: linear-gradient(180deg, #f7fbfd 0%, #eff5fb 36%, #f9fcfd 100%);
+
+  .content_top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+
+    & > div:nth-of-type(1) {
+      font-weight: 600;
+      color: #242f57;
+    }
+  }
+}
+
+.top_right {
+  display: flex;
+  .switch_part {
+    display: flex;
+    & > button {
+      transform: scale(0.7);
+    }
+    & > div {
+      margin-left: 4px;
+      font-weight: 500;
+      font-size: 14px;
+      color: #0052d9;
+    }
+  }
+  img {
+    width: 18px;
+    height: 18px;
+    margin-left: 12px;
+    margin-top: 3px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.switchOff {
+  height: 48px;
+  background: #f7f7f7f0;
+  border: 1px solid #e2e2e2;
+  div {
+    color: #c3c8d5 !important;
+  }
+}
+
+.staple_icon {
+  position: absolute;
+  top: -24px;
+  left: -24px;
+  z-index: 1;
+  width: 48px;
+  //   height: 18px;
+}

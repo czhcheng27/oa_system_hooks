@@ -53,6 +53,7 @@ export const menuItems = [
   //   getItem("BigScreen2", "/big_screen_2", <AreaChartOutlined />),
   // ]),
   getItem("BigScreen", "/big_screen", <AreaChartOutlined />),
+  getItem("Comps Library", "/comps_library_sortablejs", <MergeCellsOutlined />),
   getItem("Simples", "/simples", <PieChartOutlined />, [
     // getItem("Indicator", "/question_indicator", <ContainerOutlined />),
     getItem("VehicleRotation", "/vehicle_rotate", <LineChartOutlined />),
@@ -73,11 +74,16 @@ export const menuItems = [
   getItem("Role", "/role", <FileOutlined />),
   // getItem("LowCode", "/low_code", <WindowsOutlined />),
   // getItem("Components", "/components", <BlockOutlined />, [
-  //   getItem(
-  //     "Comps Library",
-  //     "/comps_library_sortablejs",
-  //     <MergeCellsOutlined />
-  //   ),
+  // getItem(
+  //   "Comps Library",
+  //   "/comps_library_sortablejs",
+  //   <MergeCellsOutlined />
+  // ),
+  // getItem(
+  //   "Comps Library",
+  //   "/comps_library_sortablejs2",
+  //   <MergeCellsOutlined />
+  // ),
   // ]),
   getItem("Drag", "/drag", <ChromeOutlined />, [
     getItem(

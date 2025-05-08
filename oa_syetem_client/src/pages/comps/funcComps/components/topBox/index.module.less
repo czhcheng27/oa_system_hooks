@@ -1,0 +1,124 @@
+.top {
+  height: 54px;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border: 1px solid #eaedf7;
+}
+
+.topLeft,
+.topRight {
+  display: flex;
+  align-items: center;
+}
+
+.leftBack {
+  color: #242f57;
+  cursor: pointer;
+  & > span {
+    margin-left: 10px;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    font-size: 16px;
+    color: #242f57;
+  }
+}
+
+.divider {
+  width: 2px;
+  height: 18px;
+  margin: 0 24px;
+  background: #636e95;
+}
+
+.topRight {
+  & > div {
+    color: #636e95;
+  }
+}
+
+.saveBox {
+  img {
+    width: 16px;
+    margin-right: -30px;
+    margin-bottom: 4px;
+  }
+}
+
+.saveBtn {
+  margin: 0 14px 0 0;
+  border-radius: 4px;
+  height: 34px;
+  min-width: 105px;
+}
+
+:global {
+  .return_pop_confirm {
+    .ant-popover-message {
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      font-size: 14px;
+      color: #242f57;
+      padding-bottom: 18px;
+    }
+    .ant-popover-buttons {
+      margin-bottom: 0;
+      .ant-btn-primary {
+        width: 48px;
+        height: 24px;
+        background: #0052d9;
+        border-radius: 4px;
+      }
+      .ant-btn-default {
+        width: 48px;
+        height: 24px;
+        background: #eaedf7;
+        border-radius: 4px;
+        border: 0;
+      }
+    }
+  }
+
+  .update_previse_drop {
+    .ant-dropdown-menu {
+      // width: 225px;
+      // height: 96px;
+      overflow: auto;
+      background: white;
+      padding: 8px;
+    }
+    .ant-dropdown-menu-item {
+      height: 32px;
+      line-height: 32px;
+      border-radius: 4px;
+      margin: 4px 0;
+      padding: 0 16px;
+      color: #242f57;
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+      &:hover {
+        color: #0052d9;
+        background: #ecf3fe;
+      }
+    }
+  }
+}
+
+.handleBox {
+  .editArea {
+    font-size: 16px;
+    color: #0052d9;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 2px;
+    margin-left: 8px;
+  }
+
+  cursor: pointer;
+}

@@ -1,0 +1,50 @@
+.wrapper {
+  :global {
+    .ant-radio-group {
+      width: 100%;
+    }
+    .ant-input[disabled] {
+      background: #eaedf7;
+      border: 1px solid #e9edfc;
+    }
+  }
+}
+
+.bot_wrapper {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    span:nth-of-type(2) {
+      flex: 1;
+    }
+  }
+
+  .single_opt {
+    display: flex;
+    align-items: center;
+    margin-top: 14px;
+
+    p {
+      width: 320px;
+      margin-left: 18px;
+    }
+  }
+
+  input {
+    height: 36px;
+    border-radius: 4px;
+    flex: 1;
+  }
+}
+
+.overlay {
+  background: transparent;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  opacity: 0.5;
+  top: 0px;
+  left: 0;
+}

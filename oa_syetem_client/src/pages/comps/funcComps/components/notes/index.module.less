@@ -1,0 +1,65 @@
+.wrapper {
+  position: relative;
+  background: rgba(242, 241, 254, 0.27);
+  border: 1.2px solid #e6ecff;
+  padding: 17.5px 0;
+  .formBox {
+    display: flex;
+    .leftBox {
+      display: flex;
+      align-items: center;
+      height: 32px;
+      padding: 0 12px;
+      img {
+        height: 18px;
+        width: 19px;
+        margin-right: 7px;
+      }
+    }
+    .rightBox {
+      flex: 1;
+      .notesBox {
+        padding: 0 8px 12px 0;
+        display: flex;
+        .notesLabel {
+          width: 26px;
+        }
+      }
+      .footnoteBox {
+        padding: 0 8px 12px 22px;
+        display: flex;
+        .notesLabel {
+          width: 36px;
+        }
+      }
+      .notesLabel {
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        font-size: 14px;
+        color: #c1ac6b;
+        line-height: 30px;
+      }
+      .notesHandle {
+        width: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        span {
+          color: #c1ac6b;
+          font-size: 16px;
+        }
+      }
+      :global {
+        .ant-input {
+          border-color: #f0f1f4;
+        }
+        .ant-input:hover {
+          border-color: #c1ac6b;
+        }
+        .ant-input:focus {
+          border-color: #c1ac6b !important;
+        }
+      }
+    }
+  }
+}
