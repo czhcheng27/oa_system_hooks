@@ -1,10 +1,12 @@
 /* eslint-disable react/no-unknown-property */
 import React, {
   useRef,
+  useState,
   useContext,
   useImperativeHandle,
   forwardRef,
 } from "react";
+import { Modal } from "antd";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -27,6 +29,7 @@ import ChapterTwoTop from "./chapterTwoTop";
 import ChapterThreeTop from "./chapterThreeTop";
 import { matchCom } from "../../const";
 import { RevisionContext } from "../..";
+import Ques from "../../imgs/ques.png";
 import css from "./index.module.less";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -73,6 +76,8 @@ const AreaCenter = forwardRef(
     const curOutline = findUpperObj(outlineAllData, actId); // 最外层那一级的对象（即：封面、前言、引言。。。等）
     const { id: outlineId, name: outlineName } = curOutline || {};
     const { standardName = "" } = outlineAllData[0].data;
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     console.log(
       "outlineAllData， activeOutline",
@@ -420,15 +425,56 @@ const AreaCenter = forwardRef(
             {standardName ? `${standardName} / ` : ""}
             {actId === outlineId ? actName : `${outlineName} / ${actName}`}
           </div>
-          {/* <AutoTooltip txt={headerTitle()}>{headerTitle()}</AutoTooltip> */}
+          <div onClick={() => setIsModalOpen(true)}>
+            <img src={Ques} />
+          </div>
         </header>
         <section id="areacenter_section">
           {renderIndepComps(outlineId)}{" "}
           {outlineId === "content" && renderList(comList, actId)}
         </section>
+
+        <Modal
+          title="Instruction"
+          open={isModalOpen}
+          footer={null}
+          onCancel={() => setIsModalOpen(false)}
+          wrapClassName={"instruction_explaination"}
+        >
+          {modalContent()}
+        </Modal>
       </div>
     );
   }
 );
 
 export default AreaCenter;
+
+const modalContent = () => {
+  return (
+    <div className={css.instruction_wrapper}>
+      <div>
+        a）New chapters can be added under <b>Content</b>, with support for
+        moving up/down, renaming, and deleting.
+      </div>
+      <div>
+        b） <b>Appendix</b> allows adding appendices, which can also be moved
+        up/down, renamed, and deleted.
+      </div>
+      <div>
+        c）<b>Introduction</b>, <b>Chapter</b>, and <b>Appendix</b> sections can
+        switch to the <b>Comps</b>
+        view to add components.
+      </div>
+      <div>
+        d）<b>Introduction</b>, some <b>Chapters</b>, and <b>Reference</b>{" "}
+        sections support visibility toggling (show/hide).
+      </div>
+      <div>
+        e）The <b>"Text"</b> component cannot be inserted or dragged beyond its
+        hierarchical level. It must follow the correct nesting order, e.g., 1 →
+        2 → 2 → 3 is allowed, but 1 → 3 → 4 is not.
+      </div>
+    </div>
+  );
+};

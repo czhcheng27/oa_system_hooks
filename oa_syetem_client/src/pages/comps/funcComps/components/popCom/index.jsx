@@ -11,7 +11,8 @@ const PopCom = ({
 }) => {
   return (
     <Popconfirm
-      overlayClassName="pop_confirm_style"
+      // overlayClassName="pop_confirm_style"
+      overlayClassName="delpop_confirm"
       placement={position}
       disabled={disable}
       title={title}

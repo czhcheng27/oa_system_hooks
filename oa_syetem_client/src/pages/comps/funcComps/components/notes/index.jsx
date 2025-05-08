@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Input } from "antd";
 const { TextArea } = Input;
-import DelPop from "@/pages/comps/revision/delPop";
+import DelPop from "../delPop";
 import css from "./index.module.less";
 import { colorCompMap } from "../../mapConst";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";

@@ -3,8 +3,8 @@ import { Input } from "antd";
 import classNames from "classnames";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 import { cloneDeep, createUidKey } from "@/utils";
-import DelPop from "@/pages/comps/revision/delPop";
-import PopCom from "@/pages/comps/revision/popCom";
+import DelPop from "../delPop";
+import PopCom from "../popCom";
 import { colorCompMap } from "../../mapConst";
 import css from "./index1.module.less";
 

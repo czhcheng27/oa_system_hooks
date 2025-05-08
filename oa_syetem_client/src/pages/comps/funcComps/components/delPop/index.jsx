@@ -30,13 +30,13 @@ const DelPop = ({
 
   return (
     <Popconfirm
-      overlayClassName="pop_confirm"
+      overlayClassName="delpop_confirm"
       placement="left"
-      title="确定删除此组件?"
-      okText="是"
-      cancelText="否"
+      title="Are you sure to delete this comps?"
+      okText="Yes"
+      cancelText="No"
       autoAdjustOverflow={false}
-      onVisibleChange={visivleChange}
+      onOpenChange={visivleChange}
       onConfirm={() => (onDelete(), setBtnClicked(false))}
       onCancel={() => (setBtnClicked(false), setHoverStatus(true))}
       //   getPopupContainer={(triggerNode) => triggerNode.parentNode}

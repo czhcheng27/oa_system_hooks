@@ -5,7 +5,7 @@ import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 import { cloneDeep, createUidKey } from "@/utils";
 import { dataHasBeenUpdated, updateOutlineAllData } from "@/redux/actions";
 import SwitchWrapper from "@/pages/comps/revision/switchWrapper";
-import PopCom from "@/pages/comps/revision/popCom";
+import PopCom from "../popCom";
 import CmTinymce from "../../cmTinymce";
 import Ques from "../../imgs/ques.png";
 import css from "./index.module.less";
@@ -166,10 +166,10 @@ const Reference = forwardRef(({ referenceData }, ref) => {
     <div className={css.reference_wrapper}>
       <SwitchWrapper
         label={"Reference"}
-        // imgSrc={Ques}
+        imgSrc={Ques}
         disableSwitch={true}
-        // modalTitle="规则说明"
-        // modalContent={modalContent}
+        modalTitle="规则说明"
+        modalContent={modalContent}
         wrapClassName="ref_explaination"
       >
         <div className={css.bot_wrapper}>{renderContent()}</div>

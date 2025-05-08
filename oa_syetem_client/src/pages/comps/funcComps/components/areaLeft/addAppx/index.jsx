@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Popover, Form, Input, Radio, Button } from "antd";
@@ -26,8 +25,8 @@ const AddAppx = ({ children, selectData, receiveData, action }) => {
   }, [receiveData]);
 
   const visibleChange = (visible) => {
+    setPopVisible(visible);
     if (visible) {
-      setPopVisible(true);
       action !== "edit" && appxForm.resetFields();
     }
   };
@@ -39,7 +38,7 @@ const AddAppx = ({ children, selectData, receiveData, action }) => {
       outlineAllData[appxId].children.push({
         varIndex: `A`,
         id: `A`,
-        name: `Reference A`,
+        name: `Appendix A`,
         coms: [],
         deletable: true,
         data,
@@ -53,7 +52,7 @@ const AddAppx = ({ children, selectData, receiveData, action }) => {
       outlineAllData[appxId].children.push({
         varIndex: `${addVarIdx}`,
         id: `${addSybmol}`,
-        name: `Reference ${addVarIdx}`,
+        name: `Appendix ${addVarIdx}`,
         coms: [],
         deletable: true,
         data,

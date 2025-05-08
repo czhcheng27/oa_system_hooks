@@ -5,6 +5,7 @@ import { findUpperObj, generateParentIndex, resortIdx } from "@/utils";
 import { getSetDragType } from "@/utils/dragUtils";
 import AddChapter from "../addChapter";
 import AddAppx from "../addAppx";
+import PopCom from "../../popCom";
 import { independentComps } from "../../../const";
 import { RevisionContext } from "../../..";
 import TripleDotAct from "../imgs/tripleDotAct.png";
@@ -15,7 +16,6 @@ import DownDis from "../imgs/downDis.png";
 import Rename from "../imgs/rename.png";
 import Delete from "../imgs/delete.png";
 import css from "./index.module.less";
-import PopCom from "@/pages/comps/revision/popCom";
 
 const MoveAction = ({
   setClickedIndex,

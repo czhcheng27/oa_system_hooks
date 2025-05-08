@@ -331,7 +331,7 @@ export const resortIdx = (array, name) => {
       const symbol = String.fromCharCode(65 + i);
       array[i].varIndex = symbol;
       array[i].index = symbol;
-      array[i].name = `Reference ${symbol}`;
+      array[i].name = `Appendix ${symbol}`;
     }
   }
   return array;
