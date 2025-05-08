@@ -166,10 +166,10 @@ const Reference = forwardRef(({ referenceData }, ref) => {
     <div className={css.reference_wrapper}>
       <SwitchWrapper
         label={"Reference"}
-        imgSrc={Ques}
+        // imgSrc={Ques}
         disableSwitch={true}
-        modalTitle="规则说明"
-        modalContent={modalContent}
+        // modalTitle="规则说明"
+        // modalContent={modalContent}
         wrapClassName="ref_explaination"
       >
         <div className={css.bot_wrapper}>{renderContent()}</div>

@@ -16,7 +16,7 @@ const AreaDoc = forwardRef(({ handleSubmit }, ref) => {
         </div>
         <div className={css.btns}>
           {/* <Button>Go Back</Button> */}
-          <Button type="primary" onClick={handleSubmit}>
+          <Button type="primary" disabled={true} onClick={handleSubmit}>
             Save and Preview
           </Button>
         </div>
