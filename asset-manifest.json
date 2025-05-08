@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/oa_system_hooks/static/css/main.4f4cac62.css",
-    "main.js": "/oa_system_hooks/static/js/main.009cab3d.js",
+    "main.css": "/oa_system_hooks/static/css/main.ebed90f0.css",
+    "main.js": "/oa_system_hooks/static/js/main.cf095afb.js",
     "static/media/1-1.gif": "/oa_system_hooks/static/media/1-1.1043f63eeba33772fe54.gif",
     "static/media/ring.png": "/oa_system_hooks/static/media/ring.b8ec66c24e7042dcadd5.png",
     "static/media/bgr.jpg": "/oa_system_hooks/static/media/bgr.2f69f22597a0aabc10cc.jpg",
@@ -100,19 +100,21 @@
     "static/media/act_btn.png": "/oa_system_hooks/static/media/act_btn.e40a0a90219c8e453341.png",
     "static/media/enter04.png": "/oa_system_hooks/static/media/enter04.e95bbbf1c4a9befe0d57.png",
     "static/media/6.png": "/oa_system_hooks/static/media/6.dcde4b79861348270d09.png",
-    "static/media/fx.svg": "/oa_system_hooks/static/media/fx.f2fca19ded4b7b9c8ecff178fb11e407.svg",
+    "static/media/fx.svg": "/oa_system_hooks/static/media/fx.e6ea957a4fbdf5a11fa94ff205296805.svg",
     "static/media/folderImgRvs.svg": "/oa_system_hooks/static/media/folderImgRvs.f4b9a6cbb2a5308baa7f.svg",
     "static/media/folderImg.svg": "/oa_system_hooks/static/media/folderImg.2982b9a5f165cc5046f0.svg",
+    "static/media/preface.svg": "/oa_system_hooks/static/media/preface.a2be00408df4bc52723b486149602033.svg",
+    "static/media/act_preface.svg": "/oa_system_hooks/static/media/act_preface.ab652f32fd098a710fe7f3ee969a8ead.svg",
     "static/media/actWhiteVisible.svg": "/oa_system_hooks/static/media/actWhiteVisible.d425e6868ec0a30f8e199ab52ce1bf57.svg",
     "static/media/close.svg": "/oa_system_hooks/static/media/close.0dac025f3ace45c486be3e4c19899edb.svg",
     "static/media/amplfier.svg": "/oa_system_hooks/static/media/amplfier.fdb004f058bdce314fd534e51a308336.svg",
     "index.html": "/oa_system_hooks/index.html",
     "static/media/add.svg": "/oa_system_hooks/static/media/add.e7d395814c85aa565334b5692ae499c9.svg",
-    "main.4f4cac62.css.map": "/oa_system_hooks/static/css/main.4f4cac62.css.map",
-    "main.009cab3d.js.map": "/oa_system_hooks/static/js/main.009cab3d.js.map"
+    "main.ebed90f0.css.map": "/oa_system_hooks/static/css/main.ebed90f0.css.map",
+    "main.cf095afb.js.map": "/oa_system_hooks/static/js/main.cf095afb.js.map"
   },
   "entrypoints": [
-    "static/css/main.4f4cac62.css",
-    "static/js/main.009cab3d.js"
+    "static/css/main.ebed90f0.css",
+    "static/js/main.cf095afb.js"
   ]
 }
