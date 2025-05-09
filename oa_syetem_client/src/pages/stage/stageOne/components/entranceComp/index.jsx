@@ -10,6 +10,7 @@ import DrawerFive from "./components/drawerFive";
 import DrawerSix from "./components/drawerSix";
 import { exhibition, initChangeState, quickEntry } from "../../const";
 import css from "./index.module.less";
+import AutoTooltip from "@/components/AutoTooltip";
 
 const EntranceComp = (props) => {
   const drawer1Ref = useRef();
@@ -84,7 +85,7 @@ const EntranceComp = (props) => {
 
         {/* bot quick entrance */}
         <div className={css.quickEntryArea}>
-          <p className={css.tip}>Quick Entrance (Icons Clickable)</p>
+          <p className={css.tip}>Functional Drawers (Icons Clickable)</p>
           <ul>
             {quickEntry.map((item, index) => {
               return (
@@ -104,7 +105,8 @@ const EntranceComp = (props) => {
                   }}
                 >
                   <p className={css.icon}></p>
-                  <p className={css.text}>{item.text}</p>
+                  {/* <p className={css.text}>{item.text}</p> */}
+                  <AutoTooltip txt={item.text}>{item.text}</AutoTooltip>
                 </li>
               );
             })}

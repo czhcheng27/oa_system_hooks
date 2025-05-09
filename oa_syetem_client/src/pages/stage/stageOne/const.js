@@ -55,11 +55,11 @@ export const exhibition = [
 ];
 
 export const quickEntry = [
-  { text: "Entrance1", name: "setChange", pageUrl: "ecm004" },
-  { text: "Entrance2", name: "approval", pageUrl: "ecm005" },
-  { text: "Entrance3", name: "synergy", pageUrl: "ecm009" },
-  { text: "Entrance4", name: "attention", pageUrl: "ecm008" },
-  { text: "Entrance5", name: "issue" },
+  { text: "Approval", name: "setChange", pageUrl: "ecm004" },
+  { text: "Low Code", name: "approval", pageUrl: "ecm005" },
+  { text: "Detail", name: "synergy", pageUrl: "ecm009" },
+  { text: "Advanced Filter System", name: "attention", pageUrl: "ecm008" },
+  { text: "E-Book", name: "issue" },
   { text: "Entrance6", name: "apply" },
 ];
 
