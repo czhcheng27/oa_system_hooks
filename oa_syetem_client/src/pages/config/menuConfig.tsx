@@ -54,6 +54,7 @@ export const menuItems = [
   // ]),
   getItem("Large Screen", "/large_screen", <AreaChartOutlined />),
   getItem("Online Editor", "/online_editor", <MergeCellsOutlined />),
+  getItem("Low Code", "/low_code", <WindowsOutlined />),
   getItem("Simples", "/simples", <PieChartOutlined />, [
     // getItem("Indicator", "/question_indicator", <ContainerOutlined />),
     getItem("VehicleRotation", "/vehicle_rotate", <LineChartOutlined />),
@@ -72,7 +73,6 @@ export const menuItems = [
     // getItem("Echarts", "/echarts_simples", <DesktopOutlined />),
   ]),
   getItem("Role", "/role", <FileOutlined />),
-  // getItem("LowCode", "/low_code", <WindowsOutlined />),
   // getItem("Components", "/components", <BlockOutlined />, [
   // getItem(
   //   "Comps Library",

@@ -12,6 +12,7 @@
     "@antv/data-set": "^0.10.2",
     "@babel/preset-typescript": "^7.24.7",
     "@craco/craco": "^6.4.3",
+    "@craftjs/core": "^0.2.12",
     "@nteract/mathjax": "^4.0.16",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",

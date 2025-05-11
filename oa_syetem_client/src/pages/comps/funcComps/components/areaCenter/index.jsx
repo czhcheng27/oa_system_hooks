@@ -475,6 +475,10 @@ const modalContent = () => {
         hierarchical level. It must follow the correct nesting order, e.g., 1 →
         2 → 2 → 3 is allowed, but 1 → 3 → 4 is not.
       </div>
+      <div>
+        f）When the <b>"Text"</b> is reordered correctly, the sequence numbers
+        will be automatically calculated and assigned.
+      </div>
     </div>
   );
 };
