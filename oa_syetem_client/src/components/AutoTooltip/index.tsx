@@ -15,7 +15,7 @@ const AutoTooltip: React.FC<AutoTooltipProps> = ({
   div,
 }) => {
   const tooltipObj = {
-    title: txt + "1",
+    title: txt,
     // overlayClassName: css.tooltip_obj,
     overlayStyle: { maxWidth },
     getPopupContainer: (triggerNode) => div ?? triggerNode.parentNode,

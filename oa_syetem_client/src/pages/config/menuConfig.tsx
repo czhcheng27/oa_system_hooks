@@ -52,8 +52,8 @@ export const menuItems = [
   //   getItem("BigScreen1", "/big_screen_1", <AreaChartOutlined />),
   //   getItem("BigScreen2", "/big_screen_2", <AreaChartOutlined />),
   // ]),
-  getItem("BigScreen", "/big_screen", <AreaChartOutlined />),
-  getItem("Comps Library", "/comps_library_sortablejs", <MergeCellsOutlined />),
+  getItem("Large Screen", "/large_screen", <AreaChartOutlined />),
+  getItem("Online Editor", "/online_editor", <MergeCellsOutlined />),
   getItem("Simples", "/simples", <PieChartOutlined />, [
     // getItem("Indicator", "/question_indicator", <ContainerOutlined />),
     getItem("VehicleRotation", "/vehicle_rotate", <LineChartOutlined />),
