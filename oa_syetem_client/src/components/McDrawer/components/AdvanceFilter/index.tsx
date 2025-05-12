@@ -247,7 +247,7 @@ const AdvanceFilter = forwardRef<DictRef, CommonDrawerFunc>(
     const renderAddFilterPop = (add: AddFunc) => {
       return (
         <Popover
-          overlayClassName="action_popover"
+          overlayClassName="add_filter_popover"
           placement="bottomRight"
           title={null}
           content={() => renderPopContent(add)}
