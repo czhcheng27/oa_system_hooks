@@ -17,7 +17,7 @@ const Earth = (props) => {
     containerDom = document.querySelector("#earthBox");
     width = containerDom?.clientWidth;
     height = containerDom?.clientHeight;
-    console.log(`containerDom`, containerDom, width, height);
+    // console.log(`containerDom`, containerDom, width, height);
     initScene();
     initCamera();
     initLight();
