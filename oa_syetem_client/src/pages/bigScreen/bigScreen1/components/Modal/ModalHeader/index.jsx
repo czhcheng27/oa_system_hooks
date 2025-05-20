@@ -1,6 +1,6 @@
 import css from "./index.module.less";
 
-const ModalHeader = ({ title, closeModal }) => {
+const ModalHeader = ({ title, type, closeModal }) => {
   return (
     <>
       <div className={css.modalBg}></div>
@@ -9,7 +9,7 @@ const ModalHeader = ({ title, closeModal }) => {
       <div className={css.modalRightBorder}></div>
       <div className={css.modalTitle}>
         {title}
-        <span>Target System</span>
+        {type !== "alert" ? <span>Target System</span> : null}
       </div>
       <div className={css.modalIcon} onClick={closeModal} />
     </>

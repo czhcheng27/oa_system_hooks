@@ -25,6 +25,23 @@ const ScreenBg = (props) => {
     addScene();
     animate();
     initRenderer();
+
+    // 监听窗口变化
+    window.addEventListener("resize", resizeScreenBg);
+
+    // 监听全屏模式变化
+    document.addEventListener("fullscreenchange", resizeScreenBg);
+    document.addEventListener("webkitfullscreenchange", resizeScreenBg);
+    document.addEventListener("mozfullscreenchange", resizeScreenBg);
+    document.addEventListener("MSFullscreenChange", resizeScreenBg);
+
+    return () => {
+      window.removeEventListener("resize", resizeScreenBg);
+      document.removeEventListener("fullscreenchange", resizeScreenBg);
+      document.removeEventListener("webkitfullscreenchange", resizeScreenBg);
+      document.removeEventListener("mozfullscreenchange", resizeScreenBg);
+      document.removeEventListener("MSFullscreenChange", resizeScreenBg);
+    };
   }, []);
 
   const initRenderer = () => {
@@ -158,6 +175,17 @@ const ScreenBg = (props) => {
     renderer.clear();
     renderer.render(scene, camera);
   };
+
+  const resizeScreenBg = () => {
+    const ele = document.getElementById("screenBg");
+    width = ele?.clientWidth;
+    height = ele?.clientHeight;
+    renderer.setSize(width, height);
+    camera.updateProjectionMatrix();
+    initCamera();
+    renders();
+  };
+
   return <div className={css.bgBox} id="screenBg"></div>;
 };
 

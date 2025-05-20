@@ -1,5 +1,8 @@
 export const screenTitle = "BigScreen1";
 
+export const SUGGEST_WIDTH = 1920;
+export const SUGGEST_HEIGHT = 945;
+
 export const leftButton = [
   {
     code: "1",

@@ -4,6 +4,8 @@ import ScreenHeader from "./components/ScreenHeader";
 import ScreenContainer from "./components/ScreenContainer";
 import ScreenBg from "./components/ScreenBg";
 import LoadingBg from "./components/LoadingBg";
+import Modal from "./components/Modal";
+import { SUGGEST_HEIGHT, SUGGEST_WIDTH } from "./const";
 import css from "./index.module.less";
 
 const BigScreen1 = (props) => {
@@ -11,11 +13,19 @@ const BigScreen1 = (props) => {
 
   const [activeCode, setActiveCode] = useState("1");
   const [isReady, setIsReady] = useState(false); // 控制页面主要内容显示
+  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
     // 模拟加载资源，1s 后再展示页面
     const timer = setTimeout(() => {
       setIsReady(true);
+      const wrapper = document.getElementById("moduleBox_large_screen");
+      if (
+        wrapper.clientWidth < SUGGEST_WIDTH ||
+        wrapper.clientHeight < SUGGEST_HEIGHT
+      ) {
+        setModalShow(true);
+      }
     }, 500);
 
     return () => clearTimeout(timer);
@@ -26,7 +36,7 @@ const BigScreen1 = (props) => {
   };
 
   return (
-    <div className={`${css.moduleBox} moduleBox_large_screen`}>
+    <div className={`${css.moduleBox}`} id="moduleBox_large_screen">
       <LoadingBg />
       {isReady && (
         <>
@@ -36,6 +46,13 @@ const BigScreen1 = (props) => {
             callback={(data) => jumpFunc(data)}
           />
           <ScreenContainer />
+
+          <Modal
+            type={"alert"}
+            title="Notice"
+            modalShow={modalShow}
+            closeHandle={() => setModalShow(false)}
+          />
         </>
       )}
     </div>
