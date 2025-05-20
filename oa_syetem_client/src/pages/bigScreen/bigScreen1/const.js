@@ -3,30 +3,36 @@ export const screenTitle = "BigScreen1";
 export const leftButton = [
   {
     code: "1",
-    label: "All",
+    label: "Dashboard",
+    url: "/dashboard",
   },
   {
     code: "2",
-    label: "Sub1",
+    label: "Home",
+    url: "/home",
   },
   {
     code: "3",
-    label: "Sub2",
+    label: "Low Code",
+    url: "/low_code",
   },
 ];
 
 export const rightButton = [
   {
     code: "4",
-    label: "Sub3",
+    label: "Online Editor",
+    url: "/online_editor",
   },
   {
     code: "5",
-    label: "Sub4",
+    label: "Low Code",
+    url: "/low_code",
   },
   {
     code: "6",
-    label: "Sub5",
+    label: "Small Funcs",
+    url: "/small_funcs",
   },
 ];
 

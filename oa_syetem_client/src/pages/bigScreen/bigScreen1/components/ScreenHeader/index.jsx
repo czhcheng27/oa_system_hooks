@@ -31,7 +31,7 @@ const ScreenHeader = ({ activeCode, callback }) => {
           css[type + "Button"],
           activeCode == item.code ? css.buttonActiveNode : null
         )}
-        onClick={() => callback(item.code)}
+        onClick={() => callback(item)}
         key={index}
       >
         <span>{item.label}</span>

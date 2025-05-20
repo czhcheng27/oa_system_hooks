@@ -42,7 +42,6 @@ function getItem(
 }
 
 export const menuItems = [
-  getItem("Home", "/home", <FundProjectionScreenOutlined />),
   // getItem("Products", "/products", <AppstoreOutlined />, [
   //   getItem("Category", "/category", <GoldOutlined />),
   //   getItem("Product", "/product", <WindowsOutlined />),
@@ -52,7 +51,8 @@ export const menuItems = [
   //   getItem("BigScreen1", "/big_screen_1", <AreaChartOutlined />),
   //   getItem("BigScreen2", "/big_screen_2", <AreaChartOutlined />),
   // ]),
-  getItem("Large Screen", "/large_screen", <AreaChartOutlined />),
+  getItem("Dashboard", "/dahsboard", <AreaChartOutlined />),
+  getItem("Home", "/home", <FundProjectionScreenOutlined />),
   getItem("Online Editor", "/online_editor", <MergeCellsOutlined />),
   getItem("Low Code", "/low_code", <WindowsOutlined />),
   getItem("Simples", "/simples", <PieChartOutlined />, [
@@ -72,7 +72,7 @@ export const menuItems = [
     getItem("LazyImg", "/lazy_img", <LineChartOutlined />),
     // getItem("Echarts", "/echarts_simples", <DesktopOutlined />),
   ]),
-  getItem("Role", "/role", <FileOutlined />),
+  getItem("Small Funcs", "/small_funcs", <FileOutlined />),
   // getItem("Components", "/components", <BlockOutlined />, [
   // getItem(
   //   "Comps Library",

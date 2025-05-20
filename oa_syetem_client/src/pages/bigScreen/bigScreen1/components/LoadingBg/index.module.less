@@ -1,0 +1,106 @@
+.moduleLoading {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1111;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.8s;
+  backdrop-filter: blur(15px);
+  background-color: #0000004d;
+
+  .loadingTxt {
+    margin-bottom: 24px;
+    font-family: DIGI;
+    font-size: 32px;
+    color: #2bfffe;
+    letter-spacing: 12px;
+    font-weight: 600;
+  }
+
+  .progressWrapper {
+    width: 100%;
+    padding: 0 38%;
+  }
+  :global {
+    .ant-spin {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 12222;
+    }
+    .ant-spin-dot {
+      font-size: 24px;
+      margin-right: 12px;
+    }
+    .ant-spin-text {
+      color: white;
+      font-size: 24px;
+    }
+    .ant-progress-outer {
+      margin-right: calc(-2em - 28px);
+      padding-right: calc(2em + 28px);
+    }
+    .ant-progress-inner {
+      overflow: visible;
+      background: black;
+      box-shadow: 0px 0px 10px 5px #7890b0;
+      border-bottom: 1px solid #ffffff;
+    }
+    .ant-progress-bg {
+      box-shadow: 0px 0px 10px 5px #3b8cf8;
+    }
+    .ant-progress-text {
+      font-family: dsDig;
+      font-size: 24px;
+      color: #2bfffe;
+      font-weight: 600;
+    }
+  }
+}
+
+.moveBegin {
+  :global {
+    .ant-progress-bg::after :local {
+      display: block;
+      content: "";
+      height: 8px;
+      background: linear-gradient(
+        to right,
+        #52fcfb8c 0%,
+        #a1fffe 25%,
+        white 49.5%,
+        white 50.5%,
+        #a1fffe 75%,
+        #52fcfb8c 100%
+      );
+      filter: blur(2px);
+      border-radius: 5px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 80px;
+      box-shadow: 0px 0px 30px 2px #10e2ee;
+      animation: progshow 2.5s infinite;
+    }
+    @keyframes progshow {
+      0% {
+        left: 0;
+        opacity: 1;
+      }
+      100% {
+        width: 0;
+        left: calc(100%);
+        opacity: 1;
+      }
+    }
+  }
+}
