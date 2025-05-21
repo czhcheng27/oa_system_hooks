@@ -36,6 +36,7 @@ import AttributeDrag from "./pages/drag/AttributeDrag";
 import AdvanceFilter from "./pages/simples/AdvanceFilter/index";
 import LowCode from "./pages/lowCode";
 import EchartsComp from "./pages/simples/Echarts";
+import AiChat from "./pages/aiChat";
 // import ReactSortableComp from "./pages/drag/ReactSortable";
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
         <Route path="/" element={<Admin />}>
           <Route path="/dahsboard" element={<BigScreen1 />} />
           <Route path="/home" element={<StageDash />} />
+          <Route path="/ai_chat" element={<AiChat />} />
           <Route path="/category" element={<Category />} />
           <Route path="/product" element={<Product />} />
           <Route path="/small_funcs" element={<Role />} />
