@@ -5,6 +5,16 @@
   background-color: #f7f8f9;
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  .content {
+    width: 100%;
+    max-width: 960px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+  }
 }
 
 .topBox {
@@ -137,6 +147,36 @@
     .ant-input {
       padding-top: 8px;
       padding-bottom: 32px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .moduleBox {
+    padding: 12px;
+
+    .content {
+      padding: 0 12px;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1280px) {
+  .moduleBox {
+    padding: 16px 32px;
+
+    .content {
+      padding: 0 24px;
+    }
+  }
+}
+
+@media (min-width: 1281px) {
+  .moduleBox {
+    padding: 16px 64px;
+
+    .content {
+      padding: 0 24px;
     }
   }
 }

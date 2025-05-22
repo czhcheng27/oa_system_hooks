@@ -224,62 +224,68 @@ export default function AiChat() {
 
   return (
     <div className={css.moduleBox}>
-      <div className={css.topBox}>
-        <div className={css.qaBox} ref={qaBoxRef}>
-          {console.log(`messages`, messages)}
-          {messages
-            .filter((msg) => msg.role !== "system")
-            .map((msg, idx) => (
-              <div
-                key={idx}
-                style={{
-                  textAlign: msg.role === "user" ? "right" : "left",
-                  color: msg.role === "user" ? "#0070f3" : "#000",
-                  marginBottom: 12,
-                  paddingTop: 4,
-                }}
-              >
-                {msg.role === "assistant"
-                  ? renderAiAnswer(msg)
-                  : renderUserQues(msg)}
-              </div>
-            ))}
-          <div ref={bottomRef} />
-        </div>
-      </div>
-
-      <div
-        className={classNames(css.questionBox, {
-          [css.initial]: isFirstInteraction,
-          [css.active]: !isFirstInteraction,
-        })}
-      >
-        {isFirstInteraction && renderWelcome()}
-        <TextArea
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Ask something... (Enter = send, Alt+Enter = newline)"
-          autoSize={{
-            minRows: 4,
-            maxRows: 8,
-          }}
-          bordered={false}
-        />
-
-        {loading ? (
-          <div className={css.sendIconLoading}>
-            <img src={LoadingImg} />
+      <div className={css.content}>
+        <div className={css.topBox}>
+          <div className={css.qaBox} ref={qaBoxRef}>
+            {console.log(`messages`, messages)}
+            {messages
+              .filter((msg) => msg.role !== "system")
+              .map((msg, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    textAlign: msg.role === "user" ? "right" : "left",
+                    color: msg.role === "user" ? "#0070f3" : "#000",
+                    marginBottom: 12,
+                    paddingTop: 4,
+                  }}
+                >
+                  {msg.role === "assistant"
+                    ? renderAiAnswer(msg)
+                    : renderUserQues(msg)}
+                </div>
+              ))}
+            <div ref={bottomRef} />
           </div>
-        ) : (
-          <img src={SendIcon} className={css.sendIcon} onClick={sendMessage} />
-        )}
+        </div>
 
-        {showScrollToBottom && (
-          <button onClick={scrollToBottom} className={css.scrollBtn}>
-            ↓
-          </button>
-        )}
+        <div
+          className={classNames(css.questionBox, {
+            [css.initial]: isFirstInteraction,
+            [css.active]: !isFirstInteraction,
+          })}
+        >
+          {isFirstInteraction && renderWelcome()}
+          <TextArea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Ask something... (Enter = send, Alt+Enter = newline)"
+            autoSize={{
+              minRows: 4,
+              maxRows: 8,
+            }}
+            bordered={false}
+          />
+
+          {loading ? (
+            <div className={css.sendIconLoading}>
+              <img src={LoadingImg} />
+            </div>
+          ) : (
+            <img
+              src={SendIcon}
+              className={css.sendIcon}
+              onClick={sendMessage}
+            />
+          )}
+
+          {showScrollToBottom && (
+            <button onClick={scrollToBottom} className={css.scrollBtn}>
+              ↓
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
