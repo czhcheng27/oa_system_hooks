@@ -2,7 +2,7 @@
 /* eslint-disable no-restricted-globals */
 import React, { useEffect, useState } from "react";
 import { Button } from "antd";
-import { listenMsg, sendMsg } from "./crossTagMsg";
+import { listenMsg, sendMsg } from "./crossTabMsg";
 
 let searchParam = {};
 

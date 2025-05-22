@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Button } from "antd";
-import { listenMsg, sendMsg } from "./crossTagMsg";
+import { listenMsg, sendMsg } from "./crossTabMsg";
+import { getFullHashUrl } from "../../../utils/url";
 import css from "./index.module.less";
 
-class CrossTagMsg extends Component {
+class CrossTabMsg extends Component {
   state = {
     count: 10,
   };
@@ -31,14 +32,15 @@ class CrossTagMsg extends Component {
 
   openTab = () => {
     const { count } = this.state;
-    window.open(`/#/cross_tag_msg_addCount?count=${count}`);
+    const url = getFullHashUrl(`cross_tab_msg_addCount?count=${count}`);
+    window.open(url);
     sendMsg("sendToAddCountPage", count);
   };
 
   render() {
     const { count } = this.state;
     return (
-      <div className={css.crossTagMsg}>
+      <div className={css.crossTabMsg}>
         <div>count: {count}</div>
         <Button onClick={this.openTab}>open new tab</Button>
       </div>
@@ -46,4 +48,4 @@ class CrossTagMsg extends Component {
   }
 }
 
-export default CrossTagMsg;
+export default CrossTabMsg;

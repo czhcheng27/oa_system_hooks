@@ -62,7 +62,7 @@ export const menuItems = [
     getItem("SwitchTheme", "/switch_theme", <LineChartOutlined />),
     getItem("Clipboard", "/clipboard", <LineChartOutlined />),
     getItem("CssAdsorb", "/css_adsorb", <LineChartOutlined />),
-    getItem("CrossTagMsg", "/cross_tag_msg", <LineChartOutlined />),
+    getItem("CrossTabMsg", "/cross_tab_msg", <LineChartOutlined />),
     getItem("AnimationDelay", "/animation_delay", <LineChartOutlined />),
     getItem(
       "ElectronicSignature",

@@ -1,4 +1,4 @@
-const channel = new BroadcastChannel("crossTag");
+const channel = new BroadcastChannel("crossTab");
 
 export function sendMsg(type, content) {
   channel.postMessage({

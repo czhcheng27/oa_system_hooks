@@ -28,8 +28,8 @@ import Clipboard from "./pages/simples/Clipboard/index";
 import CssAdsorb from "./pages/simples/CssAdsorb/index";
 import SwitchTheme from "./pages/simples/SwitchTheme/index";
 import AnimationDelay from "./pages/simples/AnimationDelay/index";
-import CrossTagMsg from "./pages/simples/CrossTagMsg";
-import AddCount from "./pages/simples/CrossTagMsg/addCount";
+import CrossTabMsg from "./pages/simples/CrossTabMsg";
+import AddCount from "./pages/simples/CrossTabMsg/addCount";
 import SvgAnm from "./pages/simples/SvgAnm";
 import ElectronicSignature from "./pages/simples/ElectronicSignature/index";
 import AttributeDrag from "./pages/drag/AttributeDrag";
@@ -66,8 +66,8 @@ const App = () => {
           <Route path="/css_adsorb" element={<CssAdsorb />} />
           <Route path="/switch_theme" element={<SwitchTheme />} />
           <Route path="/animation_delay" element={<AnimationDelay />} />
-          <Route path="/cross_tag_msg" element={<CrossTagMsg />} />
-          <Route path="/cross_tag_msg_addCount" element={<AddCount />} />
+          <Route path="/cross_tab_msg" element={<CrossTabMsg />} />
+          <Route path="/cross_tab_msg_addCount" element={<AddCount />} />
           <Route
             path="/electronic_signature"
             element={<ElectronicSignature />}
