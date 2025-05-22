@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/oa_system_hooks/static/css/main.ee8e4b2c.css",
-    "main.js": "/oa_system_hooks/static/js/main.24bcae49.js",
+    "main.css": "/oa_system_hooks/static/css/main.514e1b03.css",
+    "main.js": "/oa_system_hooks/static/js/main.870feb98.js",
     "static/media/1-1.gif": "/oa_system_hooks/static/media/1-1.1043f63eeba33772fe54.gif",
     "static/media/ring.png": "/oa_system_hooks/static/media/ring.b8ec66c24e7042dcadd5.png",
     "static/media/bgr.jpg": "/oa_system_hooks/static/media/bgr.2f69f22597a0aabc10cc.jpg",
@@ -112,11 +112,11 @@
     "static/media/amplfier.svg": "/oa_system_hooks/static/media/amplfier.fdb004f058bdce314fd534e51a308336.svg",
     "index.html": "/oa_system_hooks/index.html",
     "static/media/add.svg": "/oa_system_hooks/static/media/add.e7d395814c85aa565334b5692ae499c9.svg",
-    "main.ee8e4b2c.css.map": "/oa_system_hooks/static/css/main.ee8e4b2c.css.map",
-    "main.24bcae49.js.map": "/oa_system_hooks/static/js/main.24bcae49.js.map"
+    "main.514e1b03.css.map": "/oa_system_hooks/static/css/main.514e1b03.css.map",
+    "main.870feb98.js.map": "/oa_system_hooks/static/js/main.870feb98.js.map"
   },
   "entrypoints": [
-    "static/css/main.ee8e4b2c.css",
-    "static/js/main.24bcae49.js"
+    "static/css/main.514e1b03.css",
+    "static/js/main.870feb98.js"
   ]
 }
