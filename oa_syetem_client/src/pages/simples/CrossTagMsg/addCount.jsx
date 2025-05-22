@@ -19,11 +19,16 @@ const AddCount = () => {
     }
   });
 
+  const getQueryFromHash = () => {
+    const hash = window.location.hash || "";
+    const queryIndex = hash.indexOf("?");
+    if (queryIndex === -1) return {};
+    const queryStr = hash.slice(queryIndex + 1);
+    return Object.fromEntries(new URLSearchParams(queryStr));
+  };
+
   useEffect(() => {
-    const searchParamToObj = (url = location.href) =>
-      Object.fromEntries(new URL(url).searchParams);
-    searchParam = searchParamToObj(window.location.href);
-    console.log("searchParam", searchParam);
+    const searchParam = getQueryFromHash();
     setPassNum(searchParam.count * 1);
     listenMsg();
     return () => {

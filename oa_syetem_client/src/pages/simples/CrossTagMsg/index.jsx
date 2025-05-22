@@ -31,7 +31,7 @@ class CrossTagMsg extends Component {
 
   openTab = () => {
     const { count } = this.state;
-    window.open(`cross_tag_msg_addCount?count=${count}`);
+    window.open(`/#/cross_tag_msg_addCount?count=${count}`);
     sendMsg("sendToAddCountPage", count);
   };
 
