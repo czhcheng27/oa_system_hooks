@@ -1,9 +1,17 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { Input } from "antd";
 import { marked } from "marked";
 import hljs from "highlight.js";
-// import "highlight.js/styles/atom-one-dark.css";
-import "highlight.js/styles/github.css"; // 推荐
+import "highlight.js/styles/github.css";
+import AiAvatar from "./assets/aiHeadIcon.png";
+import AiSpin from "./assets/aiSpin.png";
+import UserAvatar from "./assets/robot.png";
+import LoadingImg from "./assets/spinSmall.png";
+import SendIcon from "./assets/sendIcon.png";
 import "../../assets/css/markdown.css";
+import css from "./index.module.less";
+
+const { TextArea } = Input;
 
 // 配置 marked 支持高亮
 marked.setOptions({
@@ -16,19 +24,61 @@ marked.setOptions({
 });
 
 export default function AiChat() {
+  const abortControllerRef = useRef(null);
+  const bottomRef = useRef(null);
+  const qaBoxRef = useRef(null);
+
   const [messages, setMessages] = useState([
     { role: "system", content: "你是一个助手。" },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [isStreaming, setIsStreaming] = useState(false);
-  const abortControllerRef = useRef(null);
+  const [showScrollToBottom, setShowScrollToBottom] = useState(false);
+
+  useEffect(() => {
+    if (bottomRef.current) {
+      bottomRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
+
+  useEffect(() => {
+    const qaBox = qaBoxRef.current;
+    if (!qaBox) return;
+
+    const handleScroll = () => {
+      const { scrollTop, scrollHeight, clientHeight } = qaBox;
+      console.log(
+        `scrollTop, scrollHeight, clientHeight`,
+        scrollTop,
+        scrollHeight,
+        clientHeight
+      );
+      const isAtBottom = scrollHeight - scrollTop - clientHeight < 50; // 阈值
+
+      setShowScrollToBottom(!isAtBottom);
+    };
+
+    qaBox.addEventListener("scroll", handleScroll);
+    return () => qaBox.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
 
     const newUserMessage = { role: "user", content: input };
-    const updatedMessages = [...messages, newUserMessage];
+    const placeholderAssistantMessage = {
+      role: "assistant",
+      waiting: true,
+      content: "AI is thinking...",
+    };
+
+    const updatedMessages = [
+      ...messages,
+      newUserMessage,
+      placeholderAssistantMessage,
+    ];
+
     setMessages(updatedMessages);
     setInput("");
     setLoading(true);
@@ -38,7 +88,7 @@ export default function AiChat() {
     abortControllerRef.current = new AbortController();
 
     try {
-      const res = await fetch("http://localhost:3001/api/chat", {
+      const res = await fetch("https://oa-system-hooks.onrender.com/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: updatedMessages }),
@@ -112,82 +162,100 @@ export default function AiChat() {
     }
   };
 
+  const renderUserQues = (data) => {
+    return (
+      <div className={css.useQuesBox}>
+        <div className={css.content}>{data.content}</div>
+        <img src={UserAvatar} />
+      </div>
+    );
+  };
+
+  const renderAiAnswer = (data) => {
+    const { waiting, content } = data;
+    return (
+      <div className={css.aiAnsBox}>
+        <img src={waiting ? AiSpin : AiAvatar} />
+        <div
+          className={`${css.content} markdown-body`}
+          dangerouslySetInnerHTML={{ __html: marked(content) }}
+        />
+      </div>
+    );
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && e.altKey) {
+      // 检查是否同时按下了 Enter 和 Alt 键
+      e.preventDefault();
+      setInput(input + "\n");
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      if (loading) return;
+      else sendMessage();
+    }
+  };
+
+  const scrollToBottom = () => {
+    const qaBox = qaBoxRef.current;
+    if (qaBox) {
+      qaBox.scrollTo({ top: qaBox.scrollHeight, behavior: "smooth" });
+    }
+  };
+
   return (
-    <div style={{ maxWidth: 600, margin: "auto", fontFamily: "sans-serif" }}>
-      <div
-        style={{
-          border: "1px solid #ddd",
-          padding: 10,
-          minHeight: 300,
-          backgroundColor: "#f9f9f9",
-          marginBottom: 10,
-          overflowY: "auto",
-        }}
-      >
-        {console.log(`messages`, messages)}
-        {messages
-          .filter((msg) => msg.role !== "system")
-          .map((msg, idx) => (
-            <div
-              key={idx}
-              style={{
-                textAlign: msg.role === "user" ? "right" : "left",
-                color: msg.role === "user" ? "#0070f3" : "#000",
-                marginBottom: 12,
-              }}
-            >
-              <b>{msg.role === "user" ? "你" : "助手"}:</b>
-              <div>
-                {msg.role === "assistant" ? (
-                  <div
-                    className="markdown-body"
-                    dangerouslySetInnerHTML={{ __html: marked(msg.content) }}
-                    style={{
-                      backgroundColor: "#fff",
-                      padding: "6px 10px",
-                      borderRadius: 4,
-                      marginTop: 4,
-                    }}
-                  />
-                ) : (
-                  <div
-                    style={{
-                      display: "inline-block",
-                      backgroundColor: "#e6f4ff",
-                      padding: "6px 10px",
-                      borderRadius: 4,
-                      marginTop: 4,
-                    }}
-                  >
-                    {msg.content}
-                  </div>
-                )}
+    <div className={css.moduleBox}>
+      <div className={css.topBox}>
+        <div className={css.qaBox} ref={qaBoxRef}>
+          {console.log(`messages`, messages)}
+          {messages
+            .filter((msg) => msg.role !== "system")
+            .map((msg, idx) => (
+              <div
+                key={idx}
+                style={{
+                  textAlign: msg.role === "user" ? "right" : "left",
+                  color: msg.role === "user" ? "#0070f3" : "#000",
+                  marginBottom: 12,
+                  paddingTop: 4,
+                }}
+              >
+                {msg.role === "assistant"
+                  ? renderAiAnswer(msg)
+                  : renderUserQues(msg)}
               </div>
-            </div>
-          ))}
+            ))}
+          <div ref={bottomRef} />
+        </div>
       </div>
 
-      <input
-        disabled={loading}
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-        style={{ width: "100%", padding: 10, fontSize: 16 }}
-        placeholder="输入你的问题..."
-      />
+      <div className={css.questionBox}>
+        <TextArea
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Ask something... (Enter = send, Alt+Enter = newline)"
+          autoSize={{
+            minRows: 4,
+            maxRows: 8,
+          }}
+          bordered={false}
+        />
 
-      <button
-        disabled={loading || !input.trim()}
-        onClick={sendMessage}
-        style={{
-          marginTop: 10,
-          padding: "10px 20px",
-          fontSize: 16,
-          cursor: loading ? "not-allowed" : "pointer",
-        }}
-      >
-        {loading ? "助手回复中..." : "发送"}
-      </button>
+        {loading ? (
+          <div className={css.sendIconLoading}>
+            <img src={LoadingImg} />
+          </div>
+        ) : (
+          <img src={SendIcon} className={css.sendIcon} onClick={sendMessage} />
+        )}
+
+        {showScrollToBottom && (
+          <button onClick={scrollToBottom} className={css.scrollBtn}>
+            ↓
+          </button>
+        )}
+      </div>
     </div>
   );
 }
