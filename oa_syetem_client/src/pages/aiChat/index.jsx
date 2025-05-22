@@ -224,7 +224,7 @@ export default function AiChat() {
 
   return (
     <div className={css.moduleBox}>
-      <div className={css.content}>
+      <div className={css.contentArea}>
         <div className={css.topBox}>
           <div className={css.qaBox} ref={qaBoxRef}>
             {console.log(`messages`, messages)}
