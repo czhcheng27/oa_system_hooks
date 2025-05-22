@@ -10,6 +10,7 @@ import LoadingImg from "./assets/spinSmall.png";
 import SendIcon from "./assets/sendIcon.png";
 import "../../assets/css/markdown.css";
 import css from "./index.module.less";
+import classNames from "classnames";
 
 const { TextArea } = Input;
 
@@ -34,6 +35,7 @@ export default function AiChat() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [isStreaming, setIsStreaming] = useState(false);
+  const [isFirstInteraction, setIsFirstInteraction] = useState(true);
   const [showScrollToBottom, setShowScrollToBottom] = useState(false);
 
   useEffect(() => {
@@ -83,6 +85,15 @@ export default function AiChat() {
     setInput("");
     setLoading(true);
     setIsStreaming(true); // 开始流式传输
+
+    if (isFirstInteraction) {
+      setIsFirstInteraction(false); // 取消首次标记
+      setTimeout(() => {
+        if (bottomRef.current) {
+          bottomRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300); // 加一个延迟，等对话框重新布局后再滚动
+    }
 
     if (abortControllerRef.current) abortControllerRef.current.abort();
     abortControllerRef.current = new AbortController();
@@ -145,7 +156,7 @@ export default function AiChat() {
         }
       }
 
-      // ✅ 等流式传输完再高亮
+      // 等流式传输完再高亮
       setTimeout(() => {
         const blocks = document.querySelectorAll(".markdown-body pre code");
         blocks.forEach((block) => hljs.highlightElement(block));
@@ -203,6 +214,14 @@ export default function AiChat() {
     }
   };
 
+  const renderWelcome = () => {
+    return (
+      <div className={css.welcomeBox}>
+        <div className={css.welcomeText}>Hello! What can I help you with?</div>
+      </div>
+    );
+  };
+
   return (
     <div className={css.moduleBox}>
       <div className={css.topBox}>
@@ -229,7 +248,13 @@ export default function AiChat() {
         </div>
       </div>
 
-      <div className={css.questionBox}>
+      <div
+        className={classNames(css.questionBox, {
+          [css.initial]: isFirstInteraction,
+          [css.active]: !isFirstInteraction,
+        })}
+      >
+        {isFirstInteraction && renderWelcome()}
         <TextArea
           value={input}
           onChange={(e) => setInput(e.target.value)}

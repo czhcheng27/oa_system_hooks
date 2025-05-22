@@ -16,8 +16,8 @@ export const leftButton = [
   },
   {
     code: "3",
-    label: "Low Code",
-    url: "/low_code",
+    label: "Ai Chat",
+    url: "/ai_chat",
   },
 ];
 
