@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/oa_system_hooks/static/css/main.d9f5e522.css",
-    "main.js": "/oa_system_hooks/static/js/main.b1ca2920.js",
+    "main.css": "/oa_system_hooks/static/css/main.23007b9c.css",
+    "main.js": "/oa_system_hooks/static/js/main.f2ff4bf2.js",
     "static/media/1-1.gif": "/oa_system_hooks/static/media/1-1.1043f63eeba33772fe54.gif",
     "static/media/ring.png": "/oa_system_hooks/static/media/ring.b8ec66c24e7042dcadd5.png",
     "static/media/bgr.jpg": "/oa_system_hooks/static/media/bgr.2f69f22597a0aabc10cc.jpg",
@@ -64,6 +64,7 @@
     "static/media/beatle27.png": "/oa_system_hooks/static/media/beatle27.5d1ca4aa54b13b98780a.png",
     "static/media/beatle10.png": "/oa_system_hooks/static/media/beatle10.daf3c273db764c7742d2.png",
     "static/media/beatle11.png": "/oa_system_hooks/static/media/beatle11.20ec9c7ca6c436a00c95.png",
+    "static/media/robot.png": "/oa_system_hooks/static/media/robot.2221d4efe5f21184c903.png",
     "static/media/beatle29.png": "/oa_system_hooks/static/media/beatle29.5eab1575892279ba72ef.png",
     "static/media/beatle28.png": "/oa_system_hooks/static/media/beatle28.c79a31b603d949b5e337.png",
     "static/media/cardBg.png": "/oa_system_hooks/static/media/cardBg.a42bf58e71d0fa3b830a.png",
@@ -90,6 +91,7 @@
     "static/media/pinCenter.png": "/oa_system_hooks/static/media/pinCenter.b691bdd9d5d5d7c625ec.png",
     "static/media/pinRight.png": "/oa_system_hooks/static/media/pinRight.b65e345587e171d5a4e7.png",
     "static/media/pinLeft.png": "/oa_system_hooks/static/media/pinLeft.964ccb6696c609c8fff8.png",
+    "static/media/aiSpin.png": "/oa_system_hooks/static/media/aiSpin.9824a54c75eb718ae5d1.png",
     "static/media/overdue.gif": "/oa_system_hooks/static/media/overdue.17cea37c7dbd1ea89c04.gif",
     "static/media/home_card_sel.png": "/oa_system_hooks/static/media/home_card_sel.fcf11531e00e9affb175.png",
     "static/media/stageBg.png": "/oa_system_hooks/static/media/stageBg.c3a5c4a8b4e546268ef6.png",
@@ -110,11 +112,11 @@
     "static/media/amplfier.svg": "/oa_system_hooks/static/media/amplfier.fdb004f058bdce314fd534e51a308336.svg",
     "index.html": "/oa_system_hooks/index.html",
     "static/media/add.svg": "/oa_system_hooks/static/media/add.e7d395814c85aa565334b5692ae499c9.svg",
-    "main.d9f5e522.css.map": "/oa_system_hooks/static/css/main.d9f5e522.css.map",
-    "main.b1ca2920.js.map": "/oa_system_hooks/static/js/main.b1ca2920.js.map"
+    "main.23007b9c.css.map": "/oa_system_hooks/static/css/main.23007b9c.css.map",
+    "main.f2ff4bf2.js.map": "/oa_system_hooks/static/js/main.f2ff4bf2.js.map"
   },
   "entrypoints": [
-    "static/css/main.d9f5e522.css",
-    "static/js/main.b1ca2920.js"
+    "static/css/main.23007b9c.css",
+    "static/js/main.f2ff4bf2.js"
   ]
 }
