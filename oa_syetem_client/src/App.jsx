@@ -45,7 +45,7 @@ const App = () => {
       <Routes>
         {/* <Route path="/login" element={<Login />} /> */}
         <Route path="/" element={<Admin />}>
-          <Route path="/dahsboard" element={<BigScreen1 />} />
+          <Route path="/dashboard" element={<BigScreen1 />} />
           <Route path="/home" element={<StageDash />} />
           <Route path="/ai_chat" element={<AiChat />} />
           <Route path="/category" element={<Category />} />
@@ -78,8 +78,8 @@ const App = () => {
           <Route path="/apr_det_one" element={<ApprovalDetails />} />
           <Route path="/stage_display" element={<StageDash />} />
           <Route path="/todo_list" element={<TodoList />} />
-          <Route path="*" element={<Navigate to="/dahsboard" />} />
-          <Route path="/" element={<Navigate to="/dahsboard" />} />
+          <Route path="*" element={<Navigate to="/dashboard" />} />
+          <Route path="/" element={<Navigate to="/dashboard" />} />
         </Route>
       </Routes>
     </HashRouter>

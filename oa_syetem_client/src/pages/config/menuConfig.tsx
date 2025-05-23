@@ -51,7 +51,7 @@ export const menuItems = [
   //   getItem("BigScreen1", "/big_screen_1", <AreaChartOutlined />),
   //   getItem("BigScreen2", "/big_screen_2", <AreaChartOutlined />),
   // ]),
-  getItem("Dashboard", "/dahsboard", <AreaChartOutlined />),
+  getItem("Dashboard", "/dashboard", <AreaChartOutlined />),
   getItem("Home", "/home", <FundProjectionScreenOutlined />),
   getItem("AI Chat", "/ai_chat", <FundProjectionScreenOutlined />),
   getItem("Online Editor", "/online_editor", <MergeCellsOutlined />),
