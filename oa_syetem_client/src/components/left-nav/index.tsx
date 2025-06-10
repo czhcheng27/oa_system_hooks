@@ -30,6 +30,9 @@ const LeftNav: React.FC<LeftNavProps> = ({ collapsed }) => {
         mode="inline"
         items={menuItems}
         onClick={(e) => {
+          if (e.key === "/chatty") {
+            return window.open("https://chat-app-244z.onrender.com/");
+          }
           navigate(e.key);
         }}
       />

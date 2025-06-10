@@ -32,6 +32,9 @@ const BigScreen1 = (props) => {
   }, []);
 
   const jumpFunc = (data) => {
+    if (data.outterlink) {
+      return window.open(data.url);
+    }
     navigate(data.url, { replace: true });
   };
 
