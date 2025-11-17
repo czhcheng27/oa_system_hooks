@@ -33,7 +33,7 @@ const Modal = ({
           <ModalHeader title={title} type={type} closeModal={closeModal} />
           {type === "alert" ? (
             <div className={css.alertContent}>
-              <div>Your browser resolution is too low.</div>
+              {/* <div>Your browser resolution is too low.</div> */}
               <div>
                 It is recommended to use a device with a resolution of at least{" "}
                 <strong>{`${SUGGEST_WIDTH}x${SUGGEST_HEIGHT}`}</strong> for the

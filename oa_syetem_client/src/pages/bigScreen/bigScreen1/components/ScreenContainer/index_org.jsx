@@ -4,8 +4,8 @@ import Chart1 from "../Chart1";
 import Chart2 from "../Chart2";
 import Chart3 from "../Chart3";
 import Chart4 from "../Chart4";
-// import Chart5 from "../Chart5"; // 已删除，不再使用
-// import Chart6 from "../Chart6"; // 已删除，不再使用
+import Chart5 from "../Chart5";
+import Chart6 from "../Chart6";
 import Chart7 from "../Chart7";
 import Chart8 from "../Chart8";
 import Chart9 from "../Chart9";
@@ -43,9 +43,9 @@ const ScreenContainer = (props) => {
       >
         {code == 4
           ? compileCardGroup2()
-          : code <= 2
+          : code < 4
           ? compileCardGroup1(code, false, false)
-          : code >= 7 && code <= 8
+          : code > 6
           ? compileCardGroup4(code, false, false)
           : compileCardGroup3(code, false, false)}
         {compileCardIcon()}
@@ -54,7 +54,7 @@ const ScreenContainer = (props) => {
     );
   };
 
-  //  编译 左边区域: Chart1、Chart2
+  //  编译
   const compileCardGroup1 = (code, isCenter) => {
     return code == 1 ? (
       <Chart1
@@ -62,8 +62,10 @@ const ScreenContainer = (props) => {
         filterParams={chart1Params}
         filterHandle={setChart1Params}
       />
-    ) : (
+    ) : code == 2 ? (
       <Chart2 isCenter={isCenter} />
+    ) : (
+      <Chart3 isCenter={isCenter} />
     );
   };
 
@@ -71,25 +73,23 @@ const ScreenContainer = (props) => {
     return <Chart4 openModal={openModal} />;
   };
 
-  // 中间底部: Chart3(左)、Chart9(右)
   const compileCardGroup3 = (code, isCenter) => {
-    return code == 3 ? (
-      <Chart3 isCenter={isCenter} />
+    return code == 5 ? (
+      <Chart5 isCenter={isCenter} />
     ) : (
-      <Chart9 isCenter={isCenter} />
+      <Chart6 isCenter={isCenter} />
     );
   };
 
-  // 右边区域: Chart7、Chart8
   const compileCardGroup4 = (code, isCenter) => {
     return code == 7 ? (
-      <Chart7 isCenter={isCenter} />
-    ) : code == 8 ? (
-      <Chart8
+      <Chart7
         isCenter={isCenter}
         filterParams={chart8Params}
         filterHandle={setChart8Params}
       />
+    ) : code == 8 ? (
+      <Chart8 isCenter={isCenter} />
     ) : (
       <Chart9 isCenter={isCenter} />
     );
@@ -146,9 +146,9 @@ const ScreenContainer = (props) => {
         )}
       >
         <div className={classNames(css.amplifyNode)}>
-          {amplifyCode <= 2
+          {amplifyCode < 4
             ? compileCardGroup1(amplifyCode, true)
-            : amplifyCode >= 7 && amplifyCode <= 8
+            : amplifyCode > 6
             ? compileCardGroup4(amplifyCode, true)
             : compileCardGroup3(amplifyCode, true)}
           {compileCardIcon()}
@@ -183,8 +183,7 @@ const ScreenContainer = (props) => {
   return (
     <div className={css.containerBox}>
       <div className={css.containerPosition}>
-        {/* 只渲染: 1,2,3,4,7,8,9 */}
-        {[1, 2, 3, 4, 7, 8, 9].map((code) => compileCard(code))}
+        {cardTitleList.map((item, index) => compileCard(index + 1))}
         {compileAmplifyCard()}
 
         <Modal

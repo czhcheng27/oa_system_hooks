@@ -93,22 +93,31 @@ const BarLine8 = ({ type, isCenter, chartData, penetrateHandle }) => {
 
   useEffect(() => {
     const chartDom = document.getElementById(chartId);
-    const chart = echarts.init(chartDom);
-    chart.setOption(options);
-    // onBarClick(chart, penetrateHandle, "useIndex", xAxisId);
-    const chartObserver = new ResizeObserver(() => {
-      chart.resize();
-    });
-    chartObserver.observe(chartDom);
-    window.addEventListener("resize", () => {
-      chart.resize();
-    });
+    if (!chartDom) return;
+
+    // 添加小延迟确保容器已完全渲染
+    const timer = setTimeout(() => {
+      const chart = echarts.init(chartDom);
+      chart.setOption(options);
+      // onBarClick(chart, penetrateHandle, "useIndex", xAxisId);
+      const chartObserver = new ResizeObserver(() => {
+        chart.resize();
+      });
+      chartObserver.observe(chartDom);
+      window.addEventListener("resize", () => {
+        chart.resize();
+      });
+    }, 50);
 
     return () => {
-      chart.dispose();
+      clearTimeout(timer);
+      const chart = echarts.getInstanceByDom(chartDom);
+      if (chart) {
+        chart.dispose();
+      }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [chartData]);
+  }, [chartData, isCenter]);
 
   return <div id={chartId} className={css.barLine8}></div>;
 };
