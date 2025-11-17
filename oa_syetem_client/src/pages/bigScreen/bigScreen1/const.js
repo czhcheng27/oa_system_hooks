@@ -34,8 +34,9 @@ export const rightButton = [
   },
   {
     code: "6",
-    label: "Small Funcs",
-    url: "/small_funcs",
+    label: "Chatty",
+    outterlink: true,
+    url: "https://chat-app-244z.onrender.com/",
   },
 ];
 

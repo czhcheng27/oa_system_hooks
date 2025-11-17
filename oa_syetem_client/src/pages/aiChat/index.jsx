@@ -99,7 +99,8 @@ export default function AiChat() {
     abortControllerRef.current = new AbortController();
 
     try {
-      const res = await fetch("https://oa-system-hooks.onrender.com/api/chat", {
+      const res = await fetch("https://chat-app-244z.onrender.com/api/ai/chat", {
+      // const res = await fetch("http://localhost:5001/api/ai/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: updatedMessages }),

@@ -54,6 +54,7 @@ export const menuItems = [
   getItem("Dashboard", "/dashboard", <AreaChartOutlined />),
   getItem("Home", "/home", <FundProjectionScreenOutlined />),
   getItem("AI Chat", "/ai_chat", <FundProjectionScreenOutlined />),
+  getItem("Chatty", "/chatty", <BlockOutlined />),
   getItem("Online Editor", "/online_editor", <MergeCellsOutlined />),
   getItem("Low Code", "/low_code", <WindowsOutlined />),
   getItem("Simples", "/simples", <PieChartOutlined />, [
