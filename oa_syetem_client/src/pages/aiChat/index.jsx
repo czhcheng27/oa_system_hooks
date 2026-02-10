@@ -54,7 +54,7 @@ export default function AiChat() {
         `scrollTop, scrollHeight, clientHeight`,
         scrollTop,
         scrollHeight,
-        clientHeight
+        clientHeight,
       );
       const isAtBottom = scrollHeight - scrollTop - clientHeight < 50; // 阈值
 
@@ -99,13 +99,16 @@ export default function AiChat() {
     abortControllerRef.current = new AbortController();
 
     try {
-      const res = await fetch("https://chat-app-244z.onrender.com/api/ai/chat", {
-      // const res = await fetch("http://localhost:5001/api/ai/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: updatedMessages }),
-        signal: abortControllerRef.current.signal,
-      });
+      const res = await fetch(
+        "https://chat-app-backend-chat-app.up.railway.app/api/ai/chat",
+        {
+          // const res = await fetch("http://localhost:5001/api/ai/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ messages: updatedMessages }),
+          signal: abortControllerRef.current.signal,
+        },
+      );
 
       if (!res.body) throw new Error("ReadableStream not supported");
       const reader = res.body.getReader();

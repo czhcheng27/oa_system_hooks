@@ -36,7 +36,7 @@ export const rightButton = [
     code: "6",
     label: "Chatty",
     outterlink: true,
-    url: "https://chat-app-244z.onrender.com/",
+    url: "https://cheng-chat-app.up.railway.app",
   },
 ];
 

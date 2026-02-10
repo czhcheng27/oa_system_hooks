@@ -14,7 +14,7 @@ const LeftNav: React.FC<LeftNavProps> = ({ collapsed }) => {
   const navigate = useNavigate();
 
   const openKey = menuItems?.find((obj) =>
-    obj.children?.find((cItem) => cItem.key === location.pathname)
+    obj.children?.find((cItem) => cItem.key === location.pathname),
   );
 
   return (
@@ -31,7 +31,7 @@ const LeftNav: React.FC<LeftNavProps> = ({ collapsed }) => {
         items={menuItems}
         onClick={(e) => {
           if (e.key === "/chatty") {
-            return window.open("https://chat-app-244z.onrender.com/");
+            return window.open("https://cheng-chat-app.up.railway.app/");
           }
           navigate(e.key);
         }}
