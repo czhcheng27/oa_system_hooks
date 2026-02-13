@@ -78,8 +78,8 @@ const App = () => {
           <Route path="/apr_det_one" element={<ApprovalDetails />} />
           <Route path="/stage_display" element={<StageDash />} />
           <Route path="/todo_list" element={<TodoList />} />
-          <Route path="*" element={<Navigate to="/dashboard" />} />
-          <Route path="/" element={<Navigate to="/dashboard" />} />
+          <Route path="*" element={<Navigate to="/home" />} />
+          <Route path="/" element={<Navigate to="/home" />} />
         </Route>
       </Routes>
     </HashRouter>
